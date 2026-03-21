@@ -84,7 +84,7 @@ export default function AboutPage() {
               { label: 'Registration No.', value: siteConfig.registration.number, icon: Award },
               { label: 'Established', value: siteConfig.registration.date, icon: Globe },
               { label: 'Company Type', value: 'Private Limited', icon: Users },
-              { label: 'Capital', value: 'TK 10 Crore', icon: Heart },
+              { label: 'Capital', value: 'TK 100 Crore', icon: Heart },
             ].map((item, index) => (
               <motion.div
                 key={item.label}
