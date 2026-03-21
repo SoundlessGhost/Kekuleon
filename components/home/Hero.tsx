@@ -1,20 +1,20 @@
-'use client'
+"use client";
 
-import { useRef } from 'react'
-import Link from 'next/link'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { ArrowRight, Play, ChevronDown } from 'lucide-react'
-import { heroContent } from '@/lib/data'
+import { useRef } from "react";
+import Link from "next/link";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowRight, Play, ChevronDown } from "lucide-react";
+import { heroContent } from "@/lib/data";
 
 export default function Hero() {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start start', 'end start'],
-  })
+    offset: ["start start", "end start"],
+  });
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, 200])
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
     <section
@@ -93,7 +93,7 @@ export default function Hero() {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8"
           >
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-sm text-primary font-medium">
+            <span className="text-xs text-primary font-medium">
               {heroContent.badge}
             </span>
           </motion.div>
@@ -103,12 +103,15 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight mb-6"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight mb-6"
           >
-            <span className="text-gray-900">Building </span>
-            <span className="text-gradient-primary">Scientific Capacity</span>
-            <br />
-            <span className="text-gray-900">Through Applied Training</span>
+            <span className="text-gray-900">Bridging the </span>
+            {/* Bridging the Theory and Practice Gap in Science Education in Bangladesh */}
+            <span className="text-gradient-primary">Theory and Practice</span>
+            {" "}
+            <span className="text-gray-900">
+              Gap in Science Education in Bangladesh
+            </span>
           </motion.h1>
 
           {/* Subheading */}

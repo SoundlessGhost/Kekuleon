@@ -40,11 +40,11 @@ export const navLinks = [
 
 // Statistics
 export const stats = [
-  { number: '150+', label: 'Current Students' },
-  { number: '6', label: 'Applied Departments' },
-  { number: '350+', label: 'Target Trainees' },
-  { number: '20%', label: 'Surplus for Scholarships' },
-]
+  { number: "150+", label: "Current Students" },
+  { number: "6", label: "Applied Departments" },
+  { number: "500+", label: "Target Trainees" },
+  { number: "20%", label: "Surplus for Scholarships" },
+];
 
 // Departments/Services
 export const departments = [

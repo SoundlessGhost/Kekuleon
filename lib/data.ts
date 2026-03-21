@@ -79,19 +79,20 @@ export const navigation = {
 }
 
 export const heroContent = {
-  badge: 'Established 2025',
-  heading: 'Building Scientific Capacity Through Applied Training',
-  subheading: 'Integrated research, laboratory training, industry collaboration, and community engagement for the next generation of scientists in Bangladesh.',
+  badge: "Kekuleon Research and Training Center Established 2025",
+  heading: "Building Scientific Capacity Through Applied Training",
+  subheading:
+    "A decentralized and integrated institutional model designed to address the gap between theoretical education and practical scientific competence in developing-country contexts — building scientific capacity through applied training, integrated research, laboratory training, industry collaboration, and community engagement for the next generation of scientists in Bangladesh.",
   cta: {
-    primary: { text: 'Explore Programs', href: '/services' },
-    secondary: { text: 'Contact Us', href: '/contact' },
+    primary: { text: "Explore Programs", href: "/services" },
+    secondary: { text: "Contact Us", href: "/contact" },
   },
   stats: [
-    { value: '150+', label: 'Current Students' },
-    { value: '6', label: 'Departments' },
-    { value: '350+', label: 'Target Trainees' },
+    { value: "150+", label: "Current Students" },
+    { value: "6", label: "Departments" },
+    { value: "500+", label: "Target Trainees" },
   ],
-}
+};
 
 export const aboutContent = {
   intro: {
@@ -243,31 +244,48 @@ export const departments = [
 ]
 
 export const schoolingContent = {
-  title: 'KRTC Schooling',
-  subtitle: 'Foundation Pipeline',
-  description: 'Our foundation program prepares SSC and HSC students for international higher education through structured academic reinforcement, early exposure to scientific thinking, and community participation.',
-  highlight: 'A key objective is to identify and support talented students from disadvantaged socioeconomic backgrounds who may have limited access to advanced academic preparation.',
+  title: "KRTC Schooling",
+  subtitle: "Foundation Pipeline",
+  description:
+    "Our foundation program prepares SSC and HSC students for international higher education through structured academic reinforcement, early exposure to scientific thinking, and community participation.",
+  highlight:
+    "A key objective is to identify and support talented students from disadvantaged socioeconomic backgrounds who may have limited access to advanced academic preparation.",
   components: [
-    'English language preparation (IELTS)',
-    'Academic writing and research awareness',
-    'Introductory research methodology',
-    'Basic scientific reasoning and laboratory awareness',
-    'Problem-oriented learning approaches',
-    'Social responsibility and volunteer activities',
-    'Community and environmental engagement',
+    "English language preparation (IELTS)",
+    "Academic writing and research awareness",
+    "Introductory research methodology",
+    "Basic scientific reasoning and laboratory awareness",
+    "Problem-oriented learning approaches",
+    "Social responsibility and volunteer activities",
+    "Community and environmental engagement",
   ],
   currentStatus: {
     enrolled: 150,
-    target: 350,
+    target: 500,
     scholarshipPercent: 20,
   },
   benefits: [
-    { title: 'Academic Excellence', description: 'Rigorous preparation for higher education and competitive exams.' },
-    { title: 'Research Exposure', description: 'Early introduction to scientific methods and research thinking.' },
-    { title: 'Language Skills', description: 'IELTS and academic English preparation for international opportunities.' },
-    { title: 'Scholarships', description: 'Merit-based financial support for deserving students.' },
+    {
+      title: "Academic Excellence",
+      description:
+        "Rigorous preparation for higher education and competitive exams.",
+    },
+    {
+      title: "Research Exposure",
+      description:
+        "Early introduction to scientific methods and research thinking.",
+    },
+    {
+      title: "Language Skills",
+      description:
+        "IELTS and academic English preparation for international opportunities.",
+    },
+    {
+      title: "Scholarships",
+      description: "Merit-based financial support for deserving students.",
+    },
   ],
-}
+};
 
 export const phdContent = {
   title: 'PhD Programs',
@@ -355,11 +373,23 @@ export const team = [
 ]
 
 export const stats = [
-  { value: '150+', label: 'Current Students', description: 'Enrolled in KRTC programs' },
-  { value: '6', label: 'Departments', description: 'Specialized applied science departments' },
-  { value: '350+', label: 'Target', description: 'Planned trainee capacity' },
-  { value: '20%', label: 'Scholarships', description: 'Surplus allocated to scholarships' },
-]
+  {
+    value: "150+",
+    label: "Current Students",
+    description: "Enrolled in KRTC programs",
+  },
+  {
+    value: "6",
+    label: "Departments",
+    description: "Specialized applied science departments",
+  },
+  { value: "500+", label: "Target", description: "Planned trainee capacity" },
+  {
+    value: "20%",
+    label: "Scholarships",
+    description: "Surplus allocated to scholarships",
+  },
+];
 
 export const locationBenefits = [
   'Lower land, infrastructure, and operational costs',
