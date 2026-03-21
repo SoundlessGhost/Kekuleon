@@ -169,7 +169,7 @@ export default function ProblemSolution() {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-gray-900">
-                  The Challenges
+                  The Problem We Address
                 </h3>
                 <p className="text-sm text-gray-500">
                   Issues in science education
