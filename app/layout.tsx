@@ -16,34 +16,36 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: 'Kekuleon Research and Training Center | KRTC',
-  description: 'Bridging the Theory-Practice Gap in Science Education. Integrated research, laboratory training, industry collaboration, and community engagement for the next generation of scientists in Bangladesh.',
+  title: "Kekuleon Research and Training Center | KRTC",
+  description:
+    "Bridging the Theory-Practice Gap in Science Education. Integrated research, laboratory training, industry collaboration, and community engagement for the next generation of scientists in Bangladesh.",
   keywords: [
-    'KRTC',
-    'Kekuleon',
-    'Research Center Bangladesh',
-    'Science Training',
-    'Laboratory Training',
-    'Applied Chemistry',
-    'Pharmaceutical Sciences',
-    'Materials Science',
-    'Textile Testing',
-    'Nursing Training',
-    'PhD Programs Bangladesh',
-    'IELTS Preparation',
-    'Sirajganj',
+    "KRTC",
+    "Kekuleon",
+    "Research Center Bangladesh",
+    "Science Training",
+    "Laboratory Training",
+    "Applied Chemistry",
+    "Pharmaceutical Sciences",
+    "Materials Science",
+    "Textile Testing",
+    "Nursing Training",
+    "PhD Programs Bangladesh",
+    "IELTS Preparation",
+    "Sirajganj",
   ],
-  authors: [{ name: 'Md. Zakaria Hossain' }],
+  authors: [{ name: "Md. Zakaria Hossain" }],
   openGraph: {
-    title: 'Kekuleon Research and Training Center | KRTC',
-    description: 'Bridging the Theory-Practice Gap in Science Education in Bangladesh',
-    url: 'https://kekuleon.com',
-    siteName: 'KRTC',
-    locale: 'en_US',
-    type: 'website',
+    title: "Kekuleon Research and Training Center | KRTC",
+    description:
+      "Bridging the Theory-Practice Gap in Science Education in Bangladesh",
+    url: "https://kekuleon.com",
+    siteName: "KRTC",
+    locale: "en_US",
+    type: "website",
   },
-  icons:""
-}
+  icons: "/icon.png",
+};
 
 export default function RootLayout({
   children,
