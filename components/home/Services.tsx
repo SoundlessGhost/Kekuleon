@@ -12,7 +12,10 @@ import {
   Shirt,
   Heart,
   ArrowRight,
+  Beaker,
+  Sparkles,
 } from "lucide-react";
+import Image from "next/image";
 
 const iconMap: Record<string, React.ElementType> = {
   Flask: FlaskConical,
@@ -23,15 +26,49 @@ const iconMap: Record<string, React.ElementType> = {
   Heart,
 };
 
+const colorMap: Record<string, { bg: string; text: string; border: string }> = {
+  Flask: {
+    bg: "bg-blue-100",
+    text: "text-blue-600",
+    border: "border-blue-200",
+  },
+  Pill: {
+    bg: "bg-emerald-100",
+    text: "text-emerald-600",
+    border: "border-emerald-200",
+  },
+  Layers: {
+    bg: "bg-violet-100",
+    text: "text-violet-600",
+    border: "border-violet-200",
+  },
+  Atom: {
+    bg: "bg-amber-100",
+    text: "text-amber-600",
+    border: "border-amber-200",
+  },
+  Shirt: {
+    bg: "bg-rose-100",
+    text: "text-rose-600",
+    border: "border-rose-200",
+  },
+  Heart: {
+    bg: "bg-primary/10",
+    text: "text-primary",
+    border: "border-primary/20",
+  },
+};
+
 export default function Services() {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="section bg-white relative overflow-hidden">
+    <section ref={ref} className="section bg-gray-50 relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-radial from-primary/5 to-transparent" />
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px]" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-violet-500/5 rounded-full blur-[120px]" />
       </div>
 
       <div className="container-custom relative z-10">
@@ -40,10 +77,10 @@ export default function Services() {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
-            <span className="w-2 h-2 rounded-full bg-primary" />
+            <Beaker className="w-4 h-4 text-primary" />
             <span className="text-sm text-primary font-medium">
               Our Departments
             </span>
@@ -59,61 +96,119 @@ export default function Services() {
           </p>
         </motion.div>
 
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {departments.map((dept, index) => {
-            const Icon = iconMap[dept.icon];
-            return (
-              <motion.div
-                key={dept.id}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+        {/* Two Column Layout */}
+        <div className="grid lg:grid-cols-5 gap-8">
+          {/* Left Column - Summary */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-2"
+          >
+            <div className="bg-gradient-to-br from-primary to-red-700 rounded-2xl p-8 text-white h-full">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center">
+                  <Sparkles className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-xl font-bold">Applied Science Training</h3>
+              </div>
+
+              <p className="text-white/80 mb-6 text-sm leading-relaxed">
+                KRTC operates across six specialized departments, each focused
+                on bridging the gap between theoretical knowledge and practical
+                application.
+              </p>
+
+              <div className="space-y-3 mb-8">
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-white/60" />
+                  <span className="text-sm text-white/90">
+                    Laboratory-based learning
+                  </span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-white/60" />
+                  <span className="text-sm text-white/90">
+                    Industry collaboration
+                  </span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-white/60" />
+                  <span className="text-sm text-white/90">
+                    Research services
+                  </span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-white/60" />
+                  <span className="text-sm text-white/90">
+                    Professional training
+                  </span>
+                </div>
+              </div>
+
+              <Link
+                href="/services"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-primary rounded-full font-medium text-sm hover:bg-white/90 transition-colors"
               >
-                <Link href={`/services/${dept.slug}`}>
-                  <div className="service-card h-full cursor-pointer group">
-                    {/* Icon */}
-                    <div className="service-icon">
-                      <Icon className="w-7 h-7" />
-                    </div>
+                View All Services
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </motion.div>
 
-                    {/* Content */}
-                    <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-primary transition-colors">
-                      {dept.shortTitle}
-                    </h3>
-                    <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                      {dept.description}
-                    </p>
-
-                    {/* Link */}
-                    <div className="flex items-center gap-2 text-primary text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-                      Learn More
-                      <ArrowRight className="w-4 h-4" />
+          {/* Right Column - Department Cards */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="lg:col-span-3 space-y-4"
+          >
+            {departments.map((dept, index) => {
+              const Icon = iconMap[dept.icon];
+              const colors = colorMap[dept.icon];
+              return (
+                <motion.div
+                  key={dept.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.4, delay: 0.1 + index * 0.08 }}
+                >
+                  <Link href={dept.slug}>
+                    <div
+                      className={`flex gap-4 p-5 bg-white rounded-xl border border-gray-100 hover:border-primary/20 hover:shadow-md transition-all duration-300 group cursor-pointer`}
+                    >
+                      {/* <div
+                        className={`w-12 h-12 rounded-xl ${colors.bg} flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}
+                      >
+                        <Icon className={`w-6 h-6 ${colors.text}`} />
+                      </div> */}
+                      <div className="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 group-hover:scale-110 transition-transform">
+                        <Image
+                          src={dept.image}
+                          alt={dept.shortTitle}
+                          width={48}
+                          height={48}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between gap-4">
+                          <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors">
+                            {dept.title}
+                          </h3>
+                          <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-primary group-hover:translate-x-1 transition-all flex-shrink-0" />
+                        </div>
+                        <p className="text-sm text-gray-600 leading-relaxed mt-1 line-clamp-2">
+                          {dept.description}
+                        </p>
+                      </div>
                     </div>
-
-                    {/* Decorative Corner */}
-                    <div className="absolute top-0 right-0 w-20 h-20 overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity">
-                      <div className="absolute -top-10 -right-10 w-20 h-20 bg-primary/10 rotate-45" />
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
-            );
-          })}
+                  </Link>
+                </motion.div>
+              );
+            })}
+          </motion.div>
         </div>
-
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="text-center mt-12"
-        >
-          <Link href="/services" className="btn btn-outline rounded-full">
-            View All Services
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </motion.div>
       </div>
     </section>
   );

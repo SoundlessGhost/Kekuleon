@@ -17,7 +17,7 @@ import {
 import { heroContent } from "@/lib/data";
 
 const keyFeatures = [
-  { icon: GraduationCap, text: "Applied Training" },
+  { icon: GraduationCap, text: "Applied Science Training" },
   { icon: FlaskConical, text: "Laboratory Learning" },
   { icon: Microscope, text: "Integrated Research" },
   { icon: Building2, text: "Industry Collaboration" },

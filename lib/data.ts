@@ -35,48 +35,84 @@ export const siteConfig = {
 
 export const navigation = {
   main: [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-    { 
-      name: 'Services', 
-      href: '/services',
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    {
+      name: "Services",
+      href: "/services",
       children: [
-        { name: 'Chemistry & Applied Sciences', href: '/services/chemistry' },
-        { name: 'Pharmaceutical Sciences', href: '/services/pharmaceutical' },
-        { name: 'Polymer Processing', href: '/services/polymer' },
-        { name: 'Materials Science', href: '/services/materials' },
-        { name: 'Textile Testing', href: '/services/textile' },
-        { name: 'Nursing & Healthcare', href: '/services/nursing' },
+        {
+          name: "Chemistry and Applied Chemical Sciences",
+          href: "/services/chemistry-and-applied-chemical-sciences",
+        },
+        {
+          name: "Pharmaceutical Sciences and Drug Development",
+          href: "/services/pharmaceutical-sciences-and-drug-development",
+        },
+        {
+          name: "Polymer and Plastic Processing Technologies",
+          href: "/services/polymer-and-plastic-processing-technologies",
+        },
+        {
+          name: "Materials Science and Engineering Applications",
+          href: "/services/materials-science-and-engineering-applications",
+        },
+        {
+          name: "Textile Testing and Quality Assurance",
+          href: "/services/textile-testing-and-quality-assurance",
+        },
+        {
+          name: "Nursing and Community Healthcare",
+          href: "/services/nursing-and-community-healthcare",
+        },
       ],
     },
-    { name: 'KRTC Schooling', href: '/schooling' },
-    { name: 'PhD Programs', href: '/phd-programs' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'Contact', href: '/contact' },
+    { name: "KRTC Schooling", href: "/schooling" },
+    { name: "PhD Programs", href: "/phd-programs" },
+    { name: "Blog", href: "/blog" },
+    { name: "Contact", href: "/contact" },
   ],
   footer: {
     services: [
-      { name: 'Chemistry & Applied Sciences', href: '/services/chemistry' },
-      { name: 'Pharmaceutical Sciences', href: '/services/pharmaceutical' },
-      { name: 'Polymer Processing', href: '/services/polymer' },
-      { name: 'Materials Science', href: '/services/materials' },
-      { name: 'Textile Testing', href: '/services/textile' },
-      { name: 'Nursing & Healthcare', href: '/services/nursing' },
+      {
+        name: "Chemistry and Applied Chemical Sciences",
+        href: "/services/chemistry-and-applied-chemical-sciences",
+      },
+      {
+        name: "Pharmaceutical Sciences and Drug Development",
+        href: "/services/pharmaceutical-sciences-and-drug-development",
+      },
+      {
+        name: "Polymer and Plastic Processing Technologies",
+        href: "/services/polymer-and-plastic-processing-technologies",
+      },
+      {
+        name: "Materials Science and Engineering Applications",
+        href: "/services/materials-science-and-engineering-applications",
+      },
+      {
+        name: "Textile Testing and Quality Assurance",
+        href: "/services/textile-testing-and-quality-assurance",
+      },
+      {
+        name: "Nursing and Community Healthcare",
+        href: "/services/nursing-and-community-healthcare",
+      },
     ],
     programs: [
-      { name: 'KRTC Schooling', href: '/schooling' },
-      { name: 'PhD Programs', href: '/phd-programs' },
-      { name: 'Scholarships', href: '/scholarships' },
-      { name: 'Community Healthcare', href: '/healthcare' },
+      { name: "KRTC Schooling", href: "/schooling" },
+      { name: "PhD Programs", href: "/phd-programs" },
+      { name: "Scholarships", href: "/scholarships" },
+      { name: "Community Healthcare", href: "/healthcare" },
     ],
     company: [
-      { name: 'About Us', href: '/about' },
-      { name: 'Our Team', href: '/team' },
-      { name: 'Blog', href: '/blog' },
-      { name: 'Contact', href: '/contact' },
+      { name: "About Us", href: "/about" },
+      { name: "Our Team", href: "/team" },
+      { name: "Blog", href: "/blog" },
+      { name: "Contact", href: "/contact" },
     ],
   },
-}
+};
 
 export const heroContent = {
   badge: "Kekuleon Research and Training Center Established 2025",
@@ -135,7 +171,7 @@ export const aboutContent = {
 export const departments = [
   {
     id: 'chemistry',
-    slug: 'chemistry',
+    slug: '/services/chemistry-and-applied-chemical-sciences',
     title: 'Chemistry and Applied Chemical Sciences',
     shortTitle: 'Chemistry',
     icon: 'Flask',
@@ -153,7 +189,7 @@ export const departments = [
   },
   {
     id: 'pharmaceutical',
-    slug: 'pharmaceutical',
+    slug: '/services/pharmaceutical-sciences-and-drug-development',
     title: 'Pharmaceutical Sciences and Drug Development',
     shortTitle: 'Pharmaceutical',
     icon: 'Pill',
@@ -171,7 +207,7 @@ export const departments = [
   },
   {
     id: 'polymer',
-    slug: 'polymer',
+    slug: '/services/polymer-and-plastic-processing-technologies',
     title: 'Polymer and Plastic Processing Technologies',
     shortTitle: 'Polymer Processing',
     icon: 'Layers',
@@ -189,7 +225,7 @@ export const departments = [
   },
   {
     id: 'materials',
-    slug: 'materials',
+    slug: '/services/materials-science-and-engineering-applications',
     title: 'Materials Science and Engineering Applications',
     shortTitle: 'Materials Science',
     icon: 'Atom',
@@ -207,7 +243,7 @@ export const departments = [
   },
   {
     id: 'textile',
-    slug: 'textile',
+    slug: '/services/textile-testing-and-quality-assurance',
     title: 'Textile Testing and Quality Assurance',
     shortTitle: 'Textile Testing',
     icon: 'Shirt',
@@ -225,7 +261,7 @@ export const departments = [
   },
   {
     id: 'nursing',
-    slug: 'nursing',
+    slug: '/services/nursing-and-community-healthcare',
     title: 'Nursing and Community Healthcare',
     shortTitle: 'Nursing & Healthcare',
     icon: 'Heart',
