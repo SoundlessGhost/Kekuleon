@@ -98,7 +98,7 @@ export default function ServicesPage() {
                       </div>
 
                       <Link
-                        href={`/services/${dept.slug}`}
+                        href={dept.slug}
                         className="inline-flex items-center gap-2 text-primary text-sm font-medium hover:gap-3 transition-all"
                       >
                         Learn More <ArrowRight className="w-4 h-4" />

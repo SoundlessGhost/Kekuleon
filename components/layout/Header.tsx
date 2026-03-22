@@ -208,7 +208,7 @@ export default function Header() {
                 <div className="pt-4 mt-4 border-t border-gray-100">
                   <Link
                     href="/contact"
-                    className="btn btn-primary w-full justify-center"
+                    className="btn btn-primary w-full justify-center rounded-full"
                   >
                     Get Started
                   </Link>
