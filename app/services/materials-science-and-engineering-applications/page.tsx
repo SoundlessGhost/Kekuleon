@@ -1,397 +1,574 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import { motion } from 'framer-motion'
-import { 
+import { useState, useRef } from "react";
+import Link from "next/link";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import {
   Gem,
   ArrowRight,
-  ArrowLeft,
   Check,
   GraduationCap,
   Building2,
-  Users,
   Microscope,
   BookOpen,
   Globe,
   Award,
-  Hammer,
-  Wrench,
-  Box,
-  Grid3X3,
+  Heart,
+  HandHeart,
+  Target,
+  Briefcase,
+  Clock,
+  Calendar,
+  X,
+  Phone,
+  MessageCircle,
   ScanLine,
-  Hexagon,
-} from 'lucide-react'
+  Grid3X3,
+  Beaker,
+} from "lucide-react";
 
 export default function MaterialsPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalStep, setModalStep] = useState<"info" | "form" | "success">(
+    "info",
+  );
+  const [selectedProgram, setSelectedProgram] = useState<"short" | "long">(
+    "short",
+  );
+
+  const heroRef = useRef(null);
+  const overviewRef = useRef(null);
+  const programsRef = useRef(null);
+  const equipmentRef = useRef(null);
+  const careerRef = useRef(null);
+  const communityRef = useRef(null);
+  const ctaRef = useRef(null);
+
+  const heroInView = useInView(heroRef, { once: true });
+  const overviewInView = useInView(overviewRef, { once: true });
+  const programsInView = useInView(programsRef, { once: true });
+  const equipmentInView = useInView(equipmentRef, { once: true });
+  const careerInView = useInView(careerRef, { once: true });
+  const communityInView = useInView(communityRef, { once: true });
+  const ctaInView = useInView(ctaRef, { once: true });
+
   const department = {
-    title: 'Materials Science and Engineering',
-    shortTitle: 'Materials',
+    title: "Materials Science and Engineering Applications",
+    shortTitle: "Materials Science",
     icon: Gem,
-    heroDescription: 'Explore material characterization, testing methodologies, and engineering applications with advanced instrumentation and expert guidance.',
-    overview: 'The Materials Science department at KRTC offers comprehensive training in material testing, characterization, and failure analysis. Our programs combine theoretical foundations with practical laboratory experience, preparing students for careers in manufacturing, quality control, and research and development.',
-  }
+    heroDescription:
+      "Explore material characterization, testing methodologies, and engineering applications with advanced instrumentation and expert guidance.",
+    overview:
+      "The Materials Science department at KRTC offers comprehensive training in material testing, characterization, and failure analysis. Our programs combine theoretical foundations with practical laboratory experience, preparing students for higher education abroad, research careers, and positions in manufacturing industries.",
+  };
 
   const keyFeatures = [
-    { icon: Microscope, title: 'Advanced Testing', description: 'State-of-the-art equipment for mechanical and structural analysis.' },
-    { icon: ScanLine, title: 'Failure Analysis', description: 'Learn to identify and analyze material failures systematically.' },
-    { icon: Grid3X3, title: 'Metallography', description: 'Microstructure examination and preparation techniques.' },
-    { icon: Globe, title: 'ASTM Standards', description: 'Training aligned with international testing standards.' },
-  ]
+    {
+      icon: Microscope,
+      title: "Advanced Testing",
+      description:
+        "State-of-the-art equipment for mechanical and structural analysis.",
+    },
+    {
+      icon: ScanLine,
+      title: "Failure Analysis",
+      description:
+        "Learn to identify and analyze material failures systematically.",
+    },
+    {
+      icon: Grid3X3,
+      title: "Metallography",
+      description: "Microstructure examination and preparation techniques.",
+    },
+    {
+      icon: Globe,
+      title: "ASTM Standards",
+      description: "Training aligned with international testing standards.",
+    },
+  ];
 
-  const trainingPrograms = [
-    { title: 'Material Testing Methods', duration: '3 months', level: 'Intermediate', description: 'Tensile, hardness, impact, and fatigue testing techniques.' },
-    { title: 'Metallography & Microscopy', duration: '2 months', level: 'Advanced', description: 'Sample preparation, polishing, etching, and microstructure analysis.' },
-    { title: 'Non-Destructive Testing', duration: '3 months', level: 'Professional', description: 'Ultrasonic, radiographic, and magnetic particle testing.' },
-    { title: 'Failure Analysis', duration: '2 months', level: 'Advanced', description: 'Root cause analysis and failure prevention strategies.' },
-  ]
-
-  const industryServices = [
-    { title: 'Material Testing', description: 'Comprehensive mechanical testing including tensile, hardness, and impact.' },
-    { title: 'Microstructure Analysis', description: 'Optical and electron microscopy for material characterization.' },
-    { title: 'Failure Investigation', description: 'Expert analysis of material failures with detailed reporting.' },
-    { title: 'Quality Certification', description: 'Testing and certification for industrial materials.' },
-  ]
-
-  const careerOpportunities = [
-    'Materials Engineer',
-    'Quality Inspector',
-    'NDT Technician',
-    'Metallurgist',
-    'Research Analyst',
-    'Production Engineer',
-    'Lab Supervisor',
-    'Technical Consultant',
-  ]
+  // Unified training topics for both Short & Long term
+  const trainingTopics = [
+    "Material Testing Methods",
+    "Tensile & Hardness Testing",
+    "Impact & Fatigue Testing",
+    "Metallography & Microscopy",
+    "Sample Preparation Techniques",
+    "Non-Destructive Testing (NDT)",
+    "Failure Analysis",
+    "Microstructure Analysis",
+    "Quality Control Methods",
+    "ASTM Standards Compliance",
+  ];
 
   const equipment = [
-    'Universal Testing Machine (UTM)',
-    'Hardness Testers (Rockwell, Vickers, Brinell)',
-    'Impact Testing Machine',
-    'Optical Microscope',
-    'XRF Analyzer',
-    'Ultrasonic Thickness Gauge',
-    'Surface Roughness Tester',
-    'Digital Image Analysis System',
-  ]
+    "Universal Testing Machine (UTM)",
+    "Hardness Testers (Rockwell, Vickers, Brinell)",
+    "Impact Testing Machine",
+    "Optical Microscope",
+    "XRF Analyzer",
+    "Ultrasonic Thickness Gauge",
+    "Surface Roughness Tester",
+    "Digital Image Analysis System",
+  ];
 
   const researchAreas = [
-    'Metal Alloy Development',
-    'Composite Materials',
-    'Corrosion Studies',
-    'Surface Engineering',
-    'Heat Treatment Optimization',
-    'Welding Metallurgy',
-  ]
+    "Metal Alloy Development",
+    "Composite Materials",
+    "Corrosion Studies",
+    "Surface Engineering",
+    "Heat Treatment Optimization",
+    "Welding Metallurgy",
+  ];
+
+  const careerPathways = {
+    higherEducation: {
+      title: "Higher Education Abroad",
+      icon: Globe,
+      description: "Pursue advanced degrees at top international universities",
+      opportunities: [
+        "PhD in Materials Science",
+        "Masters in Metallurgical Engineering",
+        "Research Fellowship Programs",
+        "Materials Engineering Certification",
+      ],
+    },
+    academic: {
+      title: "Academic Career Path",
+      icon: GraduationCap,
+      description: "Build a career in teaching and research institutions",
+      opportunities: [
+        "University Lecturer",
+        "Research Scientist",
+        "Materials Researcher",
+        "Lab Director",
+      ],
+    },
+    industry: {
+      title: "Industry Career Path",
+      icon: Briefcase,
+      description: "Join leading manufacturing and engineering companies",
+      opportunities: [
+        "Materials Engineer",
+        "Quality Inspector",
+        "NDT Technician",
+        "Metallurgist",
+      ],
+    },
+  };
+
+  const communityServices = [
+    {
+      title: "Material Testing for Local Industries",
+      description:
+        "Affordable testing services for small and medium enterprises in the region.",
+    },
+    {
+      title: "Engineering Workshops",
+      description:
+        "Free workshops on material selection and quality control for local manufacturers.",
+    },
+    {
+      title: "Student Mentorship Program",
+      description:
+        "Guidance and career counseling for engineering students across Bangladesh.",
+    },
+    {
+      title: "Industrial Safety Training",
+      description:
+        "Community programs on workplace safety and material handling best practices.",
+    },
+  ];
 
   const whyChoose = [
-    'Industry-standard testing equipment and facilities',
-    'Training by certified materials engineers',
-    'Strong industry connections for job placement',
-    'Hands-on experience with real industrial samples',
-    'Certification recognized in manufacturing sector',
-    'Scholarship support for engineering students',
-  ]
+    "Industry-standard testing equipment and facilities",
+    "Training by certified materials engineers",
+    "Direct pathway to international higher education",
+    "Hands-on experience with real industrial samples",
+    "Certification recognized in manufacturing sector",
+    "Scholarship support for engineering students",
+  ];
+
+  const openModal = () => {
+    setIsModalOpen(true);
+    setModalStep("info");
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setModalStep("info");
+  };
+
+  const handleRegisterInterest = () => {
+    setModalStep("form");
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setModalStep("success");
+  };
 
   return (
     <>
-      {/* Hero Section - Blueprint/Metallic Theme */}
-      <section className="pt-32 pb-24 relative overflow-hidden bg-gradient-to-br from-slate-900 via-gray-800 to-zinc-900">
-        {/* Blueprint Grid Pattern */}
-        <div className="absolute inset-0 opacity-20">
-          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="blueprint" width="50" height="50" patternUnits="userSpaceOnUse">
-                <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#60A5FA" strokeWidth="0.5"/>
-                <circle cx="0" cy="0" r="2" fill="#60A5FA" opacity="0.5"/>
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#blueprint)"/>
-          </svg>
-        </div>
-
-        {/* Floating Geometric Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          {[...Array(6)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute"
-              style={{
-                left: `${10 + i * 15}%`,
-                top: `${15 + (i % 3) * 25}%`,
-              }}
-              animate={{
-                rotate: [0, 90, 180, 270, 360],
-                opacity: [0.1, 0.3, 0.1],
-              }}
-              transition={{
-                duration: 20 + i * 5,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-            >
-              <Hexagon className="w-16 h-16 text-blue-400/20 stroke-1" />
-            </motion.div>
-          ))}
-        </div>
+      {/* Hero Section - Light Theme */}
+      <section
+        ref={heroRef}
+        className="pt-32 pb-20 bg-gray-50 relative overflow-hidden"
+      >
+        {/* Decorative Elements */}
+        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-[100px]" />
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-amber-500/5 rounded-full blur-[120px]" />
 
         <div className="container-custom relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
             {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-sm text-gray-400 mb-8">
-              <Link href="/" className="hover:text-white transition-colors">Home</Link>
+            <div className="flex items-center gap-2 text-sm text-gray-500 mb-8">
+              <Link href="/" className="hover:text-primary transition-colors">
+                Home
+              </Link>
               <span>/</span>
-              <Link href="/services" className="hover:text-white transition-colors">Services</Link>
+              <Link
+                href="/services"
+                className="hover:text-primary transition-colors"
+              >
+                Services
+              </Link>
               <span>/</span>
-              <span className="text-blue-400">{department.shortTitle}</span>
+              <span className="text-primary font-medium">
+                {department.shortTitle}
+              </span>
             </div>
 
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                {/* Technical Badge */}
-                <div className="inline-flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 border-2 border-blue-400 flex items-center justify-center">
-                    <Gem className="w-6 h-6 text-blue-400" />
-                  </div>
-                  <div className="px-4 py-2 border border-gray-600 bg-gray-800/50 backdrop-blur-sm">
-                    <span className="text-gray-300 font-mono text-sm tracking-wider">MATERIALS ENGINEERING</span>
-                  </div>
+                {/* Badge */}
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-50 border border-amber-200 rounded-full mb-6">
+                  <Gem className="w-4 h-4 text-amber-600" />
+                  <span className="text-amber-700 font-medium text-sm">
+                    Materials Engineering Department
+                  </span>
                 </div>
 
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                   {department.title}
                 </h1>
-                <p className="text-xl text-gray-300 leading-relaxed mb-8">
+                <p className="text-xl text-gray-600 leading-relaxed mb-8">
                   {department.heroDescription}
                 </p>
 
                 <div className="flex flex-wrap gap-4">
-                  <Link href="/contact" className="group inline-flex items-center gap-2 px-8 py-4 bg-blue-500 text-white font-bold hover:bg-blue-400 transition-all">
-                    Enroll Now
+                  <button
+                    onClick={openModal}
+                    className="group inline-flex items-center gap-2 px-8 py-4 bg-primary text-white font-semibold rounded-full hover:bg-primary/90 transition-all"
+                  >
+                    Apply Now
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                  <Link href="#programs" className="inline-flex items-center gap-2 px-8 py-4 border border-gray-500 text-white font-semibold hover:border-blue-400 hover:text-blue-400 transition-all">
+                  </button>
+                  <Link
+                    href="#programs"
+                    className="inline-flex items-center gap-2 px-8 py-4 border-2 border-gray-300 text-gray-700 font-semibold rounded-full hover:border-primary hover:text-primary transition-all"
+                  >
                     View Programs
                   </Link>
                 </div>
               </div>
 
-              {/* Technical Specs Panel */}
-              <div className="hidden lg:block">
-                <div className="border border-gray-700 bg-gray-800/30 backdrop-blur-sm p-6">
-                  <div className="text-xs text-gray-500 font-mono mb-4">// DEPARTMENT SPECIFICATIONS</div>
-                  
-                  <div className="space-y-4">
-                    {[
-                      { label: 'PROGRAMS', value: '4', unit: 'ACTIVE' },
-                      { label: 'EQUIPMENT', value: '8+', unit: 'UNITS' },
-                      { label: 'STANDARDS', value: 'ASTM', unit: 'ISO' },
-                      { label: 'TRAINING', value: '100%', unit: 'PRACTICAL' },
-                    ].map((spec, i) => (
-                      <motion.div
-                        key={i}
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
-                        className="flex items-center justify-between p-4 border border-gray-700 hover:border-blue-500/50 transition-colors"
-                      >
-                        <span className="text-gray-400 font-mono text-sm">{spec.label}</span>
-                        <div className="text-right">
-                          <span className="text-2xl font-bold text-white">{spec.value}</span>
-                          <span className="text-gray-500 text-sm ml-2">{spec.unit}</span>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
+              {/* Feature Cards */}
+              <div className="grid grid-cols-2 gap-4">
+                {keyFeatures.map((feature, i) => {
+                  const FeatureIcon = feature.icon;
+                  return (
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={heroInView ? { opacity: 1, y: 0 } : {}}
+                      transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
+                      className="bg-white p-5 rounded-2xl border border-gray-100 hover:shadow-lg hover:border-primary/20 transition-all"
+                    >
+                      <div className="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center mb-3">
+                        <FeatureIcon className="w-6 h-6 text-amber-600" />
+                      </div>
+                      <h3 className="font-semibold text-gray-900 mb-1">
+                        {feature.title}
+                      </h3>
+                      <p className="text-gray-500 text-sm">
+                        {feature.description}
+                      </p>
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>
           </motion.div>
         </div>
-
-        {/* Sharp Divider */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-16">
-            <path d="M0 60H1440V30L720 0L0 30V60Z" fill="white"/>
-          </svg>
-        </div>
       </section>
 
-      {/* Overview - Blueprint Style */}
-      <section className="py-20 bg-white">
+      {/* Overview Section */}
+      <section ref={overviewRef} className="py-20 bg-white">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-16">
+          <div className="grid lg:grid-cols-5 gap-12">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              animate={overviewInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6 }}
+              className="lg:col-span-2"
             >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-0.5 bg-slate-800" />
-                <span className="text-slate-600 font-mono uppercase tracking-wider text-sm">Overview</span>
-                <div className="w-8 h-0.5 bg-slate-800" />
-              </div>
-              
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Engineering Excellence in Material Science
-              </h2>
-              
-              <p className="text-gray-600 leading-relaxed text-lg mb-8">
-                {department.overview}
-              </p>
+              {/* Red Gradient Box */}
+              <div className="bg-gradient-to-br from-primary to-red-700 rounded-2xl p-8 text-white h-full">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/20 rounded-full mb-6">
+                  <Beaker className="w-4 h-4" />
+                  <span className="text-sm font-medium">
+                    Department Overview
+                  </span>
+                </div>
 
-              <div className="grid grid-cols-2 gap-4">
-                {keyFeatures.map((feature, index) => {
-                  const FeatureIcon = feature.icon;
-                  return (
-                    <div key={index} className="p-5 border-2 border-gray-200 hover:border-slate-400 transition-colors bg-gray-50">
-                      <FeatureIcon className="w-8 h-8 text-slate-700 mb-3" />
-                      <h3 className="font-bold text-gray-900 mb-1">{feature.title}</h3>
-                      <p className="text-gray-500 text-sm">{feature.description}</p>
-                    </div>
-                  );
-                })}
+                <h2 className="text-2xl font-bold mb-4">
+                  Engineering Excellence in Material Science
+                </h2>
+
+                <p className="text-red-100 leading-relaxed mb-6">
+                  {department.overview}
+                </p>
+
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 text-white font-semibold hover:gap-3 transition-all"
+                >
+                  Learn More
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
               </div>
             </motion.div>
 
-            {/* Visual Element */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              animate={overviewInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6 }}
-              className="relative"
+              className="lg:col-span-3 space-y-4"
             >
-              <div className="border-2 border-gray-200 p-8 bg-gradient-to-br from-gray-50 to-white">
-                {/* Crystal Structure Visual */}
-                <div className="aspect-square relative">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <motion.div
-                      className="relative w-48 h-48"
-                      animate={{ rotateY: [0, 360] }}
-                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                    >
-                      {/* Cube vertices */}
-                      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-8 bg-slate-700 rounded-full flex items-center justify-center">
-                        <span className="text-white text-xs font-bold">Fe</span>
-                      </div>
-                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-8 h-8 bg-slate-600 rounded-full flex items-center justify-center">
-                        <span className="text-white text-xs font-bold">C</span>
-                      </div>
-                      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-8 h-8 bg-slate-500 rounded-full flex items-center justify-center">
-                        <span className="text-white text-xs font-bold">Cr</span>
-                      </div>
-                      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-8 h-8 bg-slate-400 rounded-full flex items-center justify-center">
-                        <span className="text-white text-xs font-bold">Ni</span>
-                      </div>
-                      {/* Connecting lines */}
-                      <svg className="absolute inset-0 w-full h-full">
-                        <line x1="50%" y1="15%" x2="15%" y2="50%" stroke="#64748B" strokeWidth="2" />
-                        <line x1="50%" y1="15%" x2="85%" y2="50%" stroke="#64748B" strokeWidth="2" />
-                        <line x1="50%" y1="85%" x2="15%" y2="50%" stroke="#64748B" strokeWidth="2" />
-                        <line x1="50%" y1="85%" x2="85%" y2="50%" stroke="#64748B" strokeWidth="2" />
-                      </svg>
-                    </motion.div>
-                  </div>
-                </div>
-                
-                <div className="text-center mt-6 border-t border-gray-200 pt-4">
-                  <div className="text-gray-700 font-mono font-semibold">Crystal Lattice Structure</div>
-                  <div className="text-gray-400 text-sm">Material composition visualization</div>
-                </div>
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  Research Areas
+                </h3>
+                <p className="text-gray-600">
+                  Our department supports advanced research in materials
+                  engineering.
+                </p>
               </div>
+
+              {researchAreas.map((area, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-primary/30 hover:shadow-md transition-all"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center flex-shrink-0">
+                    <BookOpen className="w-5 h-5 text-amber-600" />
+                  </div>
+                  <span className="font-medium text-gray-800">{area}</span>
+                </div>
+              ))}
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Training Programs - Technical Cards */}
-      <section id="programs" className="py-20 bg-gray-100">
+      {/* Training Programs Section - UNIFIED */}
+      <section id="programs" ref={programsRef} className="py-20 bg-gray-50">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={programsInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-slate-200 mb-4">
-              <Wrench className="w-4 h-4 text-slate-600" />
-              <span className="text-slate-700 font-mono text-sm">TRAINING_PROGRAMS</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-4">
+              <GraduationCap className="w-4 h-4 text-primary" />
+              <span className="text-primary font-medium text-sm">
+                Training Programs
+              </span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Technical Training Programs
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Comprehensive programs designed to develop expertise in materials testing and analysis.
+              Comprehensive hands-on training designed to build expertise in
+              materials testing and analysis.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {trainingPrograms.map((program, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group"
-              >
-                <div className="bg-white border-l-4 border-slate-500 p-6 hover:shadow-xl transition-all h-full">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-10 h-10 bg-slate-100 flex items-center justify-center font-mono font-bold text-slate-600">
-                      {String(index + 1).padStart(2, '0')}
+          <div className="grid lg:grid-cols-5 gap-8">
+            {/* Program Duration Options */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={programsInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-2"
+            >
+              <div className="bg-white rounded-2xl p-6 border border-gray-100 sticky top-24">
+                <h3 className="text-lg font-bold text-gray-900 mb-4">
+                  Choose Your Path
+                </h3>
+
+                {/* Short Term */}
+                <div className="p-4 bg-amber-50 rounded-xl border-2 border-amber-200 mb-4">
+                  <div className="flex items-start gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center flex-shrink-0">
+                      <Clock className="w-5 h-5 text-amber-600" />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900">{program.title}</h3>
-                  </div>
-                  
-                  <p className="text-gray-600 mb-6">{program.description}</p>
-                  
-                  <div className="flex items-center gap-4 pt-4 border-t border-gray-100">
-                    <div className="px-3 py-1 bg-slate-100 text-slate-700 font-mono text-sm">
-                      {program.duration}
+                    <div>
+                      <h4 className="font-bold text-gray-900">Short Term</h4>
+                      <p className="text-amber-700 font-semibold">4 Months</p>
+                      <p className="text-gray-600 text-sm mt-1">
+                        Intensive practical training in material testing, NDT,
+                        and quality control.
+                      </p>
                     </div>
-                    <div className="text-gray-400 text-sm">|</div>
-                    <span className="text-gray-500 text-sm">{program.level}</span>
                   </div>
                 </div>
-              </motion.div>
-            ))}
+
+                {/* Long Term */}
+                <div className="p-4 bg-emerald-50 rounded-xl border-2 border-emerald-200 mb-6">
+                  <div className="flex items-start gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center flex-shrink-0">
+                      <Calendar className="w-5 h-5 text-emerald-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900 flex items-center gap-2">
+                        Long Term
+                        <span className="px-2 py-0.5 bg-emerald-200 text-emerald-800 text-xs font-medium rounded-full">
+                          + Research
+                        </span>
+                      </h4>
+                      <p className="text-emerald-700 font-semibold">6 Months</p>
+                      <p className="text-gray-600 text-sm mt-1">
+                        Full training + Academic Research Project for PhD
+                        preparation & higher education abroad.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Info Box */}
+                <div className="p-4 bg-blue-50 rounded-xl border border-blue-200">
+                  <p className="text-blue-800 text-sm">
+                    <strong>Note:</strong> Both Short & Long Term students train
+                    together for the first 4 months. Long Term students continue
+                    with a research project for 2 additional months.
+                  </p>
+                </div>
+
+                <button
+                  onClick={openModal}
+                  className="w-full mt-6 py-3 bg-primary text-white font-semibold rounded-xl hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
+                >
+                  Apply Now
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+            </motion.div>
+
+            {/* Training Topics */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={programsInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-3"
+            >
+              <div className="bg-white rounded-2xl p-8 border border-gray-100">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  What You'll Learn
+                </h3>
+                <p className="text-gray-600 mb-6">
+                  Comprehensive training covering material testing,
+                  characterization, and failure analysis.
+                </p>
+
+                <div className="flex flex-wrap gap-3">
+                  {trainingTopics.map((topic, index) => (
+                    <motion.span
+                      key={index}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={programsInView ? { opacity: 1, scale: 1 } : {}}
+                      transition={{ duration: 0.3, delay: index * 0.05 }}
+                      className="px-4 py-2 bg-gray-50 rounded-full text-gray-700 font-medium text-sm border border-gray-200 hover:border-primary/30 hover:bg-primary/5 transition-all"
+                    >
+                      {topic}
+                    </motion.span>
+                  ))}
+                </div>
+
+                {/* Long Term Research Highlight */}
+                <div className="mt-8 p-5 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-xl border border-emerald-200">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center flex-shrink-0">
+                      <BookOpen className="w-6 h-6 text-emerald-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900 mb-1">
+                        Long Term: Academic Research Project
+                      </h4>
+                      <p className="text-gray-600 text-sm mb-3">
+                        Additional 2 months dedicated to materials research
+                        under expert supervision. Topics include alloy
+                        development, failure analysis, or composite materials.
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        <span className="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-xs font-medium">
+                          PhD Preparation
+                        </span>
+                        <span className="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-xs font-medium">
+                          Publication Opportunity
+                        </span>
+                        <span className="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-xs font-medium">
+                          Higher Education Mobility
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Industry Services & Equipment */}
-      <section className="py-20 bg-white">
+      {/* Equipment Section - Tags Style */}
+      <section ref={equipmentRef} className="py-20 bg-white">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-5 gap-12">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              animate={equipmentInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6 }}
+              className="lg:col-span-2"
             >
-              <div className="flex items-center gap-3 mb-6">
-                <Hammer className="w-6 h-6 text-slate-600" />
-                <h2 className="text-2xl font-bold text-gray-900">Industry Services</h2>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-violet-50 border border-violet-200 rounded-full mb-4">
+                <Microscope className="w-4 h-4 text-violet-600" />
+                <span className="text-violet-700 font-medium text-sm">
+                  Laboratory Facilities
+                </span>
               </div>
-              
-              <p className="text-gray-600 mb-8">
-                Professional material testing and analysis services for industrial applications.
+
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Testing Equipment & Instruments
+              </h2>
+
+              <p className="text-gray-600 leading-relaxed mb-6">
+                Train on industry-standard materials testing equipment used in
+                manufacturing and quality control laboratories.
               </p>
 
-              <div className="space-y-4">
-                {industryServices.map((service, index) => (
-                  <div key={index} className="flex items-start gap-4 p-4 border-l-2 border-slate-300 hover:border-slate-600 hover:bg-gray-50 transition-all">
-                    <div className="w-2 h-2 bg-slate-500 mt-2 flex-shrink-0" />
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">{service.title}</h3>
-                      <p className="text-gray-500 text-sm">{service.description}</p>
+              <div className="space-y-3">
+                {whyChoose.slice(0, 4).map((reason, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Check className="w-3 h-3 text-primary" />
                     </div>
+                    <span className="text-gray-700">{reason}</span>
                   </div>
                 ))}
               </div>
@@ -399,29 +576,25 @@ export default function MaterialsPage() {
 
             <motion.div
               initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              animate={equipmentInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6 }}
+              className="lg:col-span-3"
             >
-              <div className="bg-gradient-to-br from-slate-800 to-gray-900 p-8 text-white">
-                <div className="flex items-center gap-3 mb-6">
-                  <Box className="w-6 h-6 text-blue-400" />
-                  <h3 className="text-xl font-bold font-mono">TESTING_EQUIPMENT</h3>
-                </div>
-                
-                <div className="space-y-3">
+              <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+                <h3 className="font-semibold text-gray-900 mb-6">
+                  Available Equipment
+                </h3>
+                <div className="flex flex-wrap gap-3">
                   {equipment.map((item, index) => (
-                    <motion.div
+                    <motion.span
                       key={index}
-                      initial={{ opacity: 0, x: 20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={equipmentInView ? { opacity: 1, scale: 1 } : {}}
                       transition={{ duration: 0.3, delay: index * 0.05 }}
-                      className="flex items-center gap-4 p-3 border border-gray-700 hover:border-blue-500/50 transition-colors"
+                      className="px-4 py-2 bg-white rounded-full text-gray-700 font-medium text-sm border border-gray-200 hover:border-violet-300 hover:bg-violet-50 hover:text-violet-700 transition-all cursor-default"
                     >
-                      <span className="text-blue-400 font-mono text-sm">[{String(index + 1).padStart(2, '0')}]</span>
-                      <span className="text-gray-300 text-sm">{item}</span>
-                    </motion.div>
+                      {item}
+                    </motion.span>
                   ))}
                 </div>
               </div>
@@ -430,63 +603,191 @@ export default function MaterialsPage() {
         </div>
       </section>
 
-      {/* Career Opportunities */}
-      <section className="py-20 bg-gray-100">
+      {/* Career Opportunities - Higher Education Mobility Focus */}
+      <section ref={careerRef} className="py-20 bg-gray-50">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={careerInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Career Opportunities</h2>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-4">
+              <Target className="w-4 h-4 text-primary" />
+              <span className="text-primary font-medium text-sm">
+                Career Pathways
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Your Path to Success
+            </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Build your career in manufacturing, quality control, and materials engineering.
+              Our training opens doors to international higher education,
+              academic careers, and engineering industry positions.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {careerOpportunities.map((career, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="group"
-              >
-                <div className="bg-white border-2 border-gray-200 p-6 text-center hover:border-slate-500 hover:shadow-lg transition-all">
-                  <div className="w-12 h-12 border-2 border-gray-200 flex items-center justify-center mx-auto mb-4 group-hover:border-slate-500 group-hover:bg-slate-500 transition-all">
-                    <Users className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+          <div className="grid md:grid-cols-3 gap-6">
+            {Object.entries(careerPathways).map(([key, pathway], index) => {
+              const PathwayIcon = pathway.icon;
+              const colorClasses = [
+                {
+                  bg: "bg-blue-100",
+                  text: "text-blue-600",
+                  item: "bg-blue-50 text-blue-700",
+                },
+                {
+                  bg: "bg-emerald-100",
+                  text: "text-emerald-600",
+                  item: "bg-emerald-50 text-emerald-700",
+                },
+                {
+                  bg: "bg-amber-100",
+                  text: "text-amber-600",
+                  item: "bg-amber-50 text-amber-700",
+                },
+              ][index];
+
+              return (
+                <motion.div
+                  key={key}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={careerInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className={`bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-xl transition-all ${
+                    index === 0 ? "md:ring-2 md:ring-primary/20" : ""
+                  }`}
+                >
+                  {index === 0 && (
+                    <div className="inline-flex items-center gap-1 px-2 py-1 bg-primary text-white text-xs font-medium rounded-full mb-4">
+                      <Award className="w-3 h-3" />
+                      Primary Focus
+                    </div>
+                  )}
+
+                  <div
+                    className={`w-12 h-12 rounded-xl ${colorClasses.bg} flex items-center justify-center mb-4`}
+                  >
+                    <PathwayIcon className={`w-6 h-6 ${colorClasses.text}`} />
                   </div>
-                  <span className="font-medium text-gray-700">{career}</span>
-                </div>
-              </motion.div>
-            ))}
+
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">
+                    {pathway.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm mb-4">
+                    {pathway.description}
+                  </p>
+
+                  <div className="space-y-2">
+                    {pathway.opportunities.map((opp, i) => (
+                      <div
+                        key={i}
+                        className={`px-3 py-2 rounded-lg text-sm font-medium ${colorClasses.item}`}
+                      >
+                        {opp}
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Research & Why Choose */}
-      <section className="py-20 bg-white">
+      {/* Community & Social Service Section */}
+      <section ref={communityRef} className="py-20 bg-white">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-5 gap-12">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={communityInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-2"
+            >
+              {/* Red Gradient Box */}
+              <div className="bg-gradient-to-br from-primary to-red-700 rounded-2xl p-8 text-white h-full">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/20 rounded-full mb-6">
+                  <Heart className="w-4 h-4" />
+                  <span className="text-sm font-medium">
+                    Community & Engagement
+                  </span>
+                </div>
+
+                <h2 className="text-2xl font-bold mb-4">
+                  Community & Social Service
+                </h2>
+
+                <p className="text-red-100 leading-relaxed mb-6">
+                  KRTC's Materials Science department supports local industries
+                  and communities through affordable testing services, technical
+                  workshops, and educational outreach programs.
+                </p>
+
+                <div className="flex items-center gap-3">
+                  <HandHeart className="w-8 h-8 text-red-200" />
+                  <span className="text-red-100 font-medium">
+                    Serving communities since 2025
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={communityInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-3 space-y-4"
+            >
+              {communityServices.map((service, index) => (
+                <div
+                  key={index}
+                  className="flex items-start gap-4 p-5 bg-gray-50 rounded-xl border border-gray-100 hover:border-primary/30 hover:shadow-md transition-all"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-rose-100 flex items-center justify-center flex-shrink-0">
+                    <Heart className="w-5 h-5 text-rose-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">
+                      {service.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm">
+                      {service.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Research Areas</h2>
-              <div className="grid grid-cols-2 gap-3">
-                {researchAreas.map((area, index) => (
-                  <div key={index} className="flex items-center gap-3 p-4 bg-gray-50 border-l-2 border-slate-400">
-                    <BookOpen className="w-5 h-5 text-slate-600 flex-shrink-0" />
-                    <span className="text-gray-700 font-medium text-sm">{area}</span>
-                  </div>
-                ))}
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-4">
+                <Award className="w-4 h-4 text-primary" />
+                <span className="text-primary font-medium text-sm">
+                  Why KRTC
+                </span>
               </div>
+
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Why Choose This Department?
+              </h2>
+
+              <p className="text-gray-600 leading-relaxed">
+                Our Materials Science department offers industry-aligned
+                training with ASTM standards, preparing you for success in
+                higher education and engineering careers.
+              </p>
             </motion.div>
 
             <motion.div
@@ -494,59 +795,58 @@ export default function MaterialsPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-gradient-to-br from-slate-700 to-gray-800 p-8 text-white"
+              className="space-y-3"
             >
-              <h3 className="text-xl font-bold mb-6 flex items-center gap-3">
-                <Award className="w-6 h-6 text-blue-400" />
-                Why Choose This Department?
-              </h3>
-              <div className="space-y-4">
-                {whyChoose.map((reason, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <div className="w-5 h-5 border border-blue-400 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Check className="w-3 h-3 text-blue-400" />
-                    </div>
-                    <span className="text-gray-300">{reason}</span>
+              {whyChoose.map((reason, index) => (
+                <div
+                  key={index}
+                  className="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-100 hover:border-primary/30 hover:shadow-md transition-all"
+                >
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-red-700 flex items-center justify-center flex-shrink-0">
+                    <Check className="w-4 h-4 text-white" />
                   </div>
-                ))}
-              </div>
+                  <span className="text-gray-700 font-medium">{reason}</span>
+                </div>
+              ))}
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-slate-800 via-gray-800 to-slate-900 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="cta-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="0.5"/>
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#cta-grid)"/>
-          </svg>
-        </div>
+      {/* CTA Section - Light Theme */}
+      <section
+        ref={ctaRef}
+        className="py-20 bg-gray-50 relative overflow-hidden"
+      >
+        <div className="absolute top-10 left-1/4 w-72 h-72 bg-primary/5 rounded-full blur-[100px]" />
+        <div className="absolute bottom-10 right-1/4 w-96 h-96 bg-amber-500/5 rounded-full blur-[120px]" />
 
         <div className="container-custom relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={ctaInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
               Build Your Engineering Career
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto mb-8 text-lg">
-              Join KRTC's Materials Science department and develop expertise in material testing and analysis.
+            <p className="text-gray-600 max-w-2xl mx-auto mb-8 text-lg">
+              Join KRTC's Materials Science department and develop expertise in
+              material testing and analysis. Scholarship opportunities
+              available.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/contact" className="group inline-flex items-center gap-2 px-8 py-4 bg-blue-500 text-white font-bold hover:bg-blue-400 transition-colors">
+              <button
+                onClick={openModal}
+                className="group inline-flex items-center gap-2 px-8 py-4 bg-primary text-white font-bold rounded-full hover:bg-primary/90 transition-colors"
+              >
                 Apply Now
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link href="/schooling" className="inline-flex items-center gap-2 px-8 py-4 border border-gray-600 text-white font-semibold hover:border-blue-400 hover:text-blue-400 transition-colors">
+              </button>
+              <Link
+                href="/schooling"
+                className="inline-flex items-center gap-2 px-8 py-4 border-2 border-gray-300 text-gray-700 font-semibold rounded-full hover:border-primary hover:text-primary transition-colors"
+              >
                 Scholarship Info
               </Link>
             </div>
@@ -554,36 +854,288 @@ export default function MaterialsPage() {
         </div>
       </section>
 
-      {/* Department Navigation */}
-      <section className="py-6 bg-gray-50 border-t border-gray-200">
-        <div className="container-custom">
-          <div className="flex justify-between items-center">
-            <Link href="/services/polymer" className="group flex items-center gap-3 text-gray-600 hover:text-slate-700 transition-colors">
-              <div className="w-10 h-10 border-2 border-gray-300 flex items-center justify-center group-hover:border-slate-500 group-hover:bg-slate-500 transition-colors">
-                <ArrowLeft className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+      {/* Apply Now Modal */}
+      <AnimatePresence>
+        {isModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/50 z-50 flex items-start justify-center overflow-y-auto py-8 px-4"
+            onClick={closeModal}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="bg-white rounded-2xl w-full max-w-md overflow-hidden shadow-2xl my-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Modal Header */}
+              <div className="bg-gradient-to-r from-primary to-red-700 p-6 text-white">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-red-200 text-sm mb-1">
+                      Materials Science
+                    </p>
+                    <h3 className="text-xl font-bold">
+                      {modalStep === "info" && "Start Your Journey"}
+                      {modalStep === "form" && "Register Your Interest"}
+                      {modalStep === "success" && "Registration Successful!"}
+                    </h3>
+                  </div>
+                  <button
+                    onClick={closeModal}
+                    className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
               </div>
-              <div>
-                <div className="text-xs text-gray-400 uppercase tracking-wider font-mono">Previous</div>
-                <div className="font-semibold">Polymer</div>
-              </div>
-            </Link>
 
-            <Link href="/services" className="px-6 py-2 bg-white border-2 border-gray-200 text-gray-700 font-medium hover:border-slate-400 transition-colors">
-              All Departments
-            </Link>
+              {/* Modal Content */}
+              <div className="p-6">
+                {modalStep === "info" && (
+                  <>
+                    {/* Intake Info */}
+                    <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-4 mb-5">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Calendar className="w-5 h-5 text-emerald-600" />
+                        <span className="font-semibold text-emerald-800">
+                          Upcoming Intakes
+                        </span>
+                      </div>
+                      <div className="grid grid-cols-2 gap-3">
+                        <div className="bg-white rounded-lg p-3 text-center border border-emerald-100">
+                          <p className="text-xs text-gray-500 mb-1">Intake 1</p>
+                          <p className="font-bold text-emerald-700">
+                            October 2026
+                          </p>
+                        </div>
+                        <div className="bg-white rounded-lg p-3 text-center border border-emerald-100">
+                          <p className="text-xs text-gray-500 mb-1">Intake 2</p>
+                          <p className="font-bold text-emerald-700">
+                            April 2027
+                          </p>
+                        </div>
+                      </div>
+                    </div>
 
-            <Link href="/services/textile" className="group flex items-center gap-3 text-gray-600 hover:text-slate-700 transition-colors">
-              <div className="text-right">
-                <div className="text-xs text-gray-400 uppercase tracking-wider font-mono">Next</div>
-                <div className="font-semibold">Textile</div>
+                    {/* Program Selection */}
+                    <div className="mb-5">
+                      <p className="font-semibold text-gray-900 mb-3">
+                        Select Program Duration
+                      </p>
+                      <div className="space-y-3">
+                        <label
+                          className={`flex items-center gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all ${
+                            selectedProgram === "short"
+                              ? "border-primary bg-primary/5"
+                              : "border-gray-200 hover:border-gray-300"
+                          }`}
+                        >
+                          <input
+                            type="radio"
+                            name="program"
+                            checked={selectedProgram === "short"}
+                            onChange={() => setSelectedProgram("short")}
+                            className="accent-primary"
+                          />
+                          <div>
+                            <p className="font-semibold text-gray-900">
+                              Short Term
+                            </p>
+                            <p className="text-sm text-gray-500">
+                              4 months • Material Testing & NDT
+                            </p>
+                          </div>
+                        </label>
+                        <label
+                          className={`flex items-center gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all ${
+                            selectedProgram === "long"
+                              ? "border-primary bg-primary/5"
+                              : "border-gray-200 hover:border-gray-300"
+                          }`}
+                        >
+                          <input
+                            type="radio"
+                            name="program"
+                            checked={selectedProgram === "long"}
+                            onChange={() => setSelectedProgram("long")}
+                            className="accent-primary"
+                          />
+                          <div>
+                            <p className="font-semibold text-gray-900">
+                              Long Term
+                              <span className="ml-2 px-2 py-0.5 bg-emerald-100 text-emerald-700 text-xs rounded-full">
+                                + Research
+                              </span>
+                            </p>
+                            <p className="text-sm text-gray-500">
+                              6 months • Training + Research Project
+                            </p>
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+
+                    {/* Scholarship Info */}
+                    <div className="bg-red-50 border border-red-200 rounded-xl p-4 mb-5 flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0">
+                        <Award className="w-5 h-5 text-primary" />
+                      </div>
+                      <div className="flex-1">
+                        <p className="font-semibold text-primary">
+                          Scholarship Available
+                        </p>
+                        <p className="text-sm text-red-700">
+                          Up to 20% for deserving students
+                        </p>
+                      </div>
+                      <Link
+                        href="/schooling"
+                        className="text-xs text-primary underline"
+                      >
+                        Learn more
+                      </Link>
+                    </div>
+
+                    {/* Actions */}
+                    <button
+                      onClick={handleRegisterInterest}
+                      className="w-full py-3.5 bg-primary text-white font-semibold rounded-xl hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
+                    >
+                      Register Interest
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                    <button
+                      onClick={closeModal}
+                      className="w-full mt-3 py-3 border border-gray-200 text-gray-600 rounded-xl hover:bg-gray-50 transition-colors"
+                    >
+                      Contact Us Instead
+                    </button>
+
+                    {/* Contact Info */}
+                    <div className="mt-5 pt-5 border-t border-gray-100 flex justify-center gap-6">
+                      <a
+                        href="tel:+8801345687576"
+                        className="flex items-center gap-2 text-sm text-gray-500 hover:text-primary transition-colors"
+                      >
+                        <Phone className="w-4 h-4" />
+                        +880 134 568 7576
+                      </a>
+                      <a
+                        href="https://wa.me/491634855414"
+                        className="flex items-center gap-2 text-sm text-gray-500 hover:text-green-600 transition-colors"
+                      >
+                        <MessageCircle className="w-4 h-4" />
+                        WhatsApp
+                      </a>
+                    </div>
+                  </>
+                )}
+
+                {modalStep === "form" && (
+                  <form onSubmit={handleSubmit}>
+                    <div className="space-y-4">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                          Full Name *
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          placeholder="আপনার নাম"
+                          className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                          Phone Number *
+                        </label>
+                        <input
+                          type="tel"
+                          required
+                          placeholder="+880 1XX XXX XXXX"
+                          className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                          Email Address
+                        </label>
+                        <input
+                          type="email"
+                          placeholder="email@example.com"
+                          className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                          Preferred Intake
+                        </label>
+                        <select className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all bg-white">
+                          <option>October 2026</option>
+                          <option>April 2027</option>
+                        </select>
+                      </div>
+                      <label className="flex items-start gap-3 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          className="mt-1 accent-primary"
+                        />
+                        <span className="text-sm text-gray-600">
+                          I'm interested in scholarship opportunities
+                        </span>
+                      </label>
+                    </div>
+
+                    <button
+                      type="submit"
+                      className="w-full mt-6 py-3.5 bg-primary text-white font-semibold rounded-xl hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
+                    >
+                      Submit Registration
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                    <p className="text-center text-xs text-gray-400 mt-3">
+                      We'll contact you within 24-48 hours
+                    </p>
+                  </form>
+                )}
+
+                {modalStep === "success" && (
+                  <div className="text-center py-4">
+                    <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Check className="w-8 h-8 text-emerald-600" />
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">
+                      Thank You!
+                    </h4>
+                    <p className="text-gray-600 mb-6">
+                      Your interest in Materials Science has been registered.
+                      We'll contact you soon about the October 2026 intake.
+                    </p>
+                    <div className="flex gap-3">
+                      <Link
+                        href="/services"
+                        className="flex-1 py-3 bg-primary text-white font-semibold rounded-xl hover:bg-primary/90 transition-colors text-center"
+                      >
+                        Explore More
+                      </Link>
+                      <button
+                        onClick={closeModal}
+                        className="flex-1 py-3 border border-gray-200 text-gray-600 rounded-xl hover:bg-gray-50 transition-colors"
+                      >
+                        Close
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
-              <div className="w-10 h-10 border-2 border-gray-300 flex items-center justify-center group-hover:border-slate-500 group-hover:bg-slate-500 transition-colors">
-                <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

@@ -1,410 +1,573 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import { motion } from 'framer-motion'
-import { 
-  Layers,
+import { useState, useRef } from "react";
+import Link from "next/link";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import {
+  Box,
   ArrowRight,
-  ArrowLeft,
   Check,
   GraduationCap,
   Building2,
-  Users,
   Microscope,
   BookOpen,
   Globe,
   Award,
+  Heart,
+  HandHeart,
+  Target,
+  Briefcase,
+  Clock,
+  Calendar,
+  X,
+  Phone,
+  MessageCircle,
+  Layers,
   Recycle,
-  Factory,
-  Cog,
-  Link2,
-  Zap,
-} from 'lucide-react'
+  Flame,
+} from "lucide-react";
 
 export default function PolymerPage() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalStep, setModalStep] = useState<"info" | "form" | "success">(
+    "info",
+  );
+  const [selectedProgram, setSelectedProgram] = useState<"short" | "long">(
+    "short",
+  );
+
+  const heroRef = useRef(null);
+  const overviewRef = useRef(null);
+  const programsRef = useRef(null);
+  const equipmentRef = useRef(null);
+  const careerRef = useRef(null);
+  const communityRef = useRef(null);
+  const ctaRef = useRef(null);
+
+  const heroInView = useInView(heroRef, { once: true });
+  const overviewInView = useInView(overviewRef, { once: true });
+  const programsInView = useInView(programsRef, { once: true });
+  const equipmentInView = useInView(equipmentRef, { once: true });
+  const careerInView = useInView(careerRef, { once: true });
+  const communityInView = useInView(communityRef, { once: true });
+  const ctaInView = useInView(ctaRef, { once: true });
+
   const department = {
-    title: 'Polymer Processing and Plastics Technology',
-    shortTitle: 'Polymer',
-    icon: Layers,
-    heroDescription: 'Master polymer science, plastic processing techniques, and sustainable material solutions with industry-standard equipment and expert guidance.',
-    overview: 'The Polymer Processing department at KRTC provides hands-on training in plastic materials, processing techniques, and quality control. Our programs cover everything from basic polymer science to advanced manufacturing processes, preparing students for careers in the growing plastics and polymer industry.',
-  }
+    title: "Polymer and Plastic Processing Technologies",
+    shortTitle: "Polymer Processing",
+    icon: Box,
+    heroDescription:
+      "Master polymer processing techniques, plastic manufacturing, and quality control with hands-on training on industrial equipment.",
+    overview:
+      "The Polymer Processing department at KRTC provides comprehensive training in plastic manufacturing, polymer testing, and quality control. Our programs prepare students for careers in Bangladesh's growing plastic and packaging industry, with pathways to higher education abroad in polymer science and materials engineering.",
+  };
 
   const keyFeatures = [
-    { icon: Factory, title: 'Processing Lab', description: 'Hands-on training with injection molding, extrusion, and blow molding.' },
-    { icon: Recycle, title: 'Sustainability Focus', description: 'Training in recycling technologies and eco-friendly materials.' },
-    { icon: Cog, title: 'Industry Equipment', description: 'Work with actual machinery used in polymer industries.' },
-    { icon: Globe, title: 'Global Standards', description: 'Training aligned with international polymer testing standards.' },
-  ]
+    {
+      icon: Layers,
+      title: "Processing Techniques",
+      description: "Injection molding, extrusion, and blow molding training.",
+    },
+    {
+      icon: Microscope,
+      title: "Quality Testing",
+      description: "Polymer testing and quality control methodologies.",
+    },
+    {
+      icon: Recycle,
+      title: "Sustainable Practices",
+      description: "Recycling and eco-friendly polymer processing.",
+    },
+    {
+      icon: Globe,
+      title: "Industry Standards",
+      description: "Training aligned with ISO and ASTM standards.",
+    },
+  ];
 
-  const trainingPrograms = [
-    { title: 'Polymer Processing Techniques', duration: '4 months', level: 'Intermediate', description: 'Injection molding, extrusion, blow molding, and thermoforming.' },
-    { title: 'Material Testing & Analysis', duration: '3 months', level: 'Advanced', description: 'Physical, mechanical, and thermal property testing.' },
-    { title: 'Quality Control in Plastics', duration: '2 months', level: 'Professional', description: 'QC methods, defect analysis, and process optimization.' },
-    { title: 'Sustainable Polymer Solutions', duration: '2 months', level: 'All Levels', description: 'Biodegradable materials, recycling, and circular economy.' },
-  ]
-
-  const industryServices = [
-    { title: 'Material Testing', description: 'Comprehensive polymer testing including tensile, impact, and thermal analysis.' },
-    { title: 'Process Optimization', description: 'Consultation on improving manufacturing efficiency and reducing waste.' },
-    { title: 'Product Development', description: 'Support for new plastic product design and prototyping.' },
-    { title: 'Quality Certification', description: 'Testing and certification for export-quality plastic products.' },
-  ]
-
-  const careerOpportunities = [
-    'Process Engineer',
-    'Quality Controller',
-    'Production Supervisor',
-    'R&D Technician',
-    'Mold Designer',
-    'Materials Engineer',
-    'Plant Manager',
-    'Technical Sales',
-  ]
+  // Unified training topics for both Short & Long term
+  const trainingTopics = [
+    "Polymer Chemistry Fundamentals",
+    "Injection Molding",
+    "Extrusion Processing",
+    "Blow Molding Techniques",
+    "Quality Control & Testing",
+    "Mold Design Basics",
+    "Process Optimization",
+    "Polymer Identification",
+    "Recycling Technologies",
+    "Industrial Safety",
+  ];
 
   const equipment = [
-    'Injection Molding Machine',
-    'Single Screw Extruder',
-    'Blow Molding Unit',
-    'Universal Testing Machine (UTM)',
-    'Melt Flow Index Tester',
-    'DSC & TGA Analyzer',
-    'Impact Tester',
-    'Heat Deflection Tester',
-  ]
+    "Injection Molding Machine",
+    "Single Screw Extruder",
+    "Blow Molding Machine",
+    "MFI (Melt Flow Index) Tester",
+    "Universal Testing Machine",
+    "Impact Tester",
+    "Moisture Analyzer",
+    "Color Matching Cabinet",
+  ];
 
   const researchAreas = [
-    'Biopolymer Development',
-    'Polymer Nanocomposites',
-    'Recycling Technologies',
-    'Process Simulation',
-    'Additive Manufacturing',
-    'Polymer Blends & Alloys',
-  ]
+    "Biodegradable Polymers",
+    "Polymer Composites",
+    "Recycling Technologies",
+    "Process Optimization",
+    "Packaging Innovation",
+    "Quality Enhancement",
+  ];
+
+  const careerPathways = {
+    higherEducation: {
+      title: "Higher Education Abroad",
+      icon: Globe,
+      description: "Pursue advanced degrees at international universities",
+      opportunities: [
+        "PhD in Polymer Science",
+        "Masters in Plastics Engineering",
+        "Research Fellowship Programs",
+        "Materials Engineering Certification",
+      ],
+    },
+    academic: {
+      title: "Academic Career Path",
+      icon: GraduationCap,
+      description: "Build a career in teaching and research institutions",
+      opportunities: [
+        "University Lecturer",
+        "Research Scientist",
+        "Polymer Researcher",
+        "Lab Director",
+      ],
+    },
+    industry: {
+      title: "Industry Career Path",
+      icon: Briefcase,
+      description: "Join leading plastic manufacturing companies",
+      opportunities: [
+        "Process Engineer",
+        "Quality Control Manager",
+        "Production Supervisor",
+        "R&D Specialist",
+      ],
+    },
+  };
+
+  const communityServices = [
+    {
+      title: "Plastic Recycling Awareness",
+      description:
+        "Community education programs on plastic waste management and recycling.",
+    },
+    {
+      title: "SME Support Program",
+      description:
+        "Technical assistance for small plastic manufacturing businesses.",
+    },
+    {
+      title: "Student Industry Tours",
+      description:
+        "Factory visits and industry exposure for polytechnic students.",
+    },
+    {
+      title: "Environmental Workshops",
+      description:
+        "Training on sustainable practices and eco-friendly alternatives.",
+    },
+  ];
 
   const whyChoose = [
-    'Real industrial machinery for hands-on training',
-    'Industry partnerships for internships and placement',
-    'Focus on sustainable and eco-friendly solutions',
-    'Training by experienced industry professionals',
-    'Small batch sizes ensure quality learning',
-    'Scholarships for engineering graduates',
-  ]
+    "Hands-on training on industrial equipment",
+    "Industry-experienced instructors",
+    "Direct pathway to international higher education",
+    "Strong connections with plastic industry",
+    "Focus on sustainable and green technologies",
+    "Scholarship support for deserving students",
+  ];
+
+  const openModal = () => {
+    setIsModalOpen(true);
+    setModalStep("info");
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setModalStep("info");
+  };
+
+  const handleRegisterInterest = () => {
+    setModalStep("form");
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setModalStep("success");
+  };
 
   return (
     <>
-      {/* Hero Section - Industrial Chain Theme */}
-      <section className="pt-32 pb-24 relative overflow-hidden bg-gradient-to-br from-orange-900 via-amber-800 to-orange-800">
-        {/* Chain Link Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="chains" width="60" height="30" patternUnits="userSpaceOnUse">
-                <ellipse cx="15" cy="15" rx="12" ry="8" fill="none" stroke="white" strokeWidth="2"/>
-                <ellipse cx="45" cy="15" rx="12" ry="8" fill="none" stroke="white" strokeWidth="2"/>
-                <line x1="27" y1="15" x2="33" y2="15" stroke="white" strokeWidth="2"/>
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#chains)"/>
-          </svg>
-        </div>
-
-        {/* Animated Chain Links */}
-        <div className="absolute inset-0 overflow-hidden">
-          {[...Array(4)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute flex items-center"
-              style={{
-                left: `${-10 + i * 30}%`,
-                top: `${20 + i * 20}%`,
-              }}
-              animate={{
-                x: [0, 20, 0],
-              }}
-              transition={{
-                duration: 6 + i * 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            >
-              {[...Array(5)].map((_, j) => (
-                <div key={j} className="flex items-center">
-                  <div className="w-12 h-8 rounded-full border-4 border-orange-400/20 bg-transparent" />
-                  <div className="w-4 h-1 bg-orange-400/20 -mx-2" />
-                </div>
-              ))}
-            </motion.div>
-          ))}
-        </div>
+      {/* Hero Section - Light Theme */}
+      <section
+        ref={heroRef}
+        className="pt-32 pb-20 bg-gray-50 relative overflow-hidden"
+      >
+        {/* Decorative Elements */}
+        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-[100px]" />
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-orange-500/5 rounded-full blur-[120px]" />
 
         <div className="container-custom relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={heroInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
             {/* Breadcrumb */}
-            <div className="flex items-center gap-2 text-sm text-orange-200/70 mb-8">
-              <Link href="/" className="hover:text-white transition-colors">Home</Link>
+            <div className="flex items-center gap-2 text-sm text-gray-500 mb-8">
+              <Link href="/" className="hover:text-primary transition-colors">
+                Home
+              </Link>
               <span>/</span>
-              <Link href="/services" className="hover:text-white transition-colors">Services</Link>
+              <Link
+                href="/services"
+                className="hover:text-primary transition-colors"
+              >
+                Services
+              </Link>
               <span>/</span>
-              <span className="text-amber-400">{department.shortTitle}</span>
+              <span className="text-primary font-medium">
+                {department.shortTitle}
+              </span>
             </div>
 
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                {/* Chain Badge */}
-                <div className="inline-flex items-center gap-4 mb-6">
-                  <div className="flex items-center">
-                    <div className="w-10 h-6 rounded-full border-4 border-amber-400 bg-transparent" />
-                    <div className="w-6 h-2 bg-amber-400 -mx-1" />
-                    <div className="w-10 h-6 rounded-full border-4 border-amber-400 bg-transparent" />
-                  </div>
-                  <div className="px-4 py-2 bg-amber-500/20 border border-amber-400/30 rounded-lg backdrop-blur-sm">
-                    <span className="text-amber-300 font-medium text-sm">Industrial Processing</span>
-                  </div>
+                {/* Badge */}
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-50 border border-orange-200 rounded-full mb-6">
+                  <Box className="w-4 h-4 text-orange-600" />
+                  <span className="text-orange-700 font-medium text-sm">
+                    Polymer Engineering Department
+                  </span>
                 </div>
 
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                   {department.title}
                 </h1>
-                <p className="text-xl text-orange-100/80 leading-relaxed mb-8">
+                <p className="text-xl text-gray-600 leading-relaxed mb-8">
                   {department.heroDescription}
                 </p>
 
                 <div className="flex flex-wrap gap-4">
-                  <Link href="/contact" className="group inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-bold rounded-lg hover:shadow-lg hover:shadow-amber-500/30 transition-all">
-                    Enroll Now
+                  <button
+                    onClick={openModal}
+                    className="group inline-flex items-center gap-2 px-8 py-4 bg-primary text-white font-semibold rounded-full hover:bg-primary/90 transition-all"
+                  >
+                    Apply Now
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                  <Link href="#programs" className="inline-flex items-center gap-2 px-8 py-4 border-2 border-amber-400/40 text-white font-semibold rounded-lg hover:bg-amber-400/20 transition-all">
+                  </button>
+                  <Link
+                    href="#programs"
+                    className="inline-flex items-center gap-2 px-8 py-4 border-2 border-gray-300 text-gray-700 font-semibold rounded-full hover:border-primary hover:text-primary transition-all"
+                  >
                     View Programs
                   </Link>
                 </div>
               </div>
 
-              {/* Industrial Stats */}
-              <div className="hidden lg:block">
-                <div className="space-y-4">
-                  {[
-                    { value: '4', label: 'Processing Techniques', icon: Cog },
-                    { value: '8+', label: 'Testing Equipment', icon: Microscope },
-                    { value: '100%', label: 'Industry Focus', icon: Factory },
-                    { value: '6', label: 'Research Areas', icon: Zap },
-                  ].map((stat, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, x: 30 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
-                      className="flex items-center gap-6 p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/10"
-                    >
-                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center">
-                        <stat.icon className="w-7 h-7 text-white" />
-                      </div>
-                      <div>
-                        <div className="text-3xl font-bold text-white">{stat.value}</div>
-                        <div className="text-orange-200/70 text-sm">{stat.label}</div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Angular Divider */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" className="w-full h-20">
-            <path d="M0 100L720 50L1440 100V100H0V100Z" fill="white"/>
-          </svg>
-        </div>
-      </section>
-
-      {/* Overview - Connected Cards */}
-      <section className="py-20 bg-white">
-        <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <Link2 className="w-6 h-6 text-amber-600" />
-                <span className="text-amber-600 font-semibold uppercase tracking-wider text-sm">Department Overview</span>
-              </div>
-              
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Building the Polymer Industry's Future
-              </h2>
-              
-              <p className="text-gray-600 leading-relaxed text-lg mb-8">
-                {department.overview}
-              </p>
-
-              {/* Connected feature cards */}
-              <div className="space-y-0">
-                {keyFeatures.map((feature, index) => {
+              {/* Feature Cards */}
+              <div className="grid grid-cols-2 gap-4">
+                {keyFeatures.map((feature, i) => {
                   const FeatureIcon = feature.icon;
                   return (
-                    <div key={index} className="relative">
-                      {/* Connector line */}
-                      {index < keyFeatures.length - 1 && (
-                        <div className="absolute left-7 top-full w-0.5 h-4 bg-gradient-to-b from-amber-300 to-orange-300 z-10" />
-                      )}
-                      <div className="group flex items-start gap-4 p-4 bg-gradient-to-r from-amber-50 to-white border-l-4 border-amber-500 hover:bg-amber-50 transition-colors">
-                        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center flex-shrink-0">
-                          <FeatureIcon className="w-5 h-5 text-white" />
-                        </div>
-                        <div>
-                          <h3 className="font-semibold text-gray-900 mb-1">{feature.title}</h3>
-                          <p className="text-gray-500 text-sm">{feature.description}</p>
-                        </div>
+                    <motion.div
+                      key={i}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={heroInView ? { opacity: 1, y: 0 } : {}}
+                      transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
+                      className="bg-white p-5 rounded-2xl border border-gray-100 hover:shadow-lg hover:border-primary/20 transition-all"
+                    >
+                      <div className="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center mb-3">
+                        <FeatureIcon className="w-6 h-6 text-orange-600" />
                       </div>
-                    </div>
+                      <h3 className="font-semibold text-gray-900 mb-1">
+                        {feature.title}
+                      </h3>
+                      <p className="text-gray-500 text-sm">
+                        {feature.description}
+                      </p>
+                    </motion.div>
                   );
                 })}
               </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Overview Section */}
+      <section ref={overviewRef} className="py-20 bg-white">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-5 gap-12">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={overviewInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-2"
+            >
+              {/* Red Gradient Box */}
+              <div className="bg-gradient-to-br from-primary to-red-700 rounded-2xl p-8 text-white h-full">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/20 rounded-full mb-6">
+                  <Layers className="w-4 h-4" />
+                  <span className="text-sm font-medium">
+                    Department Overview
+                  </span>
+                </div>
+
+                <h2 className="text-2xl font-bold mb-4">
+                  Excellence in Polymer Processing
+                </h2>
+
+                <p className="text-red-100 leading-relaxed mb-6">
+                  {department.overview}
+                </p>
+
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 text-white font-semibold hover:gap-3 transition-all"
+                >
+                  Learn More
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+              </div>
             </motion.div>
 
-            {/* Visual Element */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              animate={overviewInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6 }}
-              className="relative"
+              className="lg:col-span-3 space-y-4"
             >
-              <div className="bg-gradient-to-br from-orange-100 to-amber-100 rounded-3xl p-8 relative overflow-hidden">
-                {/* Polymer chain visual */}
-                <div className="flex items-center justify-center py-12">
-                  <motion.div
-                    className="flex items-center"
-                    animate={{ rotateY: [0, 10, 0, -10, 0] }}
-                    transition={{ duration: 8, repeat: Infinity }}
-                  >
-                    {[...Array(5)].map((_, i) => (
-                      <div key={i} className="flex items-center">
-                        <div className={`w-16 h-16 rounded-full flex items-center justify-center shadow-lg ${
-                          i % 2 === 0 
-                            ? 'bg-gradient-to-br from-amber-500 to-orange-500' 
-                            : 'bg-gradient-to-br from-orange-400 to-amber-400'
-                        }`}>
-                          <span className="text-white font-bold text-lg">
-                            {['C', 'H', 'C', 'H', 'C'][i]}
-                          </span>
-                        </div>
-                        {i < 4 && <div className="w-8 h-2 bg-gradient-to-r from-amber-600 to-orange-600 -mx-1" />}
-                      </div>
-                    ))}
-                  </motion.div>
-                </div>
-                
-                <div className="text-center mt-6">
-                  <div className="text-gray-700 font-semibold">Polymer Chain Structure</div>
-                  <div className="text-gray-500 text-sm">Interactive molecular visualization</div>
-                </div>
+              <div className="mb-6">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  Research Areas
+                </h3>
+                <p className="text-gray-600">
+                  Our department focuses on innovative polymer technologies and
+                  sustainable practices.
+                </p>
               </div>
+
+              {researchAreas.map((area, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-primary/30 hover:shadow-md transition-all"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-orange-100 flex items-center justify-center flex-shrink-0">
+                    <BookOpen className="w-5 h-5 text-orange-600" />
+                  </div>
+                  <span className="font-medium text-gray-800">{area}</span>
+                </div>
+              ))}
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Training Programs */}
-      <section id="programs" className="py-20 bg-gradient-to-br from-orange-50 to-amber-50">
+      {/* Training Programs Section - UNIFIED */}
+      <section id="programs" ref={programsRef} className="py-20 bg-gray-50">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={programsInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-100 rounded-lg mb-4">
-              <Cog className="w-4 h-4 text-amber-600" />
-              <span className="text-amber-700 font-medium text-sm">Training Programs</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-4">
+              <GraduationCap className="w-4 h-4 text-primary" />
+              <span className="text-primary font-medium text-sm">
+                Training Programs
+              </span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Industry-Ready Training
+              Polymer Processing Training
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Comprehensive programs covering all aspects of polymer processing and plastics technology.
+              Comprehensive hands-on training in plastic manufacturing,
+              processing, and quality control.
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {trainingPrograms.map((program, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group"
-              >
-                <div className="bg-white rounded-xl p-6 border-2 border-transparent hover:border-amber-400 shadow-sm hover:shadow-xl transition-all h-full">
-                  {/* Chain link header */}
-                  <div className="flex items-center gap-4 mb-4 pb-4 border-b border-gray-100">
-                    <div className="flex items-center">
-                      <div className="w-8 h-5 rounded-full border-3 border-amber-500 bg-transparent" />
-                      <div className="w-4 h-1.5 bg-amber-500 -mx-0.5" />
-                      <div className="w-8 h-5 rounded-full border-3 border-orange-500 bg-transparent" />
+          <div className="grid lg:grid-cols-5 gap-8">
+            {/* Program Duration Options */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={programsInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-2"
+            >
+              <div className="bg-white rounded-2xl p-6 border border-gray-100 sticky top-24">
+                <h3 className="text-lg font-bold text-gray-900 mb-4">
+                  Choose Your Path
+                </h3>
+
+                {/* Short Term */}
+                <div className="p-4 bg-orange-50 rounded-xl border-2 border-orange-200 mb-4">
+                  <div className="flex items-start gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-orange-100 flex items-center justify-center flex-shrink-0">
+                      <Clock className="w-5 h-5 text-orange-600" />
                     </div>
-                    <span className="text-amber-600 font-bold">0{index + 1}</span>
-                  </div>
-                  
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{program.title}</h3>
-                  <p className="text-gray-600 mb-6">{program.description}</p>
-                  
-                  <div className="flex items-center gap-4">
-                    <span className="px-4 py-2 bg-gradient-to-r from-amber-100 to-orange-100 text-amber-700 rounded-lg font-semibold text-sm">
-                      {program.duration}
-                    </span>
-                    <span className="text-gray-500 text-sm">{program.level}</span>
+                    <div>
+                      <h4 className="font-bold text-gray-900">Short Term</h4>
+                      <p className="text-orange-700 font-semibold">4 Months</p>
+                      <p className="text-gray-600 text-sm mt-1">
+                        Intensive practical training in polymer processing,
+                        molding, and quality control.
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </motion.div>
-            ))}
+
+                {/* Long Term */}
+                <div className="p-4 bg-emerald-50 rounded-xl border-2 border-emerald-200 mb-6">
+                  <div className="flex items-start gap-3">
+                    <div className="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center flex-shrink-0">
+                      <Calendar className="w-5 h-5 text-emerald-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900 flex items-center gap-2">
+                        Long Term
+                        <span className="px-2 py-0.5 bg-emerald-200 text-emerald-800 text-xs font-medium rounded-full">
+                          + Research
+                        </span>
+                      </h4>
+                      <p className="text-emerald-700 font-semibold">6 Months</p>
+                      <p className="text-gray-600 text-sm mt-1">
+                        Full training + Academic Research Project for PhD
+                        preparation & higher education abroad.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Info Box */}
+                <div className="p-4 bg-blue-50 rounded-xl border border-blue-200">
+                  <p className="text-blue-800 text-sm">
+                    <strong>Note:</strong> Both Short & Long Term students train
+                    together for the first 4 months. Long Term students continue
+                    with a research project for 2 additional months.
+                  </p>
+                </div>
+
+                <button
+                  onClick={openModal}
+                  className="w-full mt-6 py-3 bg-primary text-white font-semibold rounded-xl hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
+                >
+                  Apply Now
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+            </motion.div>
+
+            {/* Training Topics */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={programsInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-3"
+            >
+              <div className="bg-white rounded-2xl p-8 border border-gray-100">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
+                  What You'll Learn
+                </h3>
+                <p className="text-gray-600 mb-6">
+                  Comprehensive training covering polymer processing,
+                  manufacturing, and quality testing.
+                </p>
+
+                <div className="flex flex-wrap gap-3">
+                  {trainingTopics.map((topic, index) => (
+                    <motion.span
+                      key={index}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={programsInView ? { opacity: 1, scale: 1 } : {}}
+                      transition={{ duration: 0.3, delay: index * 0.05 }}
+                      className="px-4 py-2 bg-gray-50 rounded-full text-gray-700 font-medium text-sm border border-gray-200 hover:border-primary/30 hover:bg-primary/5 transition-all"
+                    >
+                      {topic}
+                    </motion.span>
+                  ))}
+                </div>
+
+                {/* Long Term Research Highlight */}
+                <div className="mt-8 p-5 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-xl border border-emerald-200">
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center flex-shrink-0">
+                      <BookOpen className="w-6 h-6 text-emerald-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-gray-900 mb-1">
+                        Long Term: Academic Research Project
+                      </h4>
+                      <p className="text-gray-600 text-sm mb-3">
+                        Additional 2 months dedicated to polymer research under
+                        expert supervision. Topics include biodegradable
+                        polymers, recycling technologies, or process
+                        optimization.
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        <span className="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-xs font-medium">
+                          PhD Preparation
+                        </span>
+                        <span className="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-xs font-medium">
+                          Publication Opportunity
+                        </span>
+                        <span className="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-xs font-medium">
+                          Higher Education Mobility
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Industry Services & Equipment */}
-      <section className="py-20 bg-white">
+      {/* Equipment Section - Tags Style */}
+      <section ref={equipmentRef} className="py-20 bg-white">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-5 gap-12">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              animate={equipmentInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6 }}
+              className="lg:col-span-2"
             >
-              <div className="flex items-center gap-3 mb-6">
-                <Factory className="w-6 h-6 text-amber-600" />
-                <h2 className="text-2xl font-bold text-gray-900">Industry Services</h2>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-violet-50 border border-violet-200 rounded-full mb-4">
+                <Flame className="w-4 h-4 text-violet-600" />
+                <span className="text-violet-700 font-medium text-sm">
+                  Laboratory Facilities
+                </span>
               </div>
-              
-              <p className="text-gray-600 mb-8">
-                Professional testing and consultancy for the polymer and plastics industry.
+
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Processing Equipment & Machines
+              </h2>
+
+              <p className="text-gray-600 leading-relaxed mb-6">
+                Train on industrial-grade polymer processing equipment used in
+                manufacturing facilities across Bangladesh and abroad.
               </p>
 
-              <div className="space-y-4">
-                {industryServices.map((service, index) => (
-                  <div key={index} className="flex items-start gap-4 p-5 bg-gray-50 rounded-xl hover:bg-amber-50 transition-colors">
-                    <div className="flex items-center flex-shrink-0">
-                      <div className="w-3 h-2 rounded-full border-2 border-amber-500" />
-                      <div className="w-2 h-0.5 bg-amber-500" />
-                      <div className="w-3 h-2 rounded-full border-2 border-orange-500" />
+              <div className="space-y-3">
+                {whyChoose.slice(0, 4).map((reason, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Check className="w-3 h-3 text-primary" />
                     </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 mb-1">{service.title}</h3>
-                      <p className="text-gray-500 text-sm">{service.description}</p>
-                    </div>
+                    <span className="text-gray-700">{reason}</span>
                   </div>
                 ))}
               </div>
@@ -412,31 +575,25 @@ export default function PolymerPage() {
 
             <motion.div
               initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              animate={equipmentInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6 }}
+              className="lg:col-span-3"
             >
-              <div className="bg-gradient-to-br from-orange-800 to-amber-900 rounded-3xl p-8 text-white">
-                <div className="flex items-center gap-3 mb-6">
-                  <Cog className="w-6 h-6 text-amber-400 animate-spin-slow" />
-                  <h3 className="text-xl font-bold">Processing Equipment</h3>
-                </div>
-                
-                <div className="space-y-3">
+              <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+                <h3 className="font-semibold text-gray-900 mb-6">
+                  Available Equipment
+                </h3>
+                <div className="flex flex-wrap gap-3">
                   {equipment.map((item, index) => (
-                    <motion.div
+                    <motion.span
                       key={index}
-                      initial={{ opacity: 0, x: 20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={equipmentInView ? { opacity: 1, scale: 1 } : {}}
                       transition={{ duration: 0.3, delay: index * 0.05 }}
-                      className="flex items-center gap-4 p-4 bg-white/10 rounded-xl border border-white/10 hover:bg-white/20 transition-colors"
+                      className="px-4 py-2 bg-white rounded-full text-gray-700 font-medium text-sm border border-gray-200 hover:border-violet-300 hover:bg-violet-50 hover:text-violet-700 transition-all cursor-default"
                     >
-                      <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center">
-                        <Layers className="w-4 h-4 text-white" />
-                      </div>
-                      <span className="text-orange-50">{item}</span>
-                    </motion.div>
+                      {item}
+                    </motion.span>
                   ))}
                 </div>
               </div>
@@ -445,63 +602,192 @@ export default function PolymerPage() {
         </div>
       </section>
 
-      {/* Career Opportunities */}
-      <section className="py-20 bg-gradient-to-br from-amber-100 to-orange-100">
+      {/* Career Opportunities - Higher Education Mobility Focus */}
+      <section ref={careerRef} className="py-20 bg-gray-50">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={careerInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Career Opportunities</h2>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-4">
+              <Target className="w-4 h-4 text-primary" />
+              <span className="text-primary font-medium text-sm">
+                Career Pathways
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Your Path to Success
+            </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Join Bangladesh's growing polymer and plastics industry with our specialized training.
+              Our training opens doors to international higher education,
+              academic careers, and plastic industry positions.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {careerOpportunities.map((career, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="group"
-              >
-                <div className="bg-white rounded-xl p-6 text-center border-2 border-transparent hover:border-amber-400 shadow-sm hover:shadow-lg transition-all">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-100 to-orange-100 flex items-center justify-center mx-auto mb-4 group-hover:from-amber-500 group-hover:to-orange-500 transition-all">
-                    <Users className="w-6 h-6 text-amber-600 group-hover:text-white transition-colors" />
+          <div className="grid md:grid-cols-3 gap-6">
+            {Object.entries(careerPathways).map(([key, pathway], index) => {
+              const PathwayIcon = pathway.icon;
+              const colorClasses = [
+                {
+                  bg: "bg-blue-100",
+                  text: "text-blue-600",
+                  item: "bg-blue-50 text-blue-700",
+                },
+                {
+                  bg: "bg-emerald-100",
+                  text: "text-emerald-600",
+                  item: "bg-emerald-50 text-emerald-700",
+                },
+                {
+                  bg: "bg-orange-100",
+                  text: "text-orange-600",
+                  item: "bg-orange-50 text-orange-700",
+                },
+              ][index];
+
+              return (
+                <motion.div
+                  key={key}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={careerInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className={`bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-xl transition-all ${
+                    index === 0 ? "md:ring-2 md:ring-primary/20" : ""
+                  }`}
+                >
+                  {index === 0 && (
+                    <div className="inline-flex items-center gap-1 px-2 py-1 bg-primary text-white text-xs font-medium rounded-full mb-4">
+                      <Award className="w-3 h-3" />
+                      Primary Focus
+                    </div>
+                  )}
+
+                  <div
+                    className={`w-12 h-12 rounded-xl ${colorClasses.bg} flex items-center justify-center mb-4`}
+                  >
+                    <PathwayIcon className={`w-6 h-6 ${colorClasses.text}`} />
                   </div>
-                  <span className="font-medium text-gray-700">{career}</span>
-                </div>
-              </motion.div>
-            ))}
+
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">
+                    {pathway.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm mb-4">
+                    {pathway.description}
+                  </p>
+
+                  <div className="space-y-2">
+                    {pathway.opportunities.map((opp, i) => (
+                      <div
+                        key={i}
+                        className={`px-3 py-2 rounded-lg text-sm font-medium ${colorClasses.item}`}
+                      >
+                        {opp}
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* Research & Why Choose */}
-      <section className="py-20 bg-white">
+      {/* Community & Social Service Section */}
+      <section ref={communityRef} className="py-20 bg-white">
         <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-5 gap-12">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={communityInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-2"
+            >
+              {/* Red Gradient Box */}
+              <div className="bg-gradient-to-br from-primary to-red-700 rounded-2xl p-8 text-white h-full">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/20 rounded-full mb-6">
+                  <Heart className="w-4 h-4" />
+                  <span className="text-sm font-medium">
+                    Community & Engagement
+                  </span>
+                </div>
+
+                <h2 className="text-2xl font-bold mb-4">
+                  Community & Social Service
+                </h2>
+
+                <p className="text-red-100 leading-relaxed mb-6">
+                  KRTC's Polymer department promotes environmental awareness
+                  through plastic recycling education, supports local SMEs with
+                  technical guidance, and conducts community outreach programs.
+                </p>
+
+                <div className="flex items-center gap-3">
+                  <HandHeart className="w-8 h-8 text-red-200" />
+                  <span className="text-red-100 font-medium">
+                    Serving communities since 2025
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={communityInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6 }}
+              className="lg:col-span-3 space-y-4"
+            >
+              {communityServices.map((service, index) => (
+                <div
+                  key={index}
+                  className="flex items-start gap-4 p-5 bg-gray-50 rounded-xl border border-gray-100 hover:border-primary/30 hover:shadow-md transition-all"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-rose-100 flex items-center justify-center flex-shrink-0">
+                    <Heart className="w-5 h-5 text-rose-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 mb-1">
+                      {service.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm">
+                      {service.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container-custom">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Research Areas</h2>
-              <div className="grid grid-cols-2 gap-4">
-                {researchAreas.map((area, index) => (
-                  <div key={index} className="flex items-center gap-3 p-4 bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl border border-amber-200">
-                    <BookOpen className="w-5 h-5 text-amber-600 flex-shrink-0" />
-                    <span className="text-gray-700 font-medium text-sm">{area}</span>
-                  </div>
-                ))}
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-4">
+                <Award className="w-4 h-4 text-primary" />
+                <span className="text-primary font-medium text-sm">
+                  Why KRTC
+                </span>
               </div>
+
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Why Choose This Department?
+              </h2>
+
+              <p className="text-gray-600 leading-relaxed">
+                Our Polymer Processing department offers industry-aligned
+                training with sustainable practices focus, preparing you for
+                success in Bangladesh's growing plastic industry or higher
+                education abroad.
+              </p>
             </motion.div>
 
             <motion.div
@@ -509,60 +795,57 @@ export default function PolymerPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-gradient-to-br from-amber-600 to-orange-600 rounded-3xl p-8 text-white"
+              className="space-y-3"
             >
-              <h3 className="text-xl font-bold mb-6 flex items-center gap-3">
-                <Award className="w-6 h-6 text-amber-200" />
-                Why Choose This Department?
-              </h3>
-              <div className="space-y-4">
-                {whyChoose.map((reason, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <div className="w-6 h-6 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Check className="w-3 h-3 text-white" />
-                    </div>
-                    <span className="text-amber-50">{reason}</span>
+              {whyChoose.map((reason, index) => (
+                <div
+                  key={index}
+                  className="flex items-start gap-4 p-4 bg-white rounded-xl border border-gray-100 hover:border-primary/30 hover:shadow-md transition-all"
+                >
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-red-700 flex items-center justify-center flex-shrink-0">
+                    <Check className="w-4 h-4 text-white" />
                   </div>
-                ))}
-              </div>
+                  <span className="text-gray-700 font-medium">{reason}</span>
+                </div>
+              ))}
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-orange-600 via-amber-600 to-orange-700 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="cta-chains" width="60" height="30" patternUnits="userSpaceOnUse">
-                <ellipse cx="15" cy="15" rx="12" ry="8" fill="none" stroke="white" strokeWidth="1"/>
-                <ellipse cx="45" cy="15" rx="12" ry="8" fill="none" stroke="white" strokeWidth="1"/>
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#cta-chains)"/>
-          </svg>
-        </div>
+      {/* CTA Section - Light Theme */}
+      <section
+        ref={ctaRef}
+        className="py-20 bg-gray-50 relative overflow-hidden"
+      >
+        <div className="absolute top-10 left-1/4 w-72 h-72 bg-primary/5 rounded-full blur-[100px]" />
+        <div className="absolute bottom-10 right-1/4 w-96 h-96 bg-orange-500/5 rounded-full blur-[120px]" />
 
         <div className="container-custom relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={ctaInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-              Shape Your Career in Polymers
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Start Your Polymer Processing Career
             </h2>
-            <p className="text-orange-100 max-w-2xl mx-auto mb-8 text-lg">
-              Join KRTC's Polymer department and become part of Bangladesh's growing plastics industry. Scholarships available.
+            <p className="text-gray-600 max-w-2xl mx-auto mb-8 text-lg">
+              Join KRTC's Polymer department and develop expertise in plastic
+              manufacturing and processing. Scholarship opportunities available.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/contact" className="group inline-flex items-center gap-2 px-8 py-4 bg-white text-orange-700 font-bold rounded-lg hover:bg-amber-50 transition-colors shadow-lg">
+              <button
+                onClick={openModal}
+                className="group inline-flex items-center gap-2 px-8 py-4 bg-primary text-white font-bold rounded-full hover:bg-primary/90 transition-colors"
+              >
                 Apply Now
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link href="/schooling" className="inline-flex items-center gap-2 px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors">
+              </button>
+              <Link
+                href="/schooling"
+                className="inline-flex items-center gap-2 px-8 py-4 border-2 border-gray-300 text-gray-700 font-semibold rounded-full hover:border-primary hover:text-primary transition-colors"
+              >
                 Scholarship Info
               </Link>
             </div>
@@ -570,36 +853,288 @@ export default function PolymerPage() {
         </div>
       </section>
 
-      {/* Department Navigation */}
-      <section className="py-6 bg-gray-50 border-t border-gray-200">
-        <div className="container-custom">
-          <div className="flex justify-between items-center">
-            <Link href="/services/pharmaceutical" className="group flex items-center gap-3 text-gray-600 hover:text-amber-600 transition-colors">
-              <div className="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center group-hover:bg-amber-500 transition-colors">
-                <ArrowLeft className="w-5 h-5 text-amber-600 group-hover:text-white transition-colors" />
+      {/* Apply Now Modal */}
+      <AnimatePresence>
+        {isModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/50 z-50 flex items-start justify-center overflow-y-auto py-8 px-4"
+            onClick={closeModal}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="bg-white rounded-2xl w-full max-w-md overflow-hidden shadow-2xl my-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Modal Header */}
+              <div className="bg-gradient-to-r from-primary to-red-700 p-6 text-white">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-red-200 text-sm mb-1">
+                      Polymer Processing
+                    </p>
+                    <h3 className="text-xl font-bold">
+                      {modalStep === "info" && "Start Your Journey"}
+                      {modalStep === "form" && "Register Your Interest"}
+                      {modalStep === "success" && "Registration Successful!"}
+                    </h3>
+                  </div>
+                  <button
+                    onClick={closeModal}
+                    className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
               </div>
-              <div>
-                <div className="text-xs text-gray-400 uppercase tracking-wider">Previous</div>
-                <div className="font-semibold">Pharmaceutical</div>
-              </div>
-            </Link>
 
-            <Link href="/services" className="px-6 py-2 bg-white border border-gray-200 text-gray-700 font-medium rounded-lg hover:border-amber-300 hover:text-amber-600 transition-colors">
-              All Departments
-            </Link>
+              {/* Modal Content */}
+              <div className="p-6">
+                {modalStep === "info" && (
+                  <>
+                    {/* Intake Info */}
+                    <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-4 mb-5">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Calendar className="w-5 h-5 text-emerald-600" />
+                        <span className="font-semibold text-emerald-800">
+                          Upcoming Intakes
+                        </span>
+                      </div>
+                      <div className="grid grid-cols-2 gap-3">
+                        <div className="bg-white rounded-lg p-3 text-center border border-emerald-100">
+                          <p className="text-xs text-gray-500 mb-1">Intake 1</p>
+                          <p className="font-bold text-emerald-700">
+                            October 2026
+                          </p>
+                        </div>
+                        <div className="bg-white rounded-lg p-3 text-center border border-emerald-100">
+                          <p className="text-xs text-gray-500 mb-1">Intake 2</p>
+                          <p className="font-bold text-emerald-700">
+                            April 2027
+                          </p>
+                        </div>
+                      </div>
+                    </div>
 
-            <Link href="/services/materials" className="group flex items-center gap-3 text-gray-600 hover:text-amber-600 transition-colors">
-              <div className="text-right">
-                <div className="text-xs text-gray-400 uppercase tracking-wider">Next</div>
-                <div className="font-semibold">Materials</div>
+                    {/* Program Selection */}
+                    <div className="mb-5">
+                      <p className="font-semibold text-gray-900 mb-3">
+                        Select Program Duration
+                      </p>
+                      <div className="space-y-3">
+                        <label
+                          className={`flex items-center gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all ${
+                            selectedProgram === "short"
+                              ? "border-primary bg-primary/5"
+                              : "border-gray-200 hover:border-gray-300"
+                          }`}
+                        >
+                          <input
+                            type="radio"
+                            name="program"
+                            checked={selectedProgram === "short"}
+                            onChange={() => setSelectedProgram("short")}
+                            className="accent-primary"
+                          />
+                          <div>
+                            <p className="font-semibold text-gray-900">
+                              Short Term
+                            </p>
+                            <p className="text-sm text-gray-500">
+                              4 months • Processing & Quality Control
+                            </p>
+                          </div>
+                        </label>
+                        <label
+                          className={`flex items-center gap-3 p-4 rounded-xl border-2 cursor-pointer transition-all ${
+                            selectedProgram === "long"
+                              ? "border-primary bg-primary/5"
+                              : "border-gray-200 hover:border-gray-300"
+                          }`}
+                        >
+                          <input
+                            type="radio"
+                            name="program"
+                            checked={selectedProgram === "long"}
+                            onChange={() => setSelectedProgram("long")}
+                            className="accent-primary"
+                          />
+                          <div>
+                            <p className="font-semibold text-gray-900">
+                              Long Term
+                              <span className="ml-2 px-2 py-0.5 bg-emerald-100 text-emerald-700 text-xs rounded-full">
+                                + Research
+                              </span>
+                            </p>
+                            <p className="text-sm text-gray-500">
+                              6 months • Training + Research Project
+                            </p>
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+
+                    {/* Scholarship Info */}
+                    <div className="bg-red-50 border border-red-200 rounded-xl p-4 mb-5 flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0">
+                        <Award className="w-5 h-5 text-primary" />
+                      </div>
+                      <div className="flex-1">
+                        <p className="font-semibold text-primary">
+                          Scholarship Available
+                        </p>
+                        <p className="text-sm text-red-700">
+                          Up to 20% for deserving students
+                        </p>
+                      </div>
+                      <Link
+                        href="/schooling"
+                        className="text-xs text-primary underline"
+                      >
+                        Learn more
+                      </Link>
+                    </div>
+
+                    {/* Actions */}
+                    <button
+                      onClick={handleRegisterInterest}
+                      className="w-full py-3.5 bg-primary text-white font-semibold rounded-xl hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
+                    >
+                      Register Interest
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                    <button
+                      onClick={closeModal}
+                      className="w-full mt-3 py-3 border border-gray-200 text-gray-600 rounded-xl hover:bg-gray-50 transition-colors"
+                    >
+                      Contact Us Instead
+                    </button>
+
+                    {/* Contact Info */}
+                    <div className="mt-5 pt-5 border-t border-gray-100 flex justify-center gap-6">
+                      <a
+                        href="tel:+8801345687576"
+                        className="flex items-center gap-2 text-sm text-gray-500 hover:text-primary transition-colors"
+                      >
+                        <Phone className="w-4 h-4" />
+                        +880 134 568 7576
+                      </a>
+                      <a
+                        href="https://wa.me/491634855414"
+                        className="flex items-center gap-2 text-sm text-gray-500 hover:text-green-600 transition-colors"
+                      >
+                        <MessageCircle className="w-4 h-4" />
+                        WhatsApp
+                      </a>
+                    </div>
+                  </>
+                )}
+
+                {modalStep === "form" && (
+                  <form onSubmit={handleSubmit}>
+                    <div className="space-y-4">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                          Full Name *
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          placeholder="আপনার নাম"
+                          className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                          Phone Number *
+                        </label>
+                        <input
+                          type="tel"
+                          required
+                          placeholder="+880 1XX XXX XXXX"
+                          className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                          Email Address
+                        </label>
+                        <input
+                          type="email"
+                          placeholder="email@example.com"
+                          className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                          Preferred Intake
+                        </label>
+                        <select className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all bg-white">
+                          <option>October 2026</option>
+                          <option>April 2027</option>
+                        </select>
+                      </div>
+                      <label className="flex items-start gap-3 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          className="mt-1 accent-primary"
+                        />
+                        <span className="text-sm text-gray-600">
+                          I'm interested in scholarship opportunities
+                        </span>
+                      </label>
+                    </div>
+
+                    <button
+                      type="submit"
+                      className="w-full mt-6 py-3.5 bg-primary text-white font-semibold rounded-xl hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
+                    >
+                      Submit Registration
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                    <p className="text-center text-xs text-gray-400 mt-3">
+                      We'll contact you within 24-48 hours
+                    </p>
+                  </form>
+                )}
+
+                {modalStep === "success" && (
+                  <div className="text-center py-4">
+                    <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <Check className="w-8 h-8 text-emerald-600" />
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">
+                      Thank You!
+                    </h4>
+                    <p className="text-gray-600 mb-6">
+                      Your interest in Polymer Processing has been registered.
+                      We'll contact you soon about the October 2026 intake.
+                    </p>
+                    <div className="flex gap-3">
+                      <Link
+                        href="/services"
+                        className="flex-1 py-3 bg-primary text-white font-semibold rounded-xl hover:bg-primary/90 transition-colors text-center"
+                      >
+                        Explore More
+                      </Link>
+                      <button
+                        onClick={closeModal}
+                        className="flex-1 py-3 border border-gray-200 text-gray-600 rounded-xl hover:bg-gray-50 transition-colors"
+                      >
+                        Close
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
-              <div className="w-10 h-10 rounded-lg bg-amber-100 flex items-center justify-center group-hover:bg-amber-500 transition-colors">
-                <ArrowRight className="w-5 h-5 text-amber-600 group-hover:text-white transition-colors" />
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 }
