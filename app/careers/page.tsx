@@ -27,32 +27,49 @@ const openPositions = [
     vacancies: 6,
     deadline: "April 30, 2026",
     featured: true,
+    active: false,
     description:
       "Guide students through their educational journey and career planning at KRTC.",
   },
   {
     id: 2,
+    slug: "university-coordinator",
+    title: "University Coordinator & Student Ambassador",
+    department: "All Universities",
+    type: "Part-time",
+    location: "Bangladesh (Remote)",
+    vacancies: 60,
+    deadline: "Open",
+    featured: true,
+    active: true,
+    description:
+      "Represent KRTC at your university and help connect students with academic opportunities.",
+  },
+  {
+    id: 3,
     slug: "lab-technician-chemistry",
     title: "Lab Technician",
     department: "Chemistry",
     type: "Full-time",
     location: "Sirajganj",
     vacancies: 2,
-    deadline: "May 15, 2026",
+    deadline: "Coming Soon",
     featured: false,
+    active: false,
     description:
       "Assist in laboratory operations, equipment maintenance, and student training.",
   },
   {
-    id: 3,
+    id: 4,
     slug: "research-assistant",
     title: "Research Assistant",
     department: "Pharmaceutical",
     type: "Part-time",
     location: "Sirajganj",
     vacancies: 3,
-    deadline: "May 20, 2026",
+    deadline: "Coming Soon",
     featured: false,
+    active: false,
     description:
       "Support ongoing research projects and assist with data collection and analysis.",
   },
@@ -84,6 +101,10 @@ const benefits = [
 export default function CareersPage() {
   const heroRef = useRef(null);
   const heroInView = useInView(heroRef, { once: true });
+
+  // Separate active and inactive positions
+  const activePositions = openPositions.filter((job) => job.active);
+  const upcomingPositions = openPositions.filter((job) => !job.active);
 
   return (
     <>
@@ -132,7 +153,7 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* Open Positions */}
+      {/* Open Positions - Active */}
       <section className="py-16 bg-white">
         <div className="container-custom">
           <motion.div
@@ -145,12 +166,13 @@ export default function CareersPage() {
               Open Positions
             </h2>
             <p className="text-gray-600">
-              {openPositions.length} opportunities available
+              {activePositions.length} opportunities currently accepting
+              applications
             </p>
           </motion.div>
 
           <div className="space-y-4">
-            {openPositions.map((job, i) => (
+            {activePositions.map((job, i) => (
               <motion.div
                 key={job.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -219,8 +241,86 @@ export default function CareersPage() {
         </div>
       </section>
 
+      {/* Upcoming Positions - Disabled */}
+      {upcomingPositions.length > 0 && (
+        <section className="py-16 bg-gray-50">
+          <div className="container-custom">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mb-12"
+            >
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                Upcoming Positions
+              </h2>
+              <p className="text-gray-600">
+                These positions will be open for applications soon
+              </p>
+            </motion.div>
+
+            <div className="space-y-4">
+              {upcomingPositions.map((job, i) => (
+                <motion.div
+                  key={job.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.05 }}
+                >
+                  <div className="bg-white rounded-2xl p-6 border border-gray-200 opacity-70">
+                    <div className="flex flex-col md:flex-row md:items-center gap-4">
+                      {/* Left - Info */}
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-2">
+                          <span className="px-3 py-1 bg-gray-200 text-gray-500 text-xs font-semibold rounded-full">
+                            COMING SOON
+                          </span>
+                          <span className="px-3 py-1 bg-gray-100 text-gray-500 text-xs font-medium rounded-full">
+                            {job.department}
+                          </span>
+                        </div>
+
+                        <h3 className="text-xl font-bold text-gray-500 mb-2">
+                          {job.title}
+                        </h3>
+                        <p className="text-gray-400 text-sm mb-3">
+                          {job.description}
+                        </p>
+
+                        <div className="flex flex-wrap gap-4 text-sm text-gray-400">
+                          <span className="flex items-center gap-1">
+                            <MapPin className="w-4 h-4" />
+                            {job.location}
+                          </span>
+                          <span className="flex items-center gap-1">
+                            <Clock className="w-4 h-4" />
+                            {job.type}
+                          </span>
+                          <span className="flex items-center gap-1">
+                            <Users className="w-4 h-4" />
+                            {job.vacancies} positions
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Right - Disabled Button */}
+                      <div className="flex items-center gap-4">
+                        <div className="px-6 py-3 bg-gray-200 text-gray-400 font-semibold rounded-xl cursor-not-allowed flex items-center gap-2">
+                          Coming Soon
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Why Join Us */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -244,7 +344,7 @@ export default function CareersPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className="bg-white rounded-2xl p-6 border border-gray-100 text-center"
+                className="bg-gray-50 rounded-2xl p-6 border border-gray-100 text-center"
               >
                 <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <benefit.icon className="w-7 h-7 text-primary" />
@@ -260,7 +360,7 @@ export default function CareersPage() {
       </section>
 
       {/* Contact CTA */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-50">
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
