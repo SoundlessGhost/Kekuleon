@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
 import {
   Phone,
   Mail,
@@ -16,12 +17,15 @@ import {
   GraduationCap,
   FlaskConical,
   Handshake,
-  Facebook,
-  Linkedin,
-  Twitch,
-  Twitter,
+  AlertCircle,
+  Loader2,
 } from "lucide-react";
 import { siteConfig } from "@/lib/data";
+
+// EmailJS Credentials
+const EMAILJS_SERVICE_ID = "service_4q2b1np";
+const EMAILJS_TEMPLATE_ID = "template_tden6u9";
+const EMAILJS_PUBLIC_KEY = "dUpLZYUAf9t68d8UG";
 
 const contactReasons = [
   {
@@ -55,29 +59,56 @@ const contactReasons = [
 ];
 
 export default function ContactPage() {
+  const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
+    from_name: "",
+    from_email: "",
     phone: "",
     subject: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [formStatus, setFormStatus] = useState<"idle" | "success" | "error">(
+    "idle",
+  );
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setFormStatus("idle");
+    setErrorMessage("");
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const result = await emailjs.sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        formRef.current!,
+        EMAILJS_PUBLIC_KEY,
+      );
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
-
-    // Reset success message after 5 seconds
-    setTimeout(() => setIsSubmitted(false), 5000);
+      if (result.status === 200) {
+        setFormStatus("success");
+        setFormData({
+          from_name: "",
+          from_email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+        formRef.current?.reset();
+      } else {
+        throw new Error("Failed to send message");
+      }
+    } catch (error: any) {
+      setFormStatus("error");
+      setErrorMessage(
+        "Failed to send message. Please try again or email us directly at kekuleoninfo@gmail.com",
+      );
+      console.error("EmailJS Error:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -86,6 +117,11 @@ export default function ContactPage() {
     >,
   ) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const resetForm = () => {
+    setFormStatus("idle");
+    setErrorMessage("");
   };
 
   return (
@@ -230,9 +266,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <div className="text-xs text-white/60 mb-1">Email</div>
-                      <div className="font-medium text-sm">
-                        {siteConfig.email}
-                      </div>
+                      <div className="font-medium">{siteConfig.email}</div>
                     </div>
                   </a>
 
@@ -242,7 +276,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <div className="text-xs text-white/60 mb-1">Address</div>
-                      <div className="font-medium text-sm">
+                      <div className="font-medium">
                         {siteConfig.address.full}
                       </div>
                     </div>
@@ -256,7 +290,7 @@ export default function ContactPage() {
                       <div className="text-xs text-white/60 mb-1">
                         Office Hours
                       </div>
-                      <div className="font-medium text-sm">
+                      <div className="font-medium">
                         Sat - Thu: 9:00 AM - 6:00 PM
                       </div>
                     </div>
@@ -273,7 +307,7 @@ export default function ContactPage() {
                       rel="noopener noreferrer"
                       className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors"
                     >
-                      <Facebook className="w-5 h-5" />
+                      <Globe className="w-5 h-5" />
                     </a>
                     <a
                       href={siteConfig.social.linkedin}
@@ -281,15 +315,7 @@ export default function ContactPage() {
                       rel="noopener noreferrer"
                       className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors"
                     >
-                      <Linkedin className="w-5 h-5" />
-                    </a>
-                    <a
-                      href={siteConfig.social.twitter}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors"
-                    >
-                      <Twitter className="w-5 h-5" />
+                      <Globe className="w-5 h-5" />
                     </a>
                   </div>
                 </div>
@@ -309,7 +335,7 @@ export default function ContactPage() {
                   Send us a Message
                 </h2>
 
-                {isSubmitted ? (
+                {formStatus === "success" ? (
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -321,25 +347,35 @@ export default function ContactPage() {
                     <h3 className="text-xl font-bold text-gray-900 mb-2">
                       Message Sent!
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 mb-6">
                       Thank you for contacting us. We will get back to you soon.
                     </p>
+                    <button
+                      onClick={resetForm}
+                      className="text-primary font-medium hover:underline"
+                    >
+                      Send another message
+                    </button>
                   </motion.div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-5">
+                  <form
+                    ref={formRef}
+                    onSubmit={handleSubmit}
+                    className="space-y-5"
+                  >
                     <div className="grid sm:grid-cols-2 gap-5">
                       <div>
                         <label
-                          htmlFor="name"
+                          htmlFor="from_name"
                           className="block text-sm font-medium text-gray-700 mb-2"
                         >
                           Full Name *
                         </label>
                         <input
                           type="text"
-                          id="name"
-                          name="name"
-                          value={formData.name}
+                          id="from_name"
+                          name="from_name"
+                          value={formData.from_name}
                           onChange={handleChange}
                           required
                           className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
@@ -348,16 +384,16 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <label
-                          htmlFor="email"
+                          htmlFor="from_email"
                           className="block text-sm font-medium text-gray-700 mb-2"
                         >
                           Email Address *
                         </label>
                         <input
                           type="email"
-                          id="email"
-                          name="email"
-                          value={formData.email}
+                          id="from_email"
+                          name="from_email"
+                          value={formData.from_email}
                           onChange={handleChange}
                           required
                           className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
@@ -400,15 +436,21 @@ export default function ContactPage() {
                           className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-white"
                         >
                           <option value="">Select a subject</option>
-                          <option value="admission">Admission Inquiry</option>
-                          <option value="scholarship">
+                          <option value="Admission Inquiry">
+                            Admission Inquiry
+                          </option>
+                          <option value="Scholarship Information">
                             Scholarship Information
                           </option>
-                          <option value="industry">
+                          <option value="Industry Collaboration">
                             Industry Collaboration
                           </option>
-                          <option value="research">Research Partnership</option>
-                          <option value="general">General Inquiry</option>
+                          <option value="Research Partnership">
+                            Research Partnership
+                          </option>
+                          <option value="General Inquiry">
+                            General Inquiry
+                          </option>
                         </select>
                       </div>
                     </div>
@@ -432,6 +474,14 @@ export default function ContactPage() {
                       />
                     </div>
 
+                    {/* Error Message */}
+                    {formStatus === "error" && (
+                      <div className="p-4 bg-red-50 border border-red-200 rounded-xl flex items-start gap-3">
+                        <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+                        <p className="text-red-700 text-sm">{errorMessage}</p>
+                      </div>
+                    )}
+
                     <button
                       type="submit"
                       disabled={isSubmitting}
@@ -439,7 +489,7 @@ export default function ContactPage() {
                     >
                       {isSubmitting ? (
                         <>
-                          <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                          <Loader2 className="w-5 h-5 animate-spin" />
                           Sending...
                         </>
                       ) : (
@@ -457,7 +507,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Map Section (Optional placeholder) */}
+      {/* Map Section */}
       <section className="section bg-white">
         <div className="container-custom">
           <motion.div
