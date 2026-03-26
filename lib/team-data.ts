@@ -15,7 +15,7 @@ export interface TeamMember {
   phone?: string;
   location?: string;
   linkedin?: string;
-  type: "leadership" | "instructor";
+  type: "leadership" | "applied-science" | "schooling";
   bio: string;
   education: {
     degree: string;
@@ -54,16 +54,41 @@ export const allTeamMembers: Record<string, TeamMember> = {
 
 He completed his MSc and BSc in Applied Chemistry and Chemical Engineering from University of Rajshahi, and received industrial training from TICI on Process Unit Operation. His vision is to bridge the gap between theoretical education and practical scientific competence in Bangladesh.`,
     education: [
-      { degree: "MSc Chemistry (Ongoing)", institution: "University of Siegen, Germany", year: "2023-Present" },
-      { degree: "MSc Applied Chemistry & Chemical Engineering", institution: "University of Rajshahi", year: "2020-2021" },
-      { degree: "BSc Applied Chemistry & Chemical Engineering", institution: "University of Rajshahi", year: "2015-2020" },
-      { degree: "Training on Industrial Process Unit Operation", institution: "TICI, Norsingdi", year: "2022" },
+      {
+        degree: "MSc Chemistry (Ongoing)",
+        institution: "University of Siegen, Germany",
+        year: "2023-Present",
+      },
+      {
+        degree: "MSc Applied Chemistry & Chemical Engineering",
+        institution: "University of Rajshahi",
+        year: "2020-2021",
+      },
+      {
+        degree: "BSc Applied Chemistry & Chemical Engineering",
+        institution: "University of Rajshahi",
+        year: "2015-2020",
+      },
+      {
+        degree: "Training on Industrial Process Unit Operation",
+        institution: "TICI, Norsingdi",
+        year: "2022",
+      },
     ],
     experience: [
       { role: "Chairman & CEO", org: "KRTC", period: "2025 - Present" },
-      { role: "MSc Research Student", org: "University of Siegen, Germany", period: "2023 - Present" },
+      {
+        role: "MSc Research Student",
+        org: "University of Siegen, Germany",
+        period: "2023 - Present",
+      },
     ],
-    skills: ["Applied Chemistry", "Research Methodology", "Institutional Development", "Science Education"],
+    skills: [
+      "Applied Chemistry",
+      "Research Methodology",
+      "Institutional Development",
+      "Science Education",
+    ],
     achievements: ["Founded KRTC", "International Academic Experience"],
   },
 
@@ -86,7 +111,12 @@ He manages administrative functions, coordinates with stakeholders, and ensures 
     experience: [
       { role: "Managing Director", org: "KRTC", period: "2025 - Present" },
     ],
-    skills: ["Operations Management", "Administration", "Stakeholder Relations", "Program Coordination"],
+    skills: [
+      "Operations Management",
+      "Administration",
+      "Stakeholder Relations",
+      "Program Coordination",
+    ],
     achievements: ["Co-founder of KRTC"],
   },
 
@@ -106,22 +136,55 @@ He manages administrative functions, coordinates with stakeholders, and ensures 
     phone: "+880 1717987729",
     location: "Kishoreganj / Dhaka, Bangladesh",
     linkedin: "http://linkedin.com/in/nazmul-haque-mitun-194682132",
-    type: "instructor",
+    type: "applied-science",
     bio: `Nazmul Haque Mitun is a Chemistry Lecturer at Milestone College, Dhaka, and an instructor at KRTC. With strong academic background in Applied Chemistry and Chemical Engineering from University of Rajshahi, he brings both theoretical knowledge and practical teaching experience.
 
 He completed specialized training on Industrial Process Unit Operation & Process Control Technique from Training Institute for Chemical Industries (TICI), which enables him to connect classroom learning with real-world industrial applications. He received Certificate of Appreciation from BCSIR in 2024.`,
     education: [
-      { degree: "MSc Applied Chemistry & Chemical Engineering", institution: "University of Rajshahi", year: "2020-2021" },
-      { degree: "BSc Applied Chemistry & Chemical Engineering", institution: "University of Rajshahi", year: "2015-2020" },
-      { degree: "Training on Industrial Process Unit Operation & Process Control", institution: "TICI, Norsingdi", year: "2022", grade: "A+" },
-      { degree: "Higher Secondary Certificate (HSC)", institution: "Govt. Gurudayal College, Kishoreganj", year: "2014", grade: "GPA 4.70" },
+      {
+        degree: "MSc Applied Chemistry & Chemical Engineering",
+        institution: "University of Rajshahi",
+        year: "2020-2021",
+      },
+      {
+        degree: "BSc Applied Chemistry & Chemical Engineering",
+        institution: "University of Rajshahi",
+        year: "2015-2020",
+      },
+      {
+        degree:
+          "Training on Industrial Process Unit Operation & Process Control",
+        institution: "TICI, Norsingdi",
+        year: "2022",
+        grade: "A+",
+      },
+      {
+        degree: "Higher Secondary Certificate (HSC)",
+        institution: "Govt. Gurudayal College, Kishoreganj",
+        year: "2014",
+        grade: "GPA 4.70",
+      },
     ],
     experience: [
-      { role: "Chemistry Lecturer", org: "Milestone College, Dhaka", period: "Dec 2025 - Present" },
+      {
+        role: "Chemistry Lecturer",
+        org: "Milestone College, Dhaka",
+        period: "Dec 2025 - Present",
+      },
       { role: "Chemistry Instructor", org: "KRTC", period: "2025 - Present" },
     ],
-    skills: ["Analytical Chemistry", "Process Technology", "Instrumentation", "Environmental Science", "Industrial Safety"],
-    achievements: ["BCSIR Certificate of Appreciation 2024", "TICI Certified (A+ Grade)", "Milestone College Lecturer"],
+    skills: [
+      "Analytical Chemistry",
+      "Process Technology",
+      "Instrumentation",
+      "Environmental Science",
+      "Industrial Safety",
+    ],
+    achievements: [
+      "BCSIR Certificate of Appreciation 2024",
+      "TICI Certified (A+ Grade)",
+      "Milestone College Lecturer",
+    ],
   },
 
   "md-sumon": {
@@ -136,22 +199,52 @@ He completed specialized training on Industrial Process Unit Operation & Process
     email: "mdsumon61933@gmail.com",
     phone: "+880 1758727115",
     location: "Rajshahi, Bangladesh",
-    type: "instructor",
+    type: "applied-science",
     bio: `Md. Sumon is a Mathematics instructor with strong analytical skills and competitive achievement. He secured 8th position at the 15th National Undergraduate Mathematics Olympiad, Bangladesh-2024, and has won 3 regional Mathematics Olympiads.
 
 Currently working as an instructor at Pi Math Academy and KRTC, he specializes in mathematical problem solving, climate modeling, and data analysis. His technical proficiency includes Matlab, C, Fortran, and various data processing tools.`,
     education: [
-      { degree: "BSc in Mathematics", institution: "University of Rajshahi", year: "2020-2023", grade: "CGPA: 3.14" },
-      { degree: "Higher Secondary Certificate (HSC)", institution: "Varendra College, Rajshahi", year: "2019", grade: "GPA: 4.42" },
-      { degree: "Secondary School Certificate (SSC)", institution: "Baliapukur Vidyaniketon, Rajshahi", year: "2017", grade: "GPA: 5.00" },
+      {
+        degree: "BSc in Mathematics",
+        institution: "University of Rajshahi",
+        year: "2020-2023",
+        grade: "CGPA: 3.14",
+      },
+      {
+        degree: "Higher Secondary Certificate (HSC)",
+        institution: "Varendra College, Rajshahi",
+        year: "2019",
+        grade: "GPA: 4.42",
+      },
+      {
+        degree: "Secondary School Certificate (SSC)",
+        institution: "Baliapukur Vidyaniketon, Rajshahi",
+        year: "2017",
+        grade: "GPA: 5.00",
+      },
     ],
     experience: [
       { role: "Mathematics Instructor", org: "KRTC", period: "2025 - Present" },
       { role: "Instructor", org: "Pi Math Academy", period: "2023 - Present" },
-      { role: "Data Analyst", org: "Climate Modeling Projects", period: "2023 - Present" },
+      {
+        role: "Data Analyst",
+        org: "Climate Modeling Projects",
+        period: "2023 - Present",
+      },
     ],
-    skills: ["Mathematical Problem Solving", "Matlab", "C Programming", "Fortran", "Data Analysis", "Climate Modeling"],
-    achievements: ["8th Position - 15th National Undergraduate Math Olympiad 2024", "3x Regional Math Olympiad Winner", "SSC GPA 5.00"],
+    skills: [
+      "Mathematical Problem Solving",
+      "Matlab",
+      "C Programming",
+      "Fortran",
+      "Data Analysis",
+      "Climate Modeling",
+    ],
+    achievements: [
+      "8th Position - 15th National Undergraduate Math Olympiad 2024",
+      "3x Regional Math Olympiad Winner",
+      "SSC GPA 5.00",
+    ],
   },
 
   "ashad-belal": {
@@ -166,21 +259,46 @@ Currently working as an instructor at Pi Math Academy and KRTC, he specializes i
     email: "ashadbelal1234@gmail.com",
     phone: "+880 1570216200",
     location: "Rajshahi, Bangladesh",
-    type: "instructor",
+    type: "schooling",
     bio: `Ashad Belal is a talented young science instructor with exceptional academic achievements. He won the Bangladesh Physics Olympiad in 2019, demonstrating his strong foundation in physics and scientific reasoning.
 
 Currently pursuing BSc in Mathematics at University of Rajshahi, he has been teaching as a home tutor since 2022. He has strong command over Math, Physics, Chemistry, and Biology, with excellent communication and explanation skills that make complex concepts accessible to students.`,
     education: [
-      { degree: "BSc in Mathematics (Ongoing, 3rd Semester)", institution: "University of Rajshahi", year: "2023-Present" },
-      { degree: "Higher Secondary Certificate (HSC)", institution: "Ramu Govt College", year: "2023", grade: "GPA: 5.00" },
-      { degree: "Secondary School Certificate (SSC)", institution: "Eidgah Adarsha Shiksha Niketon", year: "2021", grade: "GPA: 4.61" },
+      {
+        degree: "BSc in Mathematics (Ongoing, 3rd Semester)",
+        institution: "University of Rajshahi",
+        year: "2023-Present",
+      },
+      {
+        degree: "Higher Secondary Certificate (HSC)",
+        institution: "Ramu Govt College",
+        year: "2023",
+        grade: "GPA: 5.00",
+      },
+      {
+        degree: "Secondary School Certificate (SSC)",
+        institution: "Eidgah Adarsha Shiksha Niketon",
+        year: "2021",
+        grade: "GPA: 4.61",
+      },
     ],
     experience: [
       { role: "Science Instructor", org: "KRTC", period: "2025 - Present" },
       { role: "Home Tutor", org: "Private", period: "2022 - Present" },
     ],
-    skills: ["Physics", "Mathematics", "Chemistry", "Biology", "Easy Explanation", "Student Mentoring"],
-    achievements: ["Winner - Bangladesh Physics Olympiad 2019", "HSC GPA 5.00", "Multi-subject Expertise"],
+    skills: [
+      "Physics",
+      "Mathematics",
+      "Chemistry",
+      "Biology",
+      "Easy Explanation",
+      "Student Mentoring",
+    ],
+    achievements: [
+      "Winner - Bangladesh Physics Olympiad 2019",
+      "HSC GPA 5.00",
+      "Multi-subject Expertise",
+    ],
   },
 
   "arifin-asad": {
@@ -195,23 +313,57 @@ Currently pursuing BSc in Mathematics at University of Rajshahi, he has been tea
     email: "arifinsk72@gmail.com",
     phone: "+880 1842739155",
     location: "Belkuchi, Sirajganj, Bangladesh",
-    type: "instructor",
+    type: "schooling",
     bio: `Arifin Asad is a motivated undergraduate student of Applied Chemistry and Chemical Engineering with strong academic results and extensive teaching experience. Currently in his 4th year at Rajshahi University with GPA 3.45, he has been actively involved in teaching.
 
 He works as an instructor at Chorcha Coaching Center and UAC Coaching Center, teaching 4+ batches independently. He also teaches more than 60 students privately. His perfect GPA 5.00 in both HSC and SSC reflects his academic excellence.`,
     education: [
-      { degree: "BSc Applied Chemistry & Chemical Engineering (4th Year)", institution: "Rajshahi University", year: "2021-Present", grade: "GPA: 3.45/4.00" },
-      { degree: "Higher Secondary Certificate (HSC)", institution: "Rajshahi Board", year: "2020", grade: "GPA: 5.00" },
-      { degree: "Secondary School Certificate (SSC)", institution: "Rajshahi Board", year: "2018", grade: "GPA: 5.00" },
+      {
+        degree: "BSc Applied Chemistry & Chemical Engineering (4th Year)",
+        institution: "Rajshahi University",
+        year: "2021-Present",
+        grade: "GPA: 3.45/4.00",
+      },
+      {
+        degree: "Higher Secondary Certificate (HSC)",
+        institution: "Rajshahi Board",
+        year: "2020",
+        grade: "GPA: 5.00",
+      },
+      {
+        degree: "Secondary School Certificate (SSC)",
+        institution: "Rajshahi Board",
+        year: "2018",
+        grade: "GPA: 5.00",
+      },
     ],
     experience: [
       { role: "Chemistry Instructor", org: "KRTC", period: "2025 - Present" },
-      { role: "Instructor", org: "Chorcha Coaching Center", period: "2022 - Present" },
-      { role: "Instructor", org: "UAC Coaching Center", period: "2022 - Present" },
+      {
+        role: "Instructor",
+        org: "Chorcha Coaching Center",
+        period: "2022 - Present",
+      },
+      {
+        role: "Instructor",
+        org: "UAC Coaching Center",
+        period: "2022 - Present",
+      },
       { role: "Private Tutor", org: "60+ Students", period: "2021 - Present" },
     ],
-    skills: ["Chemistry", "Chemical Engineering", "Classroom Management", "Effective Communication", "Time Management", "Leadership"],
-    achievements: ["60+ Private Students", "4+ Independent Batches", "HSC & SSC GPA 5.00"],
+    skills: [
+      "Chemistry",
+      "Chemical Engineering",
+      "Classroom Management",
+      "Effective Communication",
+      "Time Management",
+      "Leadership",
+    ],
+    achievements: [
+      "60+ Private Students",
+      "4+ Independent Batches",
+      "HSC & SSC GPA 5.00",
+    ],
   },
 
   "md-mafizul-islam": {
@@ -226,18 +378,28 @@ He works as an instructor at Chorcha Coaching Center and UAC Coaching Center, te
     email: "mdmafizulislam93@gmail.com",
     phone: "+880 1767530231",
     location: "Binodpur, Rajshahi, Bangladesh",
-    type: "instructor",
+    type: "applied-science",
     bio: `Md. Mafizul Islam is a dedicated Physics instructor currently pursuing BSc in Physics at University of Rajshahi. His teaching philosophy focuses on understanding students' needs and making knowledge boundaries wide through motivational teaching methods.
 
 He believes in staying updated with new technology and teaching techniques to always be the best teacher he can be. Since 2023, he has been working as a home tutor with strong command over Physics, Chemistry, and Math.`,
     education: [
-      { degree: "BSc in Physics (3rd Year, 1st Semester)", institution: "University of Rajshahi", year: "2022-Present" },
+      {
+        degree: "BSc in Physics (3rd Year, 1st Semester)",
+        institution: "University of Rajshahi",
+        year: "2022-Present",
+      },
     ],
     experience: [
       { role: "Physics Instructor", org: "KRTC", period: "2025 - Present" },
       { role: "Home Tutor", org: "Private", period: "2023 - Present" },
     ],
-    skills: ["Physics", "Chemistry", "Mathematics", "Motivational Teaching", "Student Care"],
+    skills: [
+      "Physics",
+      "Chemistry",
+      "Mathematics",
+      "Motivational Teaching",
+      "Student Care",
+    ],
     achievements: ["Dedicated Home Tutor", "Multi-subject Teaching"],
   },
 
@@ -252,24 +414,188 @@ He believes in staying updated with new technology and teaching techniques to al
     color: "bg-teal-500",
     phone: "+880 1939398703",
     location: "Rajshahi, Bangladesh",
-    type: "instructor",
+    type: "applied-science",
     bio: `Md. Faridul Islam is the most experienced instructor at KRTC with 6-7 years of teaching experience. He holds both MSc and BSc (Hons) in Physics from University of Rajshahi with excellent academic records (CGPA 3.44 and 3.52 respectively).
 
 His extensive experience spans teaching Physics, Chemistry, Math, and ICT to students from Class 6 to 12. His deep subject knowledge combined with years of practical teaching experience makes him a valuable mentor for students preparing for higher studies.`,
     education: [
-      { degree: "MSc in Physics", institution: "University of Rajshahi", year: "2020-2021", grade: "CGPA: 3.44" },
-      { degree: "BSc (Hons) in Physics", institution: "University of Rajshahi", year: "2016-2020", grade: "CGPA: 3.52" },
+      {
+        degree: "MSc in Physics",
+        institution: "University of Rajshahi",
+        year: "2020-2021",
+        grade: "CGPA: 3.44",
+      },
+      {
+        degree: "BSc (Hons) in Physics",
+        institution: "University of Rajshahi",
+        year: "2016-2020",
+        grade: "CGPA: 3.52",
+      },
     ],
     experience: [
-      { role: "Senior Physics Instructor", org: "KRTC", period: "2025 - Present" },
-      { role: "Physics & Science Tutor", org: "Private Teaching", period: "2018 - Present" },
+      {
+        role: "Senior Physics Instructor",
+        org: "KRTC",
+        period: "2025 - Present",
+      },
+      {
+        role: "Physics & Science Tutor",
+        org: "Private Teaching",
+        period: "2018 - Present",
+      },
     ],
-    skills: ["Physics", "Chemistry", "Mathematics", "ICT", "Class 6-12 Curriculum", "Exam Preparation"],
-    achievements: ["6-7 Years Teaching Experience", "MSc Physics", "Multi-level Teaching Expert"],
+    skills: [
+      "Physics",
+      "Chemistry",
+      "Mathematics",
+      "ICT",
+      "Class 6-12 Curriculum",
+      "Exam Preparation",
+    ],
+    achievements: [
+      "6-7 Years Teaching Experience",
+      "MSc Physics",
+      "Multi-level Teaching Expert",
+    ],
+  },
+
+  // ==================
+  // KRTC Schooling - New Members
+  // ==================
+  "md-golam-azom": {
+    id: 9,
+    slug: "md-golam-azom",
+    name: "Md. Golam Azom",
+    nameBn: "মো. গোলাম আযম",
+    title: "Physics Instructor",
+    department: "Physics",
+    initials: "GA",
+    color: "bg-indigo-500",
+    email: "golamazom317@gmail.com",
+    phone: "+880 1566027388",
+    location: "Zia Hall, University of Rajshahi",
+    type: "schooling",
+    bio: `Md. Golam Azom is a dedicated 4th-year Physics student at the University of Rajshahi with a strong foundation in analytical thinking and problem-solving. He is a lifelong learner with a deep passion for exploring new technologies and sharing knowledge with others.
+
+He started teaching as a private tutor during the Corona period in 2021 and has since taught many academic and admission students, many of whom are now studying in public universities. He also worked as a Script Evaluator and QNA Teacher at Udvas Academic and Admission Care from 2023-2025.`,
+    education: [
+      {
+        degree: "BSc (Honours) in Physics (Final Year)",
+        institution: "University of Rajshahi",
+        year: "2022-Present",
+        grade: "First Class in all exams",
+      },
+      {
+        degree: "Higher Secondary Certificate (HSC)",
+        institution: "Govt. Azizul Haque College, Bogura",
+        year: "2021",
+        grade: "GPA: 5.00 (95%)",
+      },
+      {
+        degree: "Secondary School Certificate (SSC)",
+        institution: "Talora Altaf Ali High School, Bogura",
+        year: "2019",
+        grade: "GPA: 5.00 (92%)",
+      },
+    ],
+    experience: [
+      {
+        role: "Physics Instructor",
+        org: "KRTC Schooling",
+        period: "2025 - Present",
+      },
+      {
+        role: "Script Evaluator & QNA Teacher",
+        org: "Udvas Academic and Admission Care",
+        period: "2023 - 2025",
+      },
+      { role: "Private Tutor", org: "Self-employed", period: "2021 - Present" },
+    ],
+    skills: [
+      "Physics",
+      "Analytical Thinking",
+      "Problem Solving",
+      "MS Word",
+      "MS Excel",
+      "PowerPoint",
+      "Communication",
+    ],
+    achievements: [
+      "HSC GPA 5.00 (95%)",
+      "SSC GPA 5.00 (92%)",
+      "First Class in University Exams",
+      "Students in Public Universities",
+    ],
+  },
+
+  "md-sojib-hossain": {
+    id: 10,
+    slug: "md-sojib-hossain",
+    name: "Md. Sojib Hossain",
+    nameBn: "মো. সজিব হোসেন",
+    title: "Science Instructor",
+    department: "Biology & Agriculture",
+    initials: "SH",
+    color: "bg-lime-600",
+    phone: "+880 1850523503",
+    location: "Shahazadpur, Sirajganj / Rajshahi",
+    type: "schooling",
+    bio: `Md. Sojib Hossain is a 4th-year student of Crop Science and Technology at the University of Rajshahi. With excellent academic credentials including GPA 5.00 in both SSC and HSC, he brings strong knowledge in science subjects.
+
+He has the ability to teach students in an easy and effective way with good communication skills. He is punctual, responsible, and has experience in both private tutoring and teaching in coaching centers/academies.`,
+    education: [
+      {
+        degree: "BSc in Crop Science and Technology (4th Year)",
+        institution: "University of Rajshahi",
+        year: "2022-Present",
+      },
+      {
+        degree: "Higher Secondary Certificate (HSC)",
+        institution: "Shahid Bulbul Govt College, Pabna",
+        year: "2021",
+        grade: "GPA: 5.00",
+      },
+      {
+        degree: "Secondary School Certificate (SSC)",
+        institution: "B B Pilot Govt High School, Bera, Pabna",
+        year: "2019",
+        grade: "GPA: 5.00",
+      },
+    ],
+    experience: [
+      {
+        role: "Science Instructor",
+        org: "KRTC Schooling",
+        period: "2025 - Present",
+      },
+      {
+        role: "Coaching/Academy Teacher",
+        org: "Various Institutions",
+        period: "2021 - Present",
+      },
+      { role: "Private Tutor", org: "Self-employed", period: "2020 - Present" },
+    ],
+    skills: [
+      "Biology",
+      "Agriculture Science",
+      "Easy Teaching Method",
+      "Communication",
+      "Computer Basics",
+      "Time Management",
+    ],
+    achievements: [
+      "HSC GPA 5.00",
+      "SSC GPA 5.00",
+      "University of Rajshahi Student",
+    ],
   },
 };
 
 // Helper functions
-export const getLeadership = () => Object.values(allTeamMembers).filter(m => m.type === "leadership");
-export const getInstructors = () => Object.values(allTeamMembers).filter(m => m.type === "instructor");
+export const getLeadership = () =>
+  Object.values(allTeamMembers).filter((m) => m.type === "leadership");
+export const getAppliedScience = () =>
+  Object.values(allTeamMembers).filter((m) => m.type === "applied-science");
+export const getSchooling = () =>
+  Object.values(allTeamMembers).filter((m) => m.type === "schooling");
 export const getMemberBySlug = (slug: string) => allTeamMembers[slug] || null;

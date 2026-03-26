@@ -11,12 +11,19 @@ import {
   Phone,
   GraduationCap,
   Award,
+  FlaskConical,
+  BookOpen,
 } from "lucide-react";
-import { getLeadership, getInstructors } from "@/lib/team-data";
+import {
+  getLeadership,
+  getAppliedScience,
+  getSchooling,
+} from "@/lib/team-data";
 
 // Get team data
 const leadership = getLeadership();
-const instructors = getInstructors();
+const appliedScience = getAppliedScience();
+const schooling = getSchooling();
 
 export default function TeamPage() {
   const heroRef = useRef(null);
@@ -42,7 +49,7 @@ export default function TeamPage() {
               Home
             </Link>
             <span>/</span>
-            <span className="text-gray-900">Our Team</span>
+            <span className="text-gray-900">Our Experts</span>
           </motion.div>
 
           <motion.div
@@ -52,11 +59,11 @@ export default function TeamPage() {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full mb-6">
               <Users className="w-4 h-4" />
-              <span className="text-sm font-semibold">Our Team</span>
+              <span className="text-sm font-semibold">Our Experts</span>
             </div>
 
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Meet Our Team
+              Meet Our Experts
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed">
               Our dedicated team of educators and instructors are committed to
@@ -160,7 +167,7 @@ export default function TeamPage() {
         </div>
       </section>
 
-      {/* Instructors Section */}
+      {/* Department of Applied Sciences Section */}
       <section className="py-16 bg-gray-50">
         <div className="container-custom">
           <motion.div
@@ -169,16 +176,21 @@ export default function TeamPage() {
             viewport={{ once: true }}
             className="mb-12"
           >
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-100 text-red-700 rounded-full mb-3">
+              <FlaskConical className="w-4 h-4" />
+              <span className="text-xs font-semibold">Research & Training</span>
+            </div>
             <h2 className="text-2xl font-bold text-gray-900 mb-2">
-              Instructors & Teaching Staff
+              Department of Applied Sciences
             </h2>
             <p className="text-gray-600">
-              Qualified educators delivering quality science education
+              Expert instructors for advanced scientific training and research
+              programs
             </p>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {instructors.map((member, i) => (
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {appliedScience.map((member, i) => (
               <motion.div
                 key={member.id}
                 initial={{ opacity: 0, y: 20 }}
@@ -278,6 +290,141 @@ export default function TeamPage() {
                         )}
                       </div>
                       <div className="w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                        <ArrowRight className="w-4 h-4" />
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* KRTC Schooling Teachers Section */}
+      <section className="py-16 bg-white">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-12"
+          >
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-100 text-blue-700 rounded-full mb-3">
+              <BookOpen className="w-4 h-4" />
+              <span className="text-xs font-semibold">
+                SSC & HSC Preparation
+              </span>
+            </div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">
+              KRTC Schooling Teachers
+            </h2>
+            <p className="text-gray-600">
+              Dedicated educators preparing students for academic excellence
+            </p>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {schooling.map((member, i) => (
+              <motion.div
+                key={member.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05 }}
+              >
+                <Link href={`/team/${member.slug}`}>
+                  <div className="bg-gradient-to-br from-blue-50/50 to-white rounded-2xl p-6 border border-blue-100 hover:border-blue-300 hover:shadow-xl hover:shadow-blue/5 transition-all group h-full flex flex-col cursor-pointer">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div
+                        className={`w-16 h-16 ${member.color} rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform shadow-md`}
+                      >
+                        <span className="text-xl font-bold text-white">
+                          {member.initials}
+                        </span>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                          {member.name}
+                        </h3>
+                        <p className="text-blue-600 text-sm font-semibold">
+                          {member.title}
+                        </p>
+                        <p className="text-gray-500 text-xs">
+                          {member.department}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-2 mb-3 text-sm text-gray-600">
+                      <GraduationCap className="w-4 h-4 text-gray-400 flex-shrink-0 mt-0.5" />
+                      <span className="line-clamp-2">
+                        {member.education.length > 0
+                          ? member.education[0].degree
+                          : ""}
+                      </span>
+                    </div>
+
+                    {member.achievements.length > 0 && (
+                      <div className="flex flex-wrap gap-1.5 mb-4">
+                        {member.achievements
+                          .slice(0, 2)
+                          .map((achievement, idx) => (
+                            <span
+                              key={idx}
+                              className="inline-flex items-center gap-1 px-2 py-1 bg-blue-50 text-blue-600 rounded-full text-xs font-medium"
+                            >
+                              <Award className="w-3 h-3" /> {achievement}
+                            </span>
+                          ))}
+                      </div>
+                    )}
+
+                    <div className="flex-1" />
+
+                    <div className="flex items-center justify-between pt-4 border-t border-blue-100">
+                      <div className="flex flex-wrap gap-2">
+                        {member.email && (
+                          <span
+                            onClick={(e) => {
+                              e.preventDefault();
+                              e.stopPropagation();
+                              window.location.href = `mailto:${member.email}`;
+                            }}
+                            className="w-9 h-9 bg-blue-50 rounded-lg flex items-center justify-center text-blue-500 hover:bg-blue-600 hover:text-white transition-all"
+                            title="Email"
+                          >
+                            <Mail className="w-4 h-4" />
+                          </span>
+                        )}
+                        {member.phone && (
+                          <span
+                            onClick={(e) => {
+                              e.preventDefault();
+                              e.stopPropagation();
+                              window.location.href = `tel:${member.phone}`;
+                            }}
+                            className="w-9 h-9 bg-blue-50 rounded-lg flex items-center justify-center text-blue-500 hover:bg-emerald-500 hover:text-white transition-all"
+                            title="Call"
+                          >
+                            <Phone className="w-4 h-4" />
+                          </span>
+                        )}
+                        {member.linkedin && (
+                          <span
+                            onClick={(e) => {
+                              e.preventDefault();
+                              e.stopPropagation();
+                              window.open(member.linkedin, "_blank");
+                            }}
+                            className="w-9 h-9 bg-blue-50 rounded-lg flex items-center justify-center text-blue-500 hover:bg-blue-600 hover:text-white transition-all"
+                            title="LinkedIn"
+                          >
+                            <Linkedin className="w-4 h-4" />
+                          </span>
+                        )}
+                      </div>
+                      <div className="w-9 h-9 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all">
                         <ArrowRight className="w-4 h-4" />
                       </div>
                     </div>

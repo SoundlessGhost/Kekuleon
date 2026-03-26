@@ -109,7 +109,7 @@ export const navigation = {
     ],
     company: [
       { name: "About Us", href: "/about" },
-      { name: "Our Team", href: "/team" },
+      { name: "Our Experts", href: "/team" },
       // { name: "Blog", href: "/blog" },
       { name: "Career", href: "/careers" },
       { name: "Contact", href: "/contact" },

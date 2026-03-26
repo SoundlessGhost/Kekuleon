@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import {
   Check,
@@ -13,8 +14,9 @@ import {
   TrendingUp,
   Microscope,
   Globe,
+  ArrowRight,
 } from "lucide-react";
-import { team } from "@/lib/data";
+import { getLeadership } from "@/lib/team-data";
 
 // Content from flow.md - Section 4: About KRTC
 const whatWeDo = [
@@ -325,13 +327,15 @@ export default function AboutPage() {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
               <Users className="w-4 h-4 text-primary" />
-              <span className="text-sm text-primary font-medium">Our Team</span>
+              <span className="text-sm text-primary font-medium">
+                Our Experts
+              </span>
             </div>
             <h2 className="heading-xl">Leadership Team</h2>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {team.map((member, index) => (
+            {getLeadership().map((member, index) => (
               <motion.div
                 key={member.id}
                 initial={{ opacity: 0, y: 30 }}
@@ -339,25 +343,48 @@ export default function AboutPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
-                <div className="flex gap-5 p-6 bg-white rounded-xl border border-gray-100 hover:shadow-md transition-all h-full">
-                  <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Users className="w-8 h-8 text-primary" />
+                <Link href={`/team/${member.slug}`}>
+                  <div className="flex gap-5 p-6 bg-white rounded-xl border border-gray-100 hover:shadow-lg hover:border-primary/20 transition-all h-full group cursor-pointer">
+                    <div
+                      className={`w-16 h-16 ${member.color} rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform`}
+                    >
+                      <span className="text-2xl font-bold text-white">
+                        {member.initials}
+                      </span>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-gray-900 mb-1 group-hover:text-primary transition-colors">
+                        {member.name}
+                      </h3>
+                      <p className="text-primary text-sm font-medium mb-3">
+                        {member.title}
+                      </p>
+                      <p className="text-sm text-gray-600 leading-relaxed line-clamp-3">
+                        {member.bio.substring(0, 150)}...
+                      </p>
+                      <div className="flex items-center gap-1 text-primary text-sm font-medium mt-3 group-hover:gap-2 transition-all">
+                        View Profile <ArrowRight className="w-4 h-4" />
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-1">
-                      {member.name}
-                    </h3>
-                    <p className="text-primary text-sm font-medium mb-3">
-                      {member.role}
-                    </p>
-                    <p className="text-sm text-gray-600 leading-relaxed">
-                      {member.bio}
-                    </p>
-                  </div>
-                </div>
+                </Link>
               </motion.div>
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mt-10"
+          >
+            <Link
+              href="/team"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-xl hover:bg-primary/90 transition-colors font-medium"
+            >
+              View Full Team <ArrowRight className="w-4 h-4" />
+            </Link>
+          </motion.div>
         </div>
       </section>
     </>
