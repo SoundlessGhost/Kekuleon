@@ -15,8 +15,7 @@ export interface TeamMember {
   phone?: string;
   location?: string;
   linkedin?: string;
-  type: "leadership" | "applied-science" | "schooling" | "schooling-leadership";
-  priority?: number; // For sorting within sections (lower = higher priority)
+  type: "leadership" | "applied-science" | "schooling";
   bio: string;
   education: {
     degree: string;
@@ -98,24 +97,18 @@ He completed his MSc and BSc in Applied Chemistry and Chemical Engineering from 
     slug: "abdul-mozid",
     name: "Md. Abdul Mozid",
     nameBn: "মো. আব্দুল মজিদ",
-    title: "Director, KRTC Schooling",
-    department: "KRTC Schooling Administration",
+    title: "Managing Director",
+    department: "Operations & Administration",
     initials: "AM",
     color: "bg-gray-800",
     email: "Subornakhatun6649@gmail.com",
     location: "KRTC, Sirajganj, Bangladesh",
-    type: "schooling-leadership",
-    priority: 1,
-    bio: `Md. Abdul Mozid serves as the Director of KRTC Schooling, overseeing the foundation pipeline program and institutional development. As a founding member, he plays a crucial role in implementing KRTC's vision of providing quality science education and training.
+    type: "leadership",
+    bio: `Md. Abdul Mozid serves as the Managing Director of KRTC, overseeing daily operations and institutional development. As a founding member, he plays a crucial role in implementing KRTC's vision of providing quality science education and training.
 
-He manages administrative functions, coordinates with stakeholders, and ensures smooth operation of all KRTC Schooling programs and activities.`,
+He manages administrative functions, coordinates with stakeholders, and ensures smooth operation of all KRTC programs including KRTC Schooling and departmental activities.`,
     education: [],
     experience: [
-      {
-        role: "Director, KRTC Schooling",
-        org: "KRTC",
-        period: "2025 - Present",
-      },
       { role: "Managing Director", org: "KRTC", period: "2025 - Present" },
     ],
     skills: [
@@ -124,26 +117,7 @@ He manages administrative functions, coordinates with stakeholders, and ensures 
       "Stakeholder Relations",
       "Program Coordination",
     ],
-    achievements: ["Co-founder of KRTC", "Director of KRTC Schooling"],
-  },
-
-  "krtc-schooling-manager": {
-    id: 11,
-    slug: "krtc-schooling-manager",
-    name: "To Be Announced",
-    nameBn: "শীঘ্রই ঘোষণা করা হবে",
-    title: "Manager, KRTC Schooling",
-    department: "KRTC Schooling Administration",
-    initials: "TBA",
-    color: "bg-slate-500",
-    location: "KRTC, Sirajganj, Bangladesh",
-    type: "schooling-leadership",
-    priority: 2,
-    bio: `This position is currently open. The Manager of KRTC Schooling will be responsible for day-to-day management of the foundation pipeline program, coordinating with teachers, and ensuring quality education delivery.`,
-    education: [],
-    experience: [],
-    skills: [],
-    achievements: [],
+    achievements: ["Co-founder of KRTC"],
   },
 
   // ==================
@@ -154,7 +128,7 @@ He manages administrative functions, coordinates with stakeholders, and ensures 
     slug: "nazmul-haque-mitun",
     name: "Nazmul Haque Mitun",
     nameBn: "নাজমুল হক মিটুন",
-    title: "Head Teacher, KRTC Schooling",
+    title: "Chemistry Instructor",
     department: "Chemistry",
     initials: "NM",
     color: "bg-red-500",
@@ -162,9 +136,8 @@ He manages administrative functions, coordinates with stakeholders, and ensures 
     phone: "+880 1717987729",
     location: "Kishoreganj / Dhaka, Bangladesh",
     linkedin: "http://linkedin.com/in/nazmul-haque-mitun-194682132",
-    type: "schooling-leadership",
-    priority: 3,
-    bio: `Nazmul Haque Mitun is the Head Teacher of KRTC Schooling and a Chemistry Lecturer at Milestone College, Dhaka. With strong academic background in Applied Chemistry and Chemical Engineering from University of Rajshahi, he brings both theoretical knowledge and practical teaching experience.
+    type: "applied-science",
+    bio: `Nazmul Haque Mitun is a Chemistry Lecturer at Milestone College, Dhaka, and an instructor at KRTC. With strong academic background in Applied Chemistry and Chemical Engineering from University of Rajshahi, he brings both theoretical knowledge and practical teaching experience.
 
 He completed specialized training on Industrial Process Unit Operation & Process Control Technique from Training Institute for Chemical Industries (TICI), which enables him to connect classroom learning with real-world industrial applications. He received Certificate of Appreciation from BCSIR in 2024.`,
     education: [
@@ -194,15 +167,11 @@ He completed specialized training on Industrial Process Unit Operation & Process
     ],
     experience: [
       {
-        role: "Head Teacher",
-        org: "KRTC Schooling",
-        period: "2025 - Present",
-      },
-      {
         role: "Chemistry Lecturer",
         org: "Milestone College, Dhaka",
         period: "Dec 2025 - Present",
       },
+      { role: "Chemistry Instructor", org: "KRTC", period: "2025 - Present" },
     ],
     skills: [
       "Analytical Chemistry",
@@ -230,8 +199,7 @@ He completed specialized training on Industrial Process Unit Operation & Process
     email: "mdsumon61933@gmail.com",
     phone: "+880 1758727115",
     location: "Rajshahi, Bangladesh",
-    type: "schooling",
-    priority: 5,
+    type: "applied-science",
     bio: `Md. Sumon is a Mathematics instructor with strong analytical skills and competitive achievement. He secured 8th position at the 15th National Undergraduate Mathematics Olympiad, Bangladesh-2024, and has won 3 regional Mathematics Olympiads.
 
 Currently working as an instructor at Pi Math Academy and KRTC, he specializes in mathematical problem solving, climate modeling, and data analysis. His technical proficiency includes Matlab, C, Fortran, and various data processing tools.`,
@@ -256,11 +224,7 @@ Currently working as an instructor at Pi Math Academy and KRTC, he specializes i
       },
     ],
     experience: [
-      {
-        role: "Mathematics Instructor",
-        org: "KRTC Schooling",
-        period: "2025 - Present",
-      },
+      { role: "Mathematics Instructor", org: "KRTC", period: "2025 - Present" },
       { role: "Instructor", org: "Pi Math Academy", period: "2023 - Present" },
       {
         role: "Data Analyst",
@@ -296,7 +260,6 @@ Currently working as an instructor at Pi Math Academy and KRTC, he specializes i
     phone: "+880 1570216200",
     location: "Rajshahi, Bangladesh",
     type: "schooling",
-    priority: 8,
     bio: `Ashad Belal is a talented young science instructor with exceptional academic achievements. He won the Bangladesh Physics Olympiad in 2019, demonstrating his strong foundation in physics and scientific reasoning.
 
 Currently pursuing BSc in Mathematics at University of Rajshahi, he has been teaching as a home tutor since 2022. He has strong command over Math, Physics, Chemistry, and Biology, with excellent communication and explanation skills that make complex concepts accessible to students.`,
@@ -351,7 +314,6 @@ Currently pursuing BSc in Mathematics at University of Rajshahi, he has been tea
     phone: "+880 1842739155",
     location: "Belkuchi, Sirajganj, Bangladesh",
     type: "schooling",
-    priority: 6,
     bio: `Arifin Asad is a motivated undergraduate student of Applied Chemistry and Chemical Engineering with strong academic results and extensive teaching experience. Currently in his 4th year at Rajshahi University with GPA 3.45, he has been actively involved in teaching.
 
 He works as an instructor at Chorcha Coaching Center and UAC Coaching Center, teaching 4+ batches independently. He also teaches more than 60 students privately. His perfect GPA 5.00 in both HSC and SSC reflects his academic excellence.`,
@@ -416,8 +378,7 @@ He works as an instructor at Chorcha Coaching Center and UAC Coaching Center, te
     email: "mdmafizulislam93@gmail.com",
     phone: "+880 1767530231",
     location: "Binodpur, Rajshahi, Bangladesh",
-    type: "schooling",
-    priority: 9,
+    type: "applied-science",
     bio: `Md. Mafizul Islam is a dedicated Physics instructor currently pursuing BSc in Physics at University of Rajshahi. His teaching philosophy focuses on understanding students' needs and making knowledge boundaries wide through motivational teaching methods.
 
 He believes in staying updated with new technology and teaching techniques to always be the best teacher he can be. Since 2023, he has been working as a home tutor with strong command over Physics, Chemistry, and Math.`,
@@ -453,8 +414,7 @@ He believes in staying updated with new technology and teaching techniques to al
     color: "bg-teal-500",
     phone: "+880 1939398703",
     location: "Rajshahi, Bangladesh",
-    type: "schooling",
-    priority: 4,
+    type: "applied-science",
     bio: `Md. Faridul Islam is the most experienced instructor at KRTC with 6-7 years of teaching experience. He holds both MSc and BSc (Hons) in Physics from University of Rajshahi with excellent academic records (CGPA 3.44 and 3.52 respectively).
 
 His extensive experience spans teaching Physics, Chemistry, Math, and ICT to students from Class 6 to 12. His deep subject knowledge combined with years of practical teaching experience makes him a valuable mentor for students preparing for higher studies.`,
@@ -475,7 +435,7 @@ His extensive experience spans teaching Physics, Chemistry, Math, and ICT to stu
     experience: [
       {
         role: "Senior Physics Instructor",
-        org: "KRTC Schooling",
+        org: "KRTC",
         period: "2025 - Present",
       },
       {
@@ -515,7 +475,6 @@ His extensive experience spans teaching Physics, Chemistry, Math, and ICT to stu
     phone: "+880 1566027388",
     location: "Zia Hall, University of Rajshahi",
     type: "schooling",
-    priority: 6,
     bio: `Md. Golam Azom is a dedicated 4th-year Physics student at the University of Rajshahi with a strong foundation in analytical thinking and problem-solving. He is a lifelong learner with a deep passion for exploring new technologies and sharing knowledge with others.
 
 He started teaching as a private tutor during the Corona period in 2021 and has since taught many academic and admission students, many of whom are now studying in public universities. He also worked as a Script Evaluator and QNA Teacher at Udvas Academic and Admission Care from 2023-2025.`,
@@ -581,7 +540,6 @@ He started teaching as a private tutor during the Corona period in 2021 and has 
     phone: "+880 1850523503",
     location: "Shahazadpur, Sirajganj / Rajshahi",
     type: "schooling",
-    priority: 7,
     bio: `Md. Sojib Hossain is a 4th-year student of Crop Science and Technology at the University of Rajshahi. With excellent academic credentials including GPA 5.00 in both SSC and HSC, he brings strong knowledge in science subjects.
 
 He has the ability to teach students in an easy and effective way with good communication skills. He is punctual, responsible, and has experience in both private tutoring and teaching in coaching centers/academies.`,
@@ -638,12 +596,6 @@ export const getLeadership = () =>
   Object.values(allTeamMembers).filter((m) => m.type === "leadership");
 export const getAppliedScience = () =>
   Object.values(allTeamMembers).filter((m) => m.type === "applied-science");
-export const getSchoolingLeadership = () =>
-  Object.values(allTeamMembers)
-    .filter((m) => m.type === "schooling-leadership")
-    .sort((a, b) => (a.priority || 999) - (b.priority || 999));
 export const getSchooling = () =>
-  Object.values(allTeamMembers)
-    .filter((m) => m.type === "schooling")
-    .sort((a, b) => (a.priority || 999) - (b.priority || 999));
+  Object.values(allTeamMembers).filter((m) => m.type === "schooling");
 export const getMemberBySlug = (slug: string) => allTeamMembers[slug] || null;
