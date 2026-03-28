@@ -45,7 +45,7 @@ export const stats = [
   { number: "150+", label: "Current Students" },
   { number: "6", label: "Applied Departments" },
   { number: "500+", label: "Target Trainees" },
-  { number: "20%", label: "Surplus for Scholarships" },
+  { number: "20-50%", label: "Scholarship Support" },
 ];
 
 // Departments/Services
@@ -268,7 +268,7 @@ export const footerLinks = {
   programs: [
     { name: "KRTC Schooling", href: "/schooling" },
     { name: "PhD Programs", href: "/phd-programs" },
-    { name: "Scholarships", href: "/schooling#scholarships" },
+    { name: "Scholarships", href: "/scholarships" },
     { name: "Research", href: "/services" },
   ],
   departments: [

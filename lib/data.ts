@@ -332,7 +332,7 @@ export const schoolingContent = {
   currentStatus: {
     enrolled: 150,
     target: 500,
-    scholarshipPercent: 20,
+    scholarshipPercent: 50,
   },
   benefits: [
     {
@@ -423,22 +423,23 @@ export const team = [
     id: "zakaria-hossain",
     name: "Md. Zakaria Hossain",
     role: "Chairman & CEO",
-    bio: "MSc Chemistry Candidate at University of Siegen, Germany. MSc & BSc in Applied Chemistry and Chemical Engineering from University of Rajshahi. Researcher in Applied Science Education and Scientific Capacity Development.",
+    bio: "MSc Chemistry Candidate at University of Siegen, Germany. MSc (CGPA 3.10) & BSc in Applied Chemistry and Chemical Engineering from University of Rajshahi. TICI Certified (Grade A). Researcher in Applied Science Education, Conductive Polymers, and Scientific Capacity Development.",
     education: [
-      "MSc Chemistry Candidate, University of Siegen, Germany",
-      "MSc Applied Chemistry & Chemical Engineering, University of Rajshahi",
-      "BSc Applied Chemistry & Chemical Engineering, University of Rajshahi",
-      "Training on Industrial Process Unit Operation, TICI",
+      "MSc Chemistry (Ongoing), University of Siegen, Germany",
+      "MSc Applied Chemistry & Chemical Engineering (CGPA 3.10), University of Rajshahi",
+      "BSc Applied Chemistry & Chemical Engineering (160 Credits), University of Rajshahi",
+      "Training on Industrial Process Unit Operation & Process Control (Grade A), TICI",
+      "HSC - A+ (GPA 5.00), Sirajganj Govt. College",
     ],
     image: "/images/team/zakaria-hossain.jpg",
     linkedin: "https://linkedin.com/in/md-zakaria-hossain-a47474222/",
-    email: "mdzhs1541@gmail.com",
+    email: "mdzakaria.ru192@gmail.com",
   },
   {
     id: "abdul-mozid",
     name: "Md. Abdul Mozid",
-    role: "Managing Director",
-    bio: "Founding director overseeing daily operations and institutional development of KRTC.",
+    role: "Director, KRTC Schooling",
+    bio: "Founding director overseeing daily operations and institutional development of KRTC Schooling Foundation Pipeline.",
     education: [],
     image: "/images/team/abdul-mozid.jpg",
     email: "Subornakhatun6649@gmail.com",
@@ -458,9 +459,9 @@ export const stats = [
   },
   { value: "500+", label: "Target", description: "Planned trainee capacity" },
   {
-    value: "20%",
+    value: "20-50%",
     label: "Scholarships",
-    description: "Surplus allocated to scholarships",
+    description: "Merit-based scholarship opportunities",
   },
 ];
 

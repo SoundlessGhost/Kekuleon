@@ -16,6 +16,10 @@ import {
   Users,
   Beaker,
   Briefcase,
+  FlaskConical,
+  Globe,
+  Calendar,
+  Home,
 } from "lucide-react";
 import { getMemberBySlug } from "@/lib/team-data";
 
@@ -110,6 +114,19 @@ export default function TeamMemberProfilePage() {
 
                 {/* Contact Info */}
                 <div className="space-y-3 border-t border-gray-100 pt-6">
+                  {member.dateOfBirth && (
+                    <div className="flex items-center gap-3 text-gray-600">
+                      <div className="w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center">
+                        <Calendar className="w-4 h-4 text-primary" />
+                      </div>
+                      <div>
+                        <span className="text-xs text-gray-400 block">
+                          Date of Birth
+                        </span>
+                        <span className="text-sm">{member.dateOfBirth}</span>
+                      </div>
+                    </div>
+                  )}
                   {member.email && (
                     <a
                       href={`mailto:${member.email}`}
@@ -118,7 +135,32 @@ export default function TeamMemberProfilePage() {
                       <div className="w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center">
                         <Mail className="w-4 h-4 text-primary" />
                       </div>
-                      <span className="text-sm break-all">{member.email}</span>
+                      <div>
+                        <span className="text-xs text-gray-400 block">
+                          Primary Email
+                        </span>
+                        <span className="text-sm break-all">
+                          {member.email}
+                        </span>
+                      </div>
+                    </a>
+                  )}
+                  {member.emailAlt && (
+                    <a
+                      href={`mailto:${member.emailAlt}`}
+                      className="flex items-center gap-3 text-gray-600 hover:text-primary transition-colors"
+                    >
+                      <div className="w-9 h-9 bg-gray-100 rounded-lg flex items-center justify-center">
+                        <Mail className="w-4 h-4 text-gray-500" />
+                      </div>
+                      <div>
+                        <span className="text-xs text-gray-400 block">
+                          Alt Email
+                        </span>
+                        <span className="text-sm break-all">
+                          {member.emailAlt}
+                        </span>
+                      </div>
                     </a>
                   )}
                   {member.phone && (
@@ -129,7 +171,28 @@ export default function TeamMemberProfilePage() {
                       <div className="w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center">
                         <Phone className="w-4 h-4 text-primary" />
                       </div>
-                      <span className="text-sm">{member.phone}</span>
+                      <div>
+                        <span className="text-xs text-gray-400 block">
+                          Germany
+                        </span>
+                        <span className="text-sm">{member.phone}</span>
+                      </div>
+                    </a>
+                  )}
+                  {member.phoneAlt && (
+                    <a
+                      href={`tel:${member.phoneAlt}`}
+                      className="flex items-center gap-3 text-gray-600 hover:text-primary transition-colors"
+                    >
+                      <div className="w-9 h-9 bg-gray-100 rounded-lg flex items-center justify-center">
+                        <Phone className="w-4 h-4 text-gray-500" />
+                      </div>
+                      <div>
+                        <span className="text-xs text-gray-400 block">
+                          Bangladesh
+                        </span>
+                        <span className="text-sm">{member.phoneAlt}</span>
+                      </div>
                     </a>
                   )}
                   {member.location && (
@@ -137,7 +200,25 @@ export default function TeamMemberProfilePage() {
                       <div className="w-9 h-9 bg-primary/10 rounded-lg flex items-center justify-center">
                         <MapPin className="w-4 h-4 text-primary" />
                       </div>
-                      <span className="text-sm">{member.location}</span>
+                      <div>
+                        <span className="text-xs text-gray-400 block">
+                          Current Location
+                        </span>
+                        <span className="text-sm">{member.location}</span>
+                      </div>
+                    </div>
+                  )}
+                  {member.address && (
+                    <div className="flex items-start gap-3 text-gray-600">
+                      <div className="w-9 h-9 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Home className="w-4 h-4 text-gray-500" />
+                      </div>
+                      <div>
+                        <span className="text-xs text-gray-400 block">
+                          Home Address
+                        </span>
+                        <span className="text-sm">{member.address}</span>
+                      </div>
                     </div>
                   )}
                 </div>
@@ -216,13 +297,21 @@ export default function TeamMemberProfilePage() {
                           <p className="text-gray-600 text-sm">
                             {edu.institution}
                           </p>
-                          <div className="flex items-center gap-2 text-gray-400 text-sm">
+                          <div className="flex flex-wrap items-center gap-2 text-gray-400 text-sm mt-1">
                             <span>{edu.year}</span>
                             {edu.grade && (
                               <>
                                 <span>•</span>
                                 <span className="text-emerald-600 font-medium">
                                   {edu.grade}
+                                </span>
+                              </>
+                            )}
+                            {edu.credits && (
+                              <>
+                                <span>•</span>
+                                <span className="text-blue-600 font-medium">
+                                  {edu.credits}
                                 </span>
                               </>
                             )}
@@ -253,6 +342,107 @@ export default function TeamMemberProfilePage() {
                           </h3>
                           <p className="text-gray-600 text-sm">{exp.org}</p>
                           <p className="text-gray-400 text-sm">{exp.period}</p>
+                          {exp.description && (
+                            <p className="text-gray-500 text-sm mt-1">
+                              {exp.description}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Research Projects */}
+              {member.research && member.research.length > 0 && (
+                <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+                  <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <FlaskConical className="w-5 h-5 text-primary" />
+                    Research Projects
+                  </h2>
+                  <div className="space-y-4">
+                    {member.research.map((res, i) => (
+                      <div
+                        key={i}
+                        className="p-4 bg-violet-50 rounded-xl border border-violet-100"
+                      >
+                        <h3 className="font-semibold text-gray-900 mb-2">
+                          {res.title}
+                        </h3>
+                        {res.supervisor && (
+                          <p className="text-gray-600 text-sm">
+                            <span className="font-medium">Supervisor:</span>{" "}
+                            {res.supervisor}
+                          </p>
+                        )}
+                        {res.institution && (
+                          <p className="text-gray-500 text-sm">
+                            {res.institution}
+                          </p>
+                        )}
+                        <p className="text-gray-400 text-sm mt-1">
+                          {res.period}
+                        </p>
+                        {res.description && (
+                          <p className="text-gray-600 text-sm mt-2">
+                            {res.description}
+                          </p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Languages */}
+              {member.languages && member.languages.length > 0 && (
+                <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+                  <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <Globe className="w-5 h-5 text-primary" />
+                    Languages
+                  </h2>
+                  <div className="flex flex-wrap gap-3">
+                    {member.languages.map((lang, i) => (
+                      <div
+                        key={i}
+                        className="px-4 py-2 bg-blue-50 rounded-lg border border-blue-100"
+                      >
+                        <span className="font-medium text-gray-900">
+                          {lang.language}
+                        </span>
+                        <span className="text-gray-500 text-sm ml-2">
+                          ({lang.level})
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Organizations */}
+              {member.organizations && member.organizations.length > 0 && (
+                <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
+                  <h2 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <Users className="w-5 h-5 text-primary" />
+                    Organizations & Activities
+                  </h2>
+                  <div className="space-y-4">
+                    {member.organizations.map((org, i) => (
+                      <div key={i} className="flex gap-4">
+                        <div className="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center flex-shrink-0">
+                          <Users className="w-5 h-5 text-amber-600" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold text-gray-900">
+                            {org.role}
+                          </h3>
+                          <p className="text-gray-600 text-sm">{org.org}</p>
+                          {org.description && (
+                            <p className="text-gray-500 text-sm mt-1">
+                              {org.description}
+                            </p>
+                          )}
                         </div>
                       </div>
                     ))}

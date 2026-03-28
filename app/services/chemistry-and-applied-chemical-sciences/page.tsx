@@ -847,7 +847,7 @@ export default function ChemistryPage() {
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
               <Link
-                href="/schooling"
+                href="/scholarships"
                 className="inline-flex items-center gap-2 px-8 py-4 border-2 border-gray-300 text-gray-700 font-semibold rounded-full hover:border-primary hover:text-primary transition-colors"
               >
                 Scholarship Info

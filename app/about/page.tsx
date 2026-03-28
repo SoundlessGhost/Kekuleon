@@ -15,6 +15,11 @@ import {
   Microscope,
   Globe,
   ArrowRight,
+  UserCheck,
+  Briefcase,
+  HeartPulse,
+  Factory,
+  School,
 } from "lucide-react";
 import { getLeadership } from "@/lib/team-data";
 
@@ -69,6 +74,66 @@ const researchInsights = [
   "Student transitions across education levels",
   "The role of integrated training systems",
   "Connections between education, industry, and community needs",
+];
+
+// Targeted Beneficiaries from Project Proposal
+const targetedBeneficiaries = [
+  {
+    icon: School,
+    title: "National University Students",
+    description:
+      "Supporting students who lack access to quality research facilities and instrument-based training.",
+    iconBg: "bg-blue-100",
+    iconColor: "text-blue-600",
+  },
+  {
+    icon: GraduationCap,
+    title: "Public & Private University Students",
+    description:
+      "Providing hands-on laboratory experience and research exposure to complement academic learning.",
+    iconBg: "bg-emerald-100",
+    iconColor: "text-emerald-600",
+  },
+  {
+    icon: UserCheck,
+    title: "Fresh Graduates & Early-Career Researchers",
+    description:
+      "Building practical skills and industry-ready competencies for career advancement.",
+    iconBg: "bg-violet-100",
+    iconColor: "text-violet-600",
+  },
+  {
+    icon: BookOpen,
+    title: "PhD Candidates",
+    description:
+      "Offering research supervision, publication support, and international collaboration opportunities.",
+    iconBg: "bg-amber-100",
+    iconColor: "text-amber-600",
+  },
+  {
+    icon: Briefcase,
+    title: "Industry Professionals",
+    description:
+      "Delivering specialized training and skill development for professionals seeking industry expertise.",
+    iconBg: "bg-rose-100",
+    iconColor: "text-rose-600",
+  },
+  {
+    icon: HeartPulse,
+    title: "Underprivileged Families",
+    description:
+      "Providing access to community healthcare services and nursing support through Health Benefit Cards.",
+    iconBg: "bg-teal-100",
+    iconColor: "text-teal-600",
+  },
+  {
+    icon: Factory,
+    title: "Industries & Organizations",
+    description:
+      "Offering authorized R&D, testing, quality assurance, and consultancy services.",
+    iconBg: "bg-indigo-100",
+    iconColor: "text-indigo-600",
+  },
 ];
 
 export default function AboutPage() {
@@ -182,6 +247,61 @@ export default function AboutPage() {
                         {item.description}
                       </p>
                     </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Who We Serve - Targeted Beneficiaries */}
+      <section className="section bg-white">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 border border-emerald-200 mb-6">
+              <Users className="w-4 h-4 text-emerald-600" />
+              <span className="text-sm text-emerald-600 font-medium">
+                Who We Serve
+              </span>
+            </div>
+            <h2 className="heading-xl mb-4">Targeted Beneficiaries</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              KRTC serves a diverse range of students, professionals,
+              communities, and industries through integrated research, training,
+              and social services.
+            </p>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {targetedBeneficiaries.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                >
+                  <div className="p-5 bg-gray-50 rounded-xl border border-gray-100 hover:border-primary/20 hover:shadow-md transition-all duration-300 h-full group">
+                    <div
+                      className={`w-12 h-12 rounded-xl ${item.iconBg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
+                    >
+                      <Icon className={`w-6 h-6 ${item.iconColor}`} />
+                    </div>
+                    <h3 className="font-bold text-gray-900 mb-2 text-sm">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs text-gray-600 leading-relaxed">
+                      {item.description}
+                    </p>
                   </div>
                 </motion.div>
               );

@@ -12,8 +12,12 @@ export interface TeamMember {
   initials: string;
   color: string;
   email?: string;
+  emailAlt?: string;
   phone?: string;
+  phoneAlt?: string;
   location?: string;
+  address?: string;
+  dateOfBirth?: string;
   linkedin?: string;
   type: "leadership" | "applied-science" | "schooling" | "schooling-leadership";
   priority?: number; // For sorting within sections (lower = higher priority)
@@ -23,13 +27,31 @@ export interface TeamMember {
     institution: string;
     year: string;
     grade?: string;
+    credits?: string;
   }[];
   experience: {
     role: string;
     org: string;
     period: string;
+    description?: string;
+  }[];
+  research?: {
+    title: string;
+    supervisor?: string;
+    institution?: string;
+    period: string;
+    description?: string;
   }[];
   skills: string[];
+  languages?: {
+    language: string;
+    level: string;
+  }[];
+  organizations?: {
+    role: string;
+    org: string;
+    description?: string;
+  }[];
   achievements: string[];
 }
 
@@ -43,54 +65,138 @@ export const allTeamMembers: Record<string, TeamMember> = {
     name: "Md. Zakaria Hossain",
     nameBn: "মো. জাকারিয়া হোসেন",
     title: "Chairman & CEO",
-    department: "Applied Chemistry",
+    department: "Applied Chemistry & Chemical Engineering",
     initials: "ZH",
     color: "bg-primary",
-    email: "mdzhs1541@gmail.com",
+    email: "mdzakaria.ru192@gmail.com",
+    emailAlt: "zakariahossainshuvo26@gmail.com",
     phone: "+49 163 485 5414",
+    phoneAlt: "+880 1795140626",
     location: "University of Siegen, Germany / KRTC, Sirajganj",
+    address:
+      "Charbalighugri, Bhaoamari Bazar, House No-017, 6700, Sirajganj, Bangladesh",
+    dateOfBirth: "01 June 1995",
     linkedin: "https://linkedin.com/in/md-zakaria-hossain-a47474222/",
     type: "leadership",
     bio: `Md. Zakaria Hossain is the founder and Chairman of Kekuleon Research and Training Center (KRTC). Currently pursuing MSc in Chemistry at University of Siegen, Germany, he brings international academic experience combined with deep understanding of Bangladesh's science education challenges.
 
-He completed his MSc and BSc in Applied Chemistry and Chemical Engineering from University of Rajshahi, and received industrial training from TICI on Process Unit Operation. His vision is to bridge the gap between theoretical education and practical scientific competence in Bangladesh.`,
+He completed his MSc in Applied Chemistry and Chemical Engineering (CGPA 3.10) and BSc (160 credits) from University of Rajshahi. He received professional training from TICI on Industrial Process Unit Operation & Process Control Technique with Grade A (3.75/4.00).
+
+His research interest includes Conductive Polymers and their applications in electronics. He has teaching experience at HSC Academic & University Admission Coaching Centre. His vision is to bridge the gap between theoretical education and practical scientific competence in Bangladesh through integrated research, industry services, and community engagement.`,
     education: [
       {
         degree: "MSc Chemistry (Ongoing)",
         institution: "University of Siegen, Germany",
-        year: "2023-Present",
+        year: "2023 - Present",
       },
       {
         degree: "MSc Applied Chemistry & Chemical Engineering",
         institution: "University of Rajshahi",
-        year: "2020-2021",
+        year: "2020 - 2023",
+        grade: "CGPA: 3.10",
       },
       {
         degree: "BSc Applied Chemistry & Chemical Engineering",
         institution: "University of Rajshahi",
-        year: "2015-2020",
+        year: "2015 - 2020",
+        credits: "160 Credits",
       },
       {
-        degree: "Training on Industrial Process Unit Operation",
-        institution: "TICI, Norsingdi",
-        year: "2022",
+        degree:
+          "Training on Industrial Process Unit Operation & Process Control Technique",
+        institution:
+          "Training Institute for Chemical Industries (TICI), Norsingdi",
+        year: "November 2019",
+        grade: "Grade A (3.75/4.00)",
+      },
+      {
+        degree: "Higher Secondary Certificate (HSC)",
+        institution: "Sirajganj Govt. College, Sirajganj",
+        year: "2011 - 2013",
+        grade: "A+ (GPA 5.00/5.00)",
+      },
+      {
+        degree: "Secondary School Certificate (Dakhil)",
+        institution: "Char Sonagachhia Islamia Fadil Madrasah, Sirajganj",
+        year: "2009 - 2011",
+        grade: "A+ (GPA 5.00/5.00)",
       },
     ],
     experience: [
-      { role: "Chairman & CEO", org: "KRTC", period: "2025 - Present" },
+      {
+        role: "Chairman & CEO",
+        org: "Kekuleon Research and Training Center (KRTC)",
+        period: "2025 - Present",
+        description:
+          "Leading the institution's vision to bridge theory-practice gap in science education through integrated research, training, and community services.",
+      },
       {
         role: "MSc Research Student",
         org: "University of Siegen, Germany",
         period: "2023 - Present",
+        description:
+          "Pursuing advanced studies in Chemistry with focus on applied research.",
+      },
+      {
+        role: "Teacher - HSC Academic & University Admission Coaching",
+        org: "Ebela Student Care, Rajshahi",
+        period: "January 2021 - April 2022",
+        description:
+          "Taught Chemistry at HSC level. Gained teaching skills, time management, and communication skills in the education sector.",
+      },
+    ],
+    research: [
+      {
+        title: "Conductive Polymers and its Application in Electronics",
+        supervisor: "Dr. Md. Ibrahim H. Mondal, Professor",
+        institution:
+          "Department of Applied Chemistry and Chemical Engineering, University of Rajshahi",
+        period: "February 2019 - August 2019",
+        description:
+          "Research on conductive polymer materials and their potential applications in electronic devices.",
       },
     ],
     skills: [
       "Applied Chemistry",
+      "Analytical Chemistry",
+      "Instrumental Analysis",
       "Research Methodology",
+      "Process Technology",
+      "Environmental Science",
+      "Industrial Safety & Health",
+      "Quality Control",
+      "Teaching & Training",
       "Institutional Development",
-      "Science Education",
+      "Microsoft Office (Word, Excel, PowerPoint)",
+      "Google Docs",
     ],
-    achievements: ["Founded KRTC", "International Academic Experience"],
+    languages: [
+      { language: "Bangla", level: "Native" },
+      { language: "English", level: "B2 (Independent User)" },
+    ],
+    organizations: [
+      {
+        role: "Organizing Secretary",
+        org: "ACCE GROUP (Applied Chemistry & Chemical Engineering, RU)",
+        description:
+          "Organized educational, cultural, and alumni association programs. Led teams in extracurricular activities and volunteer work.",
+      },
+      {
+        role: "Ex-Member",
+        org: "Rajshahi University Higher Study Club",
+        description:
+          "Organized conferences on higher study abroad opportunities. Participated in weekly meetings to improve communication and leadership skills.",
+      },
+    ],
+    achievements: [
+      "Founded Kekuleon Research and Training Center (KRTC) Ltd.",
+      "International Academic Experience at University of Siegen, Germany",
+      "TICI Training - Grade A (3.75/4.00)",
+      "HSC - GPA 5.00/5.00 (A+)",
+      "SSC - GPA 5.00/5.00 (A+)",
+      "Research on Conductive Polymers",
+      "Teaching Experience in Higher Secondary Education",
+    ],
   },
 
   "abdul-mozid": {
