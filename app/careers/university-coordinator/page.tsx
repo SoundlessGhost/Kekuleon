@@ -31,7 +31,7 @@ const program = {
   location: "Universities Across Bangladesh",
   type: "Part-time",
   positions: "50-60",
-  perUniversity: "2 students per university",
+  perUniversity: "100 students across all universities in Bangladesh",
   website: "www.kekuleon.com",
 
   about: `To strengthen academic outreach and collaboration with universities across Bangladesh, KRTC is establishing a University Coordinator and Student Ambassador Program. Under this initiative, two students from each university will be selected to serve as Part-Time University Coordinators, acting as institutional representatives and helping to connect their universities with KRTC's academic and development activities.`,
@@ -208,7 +208,7 @@ export default function UniversityCoordinatorPage() {
                     <ExternalLink className="w-5 h-5" />
                   </button>
                   <a
-                    href="/files/KRTC_University_Coordinator_Program.pdf"
+                    href="/files/Job Offer Letter.pdf"
                     download
                     className="px-8 py-4 border border-gray-300 text-gray-700 font-semibold rounded-xl hover:border-blue-500 hover:text-blue-600 transition-colors flex items-center gap-2"
                   >
@@ -316,7 +316,7 @@ export default function UniversityCoordinatorPage() {
                       {program.type}
                     </span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-gray-100">
+                  <div className="flex justify-between gap-2 py-2 border-b border-gray-100">
                     <span className="text-gray-500 text-sm">Selection</span>
                     <span className="font-medium text-gray-900 text-sm">
                       {program.perUniversity}
