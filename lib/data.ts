@@ -70,7 +70,7 @@ export const navigation = {
     },
     { name: "KRTC Schooling", href: "/schooling" },
     { name: "PhD Programs", href: "/phd-programs" },
-    // { name: "Blog", href: "/blog" },
+    { name: "Blog", href: "/blog" },
     { name: "Career", href: "/careers" },
     { name: "Contact", href: "/contact" },
   ],
@@ -110,7 +110,7 @@ export const navigation = {
     company: [
       { name: "About Us", href: "/about" },
       { name: "Our Experts", href: "/team" },
-      // { name: "Blog", href: "/blog" },
+      { name: "Blog", href: "/blog" },
       { name: "Career", href: "/careers" },
       { name: "Contact", href: "/contact" },
     ],

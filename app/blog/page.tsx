@@ -1,141 +1,305 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import { motion } from 'framer-motion'
-import { Calendar, User, ArrowRight, Tag } from 'lucide-react'
-import { blogPosts } from '@/lib/data'
-import { formatDate } from '@/lib/utils'
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { Calendar, User, Clock, ArrowLeft } from "lucide-react";
 
 export default function BlogPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
+      {/* Article Header */}
+      <section className="pt-32 pb-8 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
         <div className="absolute inset-0 bg-mesh-gradient opacity-60" />
         <div className="grid-pattern" />
-        
+
         <div className="container-custom relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="max-w-4xl"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
-              <span className="w-2 h-2 rounded-full bg-primary" />
-              <span className="text-sm text-primary font-medium">Blog & News</span>
+            {/* Back Link - Separate Line */}
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 text-gray-500 hover:text-primary transition-colors mb-6"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to Home
+            </Link>
+
+            {/* Category Badge - New Line */}
+            <div className="mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
+                <span className="w-2 h-2 rounded-full bg-primary" />
+                <span className="text-sm text-primary font-medium">
+                  KRTC Schooling
+                </span>
+              </div>
             </div>
-            
-            <h1 className="heading-display mb-6">
-              Latest <span className="text-gradient-primary">Updates</span>
+
+            {/* Title */}
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6">
+              Breaking Barriers: How KRTC is Changing Education in Bangladesh
             </h1>
-            
-            <p className="text-xl text-gray-600 leading-relaxed">
-              Stay updated with the latest news, research insights, and announcements from KRTC.
+
+            {/* Subtitle */}
+            <p className="text-xl text-primary font-medium mb-6">
+              Building a New Bangladesh Through Equal Education
+            </p>
+
+            {/* Meta Info */}
+            <div className="flex flex-wrap items-center gap-6 text-sm text-gray-500">
+              <div className="flex items-center gap-2">
+                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                  <User className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <p className="font-medium text-gray-900">KRTC Team</p>
+                  <p className="text-xs">Academic & Social Service Division</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <Calendar className="w-4 h-4" />
+                <span>March 28, 2026</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Clock className="w-4 h-4" />
+                <span>5 min read</span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Hero Image - Full Width */}
+      <section className="pb-12">
+        <div className="container-custom">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            <div className="relative aspect-[21/9] rounded-2xl overflow-hidden">
+              <Image
+                src="/images/blog/environmental-campaign/hero.jpg"
+                alt="KRTC Students together"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+            <p className="text-sm text-gray-500 mt-3 text-center">
+              KRTC students during community awareness campaign in Sirajganj
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Blog Grid */}
-      <section className="section bg-white">
-        <div className="container-custom">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post, index) => (
-              <motion.article
-                key={post.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="card group hover:border-primary/30 transition-all"
-              >
-                {/* Image Placeholder */}
-                <div className="aspect-video bg-gray-100 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent" />
-                  <div className="absolute bottom-4 left-4">
-                    <span className="px-3 py-1 bg-primary text-white text-xs font-medium rounded-full">
-                      {post.category}
-                    </span>
-                  </div>
-                </div>
-                
-                <div className="p-6">
-                  <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
-                    <span className="flex items-center gap-1">
-                      <Calendar className="w-4 h-4" />
-                      {formatDate(post.date)}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <User className="w-4 h-4" />
-                      {post.author}
-                    </span>
-                  </div>
-                  
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">
-                    {post.title}
-                  </h3>
-                  
-                  <p className="text-sm text-gray-600 mb-4">
-                    {post.excerpt}
-                  </p>
-                  
-                  <Link 
-                    href={`/blog/${post.slug}`}
-                    className="inline-flex items-center gap-2 text-primary text-sm font-medium hover:gap-3 transition-all"
-                  >
-                    Read More <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              </motion.article>
-            ))}
-
-            {/* Coming Soon Placeholder */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="card p-6 flex flex-col items-center justify-center text-center min-h-[300px]"
-            >
-              <Tag className="w-12 h-12 text-primary/50 mb-4" />
-              <h3 className="text-lg font-semibold text-gray-500 mb-2">More Articles Coming Soon</h3>
-              <p className="text-sm text-gray-400">
-                We're working on more content. Stay tuned!
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Newsletter */}
-      <section className="section bg-gray-900">
+      {/* Article Content - Full Width */}
+      <section className="pb-20">
         <div className="container-custom">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-2xl mx-auto text-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
           >
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">Subscribe to Our Newsletter</h2>
-            <p className="text-gray-400 mb-8">
-              Get the latest updates, research insights, and scholarship announcements delivered to your inbox.
-            </p>
-            
-            <form className="flex flex-col sm:flex-row gap-4">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 bg-white/10 border border-white/20 rounded-sm text-white placeholder-white/40 focus:outline-none focus:border-primary transition-colors"
-                required
-              />
-              <button type="submit" className="btn btn-primary rounded-full">
-                Subscribe
-              </button>
-            </form>
+            <div className="prose prose-lg max-w-none text-gray-700">
+              <p className="text-xl leading-relaxed">
+                In the heart of Sirajganj, Bangladesh, something remarkable is
+                happening. At KRTC Schooling, children from wealthy families sit
+                beside children from humble backgrounds. They share the same
+                classroom, learn from the same teachers, and dream the same
+                dreams. This is not charity—this is equality in action.
+              </p>
+
+              <p>
+                KRTC Schooling was born from a simple belief: every child
+                deserves quality education, regardless of their family's
+                economic status. Too often, we see schools divided by
+                wealth—private institutions for the rich, under-resourced
+                schools for the poor. KRTC breaks this divide.
+              </p>
+
+              {/* Image Float Right */}
+              <div className="float-right ml-8 mb-6 w-full md:w-2/5">
+                <Image
+                  src="/images/blog/environmental-campaign/classroom-exam.jpg"
+                  alt="Students in classroom"
+                  width={600}
+                  height={400}
+                  className="rounded-xl w-full h-auto"
+                />
+                <p className="text-sm text-gray-500 mt-2 text-center">
+                  Students from different backgrounds learning together
+                </p>
+              </div>
+
+              <p>
+                Walk into any KRTC classroom and you will see the future of
+                Bangladesh. A rickshaw-puller's daughter solving math problems
+                alongside a businessman's son. A farmer's child discussing
+                science with a doctor's kid. Here, uniforms don't show
+                status—they show unity.
+              </p>
+
+              <p>
+                Through our{" "}
+                <strong className="text-primary">
+                  50% scholarship program
+                </strong>
+                , we ensure that deserving students never miss out on education
+                due to financial constraints. The program is simple: those who
+                can afford full fees pay full fees. Those who cannot receive up
+                to 50% scholarship. No child is turned away because of money.
+              </p>
+
+              <p>
+                But KRTC Schooling is not just about academics. Our students
+                learn something far more valuable—empathy. When a wealthy child
+                sits next to a poor child, they learn that intelligence has no
+                economic boundary. When they work on projects together, they
+                understand that talent comes from hard work, not privilege.
+              </p>
+
+              <div className="clear-both"></div>
+
+              {/* Image Float Left */}
+              <div className="float-left mr-8 mb-6 w-full md:w-2/5">
+                <Image
+                  src="/images/blog/environmental-campaign/orientation.jpg"
+                  alt="Students taking exam"
+                  width={600}
+                  height={400}
+                  className="rounded-xl w-full h-auto"
+                />
+                <p className="text-sm text-gray-500 mt-2 text-center">
+                  Equal opportunity in education and assessment
+                </p>
+              </div>
+
+              <p>
+                Our students also engage with the community. Recently, they
+                organized an environmental awareness campaign, marching through
+                local markets with placards reading "পরিষ্কার পৃথিবী, সুস্থ
+                জীবন" (Clean Earth, Healthy Life) and "ছোট কাজ, বড় প্রভাব"
+                (Small Actions, Big Impact). They taught shopkeepers about
+                proper waste disposal and distributed dustbins.
+              </p>
+
+              <p>
+                The sight was powerful—young students, some from privileged
+                homes and some from struggling families, all wearing the same
+                KRTC t-shirts, all working together for their community. This is
+                what education should create: not just knowledgeable
+                individuals, but responsible citizens.
+              </p>
+
+              <p>
+                Parents from both ends of the economic spectrum have embraced
+                this model. Wealthy parents appreciate that their children are
+                learning humility and social awareness. Parents from modest
+                backgrounds are grateful that their children receive the same
+                quality education without discrimination.
+              </p>
+
+              <div className="clear-both"></div>
+
+              {/* Full Width Image */}
+              <figure className="my-10">
+                <Image
+                  src="/images/blog/environmental-campaign/fruit-market.jpg"
+                  alt="Students during campaign"
+                  width={1200}
+                  height={600}
+                  className="rounded-xl w-full h-auto"
+                />
+                <figcaption className="text-sm text-gray-500 mt-3 text-center">
+                  KRTC Environmental Campaign - Students spreading awareness in
+                  local community
+                </figcaption>
+              </figure>
+
+              <p>
+                Guardian meetings at KRTC are unlike any other school. You'll
+                see a day laborer sitting next to a factory owner, both equally
+                invested in their children's education. Both voices are heard.
+                Both opinions matter. This is democracy in its purest
+                form—practiced not in politics, but in education.
+              </p>
+
+              <p>
+                The results speak for themselves. KRTC students consistently
+                perform well academically. But more importantly, they grow into
+                compassionate human beings who understand that society prospers
+                when everyone gets a fair chance.
+              </p>
+
+              <p>
+                As Bangladesh moves forward, initiatives like KRTC Schooling
+                show us the path. A path where education is not a privilege but
+                a right. Where classrooms don't reflect economic divisions but
+                bridge them. Where children learn that their worth is not
+                determined by their parents' bank accounts but by their own
+                efforts and character.
+              </p>
+
+              <p>
+                The children of KRTC are not just students—they are pioneers of
+                a new Bangladesh. A Bangladesh where rich and poor learn
+                together, grow together, and build the nation together.
+              </p>
+
+              {/* Final Image */}
+              <figure className="my-10">
+                <Image
+                  src="/images/blog/environmental-campaign/rally.jpg"
+                  alt="Community outreach"
+                  width={1200}
+                  height={600}
+                  className="rounded-xl w-full h-auto"
+                />
+                <figcaption className="text-sm text-gray-500 mt-3 text-center">
+                  Students teaching community members about cleanliness and
+                  environmental responsibility
+                </figcaption>
+              </figure>
+
+              {/* Quote */}
+              <blockquote className="border-l-4 border-primary pl-6 py-4 my-10 bg-primary/5 rounded-r-xl">
+                <p className="text-xl font-medium text-gray-800 italic mb-0">
+                  "Education is the great equalizer. At KRTC, we don't just
+                  teach subjects—we teach equality."
+                </p>
+              </blockquote>
+            </div>
+
+            {/* CTA */}
+            <div className="mt-16 p-8 bg-gray-50 rounded-2xl text-center">
+              <h3 className="text-xl font-bold text-gray-900 mb-3">
+                Interested in joining KRTC Schooling?
+              </h3>
+              <p className="text-gray-600 mb-6">
+                Apply for scholarship or contact us for more information
+              </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Link
+                  href="/scholarships"
+                  className="btn btn-primary px-8 py-3 rounded-xl"
+                >
+                  Apply for Scholarship
+                </Link>
+                <Link
+                  href="/contact"
+                  className="btn btn-outline px-8 py-3 rounded-xl"
+                >
+                  Contact Us
+                </Link>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
     </>
-  )
+  );
 }
