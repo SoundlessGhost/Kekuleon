@@ -430,16 +430,6 @@ export default function AboutPage() {
                   </p>
                 </div>
               </div>
-
-              {/* International Recognition */}
-              <div className="p-4 bg-gray-50 rounded-xl border border-gray-200 mt-2">
-                <p className="text-sm text-gray-600 italic leading-relaxed">
-                  This initiative has been submitted to UNESCO, Falling Walls
-                  Lab/Cell 2026 (Berlin), and other international organisations
-                  for consideration in academic collaboration and institutional
-                  engagement.
-                </p>
-              </div>
             </motion.div>
           </div>
         </div>

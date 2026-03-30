@@ -81,56 +81,49 @@ const targetedBeneficiaries = [
   {
     icon: School,
     title: "National University Students",
-    description:
-      "Supporting students who lack access to quality research facilities and instrument-based training.",
+    description: "Supporting students who lack access to quality research facilities and instrument-based training.",
     iconBg: "bg-blue-100",
     iconColor: "text-blue-600",
   },
   {
     icon: GraduationCap,
     title: "Public & Private University Students",
-    description:
-      "Providing hands-on laboratory experience and research exposure to complement academic learning.",
+    description: "Providing hands-on laboratory experience and research exposure to complement academic learning.",
     iconBg: "bg-emerald-100",
     iconColor: "text-emerald-600",
   },
   {
     icon: UserCheck,
     title: "Fresh Graduates & Early-Career Researchers",
-    description:
-      "Building practical skills and industry-ready competencies for career advancement.",
+    description: "Building practical skills and industry-ready competencies for career advancement.",
     iconBg: "bg-violet-100",
     iconColor: "text-violet-600",
   },
   {
     icon: BookOpen,
     title: "PhD Candidates",
-    description:
-      "Offering research supervision, publication support, and international collaboration opportunities.",
+    description: "Offering research supervision, publication support, and international collaboration opportunities.",
     iconBg: "bg-amber-100",
     iconColor: "text-amber-600",
   },
   {
     icon: Briefcase,
     title: "Industry Professionals",
-    description:
-      "Delivering specialized training and skill development for professionals seeking industry expertise.",
+    description: "Delivering specialized training and skill development for professionals seeking industry expertise.",
     iconBg: "bg-rose-100",
     iconColor: "text-rose-600",
   },
   {
     icon: HeartPulse,
     title: "Underprivileged Families",
-    description:
-      "Providing access to community healthcare services and nursing support through Health Benefit Cards.",
+    description: "Providing access to community healthcare services and nursing support through Health Benefit Cards.",
     iconBg: "bg-teal-100",
     iconColor: "text-teal-600",
   },
   {
     icon: Factory,
     title: "Industries & Organizations",
-    description:
-      "Offering authorized R&D, testing, quality assurance, and consultancy services.",
+    description: "Offering authorized R&D, testing, quality assurance, and consultancy services.",
     iconBg: "bg-indigo-100",
     iconColor: "text-indigo-600",
   },
@@ -273,9 +266,7 @@ export default function AboutPage() {
             </div>
             <h2 className="heading-xl mb-4">Targeted Beneficiaries</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              KRTC serves a diverse range of students, professionals,
-              communities, and industries through integrated research, training,
-              and social services.
+              KRTC serves a diverse range of students, professionals, communities, and industries through integrated research, training, and social services.
             </p>
           </motion.div>
 
@@ -434,10 +425,7 @@ export default function AboutPage() {
               {/* International Recognition */}
               <div className="p-4 bg-gray-50 rounded-xl border border-gray-200 mt-2">
                 <p className="text-sm text-gray-600 italic leading-relaxed">
-                  This initiative has been submitted to UNESCO, Falling Walls
-                  Lab/Cell 2026 (Berlin), and other international organisations
-                  for consideration in academic collaboration and institutional
-                  engagement.
+                  This initiative has been submitted to UNESCO, Falling Walls Lab/Cell 2026 (Berlin), and other international organisations for consideration in academic collaboration and institutional engagement.
                 </p>
               </div>
             </motion.div>
