@@ -125,30 +125,12 @@ His long-term goal is to develop scalable educational frameworks that enable stu
     research: [
       {
         title:
-          "Sustainable Plastic Processing and Recycling: Navigating the Urban Context of Dhaka, Bangladesh",
-        supervisor: "Principal Researcher",
-        institution: "Kekuleon Research and Training Center (KRTC)",
-        period: "Jan 2026 - Present",
-        description:
-          "This initiative is structured into two strategic phases, bridging the gap between urban environmental challenges and advanced chemical engineering solutions. Phase 1 (Cooperative Modification & Expert Synergy): Evaluating the current plastic waste lifecycle in Dhaka to identify technical and systemic bottlenecks in recycling. Exploring expert suggestions and collaborative modifications from specialist professors and international partners. Phase 2 (Laboratory-Driven Development): Transitioning findings from the field into the laboratory once the Polymer and Plastic Processing Department at KRTC begins operations. Focusing on the chemical stabilization of recycled polymers and developing innovative processing techniques to create high-value products from urban waste.",
-      },
-      {
-        title:
           "Decentralised and Integrated Framework for Science Education Reform and Global Development",
         supervisor: "Principal Researcher",
         institution: "Kekuleon Research and Training Center (KRTC)",
         period: "Oct 2025 - Present",
         description:
           "Developed a decentralised and integrated framework for science education reform that links academic learning, laboratory practice, research training, and industry engagement within a single institutional model. Its long-term goal is to establish an adaptable model for scientific capacity development, educational equity, and education reform across diverse development contexts.",
-      },
-      {
-        title:
-          "Bridging the Theory-Practice Gap in Science Education in the Global South: An Empirical Assessment",
-        supervisor: "Principal Researcher",
-        institution: "Kekuleon Research and Training Center (KRTC)",
-        period: "Nov 2023 - Present",
-        description:
-          "Leading a multi-institutional empirical study across 40 universities in Bangladesh on student autonomy and the theory-practice gap in STEM education. Examining qualitative and quantitative data on student experiences of applied learning, laboratory competence, and research exposure. Analysing structural limitations in science education systems to inform scalable and integrated educational frameworks. Using KRTC as a case study to explore sustainable, research-oriented institutional models in science education and scientific capacity development.",
       },
     ],
     skills: [
@@ -171,9 +153,10 @@ His long-term goal is to develop scalable educational frameworks that enable stu
       { language: "German", level: "Basic" },
     ],
     achievements: [
-      "Founder and Chairman of Kekuleon Research and Training Center (KRTC)",
-      "Led applied science education research and sustainability initiatives",
-      "Developed decentralized science education models for developing countries",
+      "Founder & Chairman of KRTC",
+      "MSc in Chemistry, University of Siegen",
+      "Research in Applied Science Education",
+      "Expertise in Educational Equity and Capacity Development",
     ],
   },
 

@@ -47,7 +47,7 @@ export default function TeamMemberProfilePage() {
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <div className="bg-white border-b">
-        <div className="w-full px-6 sm:px-10 lg:px-16 xl:px-24 py-4">
+        <div className="container-custom py-4">
           <Link
             href="/team"
             className="text-gray-500 hover:text-primary transition-colors inline-flex items-center gap-2 text-sm"
@@ -60,7 +60,7 @@ export default function TeamMemberProfilePage() {
 
       {/* Profile Header - Full Width */}
       <div className="bg-white border-b">
-        <div className="w-full px-6 sm:px-10 lg:px-16 xl:px-24 py-8">
+        <div className="container-custom py-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -130,7 +130,7 @@ export default function TeamMemberProfilePage() {
       </div>
 
       {/* Main Content - Two Column */}
-      <div className="w-full px-6 sm:px-10 lg:px-16 xl:px-24 py-10">
+      <div className="container-custom py-10">
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Left Column - Main Content (2/3) */}
           <div className="lg:col-span-2 space-y-8">
@@ -176,17 +176,13 @@ export default function TeamMemberProfilePage() {
                     >
                       <div className="absolute left-0 top-1 w-2.5 h-2.5 bg-violet-500 rounded-full -translate-x-[6px]" />
                       <div className="flex flex-wrap items-baseline justify-between gap-2 mb-2">
-                        <h3 className="font-semibold text-gray-900 text-lg">
-                          {res.title}
-                        </h3>
+                        <h3 className="font-semibold text-gray-900 text-lg">{res.title}</h3>
                         <span className="text-sm text-violet-600 font-medium bg-violet-50 px-3 py-1 rounded-full">
                           {res.period}
                         </span>
                       </div>
                       {res.supervisor && (
-                        <p className="text-sm text-violet-600 font-medium mb-1">
-                          {res.supervisor}
-                        </p>
+                        <p className="text-sm text-violet-600 font-medium mb-1">{res.supervisor}</p>
                       )}
                       {res.institution && (
                         <p className="text-sm text-gray-500 mb-3 flex items-center gap-1.5">
@@ -227,18 +223,14 @@ export default function TeamMemberProfilePage() {
                       </div>
                       <div className="flex-1">
                         <div className="flex flex-wrap items-baseline justify-between gap-2">
-                          <h3 className="font-semibold text-gray-900">
-                            {exp.role}
-                          </h3>
+                          <h3 className="font-semibold text-gray-900">{exp.role}</h3>
                           <span className="text-sm text-emerald-600 font-medium bg-emerald-50 px-3 py-1 rounded-full">
                             {exp.period}
                           </span>
                         </div>
                         <p className="text-primary">{exp.org}</p>
                         {exp.description && (
-                          <p className="text-gray-600 mt-2">
-                            {exp.description}
-                          </p>
+                          <p className="text-gray-600 mt-2">{exp.description}</p>
                         )}
                       </div>
                     </div>
@@ -265,13 +257,8 @@ export default function TeamMemberProfilePage() {
               </h2>
               <div className="space-y-4">
                 {member.education.map((edu, i) => (
-                  <div
-                    key={i}
-                    className="relative pl-4 border-l-2 border-blue-200"
-                  >
-                    <h3 className="font-medium text-gray-900 text-sm">
-                      {edu.degree}
-                    </h3>
+                  <div key={i} className="relative pl-4 border-l-2 border-blue-200">
+                    <h3 className="font-medium text-gray-900 text-sm">{edu.degree}</h3>
                     <p className="text-gray-600 text-sm">{edu.institution}</p>
                     <p className="text-gray-400 text-xs mt-1">{edu.year}</p>
                     {edu.grade && (
@@ -324,13 +311,8 @@ export default function TeamMemberProfilePage() {
                 </h2>
                 <div className="space-y-3">
                   {member.languages.map((lang, i) => (
-                    <div
-                      key={i}
-                      className="flex justify-between items-center py-2 border-b border-gray-100 last:border-0"
-                    >
-                      <span className="text-gray-700 font-medium">
-                        {lang.language}
-                      </span>
+                    <div key={i} className="flex justify-between items-center py-2 border-b border-gray-100 last:border-0">
+                      <span className="text-gray-700 font-medium">{lang.language}</span>
                       <span className="text-sm text-gray-500 bg-gray-100 px-2 py-0.5 rounded">
                         {lang.level}
                       </span>
@@ -356,18 +338,11 @@ export default function TeamMemberProfilePage() {
                 </h2>
                 <div className="space-y-4">
                   {member.organizations.map((org, i) => (
-                    <div
-                      key={i}
-                      className="pb-3 border-b border-gray-100 last:border-0 last:pb-0"
-                    >
-                      <h3 className="font-medium text-gray-900 text-sm">
-                        {org.role}
-                      </h3>
+                    <div key={i} className="pb-3 border-b border-gray-100 last:border-0 last:pb-0">
+                      <h3 className="font-medium text-gray-900 text-sm">{org.role}</h3>
                       <p className="text-primary text-sm">{org.org}</p>
                       {org.description && (
-                        <p className="text-gray-500 text-xs mt-1">
-                          {org.description}
-                        </p>
+                        <p className="text-gray-500 text-xs mt-1">{org.description}</p>
                       )}
                     </div>
                   ))}
@@ -391,10 +366,7 @@ export default function TeamMemberProfilePage() {
                 </h2>
                 <ul className="space-y-2">
                   {member.achievements.map((achievement, i) => (
-                    <li
-                      key={i}
-                      className="flex items-start gap-2 text-gray-700 text-sm"
-                    >
+                    <li key={i} className="flex items-start gap-2 text-gray-700 text-sm">
                       <span className="text-amber-500 mt-1">•</span>
                       {achievement}
                     </li>
