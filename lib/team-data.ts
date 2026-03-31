@@ -11,6 +11,7 @@ export interface TeamMember {
   department: string;
   initials: string;
   color: string;
+  image?: string;
   email?: string;
   emailAlt?: string;
   phone?: string;
@@ -63,7 +64,9 @@ export const allTeamMembers: Record<string, TeamMember> = {
     id: 1,
     slug: "zakaria-hossain",
     name: "Md Zakaria Hossain",
-    title: "MSc Chemistry Candidate | Applied Science Education Researcher",
+    image: "/images/team/zakaria-hossain.jpg",
+    title:
+      "MSc Chemistry Candidate | Researcher in Applied Science Education, Equity & Capacity Development | Bridging the Theory–Practice Gap",
     department: "Founder & Chairman, KRTC",
     initials: "ZH",
     color: "bg-primary",
@@ -128,7 +131,7 @@ His long-term goal is to develop scalable educational frameworks that enable stu
           "Sustainable Plastic Processing and Recycling: Navigating the Urban Context of Dhaka, Bangladesh",
         supervisor: "Principal Researcher",
         institution: "Kekuleon Research and Training Center (KRTC)",
-        period: "Jan 2026 - Present",
+        period: "Apr 2025 - Present",
         description:
           "This initiative is structured into two strategic phases, bridging the gap between urban environmental challenges and advanced chemical engineering solutions. Phase 1 (Cooperative Modification & Expert Synergy): Evaluating the current plastic waste lifecycle in Dhaka to identify technical and systemic bottlenecks in recycling. Exploring expert suggestions and collaborative modifications from specialist professors and international partners. Phase 2 (Laboratory-Driven Development): Transitioning findings from the field into the laboratory once the Polymer and Plastic Processing Department at KRTC begins operations. Focusing on the chemical stabilization of recycled polymers and developing innovative processing techniques to create high-value products from urban waste.",
       },
@@ -137,7 +140,7 @@ His long-term goal is to develop scalable educational frameworks that enable stu
           "Decentralised and Integrated Framework for Science Education Reform and Global Development",
         supervisor: "Principal Researcher",
         institution: "Kekuleon Research and Training Center (KRTC)",
-        period: "Oct 2025 - Present",
+        period: "Oct 2024 - Present",
         description:
           "Developed a decentralised and integrated framework for science education reform that links academic learning, laboratory practice, research training, and industry engagement within a single institutional model. Its long-term goal is to establish an adaptable model for scientific capacity development, educational equity, and education reform across diverse development contexts.",
       },

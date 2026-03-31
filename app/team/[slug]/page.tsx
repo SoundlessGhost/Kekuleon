@@ -19,6 +19,7 @@ import {
   Users,
 } from "lucide-react";
 import { getMemberBySlug } from "@/lib/team-data";
+import Image from "next/image";
 
 export default function TeamMemberProfilePage() {
   const params = useParams();
@@ -67,13 +68,25 @@ export default function TeamMemberProfilePage() {
             className="flex flex-col lg:flex-row gap-6 lg:gap-10 items-center lg:items-start"
           >
             {/* Avatar */}
-            <div
-              className={`w-32 h-32 lg:w-40 lg:h-40 rounded-full ${member.color} flex items-center justify-center flex-shrink-0`}
-            >
-              <span className="text-4xl lg:text-5xl font-bold text-white">
-                {member.initials}
-              </span>
-            </div>
+            {member.image ? (
+              <div className="w-32 h-32 lg:w-40 lg:h-40 rounded-full overflow-hidden flex-shrink-0 border-4 border-gray-100 shadow-lg">
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  width={160}
+                  height={160}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ) : (
+              <div
+                className={`w-32 h-32 lg:w-40 lg:h-40 rounded-full ${member.color} flex items-center justify-center flex-shrink-0`}
+              >
+                <span className="text-4xl lg:text-5xl font-bold text-white">
+                  {member.initials}
+                </span>
+              </div>
+            )}
 
             {/* Info */}
             <div className="flex-1 text-center lg:text-left">
