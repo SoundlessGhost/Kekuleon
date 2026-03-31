@@ -143,7 +143,7 @@ export default function About() {
         </motion.div>
 
         {/* Our Approach + Info Grid */}
-        <div className="grid lg:grid-cols-5 gap-8 mb-12">
+        <div className="grid lg:grid-cols-5 gap-8 mb-6">
           {/* Our Approach - Takes 2 columns */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -240,6 +240,16 @@ export default function About() {
               </div>
             </div>
           </motion.div>
+        </div>
+
+        {/* International Recognition */}
+        <div className="p-4 bg-gray-50 rounded-xl border border-gray-200 mb-8">
+          <p className="text-sm text-gray-600 italic leading-relaxed">
+            This initiative has been submitted to UNESCO, Falling Walls Lab/Cell
+            2026 (Berlin), and other international organisations for
+            consideration in academic collaboration and institutional
+            engagement.
+          </p>
         </div>
 
         {/* CTA */}

@@ -62,101 +62,140 @@ export const allTeamMembers: Record<string, TeamMember> = {
   "zakaria-hossain": {
     id: 1,
     slug: "zakaria-hossain",
-    name: "Md Zakaria Hossain",
-    title: "MSc Chemistry Candidate | Applied Science Education Researcher",
-    department: "Founder & Chairman, KRTC",
+    name: "Md. Zakaria Hossain",
+    nameBn: "মো. জাকারিয়া হোসেন",
+    title: "Chairman & CEO",
+    department: "Applied Chemistry & Chemical Engineering",
     initials: "ZH",
     color: "bg-primary",
-    email: "kekuleoninfo@gmail.com",
-    phone: "+49 17628983090",
-    location: "University of Siegen, Germany",
-    linkedin: "https://linkedin.com/in/md-zakaria-hossain-45a631230/",
+    email: "mdzakaria.ru192@gmail.com",
+    emailAlt: "zakariahossainshuvo26@gmail.com",
+    phone: "+49 163 485 5414",
+    phoneAlt: "+880 1795140626",
+    location: "University of Siegen, Germany / KRTC, Sirajganj",
+    address:
+      "Charbalighugri, Bhaoamari Bazar, House No-017, 6700, Sirajganj, Bangladesh",
+    dateOfBirth: "01 June 1995",
+    linkedin: "https://linkedin.com/in/md-zakaria-hossain-a47474222/",
     type: "leadership",
-    bio: `Md Zakaria Hossain works at the intersection of science education, capacity development, and social innovation in developing countries. His work focuses on designing and implementing applied educational models that reduce the gap between theoretical learning and practical scientific competence. His research interest centers on how decentralized training platforms can improve educational equity, strengthen human capital, and prepare students from developing regions for global academic and professional environments.
+    bio: `Md. Zakaria Hossain is the founder and Chairman of Kekuleon Research and Training Center (KRTC). Currently pursuing MSc in Chemistry at University of Siegen, Germany, he brings international academic experience combined with deep understanding of Bangladesh's science education challenges.
 
-He is the Founder and Chairman of the Kekuleon Research and Training Center (KRTC), an institution dedicated to closing the theory-practice gap in science education in developing countries. His work revolves around applied science research and training, capacity development, and overcoming the barriers faced by disadvantaged students. Zakaria's research delves into decentralized educational models that combine applied training, research, industry collaboration, and community engagement to address pressing social and sustainable development needs.
+He completed his MSc in Applied Chemistry and Chemical Engineering (CGPA 3.10) and BSc (160 credits) from University of Rajshahi. He received professional training from TICI on Industrial Process Unit Operation & Process Control Technique with Grade A (3.75/4.00).
 
-His long-term goal is to develop scalable educational frameworks that enable students from developing countries to access practical scientific training, global academic mobility, and socially responsible leadership opportunities. Through KRTC, he is working to create an educational ecosystem that promotes personal growth, social responsibility, and the development of globally competitive scientific professionals.`,
+His research interest includes Conductive Polymers and their applications in electronics. He has teaching experience at HSC Academic & University Admission Coaching Centre. His vision is to bridge the gap between theoretical education and practical scientific competence in Bangladesh through integrated research, industry services, and community engagement.`,
     education: [
       {
-        degree: "MSc in Chemistry",
+        degree: "MSc Chemistry (Ongoing)",
         institution: "University of Siegen, Germany",
-        year: "10/10/2023 - Present",
+        year: "2023 - Present",
       },
       {
-        degree: "MSc in Advanced Functional Materials",
-        institution: "Technical University of Chemnitz, Germany",
-        year: "01/04/2022 - 30/09/2023",
+        degree: "MSc Applied Chemistry & Chemical Engineering",
+        institution: "University of Rajshahi",
+        year: "2020 - 2023",
+        grade: "CGPA: 3.10",
       },
       {
-        degree: "MSc in Applied Chemistry and Chemical Engineering",
-        institution: "University of Rajshahi, Bangladesh",
-        year: "05/12/2020 - 10/03/2022",
+        degree: "BSc Applied Chemistry & Chemical Engineering",
+        institution: "University of Rajshahi",
+        year: "2015 - 2020",
+        credits: "160 Credits",
       },
       {
-        degree: "BSc in Applied Chemistry and Chemical Engineering",
-        institution: "University of Rajshahi, Bangladesh",
-        year: "02/02/2015 - 29/11/2020",
+        degree:
+          "Training on Industrial Process Unit Operation & Process Control Technique",
+        institution:
+          "Training Institute for Chemical Industries (TICI), Norsingdi",
+        year: "November 2019",
+        grade: "Grade A (3.75/4.00)",
+      },
+      {
+        degree: "Higher Secondary Certificate (HSC)",
+        institution: "Sirajganj Govt. College, Sirajganj",
+        year: "2011 - 2013",
+        grade: "A+ (GPA 5.00/5.00)",
+      },
+      {
+        degree: "Secondary School Certificate (Dakhil)",
+        institution: "Char Sonagachhia Islamia Fadil Madrasah, Sirajganj",
+        year: "2009 - 2011",
+        grade: "A+ (GPA 5.00/5.00)",
       },
     ],
     experience: [
       {
-        role: "Founder, Chairman & CEO",
+        role: "Chairman & CEO",
         org: "Kekuleon Research and Training Center (KRTC)",
         period: "2025 - Present",
         description:
-          "Performed quantitative and qualitative data analysis to support senior consultants in developing strategic recommendations for clients. Contributed to the development of detailed project plans and managed key workstreams for consulting engagements across multiple sectors. Prepared compelling client presentations and reports, translating complex data into actionable insights for decision-makers.",
+          "Leading the institution's vision to bridge theory-practice gap in science education through integrated research, training, and community services.",
       },
       {
-        role: "Part-Time Lecturer",
-        org: "Barindra University, Bangladesh",
-        period: "2021 - 2022",
+        role: "MSc Research Student",
+        org: "University of Siegen, Germany",
+        period: "2023 - Present",
         description:
-          "Delivered lectures on Applied Chemistry fundamentals and laboratory safety protocols.",
+          "Pursuing advanced studies in Chemistry with focus on applied research.",
       },
       {
-        role: "Lead Instructor - University Admission Guidance",
-        org: "Various Admission Coaching Organizations",
-        period: "2020 - 2022",
+        role: "Teacher - HSC Academic & University Admission Coaching",
+        org: "Ebela Student Care, Rajshahi",
+        period: "January 2021 - April 2022",
         description:
-          "Provided intensive Chemistry instruction for university aspirants, focusing on competitive exam strategies.",
+          "Taught Chemistry at HSC level. Gained teaching skills, time management, and communication skills in the education sector.",
       },
     ],
     research: [
       {
-        title:
-          "Decentralised and Integrated Framework for Science Education Reform and Global Development",
-        supervisor: "Principal Researcher",
-        institution: "Kekuleon Research and Training Center (KRTC)",
-        period: "Oct 2025 - Present",
+        title: "Conductive Polymers and its Application in Electronics",
+        supervisor: "Dr. Md. Ibrahim H. Mondal, Professor",
+        institution:
+          "Department of Applied Chemistry and Chemical Engineering, University of Rajshahi",
+        period: "February 2019 - August 2019",
         description:
-          "Developed a decentralised and integrated framework for science education reform that links academic learning, laboratory practice, research training, and industry engagement within a single institutional model. Its long-term goal is to establish an adaptable model for scientific capacity development, educational equity, and education reform across diverse development contexts.",
+          "Research on conductive polymer materials and their potential applications in electronic devices.",
       },
     ],
     skills: [
-      "Survey Design",
-      "Statistical Data Analysis",
-      "Academic Writing",
-      "Case Study Development",
-      "Curriculum Design for Applied Sciences",
-      "Institutional Strategy",
-      "Sustainable STEM Ecosystems",
-      "Polymer Processing",
-      "Recycling Technologies",
-      "Pharmaceutical Chemistry",
-      "Web Management (WordPress/Elementor)",
-      "Database Administration",
+      "Applied Chemistry",
+      "Analytical Chemistry",
+      "Instrumental Analysis",
+      "Research Methodology",
+      "Process Technology",
+      "Environmental Science",
+      "Industrial Safety & Health",
+      "Quality Control",
+      "Teaching & Training",
+      "Institutional Development",
+      "Microsoft Office (Word, Excel, PowerPoint)",
+      "Google Docs",
     ],
     languages: [
-      { language: "Bengali", level: "Native" },
-      { language: "English", level: "Professional" },
-      { language: "German", level: "Basic" },
+      { language: "Bangla", level: "Native" },
+      { language: "English", level: "B2 (Independent User)" },
+    ],
+    organizations: [
+      {
+        role: "Organizing Secretary",
+        org: "ACCE GROUP (Applied Chemistry & Chemical Engineering, RU)",
+        description:
+          "Organized educational, cultural, and alumni association programs. Led teams in extracurricular activities and volunteer work.",
+      },
+      {
+        role: "Ex-Member",
+        org: "Rajshahi University Higher Study Club",
+        description:
+          "Organized conferences on higher study abroad opportunities. Participated in weekly meetings to improve communication and leadership skills.",
+      },
     ],
     achievements: [
-      "Founder & Chairman of KRTC",
-      "MSc in Chemistry, University of Siegen",
-      "Research in Applied Science Education",
-      "Expertise in Educational Equity and Capacity Development",
+      "Founded Kekuleon Research and Training Center (KRTC) Ltd.",
+      "International Academic Experience at University of Siegen, Germany",
+      "TICI Training - Grade A (3.75/4.00)",
+      "HSC - GPA 5.00/5.00 (A+)",
+      "SSC - GPA 5.00/5.00 (A+)",
+      "Research on Conductive Polymers",
+      "Teaching Experience in Higher Secondary Education",
     ],
   },
 
