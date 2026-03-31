@@ -199,97 +199,38 @@ His research interest includes Conductive Polymers and their applications in ele
     ],
   },
 
-  "omar-faruque": {
+  "abdul-mozid": {
     id: 2,
-    slug: "omar-faruque",
-    name: "Md. Omar Faruque",
-    nameBn: "মো. ওমর ফারুক",
-    title: "Managing Director, KRTC Schooling",
+    slug: "abdul-mozid",
+    name: "Md. Abdul Mozid",
+    nameBn: "মো. আব্দুল মজিদ",
+    title: "Director, KRTC Schooling",
     department: "KRTC Schooling Administration",
-    initials: "OF",
-    color: "bg-red-500",
-    email: "jewel970622@gmail.com",
-    phone: "+880 1738578423",
-    location: "Sirajganj, Bangladesh",
-    dateOfBirth: "05 February 1994",
+    initials: "AM",
+    color: "bg-gray-800",
+    email: "Subornakhatun6649@gmail.com",
+    location: "KRTC, Sirajganj, Bangladesh",
     type: "schooling-leadership",
     priority: 1,
-    bio: `Md. Omar Faruque is the Managing Director of KRTC Schooling at Kekuleon Research and Training Center (KRTC). He is currently working as an Officer at Sonali Bank PLC, Bangladesh. He completed his M.Engg in Applied Chemistry and Chemical Engineering and BSc (160 credits with CGPA 3.24) from University of Rajshahi.
+    bio: `Md. Abdul Mozid serves as the Director of KRTC Schooling, overseeing the foundation pipeline program and institutional development. As a founding member, he plays a crucial role in implementing KRTC's vision of providing quality science education and training.
 
-He received professional training from TICI on Industrial Process Unit Operation & Process Control Technique with Grade A (3.50/4.00). His expertise spans applied chemistry, analytical chemistry, research methodology, and institutional development.`,
-    education: [
-      {
-        degree: "M.Engg in Applied Chemistry & Chemical Engineering",
-        institution: "University of Rajshahi",
-        year: "2016 - 2017",
-      },
-      {
-        degree: "BSc in Applied Chemistry & Chemical Engineering",
-        institution: "University of Rajshahi",
-        year: "2012 - 2015",
-        grade: "CGPA: 3.24 (160 Credits)",
-      },
-      {
-        degree:
-          "Training on Industrial Process Unit Operation & Process Control Technique",
-        institution: "Training Institute for Chemical Industries (TICI)",
-        year: "Completed",
-        grade: "Grade A (3.50/4.00)",
-      },
-      {
-        degree: "Foundation Course for Officer",
-        institution: "Sonali Bank Training Institute, Dhaka",
-        year: "May 2022 - June 2022",
-      },
-    ],
+He manages administrative functions, coordinates with stakeholders, and ensures smooth operation of all KRTC Schooling programs and activities.`,
+    education: [],
     experience: [
       {
-        role: "Managing Director, KRTC Schooling",
-        org: "Kekuleon Research and Training Center",
+        role: "Director, KRTC Schooling",
+        org: "KRTC",
         period: "2025 - Present",
-        description:
-          "Overseeing the foundation pipeline program, institutional development, and strategic direction of KRTC Schooling.",
       },
-      {
-        role: "Officer",
-        org: "Sonali Bank PLC",
-        period: "December 2020 - Present",
-        description:
-          "Working at Sirajganj branch of Sonali Bank PLC, Bangladesh.",
-      },
-    ],
-    research: [
-      {
-        title: "Fuel Cell Technology Development",
-        institution: "University of Rajshahi",
-        period: "January 2015 - December 2015",
-        description: "Research project on fuel cell technology development.",
-      },
+      { role: "Managing Director", org: "KRTC", period: "2025 - Present" },
     ],
     skills: [
-      "Applied Chemistry",
-      "Analytical Chemistry",
-      "Instrumental Analysis",
-      "Research Methodology",
-      "Process Technology",
-      "Environmental Science",
-      "Industrial Safety & Health",
-      "Quality Control",
-      "Teaching & Training",
-      "Institutional Development",
-      "Microsoft Office (Word, Excel, PowerPoint)",
-      "Google Docs",
+      "Operations Management",
+      "Administration",
+      "Stakeholder Relations",
+      "Program Coordination",
     ],
-    languages: [
-      { language: "Bangla", level: "Native" },
-      { language: "English", level: "Proficient" },
-    ],
-    achievements: [
-      "Managing Director of KRTC Schooling",
-      "M.Engg in Applied Chemistry & Chemical Engineering",
-      "TICI Training - Grade A (3.50/4.00)",
-      "Officer at Sonali Bank PLC",
-    ],
+    achievements: ["Co-founder of KRTC", "Director of KRTC Schooling"],
   },
 
   "krtc-schooling-manager": {
@@ -804,8 +745,8 @@ He has the ability to teach students in an easy and effective way with good comm
     nameBn: "মো. সাগর হোসেন",
     title: "Physics Instructor",
     department: "Physics",
-    initials: "SG",
-    color: "bg-red-500",
+    initials: "SH",
+    color: "bg-red-600",
     email: "sagorhossain.0042@gmail.com",
     phone: "+880 1758970142",
     location: "Rajshahi, Bangladesh",
@@ -872,7 +813,7 @@ His achievement as a winner of the Bangladesh Physics Olympiad 2023 reflects his
     title: "Physics Instructor",
     department: "Physics",
     initials: "FR",
-    color: "bg-blue-500",
+    color: "bg-blue-600",
     email: "fahimreza2210622123@gmail.com",
     phone: "+880 1615653386",
     location: "Rajshahi, Bangladesh",
