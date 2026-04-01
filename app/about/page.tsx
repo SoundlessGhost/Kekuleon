@@ -22,6 +22,7 @@ import {
   School,
 } from "lucide-react";
 import { getLeadership } from "@/lib/team-data";
+import Image from "next/image";
 
 // Content from flow.md - Section 4: About KRTC
 const whatWeDo = [
@@ -454,7 +455,7 @@ export default function AboutPage() {
             <h2 className="heading-xl">Leadership Team</h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className=" gap-6 max-w-4xl mx-auto">
             {getLeadership().map((member, index) => (
               <motion.div
                 key={member.id}
@@ -465,18 +466,38 @@ export default function AboutPage() {
               >
                 <Link href={`/team/${member.slug}`}>
                   <div className="flex gap-5 p-6 bg-white rounded-xl border border-gray-100 hover:shadow-lg hover:border-primary/20 transition-all h-full group cursor-pointer">
-                    <div
+                    {/* <div
                       className={`w-16 h-16 ${member.color} rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform`}
                     >
                       <span className="text-2xl font-bold text-white">
                         {member.initials}
                       </span>
-                    </div>
+                    </div> */}
+                    {/* Avatar */}
+                    {member.image ? (
+                      <div className="w-20 h-20 rounded-full overflow-hidden flex-shrink-0">
+                        <Image
+                          src={member.image}
+                          alt={member.name}
+                          width={160}
+                          height={160}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    ) : (
+                      <div
+                        className={`w-14 h-14 rounded-full ${member.color} flex items-center justify-center flex-shrink-0`}
+                      >
+                        <span className="text-4xl lg:text-5xl font-bold text-white">
+                          {member.initials}
+                        </span>
+                      </div>
+                    )}
                     <div className="flex-1">
                       <h3 className="text-lg font-bold text-gray-900 mb-1 group-hover:text-primary transition-colors">
                         {member.name}
                       </h3>
-                      <p className="text-primary text-sm font-medium mb-3">
+                      <p className="text-primary text-sm font-medium mb-3 line-clamp-1">
                         {member.title}
                       </p>
                       <p className="text-sm text-gray-600 leading-relaxed line-clamp-3">

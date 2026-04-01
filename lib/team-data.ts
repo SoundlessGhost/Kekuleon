@@ -268,7 +268,7 @@ He received professional training from TICI on Industrial Process Unit Operation
     achievements: [
       "Managing Director of KRTC Schooling",
       "M.Engg in Applied Chemistry & Chemical Engineering",
-      "TICI Training - Grade A (3.50/4.00)",
+      "TICI Certified",
       "Officer at Sonali Bank PLC",
     ],
   },
@@ -359,7 +359,7 @@ He completed specialized training on Industrial Process Unit Operation & Process
     ],
     achievements: [
       "BCSIR Certificate of Appreciation 2024",
-      "TICI Certified (A+ Grade)",
+      "TICI Certified",
       "Milestone College Lecturer",
     ],
   },

@@ -287,11 +287,11 @@ export default function TeamMemberProfilePage() {
                     </h3>
                     <p className="text-gray-600 text-sm">{edu.institution}</p>
                     <p className="text-gray-400 text-xs mt-1">{edu.year}</p>
-                    {edu.grade && (
+                    {/* {edu.grade && (
                       <span className="inline-block mt-1 text-xs text-emerald-600 font-medium">
                         {edu.grade}
                       </span>
-                    )}
+                    )} */}
                   </div>
                 ))}
               </div>

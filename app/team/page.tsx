@@ -17,6 +17,7 @@ import {
   getSchoolingLeadership,
   getSchooling,
 } from "@/lib/team-data";
+import Image from "next/image";
 
 // Get team data
 const leadership = getLeadership();
@@ -83,18 +84,38 @@ export default function TeamPage() {
                 <Link href={`/team/${member.slug}`}>
                   <div className="bg-white rounded-xl p-5 border border-gray-100 hover:border-gray-200 hover:shadow-lg transition-all group cursor-pointer">
                     <div className="flex items-center gap-4">
-                      <div
+                      {/* <div
                         className={`w-14 h-14 ${member.color} rounded-full flex items-center justify-center flex-shrink-0`}
                       >
                         <span className="text-lg font-semibold text-white">
                           {member.initials}
                         </span>
-                      </div>
+                      </div> */}
+                      {/* Avatar */}
+                      {member.image ? (
+                        <div className="w-14 h-14 rounded-full overflow-hidden flex-shrink-0">
+                          <Image
+                            src={member.image}
+                            alt={member.name}
+                            width={160}
+                            height={160}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      ) : (
+                        <div
+                          className={`w-14 h-14 rounded-full ${member.color} flex items-center justify-center flex-shrink-0`}
+                        >
+                          <span className="text-4xl lg:text-5xl font-bold text-white">
+                            {member.initials}
+                          </span>
+                        </div>
+                      )}
                       <div className="flex-1 min-w-0">
                         <h3 className="text-lg font-semibold text-gray-900 group-hover:text-primary transition-colors">
                           {member.name}
                         </h3>
-                        <p className="text-sm text-primary font-medium">
+                        <p className="text-sm text-primary font-medium line-clamp-1">
                           {member.title}
                         </p>
                         {member.education.length > 0 && (
