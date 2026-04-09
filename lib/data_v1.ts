@@ -68,15 +68,7 @@ export const navigation = {
         },
       ],
     },
-    {
-      name: "KRTC Schooling",
-      href: "/schooling",
-      children: [
-        { name: "Program Overview", href: "/schooling" },
-        { name: "Our Students", href: "/schooling/students" },
-        { name: "Scholarships", href: "/scholarships" },
-      ],
-    },
+    { name: "KRTC Schooling", href: "/schooling" },
     { name: "PhD Programs", href: "/phd-programs" },
     { name: "Blog", href: "/blog" },
     { name: "Career", href: "/careers" },
@@ -111,7 +103,6 @@ export const navigation = {
     ],
     programs: [
       { name: "KRTC Schooling", href: "/schooling" },
-      { name: "Our Students", href: "/schooling/students" },
       { name: "PhD Programs", href: "/phd-programs" },
       { name: "Scholarships", href: "/scholarships" },
       { name: "Community Healthcare", href: "/healthcare" },
