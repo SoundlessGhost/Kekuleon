@@ -30,32 +30,18 @@ function getInitials(name: string): string {
 }
 
 function getScholarshipColor(percent: number) {
-  if (percent >= 100)
+  if (percent >= 50)
     return {
       bg: "bg-emerald-50",
       text: "text-emerald-700",
       border: "border-emerald-200",
-      label: "Full Scholarship",
-    };
-  if (percent >= 50)
-    return {
-      bg: "bg-blue-50",
-      text: "text-blue-700",
-      border: "border-blue-200",
-      label: "Merit Scholarship",
-    };
-  if (percent >= 30)
-    return {
-      bg: "bg-amber-50",
-      text: "text-amber-700",
-      border: "border-amber-200",
-      label: "Partial Scholarship",
+      label: "Scholarship",
     };
   return {
-    bg: "bg-gray-50",
-    text: "text-gray-600",
-    border: "border-gray-200",
-    label: "Scholarship",
+    bg: "bg-amber-50",
+    text: "text-amber-700",
+    border: "border-amber-200",
+    label: "Paid",
   };
 }
 
@@ -107,7 +93,7 @@ function StudentCard({
             {student.name}
           </h3>
           <p className="text-xs text-gray-500 mt-0.5">
-            ID: {student.id} · {student.batch}
+            {batch.label.split(" — ")[0]}
           </p>
         </div>
       </div>
@@ -126,12 +112,12 @@ function StudentCard({
         <div className="flex items-center justify-between gap-2">
           <span className="text-xs text-gray-500 flex items-center gap-1.5">
             <Award className="w-3 h-3" />
-            Scholarship
+            Status
           </span>
           <span
             className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium ${schol.bg} ${schol.text} border ${schol.border}`}
           >
-            {student.scholarship}%
+            {schol.label}
           </span>
         </div>
       </div>
@@ -177,14 +163,10 @@ export default function StudentsPage() {
     if (scholarshipFilter !== "all") {
       results = results.filter(({ student }) => {
         switch (scholarshipFilter) {
-          case "100":
-            return student.scholarship >= 100;
-          case "50+":
+          case "scholarship":
             return student.scholarship >= 50;
-          case "30-49":
-            return student.scholarship >= 30 && student.scholarship < 50;
-          case "<30":
-            return student.scholarship < 30;
+          case "paid":
+            return student.scholarship < 50;
           default:
             return true;
         }
@@ -235,12 +217,14 @@ export default function StudentsPage() {
             </div>
 
             <h1 className="heading-display mb-6">
-              <span className="text-gradient-primary">Our Students</span>
+              <span className="text-gradient-primary">
+                KRTC Schooling Students
+              </span>
             </h1>
 
             <p className="text-xl text-gray-600 leading-relaxed">
-              Meet the talented students of KRTC Schooling — preparing for
-              academic excellence across Sirajganj and beyond.
+              Building the next generation of scientists — meet the students
+              enrolled in our foundation program across Sirajganj.
             </p>
           </motion.div>
         </div>
@@ -275,9 +259,11 @@ export default function StudentsPage() {
                 <Award className="w-6 h-6 text-emerald-600" />
               </div>
               <div className="text-3xl md:text-4xl font-bold text-emerald-600">
-                {stats.fullScholarship}
+                {stats.scholarshipCount}
               </div>
-              <div className="text-sm text-gray-500 mt-1">Full Scholarship</div>
+              <div className="text-sm text-gray-500 mt-1">
+                Scholarship Students
+              </div>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -387,8 +373,10 @@ export default function StudentsPage() {
 
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className={`btn btn-outline flex items-center gap-2 rounded-lg ${
-                activeFiltersCount > 0 ? "border-primary text-primary" : ""
+              className={`btn btn-outline flex items-center gap-2 rounded-lg${
+                activeFiltersCount > 0
+                  ? "border-primary text-primary rounded-lg"
+                  : ""
               }`}
             >
               <Filter className="w-4 h-4" />
@@ -422,10 +410,8 @@ export default function StudentsPage() {
                   <div className="flex flex-wrap gap-2">
                     {[
                       { value: "all", label: "All" },
-                      { value: "100", label: "100% Scholarship" },
-                      { value: "50+", label: "50%+" },
-                      { value: "30-49", label: "30% – 49%" },
-                      { value: "<30", label: "Below 30%" },
+                      { value: "scholarship", label: "Scholarship" },
+                      { value: "paid", label: "Paid" },
                     ].map((opt) => (
                       <button
                         key={opt.value}
