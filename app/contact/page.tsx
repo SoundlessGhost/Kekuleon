@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { motion } from "framer-motion";
-import emailjs from "@emailjs/browser";
+import { motion, useInView } from "framer-motion";
 import {
   Phone,
   Mail,
@@ -11,52 +10,32 @@ import {
   MessageSquare,
   Clock,
   CheckCircle,
-  Building2,
-  Globe,
-  Users,
-  GraduationCap,
-  FlaskConical,
-  Handshake,
   AlertCircle,
   Loader2,
 } from "lucide-react";
 import { siteConfig } from "@/lib/data";
 
-// EmailJS Credentials
-const EMAILJS_SERVICE_ID = "service_4q2b1np";
-const EMAILJS_TEMPLATE_ID = "template_tden6u9";
-const EMAILJS_PUBLIC_KEY = "dUpLZYUAf9t68d8UG";
-
-const contactReasons = [
-  {
-    icon: GraduationCap,
-    title: "Admission Inquiry",
-    description: "Information about programs, enrollment, and requirements",
-    iconBg: "bg-blue-100",
-    iconColor: "text-blue-600",
-  },
-  {
-    icon: FlaskConical,
-    title: "Research Partnership",
-    description: "Collaboration opportunities for research projects",
-    iconBg: "bg-emerald-100",
-    iconColor: "text-emerald-600",
-  },
-  {
-    icon: Handshake,
-    title: "Industry Collaboration",
-    description: "Training programs and technical services for industries",
-    iconBg: "bg-violet-100",
-    iconColor: "text-violet-600",
-  },
-  {
-    icon: Users,
-    title: "General Inquiry",
-    description: "Any other questions or feedback",
-    iconBg: "bg-amber-100",
-    iconColor: "text-amber-600",
-  },
-];
+function Section({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
+  return (
+    <section ref={ref} className={className}>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.5 }}
+      >
+        {children}
+      </motion.div>
+    </section>
+  );
+}
 
 export default function ContactPage() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -80,14 +59,15 @@ export default function ContactPage() {
     setErrorMessage("");
 
     try {
-      const result = await emailjs.sendForm(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        formRef.current!,
-        EMAILJS_PUBLIC_KEY,
-      );
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-      if (result.status === 200) {
+      const data = await res.json();
+
+      if (res.ok) {
         setFormStatus("success");
         setFormData({
           from_name: "",
@@ -96,16 +76,15 @@ export default function ContactPage() {
           subject: "",
           message: "",
         });
-        formRef.current?.reset();
       } else {
-        throw new Error("Failed to send message");
+        throw new Error(data.error || "Failed to send message");
       }
     } catch (error: any) {
       setFormStatus("error");
       setErrorMessage(
-        "Failed to send message. Please try again or email us directly at kekuleoninfo@gmail.com",
+        error.message ||
+          "Failed to send message. Please try again or email us directly at kekuleoninfo@gmail.com",
       );
-      console.error("EmailJS Error:", error);
     } finally {
       setIsSubmitting(false);
     }
@@ -119,38 +98,23 @@ export default function ContactPage() {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const resetForm = () => {
-    setFormStatus("idle");
-    setErrorMessage("");
-  };
-
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-gray-50 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px]" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-violet-500/5 rounded-full blur-[120px]" />
-        </div>
-
-        <div className="container-custom relative z-10">
+      <section className="pt-36 pb-16 bg-white">
+        <div className="container-custom">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-4xl mx-auto"
+            transition={{ duration: 0.5 }}
+            className="max-w-2xl"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
-              <Mail className="w-4 h-4 text-primary" />
-              <span className="text-sm text-primary font-medium">
-                Contact Us
-              </span>
-            </div>
-
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-6">
-              Get in <span className="text-gradient-primary">Touch</span>
+            <p className="text-sm font-medium text-primary uppercase tracking-wider mb-4">
+              Contact Us
+            </p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-gray-900 mb-4">
+              Get in Touch
             </h1>
-
             <p className="text-lg text-gray-600 leading-relaxed">
               We welcome inquiries from students, researchers, industry
               partners, and academic institutions.
@@ -159,190 +123,111 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Reasons */}
-      <section className="section bg-white">
+      {/* Contact Info + Form */}
+      <Section className="section bg-gray-50">
         <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-10"
-          >
-            <h2 className="heading-xl mb-4">How Can We Help?</h2>
-            <p className="text-gray-600">
-              Choose a topic that best describes your inquiry
-            </p>
-          </motion.div>
+          <div className="grid lg:grid-cols-3 gap-10">
+            {/* Left — Contact details */}
+            <div className="space-y-6">
+              <h2 className="text-lg font-bold text-gray-900 mb-2">
+                Contact Information
+              </h2>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {contactReasons.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                >
-                  <div className="flex flex-col items-center text-center p-5 bg-gray-50 rounded-xl border border-gray-100 hover:border-primary/20 hover:shadow-md transition-all h-full">
-                    <div
-                      className={`w-12 h-12 rounded-xl ${item.iconBg} flex items-center justify-center mb-4`}
-                    >
-                      <Icon className={`w-6 h-6 ${item.iconColor}`} />
-                    </div>
-                    <h3 className="font-bold text-gray-900 mb-1">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs text-gray-500">{item.description}</p>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section className="section bg-gray-50">
-        <div className="container-custom">
-          <div className="grid lg:grid-cols-5 gap-8">
-            {/* Left - Contact Info */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="lg:col-span-2"
-            >
-              <div className="bg-gradient-to-br from-primary to-red-700 rounded-2xl p-8 text-white h-full">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center">
-                    <Building2 className="w-6 h-6 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold">Contact Information</h3>
+              <a
+                href={`tel:${siteConfig.phone}`}
+                className="flex items-start gap-4 group"
+              >
+                <Phone className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="text-xs text-gray-400">Phone (Bangladesh)</p>
+                  <p className="text-sm text-gray-900 font-medium group-hover:text-primary transition-colors">
+                    {siteConfig.phone}
+                  </p>
                 </div>
+              </a>
 
-                <div className="space-y-4 mb-8">
-                  <a
-                    href={`tel:${siteConfig.phone}`}
-                    className="flex items-start gap-4 p-3 bg-white/10 rounded-xl hover:bg-white/20 transition-colors"
-                  >
-                    <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0">
-                      <Phone className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <div className="text-xs text-white/60 mb-1">
-                        Phone (Bangladesh)
-                      </div>
-                      <div className="font-medium">{siteConfig.phone}</div>
-                    </div>
-                  </a>
-
-                  <a
-                    href={`https://wa.me/${siteConfig.whatsapp.replace(/[^0-9]/g, "")}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-start gap-4 p-3 bg-white/10 rounded-xl hover:bg-white/20 transition-colors"
-                  >
-                    <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0">
-                      <MessageSquare className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <div className="text-xs text-white/60 mb-1">
-                        WhatsApp (International)
-                      </div>
-                      <div className="font-medium">{siteConfig.whatsapp}</div>
-                    </div>
-                  </a>
-
-                  <a
-                    href={`mailto:${siteConfig.email}`}
-                    className="flex items-start gap-4 p-3 bg-white/10 rounded-xl hover:bg-white/20 transition-colors"
-                  >
-                    <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0">
-                      <Mail className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <div className="text-xs text-white/60 mb-1">Email</div>
-                      <div className="font-medium">{siteConfig.email}</div>
-                    </div>
-                  </a>
-
-                  <div className="flex items-start gap-4 p-3 bg-white/10 rounded-xl">
-                    <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <div className="text-xs text-white/60 mb-1">Address</div>
-                      <div className="font-medium">
-                        {siteConfig.address.full}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4 p-3 bg-white/10 rounded-xl">
-                    <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center flex-shrink-0">
-                      <Clock className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <div className="text-xs text-white/60 mb-1">
-                        Office Hours
-                      </div>
-                      <div className="font-medium">
-                        Sat - Thu: 9:00 AM - 6:00 PM
-                      </div>
-                    </div>
-                  </div>
+              <a
+                href={`https://wa.me/${siteConfig.whatsapp.replace(/[^0-9]/g, "")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-4 group"
+              >
+                <MessageSquare className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="text-xs text-gray-400">
+                    WhatsApp (International)
+                  </p>
+                  <p className="text-sm text-gray-900 font-medium group-hover:text-primary transition-colors">
+                    {siteConfig.whatsapp}
+                  </p>
                 </div>
+              </a>
 
-                {/* Social Links */}
-                <div className="pt-6 border-t border-white/20">
-                  <div className="text-xs text-white/60 mb-3">Follow Us</div>
-                  <div className="flex gap-3">
-                    <a
-                      href={siteConfig.social.facebook}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors"
-                    >
-                      <Globe className="w-5 h-5" />
-                    </a>
-                    <a
-                      href={siteConfig.social.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors"
-                    >
-                      <Globe className="w-5 h-5" />
-                    </a>
-                  </div>
+              <a
+                href={`mailto:${siteConfig.email}`}
+                className="flex items-start gap-4 group"
+              >
+                <Mail className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="text-xs text-gray-400">Email</p>
+                  <p className="text-sm text-gray-900 font-medium group-hover:text-primary transition-colors">
+                    {siteConfig.email}
+                  </p>
+                </div>
+              </a>
+
+              <div className="flex items-start gap-4">
+                <MapPin className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="text-xs text-gray-400">Address</p>
+                  <p className="text-sm text-gray-900 font-medium">
+                    {siteConfig.address.full}
+                  </p>
                 </div>
               </div>
-            </motion.div>
 
-            {/* Right - Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="lg:col-span-3"
-            >
-              <div className="bg-white rounded-2xl border border-gray-100 p-8">
-                <h2 className="text-xl font-bold text-gray-900 mb-6">
+              <div className="flex items-start gap-4">
+                <Clock className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                <div>
+                  <p className="text-xs text-gray-400">Office Hours</p>
+                  <p className="text-sm text-gray-900 font-medium">
+                    Sat - Thu: 9:00 AM - 6:00 PM
+                  </p>
+                </div>
+              </div>
+
+              {/* Inquiry types */}
+              <div className="pt-6 border-t border-gray-200">
+                <p className="text-xs text-gray-400 mb-3">We can help with</p>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "Admission Inquiry",
+                    "Research Partnership",
+                    "Industry Collaboration",
+                    "General Inquiry",
+                  ].map((item) => (
+                    <span
+                      key={item}
+                      className="text-xs px-3 py-1.5 bg-white border border-gray-200 rounded-full text-gray-600"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Right — Form */}
+            <div className="lg:col-span-2">
+              <div className="bg-white rounded-2xl border border-gray-200 p-8">
+                <h2 className="text-lg font-bold text-gray-900 mb-6">
                   Send us a Message
                 </h2>
 
                 {formStatus === "success" ? (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="text-center py-12"
-                  >
-                    <div className="w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center mx-auto mb-4">
-                      <CheckCircle className="w-8 h-8 text-emerald-600" />
+                  <div className="text-center py-12">
+                    <div className="w-14 h-14 rounded-full bg-emerald-100 flex items-center justify-center mx-auto mb-4">
+                      <CheckCircle className="w-7 h-7 text-emerald-600" />
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-2">
                       Message Sent!
@@ -351,12 +236,12 @@ export default function ContactPage() {
                       Thank you for contacting us. We will get back to you soon.
                     </p>
                     <button
-                      onClick={resetForm}
+                      onClick={() => setFormStatus("idle")}
                       className="text-primary font-medium hover:underline"
                     >
                       Send another message
                     </button>
-                  </motion.div>
+                  </div>
                 ) : (
                   <form
                     ref={formRef}
@@ -378,7 +263,7 @@ export default function ContactPage() {
                           value={formData.from_name}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
                           placeholder="Your name"
                         />
                       </div>
@@ -396,7 +281,7 @@ export default function ContactPage() {
                           value={formData.from_email}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
                           placeholder="your@email.com"
                         />
                       </div>
@@ -416,7 +301,7 @@ export default function ContactPage() {
                           name="phone"
                           value={formData.phone}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
                           placeholder="+880..."
                         />
                       </div>
@@ -433,7 +318,7 @@ export default function ContactPage() {
                           value={formData.subject}
                           onChange={handleChange}
                           required
-                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-white"
+                          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all bg-white"
                         >
                           <option value="">Select a subject</option>
                           <option value="Admission Inquiry">
@@ -469,14 +354,13 @@ export default function ContactPage() {
                         onChange={handleChange}
                         required
                         rows={5}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none"
+                        className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none"
                         placeholder="How can we help you?"
                       />
                     </div>
 
-                    {/* Error Message */}
                     {formStatus === "error" && (
-                      <div className="p-4 bg-red-50 border border-red-200 rounded-xl flex items-start gap-3">
+                      <div className="p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3">
                         <AlertCircle className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
                         <p className="text-red-700 text-sm">{errorMessage}</p>
                       </div>
@@ -485,7 +369,7 @@ export default function ContactPage() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-white rounded-full font-semibold hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-white rounded-full font-medium hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? (
                         <>
@@ -502,34 +386,19 @@ export default function ContactPage() {
                   </form>
                 )}
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
-      </section>
+      </Section>
 
-      {/* Map Section */}
-      <section className="section bg-white">
+      {/* Map */}
+      <Section className="section bg-white">
         <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-10"
-          >
-            <h2 className="heading-xl mb-4">Our Location</h2>
-            <p className="text-gray-600">
-              Visit us at our center in Sirajganj, Bangladesh
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="rounded-2xl overflow-hidden border border-gray-100"
-          >
+          <h2 className="heading-lg mb-2">Our Location</h2>
+          <p className="text-gray-600 mb-8">
+            Visit us at our center in Sirajganj, Bangladesh
+          </p>
+          <div className="rounded-2xl overflow-hidden border border-gray-200">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14493.940877385283!2d89.5636!3d24.4534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fdeb4c4b9e8e2d%3A0x5a2c3c3c3c3c3c3c!2sSirajganj!5e0!3m2!1sen!2sbd!4v1620000000000!5m2!1sen!2sbd"
               width="100%"
@@ -540,9 +409,9 @@ export default function ContactPage() {
               referrerPolicy="no-referrer-when-downgrade"
               className="w-full"
             />
-          </motion.div>
+          </div>
         </div>
-      </section>
+      </Section>
     </>
   );
 }

@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run:*)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(taskkill /PID 26876 /F)",
+      "Bash(cmd //c \"taskkill /PID 26876 /F\")",
+      "Bash(taskkill //PID 26876 //F)",
+      "Bash(npx --yes kill-port 3000)",
+      "WebFetch(domain:www.kekuleon.com)",
+      "Bash(npm install:*)",
+      "Bash(npx next:*)"
+    ]
+  }
+}

@@ -8,7 +8,6 @@ import {
   Users,
   Search,
   Award,
-  GraduationCap,
   School,
   Filter,
   ChevronDown,
@@ -66,7 +65,6 @@ function StudentCard({
     >
       {/* Top: Avatar + Name */}
       <div className="flex items-center gap-3 mb-4">
-        {/* Avatar — photo or initials */}
         {student.photo ? (
           <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border-2 border-gray-100">
             <Image
@@ -148,7 +146,6 @@ export default function StudentsPage() {
       });
     });
 
-    // Search filter
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
       results = results.filter(
@@ -159,7 +156,6 @@ export default function StudentsPage() {
       );
     }
 
-    // Scholarship filter
     if (scholarshipFilter !== "all") {
       results = results.filter(({ student }) => {
         switch (scholarshipFilter) {
@@ -182,16 +178,13 @@ export default function StudentsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-gray-50 to-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-mesh-gradient opacity-60" />
-        <div className="grid-pattern" />
-
-        <div className="container-custom relative z-10">
+      <section className="pt-36 pb-16 bg-white">
+        <div className="container-custom">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl"
+            transition={{ duration: 0.5 }}
+            className="max-w-3xl"
           >
             {/* Breadcrumb */}
             <div className="flex items-center gap-2 text-sm text-gray-500 mb-6">
@@ -209,20 +202,13 @@ export default function StudentsPage() {
               <span className="text-gray-900">Our Students</span>
             </div>
 
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
-              <Users className="w-4 h-4 text-primary" />
-              <span className="text-sm text-primary font-medium">
-                Student Directory
-              </span>
-            </div>
-
-            <h1 className="heading-display mb-6">
-              <span className="text-gradient-primary">
-                KRTC Schooling Students
-              </span>
+            <p className="text-sm font-medium text-primary uppercase tracking-wider mb-4">
+              Student Directory
+            </p>
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-5">
+              KRTC Schooling Students
             </h1>
-
-            <p className="text-xl text-gray-600 leading-relaxed">
+            <p className="text-lg text-gray-600 leading-relaxed">
               Building the next generation of scientists — meet the students
               enrolled in our foundation program across Sirajganj.
             </p>
@@ -231,92 +217,40 @@ export default function StudentsPage() {
       </section>
 
       {/* Stats */}
-      <section className="py-12 bg-white border-y border-gray-100">
+      <section className="py-12 bg-gray-50 border-y border-gray-100">
         <div className="container-custom">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center"
-            >
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 mb-3">
-                <Users className="w-6 h-6 text-primary" />
-              </div>
-              <div className="text-3xl md:text-4xl font-bold text-primary">
-                {stats.totalStudents}
-              </div>
-              <div className="text-sm text-gray-500 mt-1">Total Students</div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-center"
-            >
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-emerald-50 mb-3">
-                <Award className="w-6 h-6 text-emerald-600" />
-              </div>
-              <div className="text-3xl md:text-4xl font-bold text-emerald-600">
-                {stats.scholarshipCount}
-              </div>
-              <div className="text-sm text-gray-500 mt-1">
-                Scholarship Students
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="text-center"
-            >
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-blue-50 mb-3">
-                <School className="w-6 h-6 text-blue-600" />
-              </div>
-              <div className="text-3xl md:text-4xl font-bold text-blue-600">
-                {stats.totalSchools}
-              </div>
-              <div className="text-sm text-gray-500 mt-1">
-                Schools Represented
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3 }}
-              className="text-center"
-            >
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-amber-50 mb-3">
-                <Layers className="w-6 h-6 text-amber-600" />
-              </div>
-              <div className="text-3xl md:text-4xl font-bold text-amber-600">
-                {stats.totalBatches}
-              </div>
-              <div className="text-sm text-gray-500 mt-1">Active Batches</div>
-            </motion.div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <p className="text-4xl font-bold text-gray-900">{stats.totalStudents}</p>
+              <p className="text-sm text-gray-500 mt-1">Total Students</p>
+            </div>
+            <div className="text-center">
+              <p className="text-4xl font-bold text-gray-900">{stats.scholarshipCount}</p>
+              <p className="text-sm text-gray-500 mt-1">Scholarship Students</p>
+            </div>
+            <div className="text-center">
+              <p className="text-4xl font-bold text-gray-900">{stats.totalSchools}</p>
+              <p className="text-sm text-gray-500 mt-1">Schools Represented</p>
+            </div>
+            <div className="text-center">
+              <p className="text-4xl font-bold text-gray-900">{stats.totalBatches}</p>
+              <p className="text-sm text-gray-500 mt-1">Active Batches</p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Student Directory */}
-      <section className="section bg-gray-50">
+      <section className="section bg-white">
         <div className="container-custom">
           {/* Section Header */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-10"
-          >
-            <h2 className="heading-xl mb-4">Student Directory</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+          <div className="mb-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Student Directory</h2>
+            <p className="text-gray-600">
               Browse students by batch, search by name or school, and filter by
               scholarship status.
             </p>
-          </motion.div>
+          </div>
 
           {/* Batch Tabs */}
           <div className="flex flex-wrap items-center gap-3 mb-6">
@@ -324,8 +258,8 @@ export default function StudentsPage() {
               onClick={() => setSelectedBatch("all")}
               className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
                 selectedBatch === "all"
-                  ? "bg-primary text-white shadow-glow"
-                  : "bg-white text-gray-600 border border-gray-200 hover:border-primary/30 hover:text-primary"
+                  ? "bg-primary text-white"
+                  : "bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-gray-900"
               }`}
             >
               All Batches
@@ -336,8 +270,8 @@ export default function StudentsPage() {
                 onClick={() => setSelectedBatch(batch.batchNumber)}
                 className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
                   selectedBatch === batch.batchNumber
-                    ? "bg-primary text-white shadow-glow"
-                    : "bg-white text-gray-600 border border-gray-200 hover:border-primary/30 hover:text-primary"
+                    ? "bg-primary text-white"
+                    : "bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-gray-900"
                 }`}
               >
                 {batch.label}
@@ -375,7 +309,7 @@ export default function StudentsPage() {
               onClick={() => setShowFilters(!showFilters)}
               className={`btn btn-outline flex items-center gap-2 rounded-lg${
                 activeFiltersCount > 0
-                  ? "border-primary text-primary rounded-lg"
+                  ? " border-primary text-primary"
                   : ""
               }`}
             >
@@ -505,31 +439,26 @@ export default function StudentsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 bg-white">
-        <div className="container-custom text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="heading-lg mb-4">Want to Join KRTC Schooling?</h2>
-            <p className="text-gray-600 max-w-xl mx-auto mb-8">
-              Apply for our scholarship program and become part of a community
-              that bridges the gap between theoretical knowledge and practical
-              scientific competence.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/scholarships"
-                className="btn btn-primary rounded-full"
-              >
-                Apply for Scholarship <Award className="w-4 h-4" />
-              </Link>
-              <Link href="/contact" className="btn btn-outline rounded-full">
-                Contact Us <ArrowRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </motion.div>
+      <section className="py-16 bg-gray-50">
+        <div className="container-custom text-center max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+            Want to Join KRTC Schooling?
+          </h2>
+          <p className="text-gray-600 mb-8">
+            Apply for our scholarship program and become part of a community
+            that bridges the gap between theoretical knowledge and practical
+            scientific competence.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/scholarships" className="btn btn-primary group">
+              Apply for Scholarship
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
+            <Link href="/contact" className="btn btn-outline rounded-full">
+              Contact Us
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
     </>

@@ -11,27 +11,17 @@ export default function CTA() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-20 lg:py-28 relative overflow-hidden">
-      {/* Background - Light Theme */}
-      <div className="absolute inset-0 bg-gray-50" />
-
-      {/* Decorative Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-violet-500/5 rounded-full blur-[120px]" />
-      </div>
-
-      <div className="container-custom relative z-10">
+    <section ref={ref} className="py-20 lg:py-28 bg-gray-50">
+      <div className="container-custom">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           className="max-w-4xl mx-auto text-center"
         >
-          {/* Heading */}
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-900 mb-6">
             Ready to Start Your{" "}
-            <span className="text-gradient-primary">Scientific Journey</span>?
+            <span className="">Scientific Journey</span>?
           </h2>
 
           <p className="text-gray-600 text-lg mb-10 max-w-2xl mx-auto">
@@ -42,17 +32,11 @@ export default function CTA() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-            <Link
-              href="/contact"
-              className="btn btn-primary btn-lg group rounded-full"
-            >
+            <Link href="/contact" className="btn btn-primary btn-lg group">
               Get Started Today
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Link>
-            <Link
-              href="/services"
-              className="btn btn-outline-dark btn-lg rounded-full"
-            >
+            <Link href="/services" className="btn btn-outline-dark btn-lg">
               Explore Programs
             </Link>
           </div>

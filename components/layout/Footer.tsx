@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import {
   Phone,
   Mail,
@@ -9,7 +8,6 @@ import {
   Facebook,
   Linkedin,
   Twitter,
-  ArrowUpRight,
   Send,
 } from "lucide-react";
 import { siteConfig, navigation } from "@/lib/data";
@@ -21,64 +19,107 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
       {/* Main Footer */}
-      <div className="container-custom py-16 lg:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
-          {/* Brand Column */}
-          <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-3 mb-6">
+      <div className="container-custom pt-16 lg:pt-20 pb-12">
+        {/* Top row — brand + contact side by side */}
+        <div className="grid lg:grid-cols-2 gap-10 pb-12 border-b border-white/10">
+          {/* Brand */}
+          <div>
+            <Link href="/" className="inline-block mb-4">
               <Image
-                src="/images/logo.png" // <-- এই path চেঞ্জ করুন
+                src="/images/logo.png"
                 alt="KRTC Logo"
                 width={150}
                 height={50}
-                className="h-12 w-auto object-contain group-hover:scale-105 transition-transform"
+                className="h-12 w-auto object-contain brightness-0 invert"
                 priority
               />
             </Link>
-            <p className="text-gray-400 text-sm leading-relaxed mb-6">
+            <p className="text-white/50 text-sm leading-relaxed max-w-md">
               Building scientific capacity through integrated applied training,
               research services, industry collaboration, and community
               engagement.
             </p>
-            <div className="flex gap-3">
-              <a
-                href={siteConfig.social.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all"
-              >
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a
-                href={siteConfig.social.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a
-                href={siteConfig.social.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all"
-              >
-                <Twitter className="w-5 h-5" />
-              </a>
+            <div className="flex gap-3 mt-6">
+              {[
+                { href: siteConfig.social.facebook, icon: Facebook },
+                { href: siteConfig.social.linkedin, icon: Linkedin },
+                { href: siteConfig.social.twitter, icon: Twitter },
+              ].map(({ href, icon: Icon }) => (
+                <a
+                  key={href}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white/50 hover:bg-primary hover:text-white transition-all"
+                >
+                  <Icon className="w-4 h-4" />
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Services Links */}
+          {/* Contact */}
+          <div className="grid sm:grid-cols-2 gap-6">
+            <div className="space-y-4">
+              <a
+                href={`tel:${siteConfig.phone}`}
+                className="flex items-center gap-3 text-sm text-white/50 hover:text-white transition-colors"
+              >
+                <Phone className="w-4 h-4 text-primary flex-shrink-0" />
+                <div>
+                  <span className="block text-xs text-white/30">Phone</span>
+                  {siteConfig.phone}
+                </div>
+              </a>
+              <a
+                href={`https://wa.me/${siteConfig.whatsapp.replace(/[^0-9]/g, "")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 text-sm text-white/50 hover:text-white transition-colors"
+              >
+                <Send className="w-4 h-4 text-primary flex-shrink-0" />
+                <div>
+                  <span className="block text-xs text-white/30">WhatsApp</span>
+                  {siteConfig.whatsapp}
+                </div>
+              </a>
+            </div>
+            <div className="space-y-4">
+              <a
+                href={`mailto:${siteConfig.email}`}
+                className="flex items-center gap-3 text-sm text-white/50 hover:text-white transition-colors"
+              >
+                <Mail className="w-4 h-4 text-primary flex-shrink-0" />
+                <div>
+                  <span className="block text-xs text-white/30">Email</span>
+                  {siteConfig.email}
+                </div>
+              </a>
+              <div className="flex items-center gap-3 text-sm text-white/50">
+                <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
+                <div>
+                  <span className="block text-xs text-white/30">Address</span>
+                  {siteConfig.address.full}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Link columns */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 pt-10">
+          {/* Services */}
           <div>
-            <h4 className="font-semibold text-white mb-5">Our Services</h4>
-            <ul className="space-y-3">
+            <h4 className="text-sm font-semibold text-white mb-4">
+              Our Services
+            </h4>
+            <ul className="space-y-2.5">
               {navigation.footer.services.map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-sm text-gray-400 hover:text-primary transition-colors flex items-center gap-2 group"
+                    className="text-sm text-white/40 hover:text-primary transition-colors"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover:bg-primary transition-colors" />
                     {item.name}
                   </Link>
                 </li>
@@ -86,32 +127,16 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Programs Links */}
+          {/* Programs */}
           <div>
-            <h4 className="font-semibold text-white mb-5">Programs</h4>
-            <ul className="space-y-3">
+            <h4 className="text-sm font-semibold text-white mb-4">Programs</h4>
+            <ul className="space-y-2.5">
               {navigation.footer.programs.map((item) => (
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className="text-sm text-gray-400 hover:text-primary transition-colors flex items-center gap-2 group"
+                    className="text-sm text-white/40 hover:text-primary transition-colors"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover:bg-primary transition-colors" />
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-
-            <h4 className="font-semibold text-white mb-5 mt-8">Company</h4>
-            <ul className="space-y-3">
-              {navigation.footer.company.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="text-sm text-gray-400 hover:text-primary transition-colors flex items-center gap-2 group"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover:bg-primary transition-colors" />
                     {item.name}
                   </Link>
                 </li>
@@ -119,67 +144,20 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Company */}
           <div>
-            <h4 className="font-semibold text-white mb-5">Contact Us</h4>
-            <ul className="space-y-4">
-              <li>
-                <a
-                  href={`tel:${siteConfig.phone}`}
-                  className="flex items-start gap-3 text-sm text-gray-400 hover:text-white transition-colors group"
-                >
-                  <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                    <Phone className="w-4 h-4 text-primary" />
-                  </div>
-                  <div>
-                    <div className="text-gray-500 text-xs mb-0.5">
-                      Phone (BD)
-                    </div>
-                    {siteConfig.phone}
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`https://wa.me/${siteConfig.whatsapp.replace(/[^0-9]/g, "")}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-3 text-sm text-gray-400 hover:text-white transition-colors group"
-                >
-                  <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                    <Send className="w-4 h-4 text-primary" />
-                  </div>
-                  <div>
-                    <div className="text-gray-500 text-xs mb-0.5">WhatsApp</div>
-                    {siteConfig.whatsapp}
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`mailto:${siteConfig.email}`}
-                  className="flex items-start gap-3 text-sm text-gray-400 hover:text-white transition-colors group"
-                >
-                  <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
-                    <Mail className="w-4 h-4 text-primary" />
-                  </div>
-                  <div>
-                    <div className="text-gray-500 text-xs mb-0.5">Email</div>
-                    {siteConfig.email}
-                  </div>
-                </a>
-              </li>
-              <li>
-                <div className="flex items-start gap-3 text-sm text-gray-400">
-                  <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-4 h-4 text-primary" />
-                  </div>
-                  <div>
-                    <div className="text-gray-500 text-xs mb-0.5">Address</div>
-                    {siteConfig.address.full}
-                  </div>
-                </div>
-              </li>
+            <h4 className="text-sm font-semibold text-white mb-4">Company</h4>
+            <ul className="space-y-2.5">
+              {navigation.footer.company.map((item) => (
+                <li key={item.name}>
+                  <Link
+                    href={item.href}
+                    className="text-sm text-white/40 hover:text-primary transition-colors"
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -187,16 +165,15 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
-        <div className="container-custom py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
-            <div className="text-center md:text-left">
-              © {currentYear} {siteConfig.name}. All Rights Reserved.
-            </div>
-            <div className="flex items-center gap-1 text-xs">
-              <span>Reg. No: {siteConfig.registration.number}</span>
-              <span className="mx-2">|</span>
-              <span>Est. {siteConfig.registration.date}</span>
-            </div>
+        <div className="container-custom py-5">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/30">
+            <span>
+              &copy; {currentYear} {siteConfig.name}. All Rights Reserved.
+            </span>
+            <span>
+              Reg. No: {siteConfig.registration.number} | Est.{" "}
+              {siteConfig.registration.date}
+            </span>
           </div>
         </div>
       </div>

@@ -10,12 +10,8 @@ import {
   Calendar,
   ArrowRight,
   Users,
-  GraduationCap,
-  Heart,
-  Globe,
 } from "lucide-react";
 
-// Jobs data - এটা পরে CMS/database থেকে আসবে
 const openPositions = [
   {
     id: 1,
@@ -77,316 +73,220 @@ const openPositions = [
 
 const benefits = [
   {
-    icon: Heart,
     title: "Health Benefits",
     desc: "Comprehensive health coverage for you and family",
   },
   {
-    icon: GraduationCap,
     title: "Learning",
     desc: "Professional development and training opportunities",
   },
   {
-    icon: Globe,
     title: "Growth",
     desc: "International collaboration and research opportunities",
   },
   {
-    icon: Users,
     title: "Culture",
     desc: "Supportive and collaborative work environment",
   },
 ];
 
-export default function CareersPage() {
-  const heroRef = useRef(null);
-  const heroInView = useInView(heroRef, { once: true });
+function Section({
+  children,
+  className = "",
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
 
-  // Separate active and inactive positions
+  return (
+    <section ref={ref} className={className}>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.5 }}
+      >
+        {children}
+      </motion.div>
+    </section>
+  );
+}
+
+export default function CareersPage() {
   const activePositions = openPositions.filter((job) => job.active);
   const upcomingPositions = openPositions.filter((job) => !job.active);
 
   return (
     <>
-      {/* Hero Section */}
-      <section
-        ref={heroRef}
-        className="pt-28 pb-16 bg-gradient-to-b from-red-50 to-white relative overflow-hidden"
-      >
-        {/* Background decoration */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px]" />
-
-        <div className="container-custom relative z-10">
-          {/* Breadcrumb */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={heroInView ? { opacity: 1 } : {}}
-            className="flex items-center gap-2 text-sm text-gray-500 mb-6"
-          >
-            <Link href="/" className="hover:text-primary transition-colors">
-              Home
-            </Link>
-            <span>/</span>
-            <span className="text-gray-900">Careers</span>
-          </motion.div>
-
+      {/* Hero */}
+      <section className="pt-36 pb-16 bg-white">
+        <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={heroInView ? { opacity: 1, y: 0 } : {}}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
             className="max-w-3xl"
           >
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full mb-6">
-              <Briefcase className="w-4 h-4" />
-              <span className="text-sm font-semibold">We're Hiring</span>
-            </div>
-
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <p className="text-sm font-medium text-primary uppercase tracking-wider mb-4">
+              Careers
+            </p>
+            <h1 className="text-4xl sm:text-5xl font-bold leading-tight tracking-tight text-gray-900 mb-6">
               Join Our Mission
             </h1>
-            <p className="text-xl text-gray-600 leading-relaxed">
+            <p className="text-lg text-gray-600 leading-relaxed">
               Be part of a team dedicated to transforming science education in
-              Bangladesh. We're looking for passionate individuals who want to
+              Bangladesh. We are looking for passionate individuals who want to
               make a real impact.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Open Positions - Active */}
-      <section className="py-16 bg-white">
+      {/* Active Positions */}
+      <Section className="py-16 bg-white">
         <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-12"
-          >
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">
-              Open Positions
-            </h2>
-            <p className="text-gray-600">
-              {activePositions.length} opportunities currently accepting
-              applications
-            </p>
-          </motion.div>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">
+            Open Positions
+          </h2>
+          <p className="text-gray-600 mb-10">
+            {activePositions.length} opportunit{activePositions.length === 1 ? "y" : "ies"} currently accepting applications
+          </p>
 
           <div className="space-y-4">
-            {activePositions.map((job, i) => (
-              <motion.div
-                key={job.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-              >
-                <Link href={`/careers/${job.slug}`}>
-                  <div
-                    className={`bg-white rounded-2xl p-6 border ${job.featured ? "border-primary/30 shadow-lg shadow-primary/5" : "border-gray-100"} hover:border-primary/50 hover:shadow-xl transition-all group cursor-pointer`}
-                  >
-                    <div className="flex flex-col md:flex-row md:items-center gap-4">
-                      {/* Left - Info */}
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-2">
-                          {job.featured && (
-                            <span className="px-3 py-1 bg-red-100 text-primary text-xs font-semibold rounded-full">
-                              FEATURED
-                            </span>
-                          )}
-                          <span className="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-medium rounded-full">
-                            {job.department}
-                          </span>
-                        </div>
-
-                        <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">
-                          {job.title}
-                        </h3>
-                        <p className="text-gray-600 text-sm mb-3">
-                          {job.description}
-                        </p>
-
-                        <div className="flex flex-wrap gap-4 text-sm text-gray-500">
-                          <span className="flex items-center gap-1">
-                            <MapPin className="w-4 h-4" />
-                            {job.location}
-                          </span>
-                          <span className="flex items-center gap-1">
-                            <Clock className="w-4 h-4" />
-                            {job.type}
-                          </span>
-                          <span className="flex items-center gap-1">
-                            <Users className="w-4 h-4" />
-                            {job.vacancies} positions
-                          </span>
-                          <span className="flex items-center gap-1">
-                            <Calendar className="w-4 h-4" />
-                            Deadline: {job.deadline}
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Right - CTA */}
-                      <div className="flex items-center gap-4">
-                        <div className="px-6 py-3 bg-primary/10 text-primary font-semibold rounded-xl group-hover:bg-primary group-hover:text-white transition-all flex items-center gap-2">
-                          Apply Now
-                          <ArrowRight className="w-4 h-4" />
-                        </div>
+            {activePositions.map((job) => (
+              <Link key={job.id} href={`/careers/${job.slug}`}>
+                <div
+                  className={`rounded-2xl border p-6 transition-all group cursor-pointer ${
+                    job.featured
+                      ? "border-primary/20 bg-primary/[0.02]"
+                      : "border-gray-200 bg-white"
+                  } hover:border-primary/40 hover:shadow-md`}
+                >
+                  <div className="flex flex-col md:flex-row md:items-center gap-4">
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-gray-900 mb-1 group-hover:text-primary transition-colors">
+                        {job.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm mb-3">
+                        {job.description}
+                      </p>
+                      <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-gray-500">
+                        <span className="flex items-center gap-1.5">
+                          <Briefcase className="w-4 h-4" />
+                          {job.department}
+                        </span>
+                        <span className="flex items-center gap-1.5">
+                          <Clock className="w-4 h-4" />
+                          {job.type}
+                        </span>
+                        <span className="flex items-center gap-1.5">
+                          <MapPin className="w-4 h-4" />
+                          {job.location}
+                        </span>
+                        <span className="flex items-center gap-1.5">
+                          <Users className="w-4 h-4" />
+                          {job.vacancies} positions
+                        </span>
+                        <span className="flex items-center gap-1.5">
+                          <Calendar className="w-4 h-4" />
+                          Deadline: {job.deadline}
+                        </span>
                       </div>
                     </div>
+
+                    <span className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-white text-sm font-semibold rounded-full group-hover:bg-primary/90 transition-colors whitespace-nowrap">
+                      View Details
+                      <ArrowRight className="w-4 h-4" />
+                    </span>
                   </div>
-                </Link>
-              </motion.div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
-      </section>
+      </Section>
 
-      {/* Upcoming Positions - Disabled */}
+      {/* Upcoming Positions */}
       {upcomingPositions.length > 0 && (
-        <section className="py-16 bg-gray-50">
+        <Section className="py-16 bg-gray-50">
           <div className="container-custom">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="mb-12"
-            >
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                Upcoming Positions
-              </h2>
-              <p className="text-gray-600">
-                These positions will be open for applications soon
-              </p>
-            </motion.div>
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">
+              Upcoming Positions
+            </h2>
+            <p className="text-gray-600 mb-10">
+              These positions will be open for applications soon
+            </p>
 
             <div className="space-y-4">
-              {upcomingPositions.map((job, i) => (
-                <motion.div
+              {upcomingPositions.map((job) => (
+                <div
                   key={job.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.05 }}
+                  className="rounded-2xl border border-gray-200 bg-white p-6 opacity-60"
                 >
-                  <div className="bg-white rounded-2xl p-6 border border-gray-200 opacity-70">
-                    <div className="flex flex-col md:flex-row md:items-center gap-4">
-                      {/* Left - Info */}
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-2">
-                          <span className="px-3 py-1 bg-gray-200 text-gray-500 text-xs font-semibold rounded-full">
-                            COMING SOON
-                          </span>
-                          <span className="px-3 py-1 bg-gray-100 text-gray-500 text-xs font-medium rounded-full">
-                            {job.department}
-                          </span>
-                        </div>
-
-                        <h3 className="text-xl font-bold text-gray-500 mb-2">
-                          {job.title}
-                        </h3>
-                        <p className="text-gray-400 text-sm mb-3">
-                          {job.description}
-                        </p>
-
-                        <div className="flex flex-wrap gap-4 text-sm text-gray-400">
-                          <span className="flex items-center gap-1">
-                            <MapPin className="w-4 h-4" />
-                            {job.location}
-                          </span>
-                          <span className="flex items-center gap-1">
-                            <Clock className="w-4 h-4" />
-                            {job.type}
-                          </span>
-                          <span className="flex items-center gap-1">
-                            <Users className="w-4 h-4" />
-                            {job.vacancies} positions
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Right - Disabled Button */}
-                      <div className="flex items-center gap-4">
-                        <div className="px-6 py-3 bg-gray-200 text-gray-400 font-semibold rounded-xl cursor-not-allowed flex items-center gap-2">
-                          Coming Soon
-                        </div>
+                  <div className="flex flex-col md:flex-row md:items-center gap-4">
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-gray-500 mb-1">
+                        {job.title}
+                      </h3>
+                      <p className="text-gray-400 text-sm mb-3">
+                        {job.description}
+                      </p>
+                      <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-gray-400">
+                        <span className="flex items-center gap-1.5">
+                          <Briefcase className="w-4 h-4" />
+                          {job.department}
+                        </span>
+                        <span className="flex items-center gap-1.5">
+                          <Clock className="w-4 h-4" />
+                          {job.type}
+                        </span>
+                        <span className="flex items-center gap-1.5">
+                          <MapPin className="w-4 h-4" />
+                          {job.location}
+                        </span>
+                        <span className="flex items-center gap-1.5">
+                          <Users className="w-4 h-4" />
+                          {job.vacancies} positions
+                        </span>
                       </div>
                     </div>
+
+                    <span className="inline-flex items-center px-5 py-2.5 bg-gray-200 text-gray-400 text-sm font-semibold rounded-full cursor-not-allowed whitespace-nowrap">
+                      Coming Soon
+                    </span>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
-        </section>
+        </Section>
       )}
 
-      {/* Why Join Us */}
-      <section className="py-16 bg-white">
+      {/* Benefits */}
+      <Section className="py-16 bg-white">
         <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">
-              Why Join KRTC?
-            </h2>
-            <p className="text-gray-600">
-              Benefits and perks of being part of our team
-            </p>
-          </motion.div>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">
+            Why Join KRTC?
+          </h2>
+          <p className="text-gray-600 mb-10">
+            Benefits and perks of being part of our team
+          </p>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 gap-6 max-w-3xl">
             {benefits.map((benefit, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="bg-gray-50 rounded-2xl p-6 border border-gray-100 text-center"
-              >
-                <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <benefit.icon className="w-7 h-7 text-primary" />
-                </div>
-                <h3 className="font-bold text-gray-900 mb-2">
+              <div key={i}>
+                <h3 className="font-semibold text-gray-900 mb-1">
                   {benefit.title}
                 </h3>
-                <p className="text-gray-500 text-sm">{benefit.desc}</p>
-              </motion.div>
+                <p className="text-gray-500 text-sm leading-relaxed">
+                  {benefit.desc}
+                </p>
+              </div>
             ))}
           </div>
         </div>
-      </section>
-
-      {/* Contact CTA */}
-      <section className="py-16 bg-gray-50">
-        <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-10 md:p-16 text-white"
-          >
-            <div className="max-w-2xl">
-              <h2 className="text-3xl font-bold mb-4">
-                Don't see a perfect fit?
-              </h2>
-              <p className="text-gray-300 text-lg mb-8">
-                We're always interested in meeting talented individuals. Send us
-                your CV and we'll keep you in mind for future opportunities.
-              </p>
-              <a
-                href="mailto:careers@kekuleon.com"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 font-semibold rounded-xl hover:bg-gray-100 transition-colors"
-              >
-                Send Your CV
-                <ArrowRight className="w-5 h-5" />
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+      </Section>
     </>
   );
 }
