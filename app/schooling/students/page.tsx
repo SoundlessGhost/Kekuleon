@@ -28,18 +28,16 @@ function getInitials(name: string): string {
     .toUpperCase();
 }
 
-function getScholarshipColor(percent: number) {
+function getScholarshipStatus(percent: number) {
   if (percent >= 50)
     return {
-      bg: "bg-emerald-50",
+      dot: "bg-emerald-500",
       text: "text-emerald-700",
-      border: "border-emerald-200",
       label: "Scholarship",
     };
   return {
-    bg: "bg-amber-50",
-    text: "text-amber-700",
-    border: "border-amber-200",
+    dot: "bg-gray-400",
+    text: "text-gray-600",
     label: "Paid",
   };
 }
@@ -53,7 +51,7 @@ function StudentCard({
   batch: Batch;
   index: number;
 }) {
-  const schol = getScholarshipColor(student.scholarship);
+  const schol = getScholarshipStatus(student.scholarship);
 
   return (
     <motion.div
@@ -61,63 +59,82 @@ function StudentCard({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
       transition={{ delay: Math.min(index * 0.03, 0.3), duration: 0.4 }}
-      className="card card-hover p-5 group"
+      className="group relative bg-white border border-gray-200 rounded-xl overflow-hidden hover:border-gray-300 hover:shadow-[0_8px_24px_-12px_rgba(0,0,0,0.12)] transition-all duration-300"
     >
-      {/* Top: Avatar + Name */}
-      <div className="flex items-center gap-3 mb-4">
-        {student.photo ? (
-          <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border-2 border-gray-100">
-            <Image
-              src={student.photo}
-              alt={student.name}
-              width={48}
-              height={48}
-              className="w-full h-full object-cover"
-            />
+      {/* Red accent line — appears on hover */}
+      <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-primary scale-y-0 group-hover:scale-y-100 origin-top transition-transform duration-300" />
+
+      {/* Top: Avatar + Name + ID badge */}
+      <div className="p-5 pb-4">
+        <div className="flex items-start gap-4">
+          {/* Avatar */}
+          {student.photo ? (
+            <div className="w-14 h-14 rounded-lg overflow-hidden flex-shrink-0 border border-gray-200 bg-gray-50">
+              <Image
+                src={student.photo}
+                alt={student.name}
+                width={56}
+                height={56}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ) : (
+            <div
+              className={`w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0 font-bold text-sm border ${
+                student.gender === "female"
+                  ? "bg-rose-50 text-rose-700 border-rose-100"
+                  : "bg-slate-50 text-slate-700 border-slate-100"
+              }`}
+            >
+              {getInitials(student.name)}
+            </div>
+          )}
+
+          {/* Name + Meta */}
+          <div className="min-w-0 flex-1">
+            <h3 className="font-semibold text-gray-900 text-[15px] leading-snug mb-1 line-clamp-2">
+              {student.name}
+            </h3>
+            <div className="flex items-center gap-2 text-[11px] text-gray-500">
+              {/* <span className="font-mono">#{student.id}</span> */}
+              <span className="w-0.5 h-0.5 rounded-full bg-gray-300" />
+              <span className="uppercase tracking-wider font-medium">
+                {batch.label.split(" — ")[0]}
+              </span>
+            </div>
           </div>
-        ) : (
-          <div
-            className={`w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 font-semibold text-sm ${
-              student.gender === "female"
-                ? "bg-pink-50 text-pink-700 border-2 border-pink-100"
-                : "bg-blue-50 text-blue-700 border-2 border-blue-100"
-            }`}
-          >
-            {getInitials(student.name)}
-          </div>
-        )}
-        <div className="min-w-0">
-          <h3 className="font-semibold text-gray-900 text-sm leading-tight truncate">
-            {student.name}
-          </h3>
-          <p className="text-xs text-gray-500 mt-0.5">
-            {batch.label.split(" — ")[0]}
-          </p>
         </div>
       </div>
 
-      {/* Details */}
-      <div className="space-y-2.5 border-t border-gray-100 pt-3">
-        <div className="flex items-start justify-between gap-2">
-          <span className="text-xs text-gray-500 flex items-center gap-1.5 flex-shrink-0">
-            <School className="w-3 h-3" />
-            School
-          </span>
-          <span className="text-xs text-gray-800 text-right leading-tight">
-            {student.school}
-          </span>
+      {/* Divider */}
+      <div className="h-px bg-gray-100 mx-5" />
+
+      {/* Body: School info */}
+      <div className="px-5 py-4">
+        <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-widest mb-1">
+          Institution
+        </p>
+        <div className="flex items-start gap-2">
+          <School className="w-3.5 h-3.5 text-gray-400 mt-0.5 flex-shrink-0" />
+          <p className="text-xs text-gray-700 leading-snug">{student.school}</p>
         </div>
-        <div className="flex items-center justify-between gap-2">
-          <span className="text-xs text-gray-500 flex items-center gap-1.5">
-            <Award className="w-3 h-3" />
-            Status
-          </span>
+      </div>
+
+      {/* Footer: Status */}
+      <div className="px-5 py-3 border-t border-gray-100 bg-gray-50/60 flex items-center justify-between">
+        <div className="flex items-center gap-2">
           <span
-            className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium ${schol.bg} ${schol.text} border ${schol.border}`}
-          >
+            className={`w-1.5 h-1.5 rounded-full ${schol.dot} ring-2 ring-white`}
+          />
+          <span className={`text-xs font-semibold ${schol.text}`}>
             {schol.label}
           </span>
         </div>
+        {/* {student.scholarship >= 50 && (
+          <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">
+            {student.scholarship}%
+          </span>
+        )} */}
       </div>
     </motion.div>
   );

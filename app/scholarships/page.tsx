@@ -517,222 +517,305 @@ export default function ScholarshipsPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-gray-900/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 overflow-y-auto"
             onClick={closeModal}
           >
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 10 }}
-              className="bg-white rounded-2xl w-full max-w-lg overflow-hidden shadow-xl max-h-[90vh] overflow-y-auto"
+              initial={{ opacity: 0, scale: 0.98, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.98, y: 10 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="bg-white w-full max-w-4xl my-auto rounded-2xl overflow-hidden shadow-2xl border border-gray-100 max-h-[92vh] flex flex-col"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Header - clean white style */}
-              <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
-                <div>
-                  <p className="text-xs text-gray-400 mb-0.5">
-                    Scholarship Application
-                  </p>
-                  <h3 className="text-lg font-bold text-gray-900">
-                    {currentProgram.title}
-                  </h3>
-                  <p className="text-sm text-gray-500 mt-0.5">
-                    {currentProgram.percentage}% students receive scholarship
-                  </p>
-                </div>
-                <button
-                  onClick={closeModal}
-                  className="w-8 h-8 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors"
-                >
-                  <X className="w-4 h-4 text-gray-500" />
-                </button>
-              </div>
-
-              {/* Content */}
-              <div className="px-6 py-5">
-                {formStatus === "success" ? (
-                  <div className="text-center py-6">
-                    <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <CheckCircle className="w-6 h-6 text-emerald-600" />
-                    </div>
-                    <h4 className="text-lg font-bold text-gray-900 mb-2">
-                      Application Submitted!
-                    </h4>
-                    <p className="text-sm text-gray-600 mb-6">
-                      Your scholarship application has been submitted
-                      successfully. We will contact you soon.
-                    </p>
-                    <button
-                      onClick={closeModal}
-                      className="px-6 py-2.5 bg-primary text-white rounded-full font-medium hover:bg-primary/90 transition-colors"
-                    >
-                      Close
-                    </button>
-                  </div>
-                ) : (
-                  <form
-                    ref={formRef}
-                    onSubmit={handleSubmit}
-                    className="space-y-4"
+              {formStatus === "success" ? (
+                // Success State - full width
+                <div className="px-8 py-16 text-center">
+                  <button
+                    onClick={closeModal}
+                    className="absolute top-5 right-5 w-9 h-9 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors"
+                    aria-label="Close"
                   >
-                    {/* Hidden fields */}
-                    <input
-                      type="hidden"
-                      name="program_type"
-                      value={currentProgram.title}
-                    />
-                    <input
-                      type="hidden"
-                      name="subject"
-                      value={`Scholarship Application - ${currentProgram.title}`}
-                    />
+                    <X className="w-4 h-4 text-gray-500" />
+                  </button>
+                  <div className="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-6 border-2 border-emerald-100">
+                    <CheckCircle className="w-8 h-8 text-emerald-600" />
+                  </div>
+                  <h4 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+                    Application Received
+                  </h4>
+                  <p className="text-gray-600 max-w-md mx-auto mb-8">
+                    Your scholarship application has been submitted
+                    successfully. Our team will review your application and
+                    contact you soon.
+                  </p>
+                  <button
+                    onClick={closeModal}
+                    className="btn btn-primary px-8"
+                  >
+                    Close
+                  </button>
+                </div>
+              ) : (
+                <div className="grid md:grid-cols-5 flex-1 min-h-0">
+                  {/* Left — Program Info Panel */}
+                  <div className="md:col-span-2 bg-gray-900 text-white p-8 md:p-10 relative hidden md:flex md:flex-col">
+                    <div className="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+                    <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/20 rounded-full translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
-                    {/* Name */}
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Full Name *
-                      </label>
-                      <input
-                        type="text"
-                        name="from_name"
-                        required
-                        placeholder="Enter your full name"
-                        className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:border-primary focus:ring-1 focus:ring-primary/20 outline-none"
-                      />
+                    <div className="relative z-10 flex flex-col h-full">
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-gray-400 mb-3">
+                        Scholarship Program
+                      </p>
+                      <h3 className="text-2xl font-bold leading-tight mb-3">
+                        {currentProgram.title}
+                      </h3>
+                      <p className="text-sm text-gray-300 mb-8">
+                        {currentProgram.subtitle}
+                      </p>
+
+                      <div className="mb-8">
+                        <div className="flex items-baseline gap-2 mb-1">
+                          <span className="text-5xl font-bold text-primary">
+                            {currentProgram.percentage}%
+                          </span>
+                          <span className="text-sm text-gray-400">
+                            of students
+                          </span>
+                        </div>
+                        <p className="text-xs text-gray-400 uppercase tracking-wider">
+                          Receive Scholarship
+                        </p>
+                      </div>
+
+                      <div className="pt-6 mt-auto border-t border-white/10">
+                        <p className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 mb-3">
+                          Key Criteria
+                        </p>
+                        <ul className="space-y-2">
+                          {currentProgram.eligibility.slice(0, 3).map((item) => (
+                            <li
+                              key={item}
+                              className="flex items-start gap-2 text-xs text-gray-300"
+                            >
+                              <span className="w-1 h-1 rounded-full bg-primary mt-1.5 flex-shrink-0" />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
+                  </div>
 
-                    {/* Email */}
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        name="from_email"
-                        required
-                        placeholder="your@email.com"
-                        className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:border-primary focus:ring-1 focus:ring-primary/20 outline-none"
-                      />
-                    </div>
-
-                    {/* Phone */}
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Phone Number *
-                      </label>
-                      <input
-                        type="tel"
-                        name="phone"
-                        required
-                        placeholder="+880 1XXX XXXXXX"
-                        className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:border-primary focus:ring-1 focus:ring-primary/20 outline-none"
-                      />
-                    </div>
-
-                    {/* Education Level */}
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Current Education Level *
-                      </label>
-                      <select
-                        name="education_level"
-                        required
-                        className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:border-primary focus:ring-1 focus:ring-primary/20 outline-none bg-white"
+                  {/* Right — Form */}
+                  <div className="md:col-span-3 flex flex-col min-h-0">
+                    {/* Header */}
+                    <div className="flex items-start justify-between px-6 md:px-8 pt-6 pb-4 border-b border-gray-100">
+                      <div>
+                        <p className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 mb-1 md:hidden">
+                          {currentProgram.percentage}% Scholarship Program
+                        </p>
+                        <h3 className="text-xl font-bold text-gray-900 md:hidden mb-1">
+                          {currentProgram.title}
+                        </h3>
+                        <p className="text-xs text-gray-500 uppercase tracking-wider font-semibold">
+                          Application Form
+                        </p>
+                        <p className="text-sm text-gray-600 mt-0.5">
+                          Fill in your details to apply
+                        </p>
+                      </div>
+                      <button
+                        onClick={closeModal}
+                        className="w-9 h-9 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors flex-shrink-0"
+                        aria-label="Close"
                       >
-                        <option value="">Select your education level</option>
-                        {selectedProgram === "krtc-schooling" ? (
+                        <X className="w-4 h-4 text-gray-500" />
+                      </button>
+                    </div>
+
+                    {/* Scrollable form body */}
+                    <div className="flex-1 overflow-y-auto px-6 md:px-8 py-5">
+                      <form
+                        id="scholarship-form"
+                        ref={formRef}
+                        onSubmit={handleSubmit}
+                        className="space-y-4"
+                      >
+                        <input
+                          type="hidden"
+                          name="program_type"
+                          value={currentProgram.title}
+                        />
+                        <input
+                          type="hidden"
+                          name="subject"
+                          value={`Scholarship Application - ${currentProgram.title}`}
+                        />
+
+                        {/* Name */}
+                        <div>
+                          <label className="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1.5">
+                            Full Name <span className="text-primary">*</span>
+                          </label>
+                          <input
+                            type="text"
+                            name="from_name"
+                            required
+                            placeholder="Enter your full name"
+                            className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition"
+                          />
+                        </div>
+
+                        {/* Email + Phone grid */}
+                        <div className="grid sm:grid-cols-2 gap-4">
+                          <div>
+                            <label className="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1.5">
+                              Email <span className="text-primary">*</span>
+                            </label>
+                            <input
+                              type="email"
+                              name="from_email"
+                              required
+                              placeholder="your@email.com"
+                              className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition"
+                            />
+                          </div>
+                          <div>
+                            <label className="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1.5">
+                              Phone <span className="text-primary">*</span>
+                            </label>
+                            <input
+                              type="tel"
+                              name="phone"
+                              required
+                              placeholder="+880 1XXX XXXXXX"
+                              className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none transition"
+                            />
+                          </div>
+                        </div>
+
+                        {/* Education Level */}
+                        <div>
+                          <label className="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1.5">
+                            Current Education Level{" "}
+                            <span className="text-primary">*</span>
+                          </label>
+                          <div className="relative">
+                            <select
+                              name="education_level"
+                              required
+                              className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none bg-white appearance-none transition pr-10"
+                            >
+                              <option value="">
+                                Select your education level
+                              </option>
+                              {selectedProgram === "krtc-schooling" ? (
+                                <>
+                                  <option value="Class 6">Class 6</option>
+                                  <option value="Class 7">Class 7</option>
+                                  <option value="Class 8">Class 8</option>
+                                  <option value="Class 9">Class 9</option>
+                                  <option value="Class 10">Class 10</option>
+                                  <option value="Class 11">Class 11</option>
+                                  <option value="Class 12">Class 12</option>
+                                </>
+                              ) : (
+                                educationLevels.map((level) => (
+                                  <option key={level} value={level}>
+                                    {level}
+                                  </option>
+                                ))
+                              )}
+                            </select>
+                            <ChevronDown className="w-4 h-4 text-gray-400 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" />
+                          </div>
+                        </div>
+
+                        {/* Department (only for Applied Science) */}
+                        {selectedProgram === "applied-science" && (
+                          <div>
+                            <label className="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1.5">
+                              Preferred Department{" "}
+                              <span className="text-primary">*</span>
+                            </label>
+                            <div className="relative">
+                              <select
+                                name="department"
+                                required
+                                className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none bg-white appearance-none transition pr-10"
+                              >
+                                <option value="">Select department</option>
+                                {scholarshipPrograms.appliedScience.departments.map(
+                                  (dept) => (
+                                    <option key={dept} value={dept}>
+                                      {dept}
+                                    </option>
+                                  ),
+                                )}
+                              </select>
+                              <ChevronDown className="w-4 h-4 text-gray-400 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" />
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Message */}
+                        <div>
+                          <label className="block text-xs font-semibold text-gray-700 uppercase tracking-wider mb-1.5">
+                            Motivation{" "}
+                            <span className="text-gray-400 normal-case">
+                              (optional)
+                            </span>
+                          </label>
+                          <textarea
+                            name="message"
+                            rows={3}
+                            placeholder="Tell us briefly why you deserve this scholarship..."
+                            className="w-full px-4 py-3 border border-gray-200 rounded-lg text-sm focus:border-primary focus:ring-2 focus:ring-primary/10 outline-none resize-none transition"
+                          />
+                        </div>
+
+                        {/* Error */}
+                        {formStatus === "error" && (
+                          <div className="p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm">
+                            Something went wrong. Please try again.
+                          </div>
+                        )}
+                      </form>
+                    </div>
+
+                    {/* Footer - submit + disclaimer */}
+                    <div className="px-6 md:px-8 py-5 border-t border-gray-100 bg-gray-50/50">
+                      <button
+                        type="submit"
+                        form="scholarship-form"
+                        disabled={formStatus === "sending"}
+                        className={`w-full py-3.5 rounded-full font-semibold text-white flex items-center justify-center gap-2 transition-colors ${
+                          formStatus === "sending"
+                            ? "bg-gray-400 cursor-not-allowed"
+                            : "bg-primary hover:bg-primary/90"
+                        }`}
+                      >
+                        {formStatus === "sending" ? (
                           <>
-                            <option value="Class 6">Class 6</option>
-                            <option value="Class 7">Class 7</option>
-                            <option value="Class 8">Class 8</option>
-                            <option value="Class 9">Class 9</option>
-                            <option value="Class 10">Class 10</option>
-                            <option value="Class 11">Class 11</option>
-                            <option value="Class 12">Class 12</option>
+                            <Loader2 className="w-4 h-4 animate-spin" />
+                            Submitting Application...
                           </>
                         ) : (
-                          educationLevels.map((level) => (
-                            <option key={level} value={level}>
-                              {level}
-                            </option>
-                          ))
+                          <>
+                            <Send className="w-4 h-4" />
+                            Submit Application
+                          </>
                         )}
-                      </select>
+                      </button>
+                      <p className="text-[11px] text-gray-500 text-center mt-3 leading-relaxed">
+                        By submitting, you agree to be contacted by KRTC
+                        regarding your scholarship application.
+                      </p>
                     </div>
-
-                    {/* Department (only for Applied Science) */}
-                    {selectedProgram === "applied-science" && (
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
-                          Preferred Department *
-                        </label>
-                        <select
-                          name="department"
-                          required
-                          className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:border-primary focus:ring-1 focus:ring-primary/20 outline-none bg-white"
-                        >
-                          <option value="">Select department</option>
-                          {scholarshipPrograms.appliedScience.departments.map(
-                            (dept) => (
-                              <option key={dept} value={dept}>
-                                {dept}
-                              </option>
-                            ),
-                          )}
-                        </select>
-                      </div>
-                    )}
-
-                    {/* Message */}
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Why do you want this scholarship? (Optional)
-                      </label>
-                      <textarea
-                        name="message"
-                        rows={3}
-                        placeholder="Tell us briefly why you deserve this scholarship..."
-                        className="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:border-primary focus:ring-1 focus:ring-primary/20 outline-none resize-none"
-                      />
-                    </div>
-
-                    {/* Error */}
-                    {formStatus === "error" && (
-                      <div className="p-3 bg-red-50 border border-red-100 rounded-lg text-red-600 text-sm">
-                        Something went wrong. Please try again.
-                      </div>
-                    )}
-
-                    {/* Submit */}
-                    <button
-                      type="submit"
-                      disabled={formStatus === "sending"}
-                      className={`w-full py-3 rounded-full font-medium text-white flex items-center justify-center gap-2 transition-colors ${
-                        formStatus === "sending"
-                          ? "bg-gray-400 cursor-not-allowed"
-                          : "bg-primary hover:bg-primary/90"
-                      }`}
-                    >
-                      {formStatus === "sending" ? (
-                        <>
-                          <Loader2 className="w-4 h-4 animate-spin" />
-                          Submitting...
-                        </>
-                      ) : (
-                        <>
-                          <Send className="w-4 h-4" />
-                          Submit Application
-                        </>
-                      )}
-                    </button>
-
-                    <p className="text-xs text-gray-400 text-center">
-                      By submitting, you agree to be contacted by KRTC regarding
-                      your scholarship application.
-                    </p>
-                  </form>
-                )}
-              </div>
+                  </div>
+                </div>
+              )}
             </motion.div>
           </motion.div>
         )}
