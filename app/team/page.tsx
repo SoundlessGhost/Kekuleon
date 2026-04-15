@@ -109,11 +109,14 @@ export default function TeamPage() {
       {/* Leadership */}
       <Section className="py-12 bg-gray-50">
         <div className="container-custom">
-          <h2 className="text-xl font-bold text-gray-900 mb-6">Leadership</h2>
-          <div className="max-w-2xl">
+          <h2 className="text-xl font-bold text-gray-900">Leadership</h2>
+          <p className="text-sm text-gray-500 mb-6">
+            Meet the Minds Shaping Our Future
+          </p>
+          <div className="max-w-2xl ">
             {leadership.map((member) => (
               <Link key={member.id} href={`/team/${member.slug}`}>
-                <div className="flex flex-col sm:flex-row gap-5 p-6 bg-white rounded-xl border border-gray-200 hover:shadow-md hover:border-primary/20 transition-all group cursor-pointer">
+                <div className="flex flex-col sm:flex-row gap-5 mb-10 p-6 bg-white rounded-xl border border-gray-200 hover:shadow-md hover:border-primary/20 transition-all group cursor-pointer">
                   {member.image ? (
                     <div className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
                       <Image

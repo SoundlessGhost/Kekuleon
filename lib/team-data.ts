@@ -273,23 +273,120 @@ He received professional training from TICI on Industrial Process Unit Operation
     ],
   },
 
-  "krtc-schooling-manager": {
+  "suborna-khatun": {
     id: 11,
-    slug: "krtc-schooling-manager",
-    name: "To Be Announced",
-    nameBn: "শীঘ্রই ঘোষণা করা হবে",
-    title: "Manager, KRTC Schooling",
-    department: "KRTC Schooling Administration",
-    initials: "TBA",
-    color: "bg-slate-500",
-    location: "KRTC, Sirajganj, Bangladesh",
-    type: "schooling-leadership",
+    slug: "suborna-khatun",
+    name: "Suborna Khatun",
+    nameBn: "সুবর্ণা খাতুন",
+    title: "Strategic Partner & Manager, KRTC",
+    department: "KRTC Leadership",
+    initials: "SK",
+    color: "bg-red-500",
+    location: "Rajshahi, Bangladesh",
+    dateOfBirth: "12 March 1995",
+    type: "leadership",
     priority: 2,
-    bio: `This position is currently open. The Manager of KRTC Schooling will be responsible for day-to-day management of the foundation pipeline program, coordinating with teachers, and ensuring quality education delivery.`,
-    education: [],
-    experience: [],
-    skills: [],
-    achievements: [],
+    bio: `Suborna Khatun serves as a Strategic Partner and Manager of the Kekuleon Research and Training Center (KRTC). In parallel, she works as the Manager of Omeca Engineering Coaching Center in Rajshahi, Bangladesh. Born on 12 March 1995 in Sirajganj, she brings an academic background rooted in Islamic History and Culture, complemented by technical training and international language certification.
+
+Her academic qualifications include a Master of Arts (MA) in Islamic History and Culture from Sirajganj Govt. College under the National University of Bangladesh (CGPA 3.22), and a Bachelor of Arts (Honours) in the same discipline from the same institution (CGPA 3.16, 120/120 credits). Her MA coursework covered the Social and Economic History of Islam, the History of Bengal, Muslim India, Turkey, Iran and Afghanistan, Modern Egypt and the Arab States in North Africa, the Arab States in West Asia, and the History of Muslims in South Asia. She additionally completed Fazil — the Bachelor of Theology and Islamic Studies — from Char Sonagachhia Islamia Fazil Madrasah, Sirajganj, affiliated with Islamic University, Kushtia-Jhenaidah (CGPA 3.50). Her foundational Islamic education was completed at Char Sonagachhia Islamia Fadil Madrasah, Sirajganj, where she passed both the Dakhil (GPA 4.25) and Alim (GPA 4.17) examinations under the Bangladesh Madrasah Education Board.
+
+Beyond her academic credentials, Suborna has earned Grade A in the National Skill Standard Basic Course on Database Programming from the Bangladesh Technical Education Board (BTEB), completed through Amar IT Skill Development Institute, Rajshahi. She has also successfully completed the Goethe-Zertifikat A1 (Start Deutsch 1) from the Goethe-Institut in Dhaka. She is a recognised participant of the Active Citizens Youth Leadership Training programme, organised by British Council Bangladesh — a programme that connects local initiatives with global themes, cross-cultural engagement, and international professional networks.`,
+    education: [
+      {
+        degree: "Master of Arts (MA) in Islamic History and Culture",
+        institution: "Sirajganj Govt. College, National University of Bangladesh",
+        year: "2017 - 2018",
+        grade: "CGPA: 3.22",
+      },
+      {
+        degree: "Bachelor of Arts (Honours) in Islamic History & Culture",
+        institution: "Sirajganj Govt. College, National University of Bangladesh",
+        year: "2013 - 2017",
+        grade: "CGPA: 3.16",
+        credits: "120/120 Credits",
+      },
+      {
+        degree: "Fazil (Bachelor of Theology and Islamic Studies)",
+        institution:
+          "Char Sonagachhia Islamia Fazil Madrasah, Sirajganj (Islamic University, Kushtia-Jhenaidah)",
+        year: "2013 - 2016",
+        grade: "CGPA: 3.50",
+      },
+      {
+        degree: "Alim Examination (General Group)",
+        institution:
+          "Char Sonagachhia Islamia Fadil Madrasah, Sirajganj (Bangladesh Madrasah Education Board)",
+        year: "2013",
+        grade: "GPA: 4.17 (with Civics as additional subject)",
+      },
+      {
+        degree: "Dakhil Examination (General Group)",
+        institution:
+          "Char Sonagachhia Islamia Fadil Madrasah, Sirajganj (Bangladesh Madrasah Education Board)",
+        year: "2011",
+        grade: "GPA: 4.25 (with Computer Studies as additional subject)",
+      },
+      {
+        degree: "Goethe-Zertifikat A1 (Start Deutsch 1)",
+        institution: "Goethe-Institut, Dhaka",
+        year: "2025",
+        grade: "Satisfactory — 71/100",
+      },
+      {
+        degree:
+          "Database Programming — National Skill Standard Basic Course (360 Hours, 6 Months)",
+        institution:
+          "Amar IT Skill Development Institute, Rajshahi (Bangladesh Technical Education Board)",
+        year: "2020",
+        grade: "Grade A",
+      },
+    ],
+    experience: [
+      {
+        role: "Strategic Partner & Manager",
+        org: "Kekuleon Research and Training Center (KRTC)",
+        period: "2025 - Present",
+      },
+      {
+        role: "Manager",
+        org: "Omeca Engineering Coaching Center, Rajshahi, Bangladesh",
+        period: "Present",
+      },
+    ],
+    skills: [
+      "Islamic History & Culture",
+      "Islamic Studies & Theology",
+      "History of Muslim Civilisations (Bengal, South Asia, Arab World)",
+      "Arabic Language",
+      "Database Programming",
+      "Computer Studies",
+      "Educational Management",
+      "Youth Leadership",
+      "Community Engagement",
+    ],
+    languages: [
+      { language: "Bangla", level: "Native" },
+      { language: "English", level: "Academic" },
+      { language: "Arabic", level: "Academic" },
+      { language: "German", level: "A1 (Basic)" },
+    ],
+    organizations: [
+      {
+        role: "Recognised Participant",
+        org: "Active Citizens Youth Leadership Training, British Council Bangladesh",
+        description:
+          "Participated in the Active Citizens programme, which connects local initiatives with global themes, cross-cultural engagement, and international professional networks across Sub-Saharan Africa, South Asia, the Arab World, and Europe. Certificate of Recognition signed by Brendan McSharry, OBE, Acting Country Director, British Council Bangladesh.",
+      },
+    ],
+    achievements: [
+      "Master of Arts in Islamic History and Culture, National University of Bangladesh (CGPA 3.22)",
+      "Bachelor of Arts (Honours) in Islamic History & Culture (CGPA 3.16, 120/120 credits)",
+      "Fazil — Bachelor of Theology and Islamic Studies, Islamic University Kushtia-Jhenaidah (CGPA 3.50)",
+      "Goethe-Zertifikat A1 (Start Deutsch 1), Goethe-Institut Dhaka",
+      "Database Programming Certification (Grade A), Bangladesh Technical Education Board",
+      "Active Citizens Youth Leadership Training, British Council Bangladesh",
+      "Dakhil GPA 4.25 & Alim GPA 4.17, Bangladesh Madrasah Education Board",
+    ],
   },
 
   // ==================
