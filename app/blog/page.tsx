@@ -329,34 +329,30 @@ export default function BlogPage() {
 
               {/* Article Footer / CTA */}
               <div className="mt-16 pt-10 border-t border-gray-200">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-                  <div>
-                    <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-2">
-                      Continue Reading
-                    </p>
-                    <h3 className="text-2xl font-bold text-gray-900">
-                      Interested in joining KRTC Schooling?
-                    </h3>
-                    <p className="text-gray-600 mt-2 max-w-md">
-                      Apply for a scholarship or reach out to learn more about
-                      our programs.
-                    </p>
-                  </div>
-                  <div className="flex flex-col sm:flex-row gap-3">
-                    <Link
-                      href="/scholarships"
-                      className="btn btn-primary group"
-                    >
-                      Apply for Scholarship
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                    <Link
-                      href="/contact"
-                      className="btn btn-outline rounded-full"
-                    >
-                      Contact Us
-                    </Link>
-                  </div>
+                <p className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">
+                  Continue Reading
+                </p>
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+                  Interested in joining KRTC Schooling?
+                </h3>
+                <p className="text-gray-600 mb-6 max-w-xl">
+                  Apply for a scholarship or reach out to learn more about our
+                  programs.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  <Link
+                    href="/scholarships"
+                    className="btn btn-primary group whitespace-nowrap"
+                  >
+                    Apply for Scholarship
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="btn btn-outline rounded-full whitespace-nowrap"
+                  >
+                    Contact Us
+                  </Link>
                 </div>
               </div>
 

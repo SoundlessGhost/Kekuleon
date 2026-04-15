@@ -185,105 +185,8 @@ export default function TeamMemberProfilePage() {
       <section className="py-14 bg-gray-50">
         <div className="container-custom">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-14">
-            {/* LEFT — Sticky Sidebar (shorter content) */}
-            <aside className="lg:col-span-4 order-2 lg:order-1">
-              <div className="lg:sticky lg:top-24 space-y-12">
-                {/* Education */}
-                {member.education.length > 0 && (
-                  <Section>
-                    <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.2em] mb-4 pb-3 border-b border-gray-200">
-                      Education
-                    </p>
-                    <div className="space-y-5">
-                      {member.education.map((edu, i) => (
-                        <div key={i}>
-                          <h3 className="text-sm font-semibold text-gray-900 leading-snug mb-1">
-                            {edu.degree}
-                          </h3>
-                          <p className="text-xs text-gray-600 mb-1">
-                            {edu.institution}
-                          </p>
-                          <p className="text-[11px] text-gray-400 font-mono">
-                            {edu.year}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  </Section>
-                )}
-
-                {/* Skills & Expertise */}
-                {member.skills.length > 0 && (
-                  <Section>
-                    <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.2em] mb-4 pb-3 border-b border-gray-200">
-                      Skills &amp; Expertise
-                    </p>
-                    <ul className="space-y-2">
-                      {member.skills.map((skill, i) => (
-                        <li
-                          key={i}
-                          className="flex items-start gap-2 text-sm text-gray-700"
-                        >
-                          <span className="w-1 h-1 rounded-full bg-gray-400 mt-2 flex-shrink-0" />
-                          {skill}
-                        </li>
-                      ))}
-                    </ul>
-                  </Section>
-                )}
-
-                {/* Languages */}
-                {member.languages && member.languages.length > 0 && (
-                  <Section>
-                    <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.2em] mb-4 pb-3 border-b border-gray-200">
-                      Languages
-                    </p>
-                    <dl className="space-y-3">
-                      {member.languages.map((lang, i) => (
-                        <div
-                          key={i}
-                          className="flex items-center justify-between gap-2"
-                        >
-                          <dt className="text-sm font-medium text-gray-800">
-                            {lang.language}
-                          </dt>
-                          <dd className="text-[11px] text-gray-500 uppercase tracking-wider font-medium">
-                            {lang.level}
-                          </dd>
-                        </div>
-                      ))}
-                    </dl>
-                  </Section>
-                )}
-
-                {/* Organizations */}
-                {member.organizations && member.organizations.length > 0 && (
-                  <Section>
-                    <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.2em] mb-4 pb-3 border-b border-gray-200">
-                      Affiliations
-                    </p>
-                    <div className="space-y-5">
-                      {member.organizations.map((org, i) => (
-                        <div key={i}>
-                          <h3 className="text-sm font-semibold text-gray-900 leading-snug mb-1">
-                            {org.role}
-                          </h3>
-                          <p className="text-xs text-gray-600 mb-1">{org.org}</p>
-                          {org.description && (
-                            <p className="text-[11px] text-gray-400 leading-relaxed">
-                              {org.description}
-                            </p>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </Section>
-                )}
-              </div>
-            </aside>
-
-            {/* RIGHT — Scrollable main column (longer content) */}
-            <div className="lg:col-span-8 order-1 lg:order-2 space-y-14">
+            {/* Main column */}
+            <div className="lg:col-span-8 space-y-14">
               {/* Biography */}
               <Section>
                 <SectionHeader eyebrow="Profile" title="Biography" />
@@ -392,6 +295,101 @@ export default function TeamMemberProfilePage() {
                 </Section>
               )}
             </div>
+
+            {/* Sidebar */}
+            <aside className="lg:col-span-4 space-y-12">
+              {/* Education */}
+              {member.education.length > 0 && (
+                <Section>
+                  <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.2em] mb-4 pb-3 border-b border-gray-200">
+                    Education
+                  </p>
+                  <div className="space-y-5">
+                    {member.education.map((edu, i) => (
+                      <div key={i}>
+                        <h3 className="text-sm font-semibold text-gray-900 leading-snug mb-1">
+                          {edu.degree}
+                        </h3>
+                        <p className="text-xs text-gray-600 mb-1">
+                          {edu.institution}
+                        </p>
+                        <p className="text-[11px] text-gray-400 font-mono">
+                          {edu.year}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </Section>
+              )}
+
+              {/* Skills & Expertise */}
+              {member.skills.length > 0 && (
+                <Section>
+                  <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.2em] mb-4 pb-3 border-b border-gray-200">
+                    Skills &amp; Expertise
+                  </p>
+                  <ul className="space-y-2">
+                    {member.skills.map((skill, i) => (
+                      <li
+                        key={i}
+                        className="flex items-start gap-2 text-sm text-gray-700"
+                      >
+                        <span className="w-1 h-1 rounded-full bg-gray-400 mt-2 flex-shrink-0" />
+                        {skill}
+                      </li>
+                    ))}
+                  </ul>
+                </Section>
+              )}
+
+              {/* Languages */}
+              {member.languages && member.languages.length > 0 && (
+                <Section>
+                  <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.2em] mb-4 pb-3 border-b border-gray-200">
+                    Languages
+                  </p>
+                  <dl className="space-y-3">
+                    {member.languages.map((lang, i) => (
+                      <div
+                        key={i}
+                        className="flex items-center justify-between gap-2"
+                      >
+                        <dt className="text-sm font-medium text-gray-800">
+                          {lang.language}
+                        </dt>
+                        <dd className="text-[11px] text-gray-500 uppercase tracking-wider font-medium">
+                          {lang.level}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
+                </Section>
+              )}
+
+              {/* Organizations */}
+              {member.organizations && member.organizations.length > 0 && (
+                <Section>
+                  <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.2em] mb-4 pb-3 border-b border-gray-200">
+                    Affiliations
+                  </p>
+                  <div className="space-y-5">
+                    {member.organizations.map((org, i) => (
+                      <div key={i}>
+                        <h3 className="text-sm font-semibold text-gray-900 leading-snug mb-1">
+                          {org.role}
+                        </h3>
+                        <p className="text-xs text-gray-600 mb-1">{org.org}</p>
+                        {org.description && (
+                          <p className="text-[11px] text-gray-400 leading-relaxed">
+                            {org.description}
+                          </p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </Section>
+              )}
+            </aside>
           </div>
         </div>
       </section>
