@@ -1,7 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
+
 import { motion } from "framer-motion";
 import { Calendar, Clock, ArrowLeft, ArrowRight } from "lucide-react";
 
@@ -55,9 +56,13 @@ export default function BlogPage() {
             {/* Byline */}
             <div className="flex flex-wrap items-center gap-x-8 gap-y-3 pt-6 border-t border-gray-100">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-xs font-bold text-gray-700">
-                  KT
-                </div>
+                <Image
+                  src="/icon.png"
+                  alt="KRTC Team"
+                  width={96}
+                  height={96}
+                  className="w-10 h-10 object-cover border-2 rounded-full bg-gray-100 flex-shrink-0"
+                />
                 <div>
                   <p className="text-sm font-semibold text-gray-900">
                     KRTC Team
@@ -146,20 +151,19 @@ export default function BlogPage() {
               <div className="prose prose-lg prose-gray max-w-none">
                 {/* First paragraph with drop cap */}
                 <p className="text-lg md:text-xl leading-[1.8] text-gray-800 first-letter:text-6xl first-letter:font-bold first-letter:text-primary first-letter:mr-2 first-letter:float-left first-letter:leading-[0.9] first-letter:mt-1">
-                  In the heart of Sirajganj, Bangladesh, something remarkable
-                  is happening. At KRTC Schooling, children from wealthy
-                  families sit beside children from humble backgrounds. They
-                  share the same classroom, learn from the same teachers, and
-                  dream the same dreams. This is not charity — this is equality
-                  in action.
+                  In the heart of Sirajganj, Bangladesh, something remarkable is
+                  happening. At KRTC Schooling, children from wealthy families
+                  sit beside children from humble backgrounds. They share the
+                  same classroom, learn from the same teachers, and dream the
+                  same dreams. This is not charity — this is equality in action.
                 </p>
 
                 <p>
                   KRTC Schooling was born from a simple belief: every child
                   deserves quality education, regardless of their family&apos;s
-                  economic status. Too often, we see schools divided by
-                  wealth — private institutions for the rich, under-resourced
-                  schools for the poor. KRTC breaks this divide.
+                  economic status. Too often, we see schools divided by wealth —
+                  private institutions for the rich, under-resourced schools for
+                  the poor. KRTC breaks this divide.
                 </p>
 
                 {/* Inline figure — right float */}
@@ -191,10 +195,10 @@ export default function BlogPage() {
                     50% scholarship program
                   </strong>
                   , we ensure that deserving students never miss out on
-                  education due to financial constraints. The program is
-                  simple: those who can afford full fees pay full fees. Those
-                  who cannot receive up to 50% scholarship. No child is turned
-                  away because of money.
+                  education due to financial constraints. The program is simple:
+                  those who can afford full fees pay full fees. Those who cannot
+                  receive up to 50% scholarship. No child is turned away because
+                  of money.
                 </p>
 
                 <div className="clear-both" />
@@ -214,9 +218,9 @@ export default function BlogPage() {
                   But KRTC Schooling is not just about academics. Our students
                   learn something far more valuable — empathy. When a wealthy
                   child sits next to a poor child, they learn that intelligence
-                  has no economic boundary. When they work on projects
-                  together, they understand that talent comes from hard work,
-                  not privilege.
+                  has no economic boundary. When they work on projects together,
+                  they understand that talent comes from hard work, not
+                  privilege.
                 </p>
 
                 {/* Inline figure — left float */}
@@ -239,17 +243,17 @@ export default function BlogPage() {
                   organized an environmental awareness campaign, marching
                   through local markets with placards reading &ldquo;পরিষ্কার
                   পৃথিবী, সুস্থ জীবন&rdquo; (Clean Earth, Healthy Life) and
-                  &ldquo;ছোট কাজ, বড় প্রভাব&rdquo; (Small Actions, Big
-                  Impact). They taught shopkeepers about proper waste disposal
-                  and distributed dustbins.
+                  &ldquo;ছোট কাজ, বড় প্রভাব&rdquo; (Small Actions, Big Impact).
+                  They taught shopkeepers about proper waste disposal and
+                  distributed dustbins.
                 </p>
 
                 <p>
                   The sight was powerful — young students, some from privileged
-                  homes and some from struggling families, all wearing the
-                  same KRTC t-shirts, all working together for their
-                  community. This is what education should create: not just
-                  knowledgeable individuals, but responsible citizens.
+                  homes and some from struggling families, all wearing the same
+                  KRTC t-shirts, all working together for their community. This
+                  is what education should create: not just knowledgeable
+                  individuals, but responsible citizens.
                 </p>
 
                 <div className="clear-both" />
@@ -272,19 +276,18 @@ export default function BlogPage() {
 
                 <p>
                   Parents from both ends of the economic spectrum have embraced
-                  this model. Wealthy parents appreciate that their children
-                  are learning humility and social awareness. Parents from
-                  modest backgrounds are grateful that their children receive
-                  the same quality education without discrimination.
+                  this model. Wealthy parents appreciate that their children are
+                  learning humility and social awareness. Parents from modest
+                  backgrounds are grateful that their children receive the same
+                  quality education without discrimination.
                 </p>
 
                 <p>
                   Guardian meetings at KRTC are unlike any other school.
-                  You&apos;ll see a day laborer sitting next to a factory
-                  owner, both equally invested in their children&apos;s
-                  education. Both voices are heard. Both opinions matter. This
-                  is democracy in its purest form — practiced not in politics,
-                  but in education.
+                  You&apos;ll see a day laborer sitting next to a factory owner,
+                  both equally invested in their children&apos;s education. Both
+                  voices are heard. Both opinions matter. This is democracy in
+                  its purest form — practiced not in politics, but in education.
                 </p>
 
                 <p>
@@ -304,10 +307,9 @@ export default function BlogPage() {
                 </p>
 
                 <p className="font-medium text-gray-900">
-                  The children of KRTC are not just students — they are
-                  pioneers of a new Bangladesh. A Bangladesh where rich and
-                  poor learn together, grow together, and build the nation
-                  together.
+                  The children of KRTC are not just students — they are pioneers
+                  of a new Bangladesh. A Bangladesh where rich and poor learn
+                  together, grow together, and build the nation together.
                 </p>
 
                 {/* Closing figure */}

@@ -281,15 +281,13 @@ export default function AboutPage() {
               </div>
 
               <div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">
-                  Vision
-                </h3>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Vision</h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
                   KRTC aims to develop an adaptable institutional model that
                   strengthens applied science education and supports scientific
                   capacity development in developing-country contexts. The
-                  approach is designed to remain flexible, allowing it to respond
-                  to different regional and institutional needs while
+                  approach is designed to remain flexible, allowing it to
+                  respond to different regional and institutional needs while
                   maintaining a focus on practical learning, academic
                   progression, and long-term impact.
                 </p>
@@ -306,16 +304,18 @@ export default function AboutPage() {
             <p className="text-sm font-medium text-primary uppercase tracking-wider mb-3">
               Our Experts
             </p>
-            <h2 className="heading-lg mb-10">Leadership Team</h2>
-
+            <h2 className="heading-md">Leadership Team</h2>
+            <p className=" text-gray-500  tracking-wide mb-10">
+              Meet the Minds Shaping Our Future
+            </p>
             <div className="space-y-5">
               {leaders.map((member) => (
                 <Link key={member.id} href={`/team/${member.slug}`}>
-                  <div className="flex flex-col sm:flex-row gap-6 p-6 rounded-2xl border border-gray-200 hover:shadow-lg hover:border-primary/20 transition-all group cursor-pointer">
+                  <div className="flex flex-col items-center sm:flex-row gap-6 mb-10 p-6 rounded-2xl border border-gray-200 hover:shadow-lg hover:border-primary/20 transition-all group cursor-pointer">
                     {member.image ? (
-                      <div className="w-28 h-28 rounded-2xl overflow-hidden flex-shrink-0">
+                      <div className="w-32 h-32 rounded-full border overflow-hidden flex-shrink-0">
                         <Image
-                          src={member.image}
+                          src={"/images/team/zakaria.jpeg"}
                           alt={member.name}
                           width={224}
                           height={224}
@@ -324,7 +324,7 @@ export default function AboutPage() {
                       </div>
                     ) : (
                       <div
-                        className={`w-28 h-28 rounded-2xl ${member.color} flex items-center justify-center flex-shrink-0`}
+                        className={`w-28 h-28 rounded-full ${member.color} flex items-center justify-center flex-shrink-0`}
                       >
                         <span className="text-3xl font-bold text-white">
                           {member.initials}
