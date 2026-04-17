@@ -193,7 +193,7 @@ function AdvisorySection({
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-1 leading-tight">
             {data.title}
           </h2>
-          <p className="text-sm text-gray-500 tracking-wide mb-6">
+          <p className="text-sm text-primary font-semibold tracking-wide mb-6">
             {data.subtitle}
           </p>
 
@@ -264,7 +264,7 @@ export default function TeamPage() {
           <div className="max-w-2xl">
             {leadership.map((member) => (
               <Link key={member.id} href={`/team/${member.slug}`}>
-                <div className="flex flex-col sm:flex-row gap-5 mb-10 p-6 bg-white rounded-xl border border-gray-200 hover:shadow-md hover:border-primary/20 transition-all group cursor-pointer">
+                <div className="flex flex-col sm:flex-row gap-5 p-6 mb-10 bg-white rounded-xl border border-gray-200 hover:shadow-md hover:border-primary/20 transition-all group cursor-pointer">
                   {member.image ? (
                     <div className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
                       <Image

@@ -27,7 +27,7 @@ export interface TeamMember {
     | "schooling-leadership"
     | "advisory-jat"
     | "advisory-cjat";
-  priority?: number;
+  priority?: number; // For sorting within sections (lower = higher priority)
   bio: string;
   education: {
     degree: string;
@@ -304,8 +304,8 @@ Her professional orientation combines developmental thinking with practical orga
       "Temporary Director, KRTC Schooling — Foundation Period",
       "Certificate of Recognition — Active Citizens Youth Leadership Training, British Council Bangladesh",
       "Goethe-Zertifikat A1 (Start Deutsch 1) — Goethe-Institut",
-      "National Skill Standard Certification in Database Programming (Grade A) — BTEB",
-      "MA in Islamic History and Culture — CGPA 3.22",
+      "National Skill Standard Certification in Database Programming — BTEB",
+      "MA in Islamic History and Culture",
     ],
   },
 
