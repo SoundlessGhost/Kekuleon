@@ -61,6 +61,9 @@ export default function TeamMemberProfilePage() {
   const slug = params.slug as string;
   const member = getMemberBySlug(slug);
 
+  const isAcademic =
+    member?.type === "advisory-jat" || member?.type === "advisory-cjat";
+
   if (!member) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-white">
@@ -106,7 +109,7 @@ export default function TeamMemberProfilePage() {
             {/* Photo */}
             <div className="lg:col-span-3">
               {member.image ? (
-                <div className="aspect-square w-full max-w-[280px] rounded-2xl overflow-hidden border border-gray-200 bg-gray-50">
+                <div className="aspect-square w-full max-w-[280px] rounded-full overflow-hidden border border-gray-200 bg-gray-50">
                   <Image
                     src={member.image}
                     alt={member.name}
@@ -117,7 +120,7 @@ export default function TeamMemberProfilePage() {
                   />
                 </div>
               ) : (
-                <div className="aspect-square w-full max-w-[280px] rounded-2xl bg-gray-100 border border-gray-200 flex items-center justify-center">
+                <div className="aspect-square w-full max-w-[280px] rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center">
                   <span className="text-6xl font-bold text-gray-400">
                     {member.initials}
                   </span>
@@ -133,12 +136,12 @@ export default function TeamMemberProfilePage() {
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4">
                 {member.name}
               </h1>
-              <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-3xl mb-8">
+              <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-3xl mb-6">
                 {member.title}
               </p>
 
               {/* Contact row */}
-              <div className="flex flex-wrap gap-2 pt-6 border-t border-gray-100">
+              <div className="flex flex-wrap gap-2 pt-4 border-t border-gray-100">
                 {member.email && (
                   <a
                     href={`mailto:${member.email}`}
@@ -212,23 +215,36 @@ export default function TeamMemberProfilePage() {
                   </Section>
                 )}
 
-                {/* Skills & Expertise */}
+                {/* Skills / Research Interests */}
                 {member.skills.length > 0 && (
                   <Section>
                     <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-[0.2em] mb-4 pb-3 border-b border-gray-200">
-                      Skills &amp; Expertise
+                      {isAcademic ? "Research Interests" : "Skills & Expertise"}
                     </p>
-                    <ul className="space-y-2">
-                      {member.skills.map((skill, i) => (
-                        <li
-                          key={i}
-                          className="flex items-start gap-2 text-sm text-gray-700"
-                        >
-                          <span className="w-1 h-1 rounded-full bg-gray-400 mt-2 flex-shrink-0" />
-                          {skill}
-                        </li>
-                      ))}
-                    </ul>
+                    {isAcademic ? (
+                      <div className="flex flex-wrap gap-2">
+                        {member.skills.map((skill, i) => (
+                          <span
+                            key={i}
+                            className="inline-flex items-center px-3 py-1.5 rounded-full bg-white border border-gray-200 text-[12px] leading-tight text-gray-700"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    ) : (
+                      <ul className="space-y-2">
+                        {member.skills.map((skill, i) => (
+                          <li
+                            key={i}
+                            className="flex items-start gap-2 text-sm text-gray-700"
+                          >
+                            <span className="w-1 h-1 rounded-full bg-gray-400 mt-2 flex-shrink-0" />
+                            {skill}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </Section>
                 )}
 
@@ -294,54 +310,93 @@ export default function TeamMemberProfilePage() {
                 </div>
               </Section>
 
-              {/* Research Projects */}
+              {/* Research / Selected Publications */}
               {member.research && member.research.length > 0 && (
                 <Section>
                   <SectionHeader
-                    eyebrow="Academic Work"
-                    title="Research Projects"
+                    eyebrow={isAcademic ? "Peer-Reviewed Output" : "Academic Work"}
+                    title={isAcademic ? "Selected Publications" : "Research Projects"}
                   />
-                  <div className="space-y-8">
-                    {member.research.map((res, i) => (
-                      <article
-                        key={i}
-                        className="border-l-2 border-gray-200 pl-6 pb-2 hover:border-primary transition-colors"
-                      >
-                        <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 mb-2">
-                          <h3 className="text-lg font-semibold text-gray-900 leading-snug">
-                            {res.title}
-                          </h3>
-                          <span className="text-xs text-gray-500 font-mono whitespace-nowrap">
-                            {res.period}
+                  {isAcademic ? (
+                    <ol className="space-y-6 counter-reset-publications">
+                      {member.research.map((res, i) => (
+                        <li
+                          key={i}
+                          className="grid grid-cols-[auto_1fr] gap-x-4 text-[14px] leading-[1.75] text-gray-700"
+                        >
+                          <span className="pt-[2px] text-gray-400 font-mono text-[13px] tabular-nums">
+                            [{i + 1}]
                           </span>
-                        </div>
-                        {res.supervisor && (
-                          <p className="text-sm text-gray-600 mb-1">
-                            {res.supervisor}
-                          </p>
-                        )}
-                        {res.institution && (
-                          <p className="text-xs text-gray-500 uppercase tracking-wider font-medium mb-3">
-                            {res.institution}
-                          </p>
-                        )}
-                        {res.description && (
-                          <p className="text-gray-600 leading-relaxed text-sm">
-                            {res.description}
-                          </p>
-                        )}
-                      </article>
-                    ))}
-                  </div>
+                          <div>
+                            {res.description && (
+                              <span className="text-gray-700">
+                                {res.description}.{" "}
+                              </span>
+                            )}
+                            <span className="italic text-gray-900 font-medium">
+                              &ldquo;{res.title}.&rdquo;
+                            </span>
+                            {res.institution && (
+                              <span className="text-gray-700">
+                                {" "}
+                                <em>{res.institution}</em>.
+                              </span>
+                            )}
+                            {res.period && (
+                              <span className="text-gray-500">
+                                {" "}
+                                {res.period}.
+                              </span>
+                            )}
+                          </div>
+                        </li>
+                      ))}
+                    </ol>
+                  ) : (
+                    <div className="space-y-8">
+                      {member.research.map((res, i) => (
+                        <article
+                          key={i}
+                          className="border-l-2 border-gray-200 pl-6 pb-2 hover:border-primary transition-colors"
+                        >
+                          <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 mb-2">
+                            <h3 className="text-lg font-semibold text-gray-900 leading-snug">
+                              {res.title}
+                            </h3>
+                            <span className="text-xs text-gray-500 font-mono whitespace-nowrap">
+                              {res.period}
+                            </span>
+                          </div>
+                          {res.supervisor && (
+                            <p className="text-sm text-gray-600 mb-1">
+                              {res.supervisor}
+                            </p>
+                          )}
+                          {res.institution && (
+                            <p className="text-xs text-gray-500 uppercase tracking-wider font-medium mb-3">
+                              {res.institution}
+                            </p>
+                          )}
+                          {res.description && (
+                            <p className="text-gray-600 leading-relaxed text-sm">
+                              {res.description}
+                            </p>
+                          )}
+                        </article>
+                      ))}
+                    </div>
+                  )}
                 </Section>
               )}
 
-              {/* Experience */}
+              {/* Experience / Academic Appointments */}
               {member.experience.length > 0 && (
                 <Section>
                   <SectionHeader
-                    eyebrow="Career"
-                    title="Professional Experience"
+                    eyebrow={isAcademic ? "Appointments" : "Career"}
+                    title={
+                      isAcademic ? "Academic Appointments" : "Professional Experience"
+                    }
                   />
                   <div className="space-y-8">
                     {member.experience.map((exp, i) => (

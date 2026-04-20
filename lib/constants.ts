@@ -35,7 +35,7 @@ export const navLinks = [
   },
   { name: "KRTC Schooling", href: "/schooling" },
   { name: "PhD Programs", href: "/phd-programs" },
-  { name: 'Blog', href: '/blog' },
+  { name: 'Our Experts', href: '/team' },
   { name: "Career", href: "/careers" },
   { name: "Contact", href: "/contact" },
 ];

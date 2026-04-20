@@ -22,11 +22,17 @@ export interface TeamMember {
   linkedin?: string;
   type:
     | "leadership"
+    | "executive"
+    | "strategic-partner"
     | "applied-science"
     | "schooling"
     | "schooling-leadership"
     | "advisory-jat"
-    | "advisory-cjat";
+    | "advisory-cjat"
+    | "university-coordinator";
+  university?: string; // For university coordinators — grouping
+  equityShare?: number; // Internal: 100 = majority, 20/10/2 = partners/executives
+  partnerDepartment?: string; // For strategic partners — dept they lead
   priority?: number; // For sorting within sections (lower = higher priority)
   bio: string;
   education: {
@@ -81,6 +87,7 @@ export const allTeamMembers: Record<string, TeamMember> = {
     location: "University of Siegen, Germany",
     linkedin: "https://linkedin.com/in/md-zakaria-hossain-45a631230/",
     type: "leadership",
+    equityShare: 100,
     priority: 1,
     bio: `Md Zakaria Hossain works at the intersection of science education, capacity development, and social innovation in developing countries. His work focuses on designing and implementing applied educational models that reduce the gap between theoretical learning and practical scientific competence. His research interest centers on how decentralized training platforms can improve educational equity, strengthen human capital, and prepare students from developing regions for global academic and professional environments.
 
@@ -192,13 +199,14 @@ His long-term goal is to develop scalable educational frameworks that enable stu
     slug: "suborna-khatun",
     name: "Suborna Khatun",
     nameBn: "সুবর্ণা খাতুন",
-    title: "Manager, KRTC",
-    department: "KRTC Management",
+    title: "Manager & Executive Officer, KRTC",
+    department: "KRTC Executive Management",
     initials: "SK",
     color: "bg-red-500",
     location: "Sirajganj, Bangladesh",
     dateOfBirth: "12 March 1995",
-    type: "leadership",
+    type: "executive",
+    equityShare: 10,
     priority: 2,
     bio: `Suborna Khatun serves as Manager of the Kekuleon Research and Training Center (KRTC), providing operational oversight and cross-departmental coordination across the centre's integrated institutional framework. She has been associated with KRTC since its foundation period — initially serving as Temporary Director of KRTC Schooling, where she contributed to the institution's earliest operational structure during its first six months of establishment.
 
@@ -422,6 +430,270 @@ He received professional training from TICI on Industrial Process Unit Operation
   },
 
   // ==================
+  // Executive Management
+  // ==================
+  "executive-tba-md": {
+    id: 15,
+    slug: "executive-tba-md",
+    name: "To Be Announced",
+    nameBn: "শীঘ্রই ঘোষণা করা হবে",
+    title: "Managing Director, KRTC",
+    department: "KRTC Executive Management",
+    initials: "TBA",
+    color: "bg-slate-500",
+    location: "KRTC, Sirajganj, Bangladesh",
+    type: "executive",
+    equityShare: 20,
+    priority: 1,
+    bio: `The Managing Director position at the Kekuleon Research and Training Center (KRTC) is currently open. The incoming MD will oversee the strategic direction and operational management of the institution's integrated framework across applied science, schooling, and research-oriented activities.`,
+    education: [],
+    experience: [],
+    skills: [],
+    achievements: [],
+  },
+
+  // ==================
+  // Strategic Partners
+  // ==================
+  "faruk-hasan": {
+    id: 16,
+    slug: "faruk-hasan",
+    name: "Md. Faruk Hasan",
+    nameBn: "মো. ফারুক হাসান",
+    title: "Strategic Partner & Department Instructor",
+    department: "Chemistry & Pharmaceutical Sciences",
+    partnerDepartment: "Chemistry & Pharmaceutical Sciences",
+    initials: "FH",
+    color: "bg-emerald-600",
+    location: "Bangladesh",
+    type: "strategic-partner",
+    equityShare: 2,
+    priority: 3,
+    dateOfBirth: "06 January 1995",
+    email: "farukhasanru787@gmail.com",
+    phone: "+880 1760090928",
+    bio: `Md. Faruk Hasan is a QC Chemist with over three years of industrial experience in chemical manufacturing, specialising in HPLC, Gas Chromatography, and Karl Fischer titration. He serves as a Strategic Partner and Department Instructor at the Kekuleon Research and Training Center (KRTC), leading the Pharmaceutical Sciences department and bringing hands-on expertise in analytical instrumentation, quality assurance, and laboratory best practice to KRTC's applied training programmes.
+
+Professionally, he works as a Chemist at United Sulpho Chemicals Limited, Dhaka, where he performs routine and non-routine quality testing, maintains and calibrates laboratory instruments, prepares analytical reports under SOPs and GMP principles, and supports investigation of out-of-specification (OOS) results. He holds an MEng and a BSc in Applied Chemistry and Chemical Engineering from the University of Rajshahi.`,
+    education: [
+      {
+        degree:
+          "Master of Engineering in Applied Chemistry and Chemical Engineering",
+        institution: "University of Rajshahi",
+        year: "2021 - 2022",
+      },
+      {
+        degree:
+          "Bachelor of Science in Applied Chemistry and Chemical Engineering",
+        institution: "University of Rajshahi",
+        year: "2015 - 2020",
+      },
+    ],
+    experience: [
+      {
+        role: "Strategic Partner & Department Instructor",
+        org: "Kekuleon Research and Training Center (KRTC)",
+        period: "2025 - Present",
+        description:
+          "Leads the Pharmaceutical Sciences department, contributing to applied instruction, analytical laboratory training, and departmental development.",
+      },
+      {
+        role: "Chemist",
+        org: "United Sulpho Chemicals Limited, Dhaka",
+        period: "Aug 2022 - Present",
+        description:
+          "Performs routine and non-routine quality testing using HPLC and GC; conducts moisture and colour analysis using Karl Fischer titration and colorimeter; maintains, calibrates and verifies laboratory instruments; prepares analytical reports under SOPs and GMP principles; supports investigation of out-of-specification (OOS) results.",
+      },
+    ],
+    skills: [
+      "High-Performance Liquid Chromatography (HPLC)",
+      "Gas Chromatography (GC)",
+      "Karl Fischer Titration",
+      "Instrument Calibration & Maintenance",
+      "Good Manufacturing Practices (GMP)",
+      "Quality Control",
+      "Laboratory Techniques",
+      "Microsoft Excel & Office",
+    ],
+    languages: [
+      { language: "Bengali", level: "Native" },
+      { language: "English", level: "C1 (Proficient)" },
+      { language: "German", level: "A1 (Basic)" },
+    ],
+    organizations: [
+      {
+        role: "Volunteer — COVID-19 Awareness & Support",
+        org: "Shyamnagar, Satkhira, Bangladesh",
+        description:
+          "Coordinated relief distribution of food, medicine and protective equipment and engaged in public awareness campaigns promoting hygiene and safety during the pandemic (Apr - Jun 2020).",
+      },
+    ],
+    achievements: [
+      "3+ Years of Industrial QC Experience",
+      "HPLC, GC & Karl Fischer Expertise",
+      "GMP & SOP Compliance",
+      "Strategic Partner, KRTC",
+    ],
+  },
+
+  "monirul-islam": {
+    id: 17,
+    slug: "monirul-islam",
+    name: "Md. Monirul Islam",
+    nameBn: "মো. মনিরুল ইসলাম",
+    title: "Strategic Partner & Department Instructor",
+    department: "Polymer & Plastic Processing Technologies",
+    partnerDepartment: "Polymer & Plastic Processing Technologies",
+    initials: "MI",
+    color: "bg-lime-600",
+    email: "moniracce@gmail.com",
+    emailAlt: "mdmonirulislammonir01744@gmail.com",
+    phone: "+880 1744791120",
+    location: "Banglamotor, Dhaka, Bangladesh",
+    address:
+      "Vill: Chopninagar, P.O: Kamarpara, P.S: Shajahanpur, Dist: Bogura, Bangladesh",
+    dateOfBirth: "03 March 1995",
+    type: "strategic-partner",
+    equityShare: 2,
+    priority: 2,
+    bio: `Md. Monirul Islam serves as a Strategic Partner and Department Instructor at the Kekuleon Research and Training Center (KRTC), leading the Polymer and Plastic Processing Technologies department. He brings practical industry experience from quality control and executive roles in chemical and paint manufacturing, combined with academic training in Applied Chemistry and Chemical Engineering from the University of Rajshahi.
+
+He currently works as an Executive Officer at SGS (Testing Lab, Chemical), handling pH and formaldehyde testing. Previously, he served as a Quality Control Officer at Pran RFL — Rainbow Paint, Norshindi, ensuring quality parameters of raw and finished goods. His academic research focused on sustainable methods for post-consumer plastic recycling and heavy metal remediation in ecosystems — work that directly informs his leadership of KRTC's polymer and plastic processing curriculum.`,
+    education: [
+      {
+        degree:
+          "Master of Engineering in Applied Chemistry and Chemical Engineering",
+        institution: "University of Rajshahi",
+        year: "2021",
+        grade: "3.38 out of 4.00",
+      },
+      {
+        degree:
+          "Bachelor of Science in Applied Chemistry and Chemical Engineering",
+        institution: "University of Rajshahi",
+        year: "2020",
+        grade: "2.92 out of 4.00",
+      },
+      {
+        degree: "Higher Secondary Certificate (HSC)",
+        institution: "R.D.A Laboratory School & College, Bogura",
+        year: "2013",
+        grade: "GPA 4.10",
+      },
+      {
+        degree: "Secondary School Certificate (SSC)",
+        institution: "Chopinagar High School, Bogura",
+        year: "2010",
+        grade: "GPA 5.00",
+      },
+    ],
+    experience: [
+      {
+        role: "Strategic Partner & Department Instructor",
+        org: "Kekuleon Research and Training Center (KRTC)",
+        period: "2025 - Present",
+        description:
+          "Leads the Polymer and Plastic Processing Technologies department, contributing to applied polymer instruction, curriculum design, and laboratory training.",
+      },
+      {
+        role: "Executive Officer",
+        org: "SGS (Testing Lab, Chemical)",
+        period: "Mar 2024 - Present",
+        description:
+          "Performs pH and formaldehyde testing within SGS's chemical testing laboratory.",
+      },
+      {
+        role: "Quality Control Officer",
+        org: "Pran RFL — Rainbow Paint, Norshindi",
+        period: "Jan 2023 - Feb 2024",
+        description:
+          "Ensured quality parameters of raw and finished goods; performed analytical lab tests on raw and finished products.",
+      },
+    ],
+    research: [
+      {
+        title: "Sustainable method for post-consumer plastic recycling",
+        supervisor: "Dr. Reazul Karim Sheikh, Professor",
+        institution:
+          "Department of Applied Chemistry and Chemical Engineering, University of Rajshahi",
+        period: "Academic Project",
+      },
+      {
+        title: "A study on effect and remedies of heavy metal in the ecosystem",
+        supervisor: "Dr. Sayed Mohiuddin Abdus Salam, Professor",
+        institution:
+          "Department of Applied Chemistry and Chemical Engineering, University of Rajshahi",
+        period: "Academic Project",
+      },
+    ],
+    skills: [
+      "Polymer Science",
+      "Plastic Processing",
+      "Quality Control",
+      "Chemical Testing",
+      "Structural Analysis & Creativity",
+      "Problem Solving",
+      "Pressure Management",
+      "Adaptability",
+      "Microsoft Office",
+    ],
+    languages: [
+      { language: "Bangla", level: "Native" },
+      { language: "English", level: "Proficient" },
+      { language: "Hindi", level: "Spoken Only" },
+    ],
+    organizations: [
+      {
+        role: "In-plant Training",
+        org: "Training Institute for Chemical Industries (TICI), Norsingdi",
+        description:
+          "28-day training on Industrial Process Unit Operation and Process Control (12 Mar - 07 Apr 2022). Result: A (3.75/4).",
+      },
+      {
+        role: "In-plant Training",
+        org: "Kemiko Pharmaceuticals Limited, Tikapara, Rajshahi",
+        description: "15-day in-plant training (25 Dec 2022 - 10 Jan 2023).",
+      },
+      {
+        role: "Senior Vice President",
+        org: "RU ACCE Group (2023)",
+      },
+      {
+        role: "Executive Member",
+        org: "Rajshahi University Higher Study Club (RUHSC)",
+        description:
+          "Supports students interested in higher study abroad and volunteering initiatives.",
+      },
+    ],
+    achievements: [
+      "TICI In-plant Training — A (3.75/4)",
+      "Kemiko Pharmaceuticals Training",
+      "Senior Vice President, RU ACCE Group 2023",
+      "Strategic Partner, KRTC",
+    ],
+  },
+
+  "strategic-partner-tba": {
+    id: 18,
+    slug: "strategic-partner-tba",
+    name: "To Be Announced",
+    nameBn: "শীঘ্রই ঘোষণা করা হবে",
+    title: "Strategic Partner & Department Instructor",
+    department: "Applied Science Department",
+    initials: "TBA",
+    color: "bg-slate-500",
+    location: "KRTC, Sirajganj, Bangladesh",
+    type: "strategic-partner",
+    equityShare: 2,
+    priority: 4,
+    bio: `This Strategic Partner position is currently open. The incoming partner will lead one of KRTC's applied science departments and contribute to the centre's institutional development and training activities.`,
+    education: [],
+    experience: [],
+    skills: [],
+    achievements: [],
+  },
+
+  // ==================
   // Instructors
   // ==================
   "nazmul-haque-mitun": {
@@ -429,67 +701,137 @@ He received professional training from TICI on Industrial Process Unit Operation
     slug: "nazmul-haque-mitun",
     name: "Nazmul Haque Mitun",
     nameBn: "নাজমুল হক মিটুন",
-    title: "Head Teacher, KRTC Schooling",
-    department: "Chemistry",
+    title: "Strategic Partner & Department Instructor",
+    department: "Chemistry and Applied Chemical Sciences",
+    partnerDepartment: "Chemistry and Applied Chemical Sciences",
     initials: "NM",
     color: "bg-red-500",
     email: "mitun.ru729@gmail.com",
     phone: "+880 1717987729",
     location: "Kishoreganj / Dhaka, Bangladesh",
+    address: "60/03 Harua Purba, Fisheri Road, 2300, Kishoreganj, Bangladesh",
+    dateOfBirth: "11 November 1997",
     linkedin: "http://linkedin.com/in/nazmul-haque-mitun-194682132",
-    type: "schooling-leadership",
-    priority: 3,
-    bio: `Nazmul Haque Mitun is the Head Teacher of KRTC Schooling and a Chemistry Lecturer at Milestone College, Dhaka. With strong academic background in Applied Chemistry and Chemical Engineering from University of Rajshahi, he brings both theoretical knowledge and practical teaching experience.
+    type: "strategic-partner",
+    equityShare: 2,
+    priority: 1,
+    bio: `Nazmul Haque Mitun serves as a Strategic Partner and Department Instructor at the Kekuleon Research and Training Center (KRTC), leading the Chemistry and Applied Chemical Sciences department. Alongside his role at KRTC, he is a Chemistry Lecturer at Milestone College, Dhaka, bringing a strong academic foundation in Applied Chemistry and Chemical Engineering from the University of Rajshahi and years of classroom and admission-coaching experience.
 
-He completed specialized training on Industrial Process Unit Operation & Process Control Technique from Training Institute for Chemical Industries (TICI), which enables him to connect classroom learning with real-world industrial applications. He received Certificate of Appreciation from BCSIR in 2024.`,
+He is the founder of NM Chemistry Academic & Admission Care, where he has mentored students since 2016 through innovative teaching strategies and structured academic guidance. He completed specialised training on Industrial Process Unit Operation & Process Control Technique at the Training Institute for Chemical Industries (TICI), Norsingdi, which enables him to connect classroom learning with real-world industrial applications. He was awarded a Certificate of Appreciation by the Bangladesh Council of Scientific and Industrial Research (BCSIR) in 2024.`,
     education: [
       {
-        degree: "MSc Applied Chemistry & Chemical Engineering",
+        degree: "MSc in Applied Chemistry and Chemical Engineering",
         institution: "University of Rajshahi",
-        year: "2020-2021",
+        year: "2020 - 2021",
+        credits: "40 credits",
       },
       {
-        degree: "BSc Applied Chemistry & Chemical Engineering",
+        degree: "BSc in Applied Chemistry and Chemical Engineering",
         institution: "University of Rajshahi",
-        year: "2015-2020",
+        year: "2015 - 2020",
+        credits: "160 credits",
       },
       {
         degree:
-          "Training on Industrial Process Unit Operation & Process Control",
-        institution: "TICI, Norsingdi",
-        year: "2022",
-        grade: "A+",
+          "Training on Industrial Process Unit Operation & Process Control Technique",
+        institution:
+          "Training Institute for Chemical Industries (TICI), Norsingdi",
+        year: "Mar - Apr 2022",
+        grade: "A+ (4.00/4.00)",
       },
       {
         degree: "Higher Secondary Certificate (HSC)",
         institution: "Govt. Gurudayal College, Kishoreganj",
         year: "2014",
-        grade: "GPA 4.70",
+        grade: "A (GPA 4.70/5.00)",
+      },
+      {
+        degree: "Secondary School Certificate (SSC)",
+        institution: "Kishoreganj Ideal High School",
+        year: "2012",
+        grade: "A (GPA 4.75/5.00)",
       },
     ],
     experience: [
       {
-        role: "Head Teacher",
-        org: "KRTC Schooling",
-        period: "2025 - Present",
+        role: "Strategic Partner & Department Instructor",
+        org: "Kekuleon Research and Training Center (KRTC)",
+        period: "Jan 2026 - Present",
+        description:
+          "Leads the Chemistry and Applied Chemical Sciences department. Delivers structured chemistry lectures, simplifies complex concepts, and mentors students — driving improved performance through assessment and feedback.",
       },
       {
         role: "Chemistry Lecturer",
         org: "Milestone College, Dhaka",
         period: "Dec 2025 - Present",
+        description:
+          "Evaluation of student progress, standardised mock test design, and course implementation within the Chemistry department.",
+      },
+      {
+        role: "Founder & Chemistry Instructor",
+        org: "NM Chemistry Academic & Admission Care, Rajshahi",
+        period: "2016 - Present",
+        description:
+          "Innovative teaching strategies, student academic mentoring, and improved learning outcomes in university admission chemistry preparation.",
+      },
+    ],
+    research: [
+      {
+        title:
+          "Biodegradable Polyvinyl Alcohol - Gelatine-Based Hydrogel for Slow-Release Fertilizer",
+        supervisor: "Most. Ripa Khatun, Assistant Professor",
+        institution:
+          "Department of Applied Chemistry and Chemical Engineering, University of Rajshahi",
+        period: "Jun - Dec 2023",
+      },
+      {
+        title: "Parenteral Suspension: An Overview",
+        supervisor: "Dr. Mele Jesmin, Professor",
+        institution:
+          "Department of Applied Chemistry and Chemical Engineering, University of Rajshahi",
+        period: "May - Aug 2020",
       },
     ],
     skills: [
       "Analytical Chemistry",
       "Process Technology",
-      "Instrumentation",
+      "Instrumentation & Control Engineering",
       "Environmental Science",
-      "Industrial Safety",
+      "Industrial Safety and Health",
+      "Student Mentoring",
+      "Microsoft Office",
+      "Team-work Oriented",
+    ],
+    languages: [
+      { language: "Bangla", level: "Native" },
+      { language: "English", level: "B1 (Independent)" },
+    ],
+    organizations: [
+      {
+        role: "Regional Coordinator",
+        org: "Ghuddi Foundation",
+        description:
+          "Supervised volunteer teams, monitored and reported on programmes, and coordinated scholarship examinations (Feb 2016 - Feb 2019).",
+      },
+      {
+        role: "Public Communication Coordinator",
+        org: "Rajshahi University Higher Study Club",
+        description:
+          "Maintained communication between event communication support and other departments (2017).",
+      },
+      {
+        role: "Publication & Finance Secretary",
+        org: "Rajshahi University Drama Association (RUDA)",
+        description:
+          "Organisational communication support, event publication coordination, and financial record management (Aug 2015 - Sep 2017).",
+      },
     ],
     achievements: [
-      "BCSIR Certificate of Appreciation 2024",
-      "TICI Certified",
-      "Milestone College Lecturer",
+      "BCSIR Certificate of Appreciation, 2024",
+      "TICI Certified — A+ (4.00/4.00)",
+      "Founder, NM Chemistry Academic & Admission Care",
+      "Chemistry Lecturer, Milestone College",
+      "Strategic Partner, KRTC",
     ],
   },
 
@@ -692,7 +1034,7 @@ He works as an instructor at Chorcha Coaching Center and UAC Coaching Center, te
     phone: "+880 1767530231",
     location: "Binodpur, Rajshahi, Bangladesh",
     type: "schooling",
-    priority: 9,
+    priority: 7,
     bio: `Md. Mafizul Islam is a dedicated Physics instructor currently pursuing BSc in Physics at University of Rajshahi. His teaching philosophy focuses on understanding students' needs and making knowledge boundaries wide through motivational teaching methods.
 
 He believes in staying updated with new technology and teaching techniques to always be the best teacher he can be. Since 2023, he has been working as a home tutor with strong command over Physics, Chemistry, and Math.`,
@@ -729,7 +1071,7 @@ He believes in staying updated with new technology and teaching techniques to al
     phone: "+880 1939398703",
     location: "Rajshahi, Bangladesh",
     type: "schooling",
-    priority: 4,
+    priority: 6,
     bio: `Md. Faridul Islam is the most experienced instructor at KRTC with 6-7 years of teaching experience. He holds both MSc and BSc (Hons) in Physics from University of Rajshahi with excellent academic records (CGPA 3.44 and 3.52 respectively).
 
 His extensive experience spans teaching Physics, Chemistry, Math, and ICT to students from Class 6 to 12. His deep subject knowledge combined with years of practical teaching experience makes him a valuable mentor for students preparing for higher studies.`,
@@ -1013,29 +1355,914 @@ His teaching approach focuses on making physics accessible and engaging for stud
     skills: ["Physics", "Teaching", "Student Mentoring"],
     achievements: ["University of Rajshahi Student", "Teaching Experience"],
   },
+
+  // ==================
+  // Joint Advisory Team (JAT)
+  // ==================
+  "sha-md-shahan-shahriar": {
+    id: 19,
+    slug: "sha-md-shahan-shahriar",
+    name: "Dr. Sha Md. Shahan Shahriar",
+    title: "Associate Professor",
+    department:
+      "Department of Applied Chemistry and Chemical Engineering, University of Rajshahi",
+    initials: "SS",
+    color: "bg-indigo-500",
+    email: "shahan@ru.ac.bd",
+    emailAlt: "shahan.acrubd@gmail.com",
+    location: "Rajshahi-6205, Bangladesh",
+    type: "advisory-jat",
+    priority: 1,
+    bio: `Dr. Sha Md. Shahan Shahriar is an Associate Professor at the Department of Applied Chemistry and Chemical Engineering, Faculty of Engineering, University of Rajshahi, Bangladesh. His scholarship spans environmental chemistry, water and wastewater treatment, heavy metal pollution and risk assessment, environmental monitoring, and food safety — with an extensive peer-reviewed publication record in journals including Food Control (Elsevier), Toxicology Reports (Elsevier), Journal of Food Composition and Analysis (Elsevier), and Environmental Science and Pollution Research (Springer Nature).
+
+As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Training Center (KRTC), he contributes academic guidance on curriculum design, applied training methodology, and laboratory infrastructure — helping align KRTC's programmes with internationally benchmarked standards in environmental and analytical chemistry.`,
+    education: [
+      {
+        degree: "PhD",
+        institution: "University of Rajshahi",
+        year: "2018",
+      },
+      {
+        degree: "MSc (Thesis) in Applied Chemistry and Chemical Technology",
+        institution: "University of Rajshahi",
+        year: "2006",
+      },
+      {
+        degree: "BSc (Honours) in Applied Chemistry and Chemical Technology",
+        institution: "University of Rajshahi",
+        year: "2005",
+      },
+      {
+        degree: "Higher Secondary Certificate (HSC)",
+        institution: "Badarganj Degree College",
+        year: "2001",
+      },
+      {
+        degree: "Secondary School Certificate (SSC)",
+        institution: "Nurul Huda High School",
+        year: "1999",
+      },
+    ],
+    experience: [
+      {
+        role: "Joint Advisory Team (JAT) Member",
+        org: "Kekuleon Research and Training Center (KRTC)",
+        period: "2025 - Present",
+      },
+      {
+        role: "Associate Professor",
+        org: "Department of Applied Chemistry and Chemical Engineering, University of Rajshahi",
+        period: "Oct 2021 - Present",
+      },
+      {
+        role: "Assistant Professor",
+        org: "Department of Applied Chemistry and Chemical Engineering, University of Rajshahi",
+        period: "Apr 2017 - Oct 2021",
+      },
+      {
+        role: "Lecturer",
+        org: "Department of Applied Chemistry and Chemical Engineering, University of Rajshahi",
+        period: "Apr 2014 - Apr 2017",
+      },
+    ],
+    research: [
+      {
+        title:
+          "Advanced Carbon Capture, Utilization, and Storage Technologies: A Review for Sustainable Carbon Cycle Management",
+        institution: "Journal of Science and Engineering Papers, 3(1), 175–184",
+        period: "January 2026",
+        description: "I. A. Raj, J. A. Ananna, S. M. S. Shahriar*",
+      },
+      {
+        title:
+          "Assessment of heavy metal contamination and associated risks in fish feed and pond-cultured fish",
+        institution: "Food Control, 181, 111775 (Elsevier)",
+        period: "October 2025",
+        description: "T. Hasan, M. T. A. Sufal, S. M. S. Shahriar*, et al.",
+      },
+      {
+        title:
+          "Heavy Metal Contamination in Fruits and Human Health Risk Assessment in Northwestern Bangladesh",
+        institution:
+          "Journal of Food Composition and Analysis, 148(1), 108159 (Elsevier)",
+        period: "August 2025",
+        description: "M. N. Islam, S. M. S. Shahriar*, et al.",
+      },
+      {
+        title:
+          "Analyzing the Risk of Heavy Metal Pollution in Wastewater from the Open Drainage System in Rajshahi City, Bangladesh",
+        institution: "Journal of Engineering Science, 16(1), 47–60",
+        period: "July 2025",
+        description: "S. M. S. Shahriar*, et al.",
+      },
+      {
+        title:
+          "Heavy metal pollution in poultry feeds and broiler chickens in Bangladesh",
+        institution: "Toxicology Reports, 14, 101932 (Elsevier)",
+        period: "January 2025",
+        description: "S. M. S. Shahriar*, et al.",
+      },
+      {
+        title:
+          "Assessment of contamination and pollution risks caused by heavy metals in fish pond sediments",
+        institution: "Tra Vinh University Journal of Science, 14(2), 1–13",
+        period: "June 2024",
+        description: "S. M. S. Shahriar*, et al.",
+      },
+      {
+        title:
+          "Polyethylene Degradation by Microbes (Bacteria & Fungus): A Review",
+        institution: "Journal of Global Ecology and Environment, 18(1), 32–51",
+        period: "June 2023",
+        description: "S. M. S. Shahriar*, et al.",
+      },
+      {
+        title:
+          "Metals extraction processes from electronic waste: constraints and opportunities",
+        institution:
+          "Environmental Science and Pollution Research, 29, 32651–32669 (Springer Nature)",
+        period: "February 2022",
+        description: "S. C. Chakraborty, et al., including S. M. S. Shahriar",
+      },
+    ],
+    skills: [
+      "Environmental Pollution",
+      "Water and Wastewater Treatment",
+      "Water Quality Analysis",
+      "Environmental Analytical Chemistry",
+      "Renewable Energy & Environment Protection",
+      "Organic Environmental Chemistry",
+      "Food Safety and Hygiene",
+      "Agricultural Pollution",
+      "Environmental Impact Assessment",
+      "Environmental Monitoring",
+      "Heavy Metal Pollution & Analysis",
+      "Hazardous Waste Management",
+    ],
+    achievements: [
+      "PhD, University of Rajshahi (2018)",
+      "Associate Professor, Department of Applied Chemistry and Chemical Engineering, University of Rajshahi",
+      "Extensive peer-reviewed publications in Elsevier, Springer Nature and international journals",
+      "JAT Member, Kekuleon Research and Training Center (KRTC)",
+    ],
+  },
+
+  "dilip-kumar-sarkar": {
+    id: 20,
+    slug: "dilip-kumar-sarkar",
+    name: "Dr. Dilip Kumar Sarkar",
+    title: "Associate Professor",
+    department:
+      "Department of Applied Chemistry and Chemical Engineering, University of Rajshahi",
+    initials: "DS",
+    color: "bg-amber-500",
+    email: "dilipkumar249@ru.ac.bd",
+    location: "Rajshahi, Bangladesh",
+    type: "advisory-jat",
+    priority: 2,
+    bio: `Dr. Dilip Kumar Sarkar is an Associate Professor at the Department of Applied Chemistry and Chemical Engineering, University of Rajshahi. He earned his PhD from Universiti Kebangsaan Malaysia (UKM) and his MSc and BSc from the University of Rajshahi. His research centres on renewable energy harvesting, conversion, and storage — with contributions to green hydrogen energy, electrocatalysts for electrocatalytic and photoelectrochemical water splitting, and development of solar cell materials (HTMs, ETMs for Perovskite, CdTe, CZTS), alongside energy-storage materials for batteries, capacitors/supercapacitors, and sensors.
+
+As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Training Center (KRTC), he advises on curriculum development, laboratory infrastructure, and applied training programmes that bridge theoretical education and internationally benchmarked practice, particularly in materials science and renewable-energy-related applied chemistry.`,
+    education: [
+      {
+        degree: "PhD",
+        institution: "Universiti Kebangsaan Malaysia (UKM), Malaysia",
+        year: "Completed",
+      },
+      {
+        degree: "MSc in Applied Chemistry and Chemical Technology",
+        institution: "University of Rajshahi",
+        year: "1997",
+      },
+      {
+        degree: "BSc (Honours) in Applied Chemistry and Chemical Technology",
+        institution: "University of Rajshahi",
+        year: "1996",
+      },
+      {
+        degree: "Higher Secondary Certificate (HSC)",
+        institution: "Carmichael College, Rangpur",
+        year: "1992",
+      },
+      {
+        degree: "Secondary School Certificate (SSC)",
+        institution: "Jahangirabad High School",
+        year: "1990",
+      },
+    ],
+    experience: [
+      {
+        role: "Joint Advisory Team (JAT) Member",
+        org: "Kekuleon Research and Training Center (KRTC)",
+        period: "2025 - Present",
+      },
+      {
+        role: "Associate Professor",
+        org: "Department of Applied Chemistry and Chemical Engineering, University of Rajshahi",
+        period: "Apr 2017 - Present",
+      },
+      {
+        role: "Lecturer",
+        org: "Department of Applied Chemistry and Chemical Engineering, University of Rajshahi",
+        period: "Apr 2014 - Apr 2017",
+      },
+      {
+        role: "Lecturer in Chemistry",
+        org: "Mohammadpur Government Model School and College, Dhaka",
+        period: "Oct 2006 - Apr 2014",
+      },
+      {
+        role: "Lecturer in Chemistry",
+        org: "Dhaka Residential Model College, Mohammadpur, Dhaka",
+        period: "Apr 2002 - Oct 2006",
+      },
+    ],
+    research: [
+      {
+        title:
+          "Solvent Extraction of Chromium(III) from Sulphate Medium: A Comprehensive Liquid-Liquid Extraction Study Using Cyanex 302",
+        institution: "Volume 03, Issue 01, 168–174",
+        period: "January 2026",
+        description: "A. K. Karmakar*, D. K. Sarkar, et al.",
+      },
+      {
+        title:
+          "Device Performance for CTS-Based Thin Film Solar Cell Using SCAPS-1D Simulator",
+        institution:
+          "Journal of Sustainability Science and Management, 20, 1807–1818",
+        period: "September 2025",
+        description: "F. M. Islam, M. A. Islam, D. K. Sarkar, N. M. Yatim*",
+      },
+      {
+        title:
+          "Numerical investigation of Aloe Vera-mediated green synthesized CuAlO₂ as HTL in Pb-free perovskite solar cells",
+        institution:
+          "Journal of Taibah University for Science, 18(1) (Taylor & Francis)",
+        period: "January 2024",
+        description: "D. K. Sarkar, et al.",
+      },
+      {
+        title:
+          "A numerical study on delafossite CuFeO₂ as an absorber for efficient and sustainable oxide solar cells",
+        institution: "Japanese Journal of Applied Physics, 62, 102004",
+        period: "October 2023",
+        description: "D. K. Sarkar, et al.",
+      },
+      {
+        title:
+          "Aloe vera extract mediated hydrothermal synthesis of rose-like copper iron sulfide for efficient oxygen evolution reaction",
+        institution:
+          "Journal of the Taiwan Institute of Chemical Engineers, 151, 105131",
+        period: "October 2023",
+        description: "V. Selvanathan, D. K. Sarkar, et al.",
+      },
+      {
+        title:
+          "Phytochemicals assisted green synthesis of copper oxide/cobalt oxide as efficient electrocatalyst for oxygen evolution reaction",
+        institution: "International Journal of Hydrogen Energy",
+        period: "July 2023",
+        description: "D. K. Sarkar, et al.",
+      },
+      {
+        title:
+          "Phytochemical-assisted green synthesis of CuFeOx nano-rose electrocatalysts for oxygen evolution reaction in alkaline media",
+        institution: "RSC Advances, 13, 19130–19139",
+        period: "June 2023",
+        description: "D. K. Sarkar, et al.",
+      },
+      {
+        title:
+          "Lead-free efficient perovskite solar cell device optimization and defect study using Mg doped CuCrO₂ as HTL and WO₃ as ETL",
+        institution: "Solar Energy, 243, 215–224",
+        period: "June 2022",
+        description: "D. K. Sarkar, et al.",
+      },
+    ],
+    skills: [
+      "Renewable Energy Harvesting, Conversion & Storage",
+      "Green Hydrogen Energy",
+      "Electrocatalysts for Water Splitting (Electrocatalytic & Photoelectrochemical)",
+      "Solar Cell Materials (HTMs, ETMs for Perovskite, CdTe, CZTS)",
+      "Energy Storage Materials (Battery, Capacitor/Supercapacitor)",
+      "Sensors",
+      "Physical, Inorganic & Organic Chemistry",
+      "Research Methodology",
+    ],
+    achievements: [
+      "PhD, Universiti Kebangsaan Malaysia (UKM)",
+      "Associate Professor, Department of Applied Chemistry and Chemical Engineering, University of Rajshahi",
+      "Extensive publications in renewable energy & solar cell materials (Elsevier, Taylor & Francis, RSC, Japanese Journal of Applied Physics)",
+      "JAT Member, Kekuleon Research and Training Center (KRTC)",
+    ],
+  },
+
+  // ==================
+  // Co-Joint Advisory Team (C-JAT)
+  // ==================
+  "md-ashiqul-islam": {
+    id: 21,
+    slug: "md-ashiqul-islam",
+    name: "Md Ashiqul Islam",
+    nameBn: "মো. আশিকুল ইসলাম",
+    title: "Executive, Chemical Lab (C&P) — SGS Bangladesh Limited",
+    department: "Analytical & Food Safety Chemistry",
+    initials: "AI",
+    color: "bg-blue-500",
+    email: "www.dccashiqul866@gmail.com",
+    phone: "+880 1768981834",
+    location: "Mirpur, Dhaka, Bangladesh",
+    address: "10/5, Ananda Nagar, Mirpur, 1216, Dhaka, Bangladesh",
+    dateOfBirth: "31 December 1993",
+    type: "advisory-cjat",
+    priority: 1,
+    bio: `Md Ashiqul Islam is an analytical chemist specialising in spectrometric and instrumental methods applied to food safety, water quality, and chemical manufacturing. He currently serves as an Executive in the Chemical Lab, C&P at SGS Bangladesh Limited, Dhaka, where he conducts physical and chemical testing of food and water using UV-Vis spectroscopy (APHA method), metal analysis by ICP-OES, crude protein testing by GAFTA method, and moisture, ash, energy, fat and carbohydrate assays.
+
+He holds a Bachelor of Science in Chemistry from the University of Dhaka and has completed specialised professional training on Chemical Analysis by Spectrometric Methods at the Training Institute for Chemical Industries (TICI), covering UV-Vis, AAS, ICP-OES and ICP-MS instrumentation. Prior industrial experience spans Transcom Beverages Ltd (Quality Control, 2022) and Kohinoor Chemical Company (KCCL) (Cosmetic Chemist, 2021–2022), giving him applied grounding in formulation development, stability testing, and compliance with manufacturing safety and regulatory protocols.
+
+As a member of the Co-Joint Advisory Team (C-JAT) of the Kekuleon Research and Training Center (KRTC), he contributes to research-oriented advisory discussions, supports the design of academic projects with societal benefit — particularly those touching food safety, water quality, and chemical manufacturing — and helps strengthen workshop-based practical research training for students.`,
+    education: [
+      {
+        degree: "Bachelor of Science in Chemistry",
+        institution: "University of Dhaka",
+        year: "2018",
+        grade: "3.18",
+      },
+      {
+        degree: "Chemical Analysis by Spectrometric Methods (Training)",
+        institution: "Training Institute for Chemical Industries (TICI)",
+        year: "July - August 2019",
+      },
+      {
+        degree:
+          "Program Designs for UV-Vis Instrumentation and Modelling (Training)",
+        institution: "The Red-Green Research Centre, Bangladesh",
+        year: "May 2018",
+      },
+    ],
+    experience: [
+      {
+        role: "Co-Joint Advisory Team (C-JAT) Member",
+        org: "Kekuleon Research and Training Center (KRTC)",
+        period: "2025 - Present",
+      },
+      {
+        role: "Executive — Chemical Lab, C&P",
+        org: "SGS Bangladesh Limited, Dhaka",
+        period: "Dec 2023 - Present",
+        description:
+          "Preparation and standardisation of standard solutions and reagents; physical & chemical testing of food and water with UV-Vis spectroscopy (APHA method); metal analysis of food and water with ICP-OES (APHA method); crude protein testing in food and feed by GAFTA method; moisture, ash, energy, fat and carbohydrate analysis; execution of chemical tests and analyses using a range of laboratory instruments.",
+      },
+      {
+        role: "Chemist — Quality Control",
+        org: "Transcom Beverages Ltd (TBL)",
+        period: "Feb 2022 - Aug 2022",
+        description:
+          "Provided technical support to production personnel, conducted laboratory investigations to identify root causes of production issues, documented experiments and batch records, ensured regulatory and safety compliance, and supported new product development projects.",
+      },
+      {
+        role: "Cosmetic Chemist — Production",
+        org: "Kohinoor Chemical Company (Bangladesh) Limited (KCCL)",
+        period: "Feb 2021 - Jan 2022",
+        description:
+          "Formulated and developed chemical products; optimised product formulations and processes through laboratory experimentation; performed physical and chemical analyses of raw materials and finished products; conducted stability testing for shelf-life determination; developed and validated analytical methods.",
+      },
+    ],
+    skills: [
+      "UV-Vis Spectroscopy (APHA)",
+      "ICP-OES & ICP-MS",
+      "Atomic Absorption Spectroscopy (AAS)",
+      "Food Safety Analysis (Crude Protein – GAFTA, Moisture, Ash, Fat, Carbohydrate)",
+      "Water Quality Analysis",
+      "Analytical Method Development & Validation",
+      "Stability Testing",
+      "Product Formulation",
+      "GMP, SOP & Regulatory Compliance",
+      "Internal Auditing — Operational & Cleaning Practices, IPM, Food Safety",
+    ],
+    languages: [
+      { language: "Bengali", level: "Native" },
+      { language: "English", level: "Professional" },
+    ],
+    achievements: [
+      "Executive, Chemical Lab (C&P) — SGS Bangladesh Limited",
+      "TICI Certified — Chemical Analysis by Spectrometric Methods",
+      "Internal Auditor — Operational & Cleaning Practices, IPM & Food Safety",
+      "C-JAT Member, Kekuleon Research and Training Center (KRTC)",
+    ],
+  },
+
+  "md-mohedul-islam": {
+    id: 24,
+    slug: "md-mohedul-islam",
+    name: "Md. Mohedul Islam",
+    title:
+      "Senior Executive-2, Quality Control — Healthcare Pharmaceuticals Limited",
+    department: "Analytical Chemistry & Pharmaceutical Quality Control",
+    initials: "MI",
+    color: "bg-rose-500",
+    email: "mohedulacce@gmail.com",
+    phone: "+880 1821 084 688",
+    location: "Rajendrapur, Gazipur, Bangladesh",
+    address: "Village: Ranipur, P.O. Kamdebpur-5210, P.S. Biral, Dinajpur",
+    dateOfBirth: "09 January 1994",
+    type: "advisory-jat",
+    priority: 3,
+    bio: `Md. Mohedul Islam is an analytical chemist and pharmaceutical quality-control specialist with over six years of industry experience, currently serving as Senior Executive-2 in Quality Control at Healthcare Pharmaceuticals Limited — an EU GMP approved facility in Rajendrapur, Gazipur. He leads stability study and method validation activities for higher regulatory market (HRM) products and has direct experience facing EU GMP audits.
+
+He holds both BSc and MSc degrees in Applied Chemistry & Chemical Engineering from the University of Rajshahi. His career spans Healthcare Pharmaceuticals Limited, Opsonin Pharma Limited (Barishal), and Bureau Veritas Consumer Product Services (BD) Ltd — covering analytical method validation, handling of sophisticated instrumentation (HPLC, GC, AAS, UV-Vis, FTIR, Dissolution tester, Karl Fischer, disintegration tester), OOS/deviation/change-control handling, and regulatory-compliant documentation.
+
+As a Joint Advisory Team (JAT) member of the Kekuleon Research and Training Center (KRTC), he contributes industry-aligned insights to curriculum design, instrument training, and quality-compliance practices — ensuring KRTC's analytical chemistry programmes reflect real-world regulatory and pharmaceutical quality-control standards.`,
+    education: [
+      {
+        degree: "MSc in Applied Chemistry & Chemical Engineering",
+        institution: "University of Rajshahi, Bangladesh",
+        year: "2017",
+        grade: "CGPA 2.97 / 4.00",
+      },
+      {
+        degree: "BSc in Applied Chemistry & Chemical Engineering",
+        institution: "University of Rajshahi, Bangladesh",
+        year: "2015",
+        grade: "CGPA 2.87 / 4.00",
+      },
+      {
+        degree: "Higher Secondary Certificate (HSC), Science",
+        institution: "Dinajpur Govt. College, Dinajpur",
+        year: "2010",
+        grade: "GPA 4.80 / 5.00 (Dinajpur Board)",
+      },
+      {
+        degree: "Secondary School Certificate (SSC), Science",
+        institution: "Kamdebpur High School, Dinajpur",
+        year: "2008",
+        grade: "GPA 5.00 / 5.00 (Rajshahi Board)",
+      },
+    ],
+    experience: [
+      {
+        role: "Joint Advisory Team (JAT) Member",
+        org: "Kekuleon Research and Training Center (KRTC)",
+        period: "2025 - Present",
+      },
+      {
+        role: "Senior Executive-2, Quality Control",
+        org: "Healthcare Pharmaceuticals Limited, Rajendrapur, Gazipur",
+        period: "January 2025 - Present",
+        description:
+          "Team lead of stability study and method validation for HRM market products. Preparation and review of analytical method validation and stability study protocols/reports. Handling LIR, OOS, deviations and change control related to QC laboratory. Preparation and review of method transfer protocols. Preparation of QRM and URS for QC equipment per regulatory guidelines. Ensures data integrity and ALCOA+ compliance. Maintains GLP and audit readiness.",
+      },
+      {
+        role: "Senior Officer, Quality Control",
+        org: "Healthcare Pharmaceuticals Limited, Rajendrapur, Gazipur",
+        period: "June 2021 - December 2024",
+        description:
+          "Analytical method validation of products and APIs for higher regulatory markets. Hands-on operation of HPLC, GC, AAS, UV-Vis, FTIR, Dissolution tester, Karl Fischer and disintegration tester. Calibration of all QC instruments, preparation of machine URS and comparative studies. Handling QIR, OOS, deviations and change control. Preparation and review of specifications, test methods and SOPs.",
+      },
+      {
+        role: "Executive, Quality Control",
+        org: "Opsonin Pharma Limited, Rupatoli, Barishal",
+        period: "January 2019 - June 2021",
+        description:
+          "Analysis of raw materials, bulk and finished products per procedure. Preparation of working standards, CRS monitoring, volumetric and test solution standardization. Daily accuracy checks and instrument calibration. Handling sophisticated instruments including HPLC, GC, AAS, UV-Vis, FTIR, Dissolution tester, Karl Fischer and autotitrator. Preparation of methods, specifications and SOPs. Handling OOS, deviation and laboratory investigations.",
+      },
+      {
+        role: "Assistant Analytical Chemist",
+        org: "Bureau Veritas Consumer Product Services (BD) Ltd, DEPZ, Savar, Dhaka",
+        period: "April 2018 - January 2019",
+        description:
+          "Routine analysis of pH, formaldehyde, Azo & dyes and phthalate tests. Calibration and standardization of laboratory equipment with record maintenance. Preparation of test solutions, compounds and reagents. Maintenance of all ISO 17025 laboratory requirements.",
+      },
+    ],
+    research: [
+      {
+        title:
+          "Functions, Mode of Action & Biosynthesis of Steroid Hormones (MSc Project)",
+        supervisor: "Dr. Mele Jesmin, Professor",
+        institution:
+          "Department of Applied Chemistry & Chemical Engineering, University of Rajshahi",
+        period: "2016 - 2017",
+      },
+      {
+        title:
+          "Role of Iron as a Metal and Its Compounds for Human Civilization (BSc Project)",
+        supervisor: "Dilip Kumar Sarkar, Professor",
+        institution:
+          "Department of Applied Chemistry & Chemical Engineering, University of Rajshahi",
+        period: "2014 - 2015",
+      },
+    ],
+    skills: [
+      "HPLC, GC, AAS, UV-Vis, FTIR",
+      "Dissolution Tester, Karl Fischer, Autotitrator, Disintegration Tester",
+      "Analytical Method Validation & Transfer",
+      "Stability Study (HRM Market Products)",
+      "OOS, LIR, Deviations & Change Control Handling",
+      "QRM, URS Preparation for QC Equipment",
+      "Data Integrity & ALCOA+ Compliance",
+      "GLP, GMP, EU GMP Audit Readiness",
+      "ISO 17025 Laboratory Requirements",
+      "Specification, Test Method & SOP Development",
+    ],
+    languages: [
+      { language: "Bengali", level: "Native" },
+      { language: "English", level: "Fluent in Reading, Writing and Speaking" },
+    ],
+    organizations: [
+      {
+        role: "Joint Secretary",
+        org: "Applied Chemistry & Chemical Engineering (ACCE) Group, University of Rajshahi",
+      },
+      {
+        role: "Executive Member",
+        org: "Badhan (Voluntary Blood Donating Organization), Motihar Hall, University of Rajshahi",
+      },
+      {
+        role: "Committed Player — Football Team",
+        org: "Department of Applied Chemistry & Chemical Engineering, University of Rajshahi",
+      },
+    ],
+    achievements: [
+      "EU GMP approved facility experience — Healthcare Pharmaceuticals Limited",
+      "Team lead — Stability Study & Method Validation (HRM Market Products)",
+      "TICI Training — Industrial Process Unit Operation & Process Control Technique",
+      "Industrial Training — Plantation White Sugar Production, Rajshahi Sugar Mills Ltd",
+      "Data Integrity Management, OOS, Root Cause Analysis, Cleaning Validation, Risk Management, CAPA & PQR Training (by Sr. Stephen Firmer and Mr. Akhilesh Khale)",
+      "JAT Member, Kekuleon Research and Training Center (KRTC)",
+    ],
+  },
+
+  // ======================================
+  // University Coordinator & Student Ambassador
+  // ======================================
+
+  // ---- University of Barishal ----
+  "mahfuza-kulsum-jim": {
+    id: 25,
+    slug: "mahfuza-kulsum-jim",
+    name: "Most. Mahfuza Kulsum Jim",
+    title: "University Coordinator & Student Ambassador",
+    department: "University of Barishal",
+    initials: "MJ",
+    color: "bg-blue-500",
+    email: "mkjim220802@gmail.com",
+    phone: "+880 1767163676",
+    location: "Barishal, Bangladesh",
+    address: "Barishal",
+    type: "university-coordinator",
+    university: "University of Barishal",
+    priority: 1,
+    bio: `Motivated and enthusiastic university student at the University of Barishal, currently pursuing a BSc in Geology and Mining. She serves as a University Coordinator & Student Ambassador for KRTC, where she channels her communication, leadership, and networking skills to connect students with valuable academic opportunities.
+
+  Active in university academic and social events, she brings strong teamwork and event-coordination experience to the KRTC student community, helping bridge the gap between aspiring learners and the Center's training and research programs.`,
+    education: [
+      {
+        degree: "BSc in Geology and Mining",
+        institution: "University of Barishal",
+        year: "Running (3rd Year)",
+      },
+      {
+        degree: "Higher Secondary Certificate (HSC)",
+        institution: "Shaheed Bir Uttam Lt Anwar Girls' School & College",
+        year: "2021",
+      },
+      {
+        degree: "Secondary School Certificate (SSC)",
+        institution: "Shaheed Bir Uttam Lt Anwar Girls' School & College",
+        year: "2019",
+      },
+    ],
+    experience: [
+      {
+        role: "University Coordinator & Student Ambassador",
+        org: "Kekuleon Research and Training Center (KRTC)",
+        period: "2026 - Present",
+        description:
+          "Representing KRTC at the University of Barishal — connecting students with KRTC programs, coordinating campus outreach, and supporting local events.",
+      },
+      {
+        role: "Student Participant & Team Coordinator",
+        org: "University of Barishal",
+        period: "2022 - Present",
+        description:
+          "Actively participated in university academic and social events; worked in group projects and team coordination.",
+      },
+    ],
+    skills: [
+      "Strong Communication",
+      "Leadership & Teamwork",
+      "Event Coordination",
+      "Social Media Management",
+      "Networking & Public Relations",
+      "Time Management",
+    ],
+    languages: [
+      { language: "Bengali", level: "Native" },
+      { language: "English", level: "Good (Speaking & Writing)" },
+    ],
+    organizations: [
+      {
+        role: "Member",
+        org: "University Organizations (University of Barishal)",
+      },
+    ],
+    achievements: [
+      "University Coordinator & Student Ambassador, KRTC",
+      "Participated in seminars, workshops, and competitions at the University of Barishal",
+      "Engaged in cultural and sports activities",
+    ],
+  },
+
+  "rukaiya-iqbal-rinki": {
+    id: 26,
+    slug: "rukaiya-iqbal-rinki",
+    name: "Rukaiya Iqbal Rinki",
+    title: "University Coordinator & Student Ambassador",
+    department: "University of Barishal",
+    initials: "RR",
+    color: "bg-rose-500",
+    email: "rukaiyarinki@gmail.com",
+    phone: "+880 1961227560",
+    location: "University of Barishal, Karnakathi, Barishal",
+    address:
+      "Present: University of Barishal, Karnakathi, Barishal | Permanent: Sagorpara, Holding No: 451, Boalia, Ghoramara, Rajshahi",
+    dateOfBirth: "10 July 2002",
+    linkedin: "https://linkedin.com/in/rukaiya-iqbal-40496a363",
+    type: "university-coordinator",
+    university: "University of Barishal",
+    priority: 2,
+    bio: `Highly motivated Geology and Mining student with a strong academic foundation in geochemical approaches and hydrogeology. Passionate about exploring subsurface structures and sustainable mining practices, Rukaiya is preparing for advanced research and higher studies in an international academic environment.
+
+  As a KRTC University Coordinator & Student Ambassador at the University of Barishal, she helps build awareness of KRTC's applied-science programs on campus and supports fellow students in accessing training and research opportunities aligned with their academic goals.`,
+    education: [
+      {
+        degree: "Bachelor of Science in Geology and Mining",
+        institution: "University of Barishal",
+        year: "Session 2020–21 | 4th Year (Ongoing)",
+      },
+      {
+        degree: "Higher Secondary Certificate (HSC)",
+        institution: "Rajshahi Government Women's College",
+        year: "2020",
+        grade: "GPA: 5.00 (Science)",
+      },
+      {
+        degree: "Secondary School Certificate (SSC)",
+        institution: "Masjid Mission Academy",
+        year: "2018",
+        grade: "GPA: 5.00",
+      },
+    ],
+    experience: [
+      {
+        role: "University Coordinator & Student Ambassador",
+        org: "Kekuleon Research and Training Center (KRTC)",
+        period: "2026 - Present",
+        description:
+          "Representing KRTC at the University of Barishal — coordinating campus outreach, connecting Geology & Mining and allied-science students with KRTC programs.",
+      },
+    ],
+    skills: [
+      "Microsoft Office (Word, Excel, PowerPoint)",
+      "Geochemical Approaches",
+      "Hydrogeology Fundamentals",
+      "Academic Research Readiness",
+      "Communication & Coordination",
+    ],
+    languages: [
+      { language: "Bengali", level: "Native" },
+      { language: "English", level: "Fluent" },
+    ],
+    achievements: [
+      "University Coordinator & Student Ambassador, KRTC",
+      "GPA 5.00 in both SSC and HSC",
+      "Preparing for advanced research and higher studies in an international academic environment",
+    ],
+  },
+
+  // ---- Begum Rokeya University, Rangpur ----
+  "mahmudul-hasan-abir": {
+    id: 27,
+    slug: "mahmudul-hasan-abir",
+    name: "Md. Mahmudul Hasan Abir Mia",
+    title: "University Coordinator & Student Ambassador",
+    department: "Begum Rokeya University, Rangpur",
+    initials: "MA",
+    color: "bg-amber-500",
+    email: "abirhasanbrur@gmail.com",
+    phone: "+880 1568925051",
+    location: "Rangpur, Bangladesh",
+    address:
+      "Present: Sardarpara, Cadet College, Thana – Tajhat, Rangpur | Permanent: Ramnathpur, Pirganj, Rangpur",
+    dateOfBirth: "28-06-2000",
+    type: "university-coordinator",
+    university: "Begum Rokeya University, Rangpur",
+    priority: 3,
+    bio: `Md. Mahmudul Hasan Abir Mia is a Public Administration graduate from Begum Rokeya University, Rangpur, and an active youth leader working at the intersection of education, culture, and community development. He is the Founder & President of "Tonger Gaan," a youth initiative that uses music and research to advocate for peace, safe internet, education, climate action, and social cohesion.
+
+  Recognized as a National Winner of the UNDP Digital Khicuri Challenge 2022 and recipient of the Banglar Cokh Award 2023 for Art & Culture, he brings deep experience in project coordination, partnership-building, and community mobilization. As KRTC's University Coordinator & Student Ambassador for Begum Rokeya University, he leads campus outreach and connects students to KRTC's applied-science training and research opportunities.`,
+    education: [
+      {
+        degree: "MSS in Public Administration",
+        institution: "Begum Rokeya University, Rangpur",
+        year: "Session 2023-2024",
+        grade: "CGPA: 3.31",
+      },
+      {
+        degree: "Bachelor of Social Science (BSS), Public Administration",
+        institution: "Begum Rokeya University, Rangpur",
+        year: "Session 2019-2020",
+        grade: "CGPA: 3.41",
+      },
+    ],
+    experience: [
+      {
+        role: "University Coordinator & Student Ambassador",
+        org: "Kekuleon Research and Training Center (KRTC)",
+        period: "2026 - Present",
+        description:
+          "Representing KRTC at Begum Rokeya University, Rangpur — leading campus outreach, partnerships and student engagement around KRTC programs.",
+      },
+      {
+        role: "Research Assistant",
+        org: "UGC – Begum Rokeya University, Department of Public Administration",
+        period: "01-06-2025 - Present",
+        description:
+          "Supporting UGC-funded research work in the Public Administration department, Rangpur.",
+      },
+      {
+        role: "Founder & President",
+        org: "Tonger Gaan",
+        period: "December 2020 - Present (Rangpur, Bangladesh)",
+        description:
+          "Writing and singing songs for peace and tolerance; research and advocacy on safe internet, education, culture, climate issues and social problems; building partnerships with national and international organizations for project design, proposals, reports, resource mobilization and implementation.",
+      },
+      {
+        role: "Teacher",
+        org: "Kishore Kishori Club Project (KKCP)",
+        period: "March 2021 - June 2023 (Rangpur, Bangladesh)",
+        description:
+          "Led academic improvement of ~60 adolescent students; planned and managed school and community projects impacting 1,000+ directly and ~3,000 indirectly; arranged 20+ events distributing food, hygiene tools and educational materials; maintained partnerships with parents, union members, chairmen, head teachers and UNO.",
+      },
+    ],
+    skills: [
+      "Project Coordination",
+      "Project & Improvement Plan Development",
+      "Communication",
+      "Volunteer Coordination",
+      "Presentation Content Development & Facilitation",
+      "MS Office Programs",
+    ],
+    languages: [
+      { language: "Bengali", level: "Native" },
+      { language: "English", level: "Proficient" },
+    ],
+    organizations: [
+      {
+        role: "Founder & President",
+        org: "Tonger Gaan",
+        description:
+          "Youth-led initiative using music, research and advocacy for peace, education, culture and climate.",
+      },
+    ],
+    achievements: [
+      "University Coordinator & Student Ambassador, KRTC",
+      "National Winner — UNDP Digital Khicuri Challenge 2022",
+      "Banglar Cokh Award 2023 for Art & Culture",
+      "Regiment Camp Training — Bangladesh National Cadet Corps (BNCC), Postal Academy, Rajshahi",
+      "Three-Day Training on Basic Counselling Skills for Para Counselors (Foundation for Women Possibilities)",
+      "Two-Day Training on Global SDG Youth Summit 2025",
+    ],
+  },
+
+  // ---- University of Dhaka ----
+  "md-aminul-islam": {
+    id: 28,
+    slug: "md-aminul-islam",
+    name: "Md Aminul Islam",
+    title: "University Coordinator & Student Ambassador",
+    department: "University of Dhaka",
+    initials: "AI",
+    color: "bg-indigo-500",
+    email: "aminulislamdu21@gmail.com",
+    phone: "+880 1804601473",
+    location: "Dhaka, Bangladesh",
+    address: "Jobai, Sapahar, Naogaon",
+    dateOfBirth: "14-01-2003",
+    linkedin: "https://linkedin.com/in/aminuldu21",
+    type: "university-coordinator",
+    university: "University of Dhaka",
+    priority: 4,
+    bio: `Md Aminul Islam is an undergraduate student at the University of Dhaka (BSc Honours, 2022–2026), with a consistent record of academic excellence — GPA 5.00 in both SSC and HSC. As KRTC's University Coordinator & Student Ambassador at the University of Dhaka, he focuses on campus outreach, connecting DU students to KRTC's applied-science training, research programs and community initiatives.`,
+    education: [
+      {
+        degree: "BSc Honours",
+        institution: "University of Dhaka",
+        year: "2022 - 2026",
+      },
+      {
+        degree: "Higher Secondary Certificate (HSC)",
+        institution: "Dighir Hat College, Sapahar, Naogaon",
+        year: "2018 - 2020",
+        grade: "GPA: 5.00 (Roll: 113509, Rajshahi Board)",
+      },
+      {
+        degree: "Secondary School Certificate (SSC)",
+        institution: "Jobai Somija Begum High School, Sapahar, Naogaon",
+        year: "2013 - 2018",
+        grade: "GPA: 5.00 (Roll: 133449, Rajshahi Board)",
+      },
+    ],
+    experience: [
+      {
+        role: "University Coordinator & Student Ambassador",
+        org: "Kekuleon Research and Training Center (KRTC)",
+        period: "2026 - Present",
+        description:
+          "Representing KRTC at the University of Dhaka — connecting students with KRTC training, research and community programs; coordinating campus outreach.",
+      },
+    ],
+    skills: [
+      "Computer Fundamentals",
+      "MS Word",
+      "MS Excel",
+      "MS PowerPoint",
+    ],
+    languages: [
+      { language: "Bengali", level: "Native" },
+      { language: "English", level: "Proficient" },
+    ],
+    achievements: [
+      "University Coordinator & Student Ambassador, KRTC",
+      "GPA 5.00 — HSC (Dighir Hat College, 2020)",
+      "GPA 5.00 — SSC (Jobai Somija Begum High School, 2018)",
+    ],
+  },
 };
 
 // Helper functions
+const byPriority = (a: TeamMember, b: TeamMember) =>
+  (a.priority || 999) - (b.priority || 999);
+
 export const getLeadership = () =>
   Object.values(allTeamMembers)
     .filter((m) => m.type === "leadership")
-    .sort((a, b) => (a.priority || 999) - (b.priority || 999));
+    .sort(byPriority);
+export const getExecutive = () =>
+  Object.values(allTeamMembers)
+    .filter((m) => m.type === "executive")
+    .sort(byPriority);
+export const getStrategicPartners = () =>
+  Object.values(allTeamMembers)
+    .filter((m) => m.type === "strategic-partner")
+    .sort(byPriority);
 export const getAppliedScience = () =>
-  Object.values(allTeamMembers).filter((m) => m.type === "applied-science");
+  Object.values(allTeamMembers)
+    .filter((m) => m.type === "applied-science")
+    .sort(byPriority);
 export const getSchoolingLeadership = () =>
   Object.values(allTeamMembers)
     .filter((m) => m.type === "schooling-leadership")
-    .sort((a, b) => (a.priority || 999) - (b.priority || 999));
+    .sort(byPriority);
 export const getSchooling = () =>
   Object.values(allTeamMembers)
     .filter((m) => m.type === "schooling")
-    .sort((a, b) => (a.priority || 999) - (b.priority || 999));
+    .sort(byPriority);
 export const getAdvisoryJAT = () =>
   Object.values(allTeamMembers)
     .filter((m) => m.type === "advisory-jat")
-    .sort((a, b) => (a.priority || 999) - (b.priority || 999));
+    .sort(byPriority);
 export const getAdvisoryCJAT = () =>
   Object.values(allTeamMembers)
     .filter((m) => m.type === "advisory-cjat")
-    .sort((a, b) => (a.priority || 999) - (b.priority || 999));
+    .sort(byPriority);
+
+// C-JAT members PLUS strategic partners who also serve on C-JAT (dual-listed)
+const CJAT_DUAL_LISTED_SLUGS = ["nazmul-haque-mitun", "faruk-hasan"];
+export const getAdvisoryCJATAll = () => {
+  const primary = getAdvisoryCJAT();
+  const dualListed = CJAT_DUAL_LISTED_SLUGS.map(
+    (slug) => allTeamMembers[slug],
+  ).filter(Boolean);
+  return [...primary, ...dualListed];
+};
+export const getUniversityCoordinators = () =>
+  Object.values(allTeamMembers)
+    .filter((m) => m.type === "university-coordinator")
+    .sort(byPriority);
+
+// Groups university coordinators by their university field.
+// Returns an array of { university, members } ordered by the first-appearing university.
+export const getUniversityCoordinatorsByUniversity = () => {
+  const coordinators = getUniversityCoordinators();
+  const groups = new Map<string, TeamMember[]>();
+  for (const m of coordinators) {
+    const uni = m.university || "Other";
+    if (!groups.has(uni)) groups.set(uni, []);
+    groups.get(uni)!.push(m);
+  }
+  return Array.from(groups.entries()).map(([university, members]) => ({
+    university,
+    members,
+  }));
+};
 export const getMemberBySlug = (slug: string) => allTeamMembers[slug] || null;

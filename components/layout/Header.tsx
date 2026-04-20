@@ -34,6 +34,9 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [mobileOpenSubmenu, setMobileOpenSubmenu] = useState<string | null>(
+    null,
+  );
   const pathname = usePathname();
 
   const isHome = pathname === "/";
@@ -49,8 +52,21 @@ export default function Header() {
   useEffect(() => {
     setIsMobileMenuOpen(false);
     setActiveDropdown(null);
+    setMobileOpenSubmenu(null);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [pathname]);
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+      setMobileOpenSubmenu(null);
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
 
   // On homepage: transparent initially, white on scroll
   // On other pages: always white
@@ -63,6 +79,7 @@ export default function Header() {
   };
 
   return (
+    <>
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
@@ -277,49 +294,105 @@ export default function Header() {
           </button>
         </nav>
       </div>
+    </header>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.25 }}
-            className="lg:hidden bg-white border-t border-gray-100 overflow-hidden"
+    {/* Mobile Menu (outside <header> so backdrop-filter doesn't break fixed positioning) */}
+    {isMobileMenuOpen && (
+      <div
+        onClick={() => setIsMobileMenuOpen(false)}
+        aria-hidden="true"
+        className="lg:hidden fixed inset-0 top-[72px] z-40 bg-black/30 mobile-menu-fade"
+      />
+    )}
+    {isMobileMenuOpen && (
+          <div
+            className="lg:hidden fixed inset-x-0 top-[72px] z-50 bg-white border-t border-gray-100 max-h-[calc(100dvh-72px)] overflow-y-auto overscroll-contain shadow-lg mobile-menu-slide"
           >
-            <div className="container-custom py-3">
+            <div className="container-custom py-3 pb-8">
               {navigation.main.map((item) => (
                 <div key={item.name}>
-                  <Link
-                    href={item.href}
-                    onClick={() => handleNavClick(item.href)}
-                    className={cn(
-                      "block py-2.5 text-sm font-medium border-b border-gray-50",
-                      pathname === item.href ? "text-primary" : "text-gray-600",
-                    )}
-                  >
-                    {item.name}
-                  </Link>
-                  {item.children && (
-                    <div className="pl-4 py-1 space-y-0.5">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.name}
-                          href={child.href}
-                          onClick={() => handleNavClick(child.href)}
-                          className="block py-2 text-[13px] text-gray-400 hover:text-primary"
-                        >
-                          {child.name}
-                        </Link>
-                      ))}
-                    </div>
+                  {item.children ? (
+                    <>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setMobileOpenSubmenu(
+                            mobileOpenSubmenu === item.name ? null : item.name,
+                          )
+                        }
+                        className={cn(
+                          "flex w-full items-center justify-between py-2.5 text-sm font-medium border-b border-gray-50",
+                          mobileOpenSubmenu === item.name
+                            ? "text-primary"
+                            : "text-gray-600",
+                        )}
+                        aria-expanded={mobileOpenSubmenu === item.name}
+                      >
+                        {item.name}
+                        <ChevronDown
+                          className={cn(
+                            "w-4 h-4 transition-transform duration-200",
+                            mobileOpenSubmenu === item.name && "rotate-180",
+                          )}
+                        />
+                      </button>
+                      <AnimatePresence initial={false}>
+                        {mobileOpenSubmenu === item.name && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="pl-4 py-1 space-y-0.5">
+                              <Link
+                                href={item.href}
+                                onClick={() => handleNavClick(item.href)}
+                                className="block py-2 text-[13px] font-medium text-gray-600 hover:text-primary"
+                              >
+                                View all →
+                              </Link>
+                              {item.children.map((child) => (
+                                <Link
+                                  key={child.name}
+                                  href={child.href}
+                                  onClick={() => handleNavClick(child.href)}
+                                  className={cn(
+                                    "block py-2 text-[13px]",
+                                    pathname === child.href
+                                      ? "text-primary"
+                                      : "text-gray-500 hover:text-primary",
+                                  )}
+                                >
+                                  {child.name}
+                                </Link>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      onClick={() => handleNavClick(item.href)}
+                      className={cn(
+                        "block py-2.5 text-sm font-medium border-b border-gray-50",
+                        pathname === item.href
+                          ? "text-primary"
+                          : "text-gray-600",
+                      )}
+                    >
+                      {item.name}
+                    </Link>
                   )}
                 </div>
               ))}
               <div className="pt-3 mt-3 border-t border-gray-100">
                 <Link
                   href="/contact"
+                  onClick={() => handleNavClick("/contact")}
                   className="flex items-center justify-center gap-2 w-full py-3 bg-primary text-white text-sm font-medium rounded-full"
                 >
                   Get Started
@@ -327,9 +400,8 @@ export default function Header() {
                 </Link>
               </div>
             </div>
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
-    </header>
+    </>
   );
 }

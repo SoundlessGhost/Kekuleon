@@ -1,105 +1,42 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import {
   getLeadership,
+  getExecutive,
+  getStrategicPartners,
   getSchoolingLeadership,
   getSchooling,
   getAdvisoryJAT,
-  getAdvisoryCJAT,
+  getAdvisoryCJATAll,
+  getUniversityCoordinatorsByUniversity,
 } from "@/lib/team-data";
 import Image from "next/image";
 import type { TeamMember } from "@/lib/team-data";
 
 const leadership = getLeadership();
-const advisoryJAT = getAdvisoryJAT();
-const advisoryCJAT = getAdvisoryCJAT();
+const executive = getExecutive();
+const strategicPartners = getStrategicPartners();
 const schoolingLeadership = getSchoolingLeadership();
 const schoolingTeachers = getSchooling();
+const advisoryJAT = getAdvisoryJAT();
+const advisoryCJAT = getAdvisoryCJATAll();
+const universityCoordinatorGroups = getUniversityCoordinatorsByUniversity();
 
-interface MandateItem {
-  heading: string;
-  text: string;
-}
+// Applied Sciences section mirrors the four Strategic Partners
+// (dual-listing — each partner also leads an applied sciences department).
+const appliedSciencesCombined: TeamMember[] = [...strategicPartners];
 
-interface AdvisoryData {
-  tag: string;
-  title: string;
-  subtitle: string;
-  summary: string;
-  mandate: MandateItem[];
-  departments: string[] | null;
-  closing: string;
-}
+const JAT_DESCRIPTION = `The Joint Advisory Team (JAT) of the Kekuleon Research and Training Center (KRTC) is an academic advisory body composed of distinguished national university professors, international scholars, and industry specialists. The JAT operates within KRTC's decentralised and integrated institutional model — contributing to the design and continuous improvement of internationally benchmarked curricula, applied science training programmes, and laboratory infrastructure across six specialised departments.
 
-const jatData: AdvisoryData = {
-  tag: "SECTION 1",
-  title: "Joint Advisory Team (JAT)",
-  subtitle:
-    "Curriculum Development, Applied Training & Higher Education Mobility",
-  summary:
-    "The Joint Advisory Team (JAT) of the Kekuleon Research and Training Center (KRTC) is an academic advisory body composed of distinguished national university professors, international scholars, and industry specialists. The JAT operates within KRTC's decentralised and integrated institutional model — contributing to the design and continuous improvement of internationally benchmarked curricula, applied science training programmes, and laboratory infrastructure across six specialised departments.",
-  mandate: [
-    {
-      heading: "Curriculum Development & Relevant Course Design",
-      text: "The JAT is responsible for developing comprehensive course structures, learning outcomes, and assessment frameworks that serve dual objectives: equipping learners with applied scientific competence and preparing them for progression into national and international higher education pathways. Course content is designed to address the needs of both students and professionals — ensuring relevance to academic advancement, industry requirements, and professional certification standards.",
-    },
-    {
-      heading: "Academic Capacity Building & Training of Trainers",
-      text: "Beyond curriculum design, the JAT strengthens KRTC's overall academic infrastructure by developing structured programmes in research methodology, scientific writing, analytical reasoning, and laboratory competence. The advisory team contributes to designing Training of Trainers (ToT) frameworks — ensuring that knowledge transfer within the institution is sustainable, scalable, and aligned with internationally recognised pedagogical standards.",
-    },
-    {
-      heading: "Higher Education Mobility & Professional Advancement",
-      text: "A central objective of the JAT's work is to ensure that KRTC's training outputs directly support learners in accessing professional development and higher education opportunities. The advisory scope integrates academic language preparation, research-readiness training, and the development of practical laboratory portfolios that strengthen candidates' profiles for international study, research engagement, and professional placement.",
-    },
-    {
-      heading: "Laboratory Design & Infrastructure Advisory",
-      text: "The JAT advises on the planning and design of modern laboratory facilities — covering facility layout, equipment specification, safety protocols, standard operating procedures, and quality assurance systems across all departments.",
-    },
-  ],
-  departments: [
-    "Chemistry and Applied Chemical Sciences",
-    "Polymer and Plastic Processing Technologies",
-    "Pharmaceutical Sciences and Drug Development",
-    "Materials Science and Engineering Applications",
-    "Textile Testing and Quality Assurance",
-    "Food Safety and Quality Control",
-  ],
-  closing:
-    "The JAT ensures that KRTC's academic offerings remain competitive, practice-oriented, and aligned with both national educational standards and international benchmarks — supporting a progressive learning environment that bridges the gap between theoretical education and practical scientific competence.",
-};
+The JAT ensures that KRTC's academic offerings remain competitive, practice-oriented, and aligned with both national educational standards and international benchmarks — supporting a progressive learning environment that bridges the gap between theoretical education and practical scientific competence.`;
 
-const cjatData: AdvisoryData = {
-  tag: "SECTION 2",
-  title: "Co-Joint Advisory Team (C-JAT)",
-  subtitle: "Research Development, Institutional Modelling & Societal Impact",
-  summary:
-    "The Co-Joint Advisory Team (C-JAT) operates as a strategically distinct advisory body alongside the JAT, focused on the research, development, and institutional modelling dimensions of KRTC's mission. The C-JAT engages in exploratory discussions on research directions, contributes to the intellectual architecture of the institution, and ensures that KRTC's academic and research activities align with broader societal development objectives.",
-  mandate: [
-    {
-      heading: "Research Direction & Institutional Model Development",
-      text: "The C-JAT conducts preliminary and ongoing discussions regarding the research potential embedded within KRTC's integrated institutional framework. This includes evaluating emerging research themes, identifying interdisciplinary opportunities, and advising on the refinement of the decentralised research institutional model — exploring how integrated training environments can contribute to improving science education and capacity development in developing-country contexts.",
-    },
-    {
-      heading: "Academic Project Design for Societal Benefit",
-      text: "A central function of the C-JAT is to design and supervise academic projects tailored for KRTC students that align with societal benefit objectives — addressing real-world developments, contemporary issues, and emerging challenges that correlate with local, national, and global development priorities. Project themes are drawn from areas such as environmental sustainability, public health, industrial innovation, food safety, and community welfare — ensuring student research contributes meaningfully to societal progress.",
-    },
-    {
-      heading: "Research Awareness & Methodology Training",
-      text: "The C-JAT cultivates a culture of research awareness through structured programmes in both academic research methodology and workshop-based practical research training. Participants develop competencies in literature review, experimental design, data analysis, scientific writing, and ethical research practice — reflecting KRTC's philosophy that research skills are built through both formal instruction and hands-on engagement with real research contexts.",
-    },
-    {
-      heading: "Academic Workshops & Mobility Support",
-      text: "The C-JAT contributes to the design and delivery of academic workshops that strengthen participants' readiness for national and international academic mobility — including research presentation skills, proposal writing, academic publication processes, and navigation of international academic environments. These activities connect research-oriented training to tangible academic and professional progression opportunities.",
-    },
-  ],
-  departments: null,
-  closing:
-    "Through its work, the C-JAT ensures that KRTC's research activities are purpose-driven, socially relevant, and contribute to broader discussions on science education, capacity development, and the role of applied training systems in supporting sustainable development.",
-};
+const CJAT_DESCRIPTION = `The Co-Joint Advisory Team (C-JAT) operates as a strategically distinct advisory body alongside the JAT, focused on the research, development, and institutional modelling dimensions of KRTC's mission. The C-JAT engages in exploratory discussions on research directions, contributes to the intellectual architecture of the institution, and ensures that KRTC's academic and research activities align with broader societal development objectives.
+
+Through its work, the C-JAT ensures that KRTC's research activities are purpose-driven, socially relevant, and contribute to broader discussions on science education, capacity development, and the role of applied training systems in supporting sustainable development.`;
 
 function Section({
   children,
@@ -125,6 +62,26 @@ function Section({
 }
 
 function MemberCard({ member }: { member: TeamMember }) {
+  const isPlaceholder = member.name === "To Be Announced";
+
+  if (isPlaceholder) {
+    return (
+      <div className="flex items-center gap-4 p-5 bg-white rounded-xl border border-dashed border-gray-200 h-full">
+        <div className="w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center flex-shrink-0">
+          <span className="text-sm font-bold text-gray-400">?</span>
+        </div>
+        <div className="flex-1 min-w-0">
+          <h3 className="font-bold text-gray-400 truncate">
+            To Be Announced
+          </h3>
+          <p className="text-sm text-gray-400 font-medium truncate">
+            {member.partnerDepartment || member.title}
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <Link href={`/team/${member.slug}`}>
       <div className="flex items-center gap-4 p-5 bg-white rounded-xl border border-gray-200 hover:shadow-md hover:border-primary/20 transition-all group cursor-pointer h-full">
@@ -166,69 +123,6 @@ function MemberCard({ member }: { member: TeamMember }) {
   );
 }
 
-function AdvisorySection({
-  data,
-  members,
-  sectionBg,
-  cardBg,
-}: {
-  data: AdvisoryData;
-  members: TeamMember[];
-  sectionBg: string;
-  cardBg: string;
-}) {
-  const [expanded, setExpanded] = useState<number | null>(null);
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-80px" });
-
-  return (
-    <section ref={ref} className={`py-14 ${sectionBg}`}>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="container-custom">
-          {/* Title + subtitle */}
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-1 leading-tight">
-            {data.title}
-          </h2>
-          <p className="text-sm text-primary font-semibold tracking-wide mb-6">
-            {data.subtitle}
-          </p>
-
-          {/* Closing */}
-          <div className="rounded-xl p-5 md:p-6 border-l-[3px] border-amber-500 bg-gradient-to-br from-gray-900/[0.03] to-primary/[0.04] mb-10">
-            <p className="text-[14.5px] leading-[1.75] text-gray-600 italic">
-              {data.summary}
-              <br />
-              <br />
-              {data.closing}
-            </p>
-          </div>
-
-          {/* Members */}
-          {members.length > 0 ? (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {members.map((m) => (
-                <MemberCard key={m.id} member={m} />
-              ))}
-            </div>
-          ) : (
-            <div
-              className={`${cardBg} rounded-xl p-10 text-center border border-dashed border-gray-200`}
-            >
-              <p className="text-gray-400">
-                Advisory members will be announced soon
-              </p>
-            </div>
-          )}
-        </div>
-      </motion.div>
-    </section>
-  );
-}
-
 export default function TeamPage() {
   return (
     <>
@@ -264,9 +158,9 @@ export default function TeamPage() {
           <div className="max-w-2xl">
             {leadership.map((member) => (
               <Link key={member.id} href={`/team/${member.slug}`}>
-                <div className="flex flex-col sm:flex-row gap-5 p-6 mb-10 bg-white rounded-xl border border-gray-200 hover:shadow-md hover:border-primary/20 transition-all group cursor-pointer">
+                <div className="flex flex-col items-center sm:flex-row gap-5 p-6 mb-10 bg-white rounded-xl border border-gray-200 hover:shadow-md hover:border-primary/20 transition-all group cursor-pointer">
                   {member.image ? (
-                    <div className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
+                    <div className="w-20 h-20 rounded-full overflow-hidden flex-shrink-0">
                       <Image
                         src={member.image}
                         alt={member.name}
@@ -296,10 +190,6 @@ export default function TeamPage() {
                         {member.education[0].degree}
                       </p>
                     )}
-                    <span className="inline-flex items-center gap-1 text-primary text-sm font-medium mt-3 group-hover:gap-2 transition-all">
-                      View Profile
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </span>
                   </div>
                 </div>
               </Link>
@@ -308,34 +198,110 @@ export default function TeamPage() {
         </div>
       </Section>
 
-      {/* Joint Advisory Team */}
-      <AdvisorySection
-        data={jatData}
-        members={advisoryJAT}
-        sectionBg="bg-[#FFFCFA]"
-        cardBg="bg-white"
-      />
-
-      {/* Co-Joint Advisory Team */}
-      <AdvisorySection
-        data={cjatData}
-        members={advisoryCJAT}
-        sectionBg="bg-[#FAFCFF]"
-        cardBg="bg-white"
-      />
-
-      {/* Applied Sciences — Coming Soon */}
-      <Section className="py-12 bg-white">
-        <div className="container-custom">
-          <h2 className="text-xl font-bold text-gray-900 mb-1">
-            Department of Applied Sciences
-          </h2>
-          <p className="text-sm text-gray-500 mb-6">
-            Research & advanced scientific training
-          </p>
-          <div className="bg-gray-50 rounded-xl p-10 text-center border border-dashed border-gray-200">
-            <p className="text-gray-400">Coming Soon</p>
+      {/* Executive Management */}
+      {executive.length > 0 && (
+        <Section className="py-12 bg-white">
+          <div className="container-custom">
+            <h2 className="text-xl font-bold text-gray-900">
+              Executive Management
+            </h2>
+            <p className="text-sm text-gray-500 mb-6">
+              Operational leadership driving day-to-day execution
+            </p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {executive.map((member) => (
+                <MemberCard key={member.id} member={member} />
+              ))}
+            </div>
           </div>
+        </Section>
+      )}
+
+      {/* Strategic Partners */}
+      {strategicPartners.length > 0 && (
+        <Section className="py-12 bg-gray-50">
+          <div className="container-custom">
+            <h2 className="text-xl font-bold text-gray-900">
+              Strategic Partners
+            </h2>
+            <p className="text-sm text-gray-500 mb-6">
+              Departmental leads shaping KRTC&apos;s scientific direction
+            </p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {strategicPartners.map((member) => (
+                <MemberCard key={member.id} member={member} />
+              ))}
+            </div>
+          </div>
+        </Section>
+      )}
+
+      {/* Department of Applied Sciences */}
+      {appliedSciencesCombined.length > 0 && (
+        <Section className="py-12 bg-white">
+          <div className="container-custom">
+            <h2 className="text-xl font-bold text-gray-900">
+              Department of Applied Sciences
+            </h2>
+            <p className="text-sm text-gray-500 mb-6">
+              Research & advanced scientific training faculty
+            </p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {appliedSciencesCombined.map((member) => (
+                <MemberCard key={member.id} member={member} />
+              ))}
+            </div>
+          </div>
+        </Section>
+      )}
+
+      {/* University Coordinator & Student Ambassador */}
+      <Section className="py-12 bg-gradient-to-b from-white to-gray-50 border-t border-gray-100">
+        <div className="container-custom">
+          <div className="flex items-start justify-between flex-wrap gap-4 mb-6">
+            <div>
+              <h2 className="text-xl font-bold text-gray-900">
+                University Coordinators & Student Ambassadors
+              </h2>
+              <p className="text-sm text-gray-500 mt-1">
+                Representing KRTC across partner universities in Bangladesh
+              </p>
+            </div>
+          </div>
+
+          {universityCoordinatorGroups.length > 0 ? (
+            <div className="space-y-10">
+              {universityCoordinatorGroups.map((group) => (
+                <div key={group.university}>
+                  <div className="flex items-baseline gap-3 mb-4">
+                    <h3 className="text-base font-semibold text-gray-900">
+                      {group.university}
+                    </h3>
+                    <span className="text-xs text-gray-400">
+                      {group.members.length}{" "}
+                      {group.members.length === 1 ? "member" : "members"}
+                    </span>
+                    <div className="flex-1 h-px bg-gray-200" />
+                  </div>
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {group.members.map((member) => (
+                      <MemberCard key={member.id} member={member} />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="bg-white rounded-xl p-10 text-center border border-dashed border-gray-200">
+              <p className="text-gray-500 mb-1">
+                Coordinator appointments are in progress
+              </p>
+              <p className="text-xs text-gray-400">
+                Selected members from partner universities will be listed here —
+                organized by institution.
+              </p>
+            </div>
+          )}
         </div>
       </Section>
 
@@ -350,16 +316,18 @@ export default function TeamPage() {
           </p>
 
           {/* Administration */}
-          <div className="mb-10">
-            <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">
-              Administration
-            </h3>
-            <div className="grid md:grid-cols-3 gap-4">
-              {schoolingLeadership.map((member) => (
-                <MemberCard key={member.id} member={member} />
-              ))}
+          {schoolingLeadership.length > 0 && (
+            <div className="mb-10">
+              <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-4">
+                Administration
+              </h3>
+              <div className="grid md:grid-cols-3 gap-4">
+                {schoolingLeadership.map((member) => (
+                  <MemberCard key={member.id} member={member} />
+                ))}
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Teaching Faculty */}
           <div>
@@ -372,6 +340,106 @@ export default function TeamPage() {
               ))}
             </div>
           </div>
+        </div>
+      </Section>
+
+      {/* Advisory Board — header */}
+      <Section className="pt-16 pb-6 bg-white">
+        <div className="container-custom">
+          <p className="text-xs font-semibold uppercase tracking-[0.15em] text-primary mb-2">
+            Advisory Board
+          </p>
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+            Guiding KRTC&apos;s Academic & Research Direction
+          </h2>
+          <p className="text-sm text-gray-500 max-w-2xl">
+            Distinguished scholars and specialists organised into two
+            complementary bodies — the Joint Advisory Team and the Co-Joint
+            Advisory Team.
+          </p>
+        </div>
+      </Section>
+
+      {/* Joint Advisory Team (JAT) */}
+      <Section className="py-10 bg-white">
+        <div className="container-custom">
+          <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden mb-8">
+            <div className="px-6 md:px-8 py-6 bg-gradient-to-r from-amber-50/60 to-transparent border-b border-gray-100">
+              <div className="flex flex-wrap items-center gap-2 mb-2">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-100 text-amber-800 text-[11px] font-bold tracking-wider">
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500" /> JAT
+                </span>
+                <span className="text-xs text-gray-500">
+                  Curriculum Development · Applied Training · Higher Education
+                  Mobility
+                </span>
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900">
+                Joint Advisory Team
+              </h3>
+            </div>
+            <div className="px-6 md:px-8 py-6">
+              <p className="text-[14.5px] leading-[1.8] text-gray-600 whitespace-pre-line">
+                {JAT_DESCRIPTION}
+              </p>
+            </div>
+          </div>
+
+          {advisoryJAT.length > 0 ? (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {advisoryJAT.map((member) => (
+                <MemberCard key={member.id} member={member} />
+              ))}
+            </div>
+          ) : (
+            <div className="bg-gray-50 rounded-xl p-10 text-center border border-dashed border-gray-200">
+              <p className="text-gray-400">
+                JAT members will be announced soon
+              </p>
+            </div>
+          )}
+        </div>
+      </Section>
+
+      {/* Co-Joint Advisory Team (C-JAT) */}
+      <Section className="py-10 bg-gray-50">
+        <div className="container-custom">
+          <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden mb-8">
+            <div className="px-6 md:px-8 py-6 bg-gradient-to-r from-emerald-50/60 to-transparent border-b border-gray-100">
+              <div className="flex flex-wrap items-center gap-2 mb-2">
+                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold tracking-wider">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />{" "}
+                  C-JAT
+                </span>
+                <span className="text-xs text-gray-500">
+                  Research Development · Institutional Modelling · Societal
+                  Impact
+                </span>
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold text-gray-900">
+                Co-Joint Advisory Team
+              </h3>
+            </div>
+            <div className="px-6 md:px-8 py-6">
+              <p className="text-[14.5px] leading-[1.8] text-gray-600 whitespace-pre-line">
+                {CJAT_DESCRIPTION}
+              </p>
+            </div>
+          </div>
+
+          {advisoryCJAT.length > 0 ? (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {advisoryCJAT.map((member) => (
+                <MemberCard key={member.id} member={member} />
+              ))}
+            </div>
+          ) : (
+            <div className="bg-white rounded-xl p-10 text-center border border-dashed border-gray-200">
+              <p className="text-gray-400">
+                C-JAT members will be announced soon
+              </p>
+            </div>
+          )}
         </div>
       </Section>
 

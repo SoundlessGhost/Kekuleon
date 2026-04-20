@@ -9,7 +9,19 @@
       "Bash(npx --yes kill-port 3000)",
       "WebFetch(domain:www.kekuleon.com)",
       "Bash(npm install:*)",
-      "Bash(npx next:*)"
+      "Bash(npx next:*)",
+      "Bash(git log *)",
+      "Bash(awk -F'\"' '{print $2}')",
+      "Bash(npx tsc *)",
+      "WebFetch(domain:rurfid.ru.ac.bd)",
+      "Bash(curl -sL --max-time 20 \"http://rurfid.ru.ac.bd/ru_profile/public/teacher/22207089/profile\" -o /tmp/shahan.html)",
+      "Bash(curl -sL --max-time 20 \"http://rurfid.ru.ac.bd/ru_profile/public/teacher/22207093/profile\" -o /tmp/dilip.html)",
+      "Read(//private/tmp/**)",
+      "Bash(python3 -c ' *)",
+      "Bash(curl -s http://localhost:50130/team -o /tmp/team-response.html -w \"HTTP %{http_code}\\\\n\" --max-time 30)",
+      "Bash(lsof -ti:3000,50130,50726)",
+      "Bash(xargs -r kill -9)",
+      "Bash(pkill -f \"next dev\")"
     ]
   }
 }
