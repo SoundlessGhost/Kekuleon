@@ -393,9 +393,9 @@ export default function TeamPage() {
 
           {/* Program Leadership — single Board of Director overseeing all zones */}
           <div className="mb-8">
-            <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
+            {/* <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
               Program Leadership
-            </h3>
+            </h3> */}
             <div className="max-w-xl">
               <ZoneLeadershipSlot
                 roleLabel="Board of Director — UC&SA Program"

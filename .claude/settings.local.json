@@ -23,7 +23,8 @@
       "Bash(xargs -r kill -9)",
       "Bash(pkill -f \"next dev\")",
       "Bash(npx eslint *)",
-      "Bash(echo \"EXIT=$?\")"
+      "Bash(echo \"EXIT=$?\")",
+      "Bash(awk 'NR==2781{print \"};\";skip=1} NR==3037{skip=0;next} skip==0' lib/team-data.ts)"
     ]
   }
 }
