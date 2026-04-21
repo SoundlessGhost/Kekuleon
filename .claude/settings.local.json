@@ -21,7 +21,9 @@
       "Bash(curl -s http://localhost:50130/team -o /tmp/team-response.html -w \"HTTP %{http_code}\\\\n\" --max-time 30)",
       "Bash(lsof -ti:3000,50130,50726)",
       "Bash(xargs -r kill -9)",
-      "Bash(pkill -f \"next dev\")"
+      "Bash(pkill -f \"next dev\")",
+      "Bash(npx eslint *)",
+      "Bash(echo \"EXIT=$?\")"
     ]
   }
 }

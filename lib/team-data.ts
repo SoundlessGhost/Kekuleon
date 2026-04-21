@@ -31,6 +31,9 @@ export interface TeamMember {
     | "advisory-cjat"
     | "university-coordinator";
   university?: string; // For university coordinators — grouping
+  universityCode?: string; // Agreement code (e.g. DU, BU, BRUR)
+  zone?: "north" | "central" | "southwest" | "east"; // UC&SA program zone
+  coordinatorRole?: "board-director" | "advisor" | "coordinator"; // Role within UC&SA
   equityShare?: number; // Internal: 100 = majority, 20/10/2 = partners/executives
   partnerDepartment?: string; // For strategic partners — dept they lead
   priority?: number; // For sorting within sections (lower = higher priority)
@@ -1372,7 +1375,7 @@ His teaching approach focuses on making physics accessible and engaging for stud
     emailAlt: "shahan.acrubd@gmail.com",
     location: "Rajshahi-6205, Bangladesh",
     type: "advisory-jat",
-    priority: 1,
+    priority: 2,
     bio: `Dr. Sha Md. Shahan Shahriar is an Associate Professor at the Department of Applied Chemistry and Chemical Engineering, Faculty of Engineering, University of Rajshahi, Bangladesh. His scholarship spans environmental chemistry, water and wastewater treatment, heavy metal pollution and risk assessment, environmental monitoring, and food safety — with an extensive peer-reviewed publication record in journals including Food Control (Elsevier), Toxicology Reports (Elsevier), Journal of Food Composition and Analysis (Elsevier), and Environmental Science and Pollution Research (Springer Nature).
 
 As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Training Center (KRTC), he contributes academic guidance on curriculum design, applied training methodology, and laboratory infrastructure — helping align KRTC's programmes with internationally benchmarked standards in environmental and analytical chemistry.`,
@@ -1519,7 +1522,7 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
     email: "dilipkumar249@ru.ac.bd",
     location: "Rajshahi, Bangladesh",
     type: "advisory-jat",
-    priority: 2,
+    priority: 1,
     bio: `Dr. Dilip Kumar Sarkar is an Associate Professor at the Department of Applied Chemistry and Chemical Engineering, University of Rajshahi. He earned his PhD from Universiti Kebangsaan Malaysia (UKM) and his MSc and BSc from the University of Rajshahi. His research centres on renewable energy harvesting, conversion, and storage — with contributions to green hydrogen energy, electrocatalysts for electrocatalytic and photoelectrochemical water splitting, and development of solar cell materials (HTMs, ETMs for Perovskite, CdTe, CZTS), alongside energy-storage materials for batteries, capacitors/supercapacitors, and sensors.
 
 As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Training Center (KRTC), he advises on curriculum development, laboratory infrastructure, and applied training programmes that bridge theoretical education and internationally benchmarked practice, particularly in materials science and renewable-energy-related applied chemistry.`,
@@ -1910,6 +1913,9 @@ As a Joint Advisory Team (JAT) member of the Kekuleon Research and Training Cent
     address: "Barishal",
     type: "university-coordinator",
     university: "University of Barishal",
+    universityCode: "BU",
+    zone: "southwest",
+    coordinatorRole: "coordinator",
     priority: 1,
     bio: `Motivated and enthusiastic university student at the University of Barishal, currently pursuing a BSc in Geology and Mining. She serves as a University Coordinator & Student Ambassador for KRTC, where she channels her communication, leadership, and networking skills to connect students with valuable academic opportunities.
 
@@ -1989,6 +1995,9 @@ As a Joint Advisory Team (JAT) member of the Kekuleon Research and Training Cent
     linkedin: "https://linkedin.com/in/rukaiya-iqbal-40496a363",
     type: "university-coordinator",
     university: "University of Barishal",
+    universityCode: "BU",
+    zone: "southwest",
+    coordinatorRole: "coordinator",
     priority: 2,
     bio: `Highly motivated Geology and Mining student with a strong academic foundation in geochemical approaches and hydrogeology. Passionate about exploring subsurface structures and sustainable mining practices, Rukaiya is preparing for advanced research and higher studies in an international academic environment.
 
@@ -2044,7 +2053,8 @@ As a Joint Advisory Team (JAT) member of the Kekuleon Research and Training Cent
     id: 27,
     slug: "mahmudul-hasan-abir",
     name: "Md. Mahmudul Hasan Abir Mia",
-    title: "University Coordinator & Student Ambassador",
+    title:
+      "University Coordinator & Student Ambassador · Zone Advisor — North Zone",
     department: "Begum Rokeya University, Rangpur",
     initials: "MA",
     color: "bg-amber-500",
@@ -2056,10 +2066,13 @@ As a Joint Advisory Team (JAT) member of the Kekuleon Research and Training Cent
     dateOfBirth: "28-06-2000",
     type: "university-coordinator",
     university: "Begum Rokeya University, Rangpur",
-    priority: 3,
-    bio: `Md. Mahmudul Hasan Abir Mia is a Public Administration graduate from Begum Rokeya University, Rangpur, and an active youth leader working at the intersection of education, culture, and community development. He is the Founder & President of "Tonger Gaan," a youth initiative that uses music and research to advocate for peace, safe internet, education, climate action, and social cohesion.
+    universityCode: "BRUR",
+    zone: "north",
+    coordinatorRole: "coordinator",
+    priority: 1,
+    bio: `Md. Mahmudul Hasan Abir Mia serves as the Zone Advisor for KRTC's North Zone (Rajshahi & Rangpur Divisions) under the University Coordinator & Student Ambassador Program. A Public Administration graduate from Begum Rokeya University, Rangpur, he is an active youth leader working at the intersection of education, culture, and community development. He is the Founder & President of "Tonger Gaan," a youth initiative that uses music and research to advocate for peace, safe internet, education, climate action, and social cohesion.
 
-  Recognized as a National Winner of the UNDP Digital Khicuri Challenge 2022 and recipient of the Banglar Cokh Award 2023 for Art & Culture, he brings deep experience in project coordination, partnership-building, and community mobilization. As KRTC's University Coordinator & Student Ambassador for Begum Rokeya University, he leads campus outreach and connects students to KRTC's applied-science training and research opportunities.`,
+  Recognized as a National Winner of the UNDP Digital Khicuri Challenge 2022 and recipient of the Banglar Cokh Award 2023 for Art & Culture, he brings deep experience in project coordination, partnership-building, and community mobilization. As Zone Advisor, he guides University Coordinators across Rajshahi and Rangpur universities, ensuring regional coherence and institutional alignment with KRTC's applied-science training, research, and community mission.`,
     education: [
       {
         degree: "MSS in Public Administration",
@@ -2076,11 +2089,11 @@ As a Joint Advisory Team (JAT) member of the Kekuleon Research and Training Cent
     ],
     experience: [
       {
-        role: "University Coordinator & Student Ambassador",
-        org: "Kekuleon Research and Training Center (KRTC)",
+        role: "Zone Advisor — North Zone (Rajshahi & Rangpur Divisions)",
+        org: "Kekuleon Research and Training Center (KRTC) — University Coordinator & Student Ambassador Program",
         period: "2026 - Present",
         description:
-          "Representing KRTC at Begum Rokeya University, Rangpur — leading campus outreach, partnerships and student engagement around KRTC programs.",
+          "Advising University Coordinators across the 5 North Zone universities (RU, BRUR, HSTU, BSTU, PUST) and all affiliated National University colleges — ensuring regional coherence, partnership-building, and alignment with KRTC's applied-science mission.",
       },
       {
         role: "Research Assistant",
@@ -2125,7 +2138,7 @@ As a Joint Advisory Team (JAT) member of the Kekuleon Research and Training Cent
       },
     ],
     achievements: [
-      "University Coordinator & Student Ambassador, KRTC",
+      "Zone Advisor — North Zone, KRTC University Coordinator & Student Ambassador Program",
       "National Winner — UNDP Digital Khicuri Challenge 2022",
       "Banglar Cokh Award 2023 for Art & Culture",
       "Regiment Camp Training — Bangladesh National Cadet Corps (BNCC), Postal Academy, Rajshahi",
@@ -2151,7 +2164,10 @@ As a Joint Advisory Team (JAT) member of the Kekuleon Research and Training Cent
     linkedin: "https://linkedin.com/in/aminuldu21",
     type: "university-coordinator",
     university: "University of Dhaka",
-    priority: 4,
+    universityCode: "DU",
+    zone: "central",
+    coordinatorRole: "coordinator",
+    priority: 1,
     bio: `Md Aminul Islam is an undergraduate student at the University of Dhaka (BSc Honours, 2022–2026), with a consistent record of academic excellence — GPA 5.00 in both SSC and HSC. As KRTC's University Coordinator & Student Ambassador at the University of Dhaka, he focuses on campus outreach, connecting DU students to KRTC's applied-science training, research programs and community initiatives.`,
     education: [
       {
@@ -2195,6 +2211,706 @@ As a Joint Advisory Team (JAT) member of the Kekuleon Research and Training Cent
       "University Coordinator & Student Ambassador, KRTC",
       "GPA 5.00 — HSC (Dighir Hat College, 2020)",
       "GPA 5.00 — SSC (Jobai Somija Begum High School, 2018)",
+    ],
+  },
+
+  // ---- North Zone — BRUR (additional) ----
+  "mim-akther": {
+    id: 29,
+    slug: "mim-akther",
+    name: "Most. Mim Akther",
+    title: "University Coordinator & Student Ambassador",
+    department: "Begum Rokeya University, Rangpur",
+    initials: "MA",
+    color: "bg-teal-500",
+    email: "mim99280@gmail.com",
+    phone: "+880 1783627890",
+    location: "Rangpur Sadar, Rangpur",
+    address:
+      "Present: Rangpur Sadar, Rangpur | Permanent: Village: Jamdani, Post: Dhaperhat, Thana: Pirganj, District: Rangpur",
+    dateOfBirth: "24 February 2003",
+    type: "university-coordinator",
+    university: "Begum Rokeya University, Rangpur",
+    universityCode: "BRUR",
+    zone: "north",
+    coordinatorRole: "coordinator",
+    priority: 2,
+    bio: `Most. Mim Akther is a Sociology graduate from Begum Rokeya University, Rangpur, with proven communication, accountability, flexibility and strategic planning skills. She brings field-level research and data-collection experience to KRTC's North Zone outreach — having served as a data collector under Lecturer Dipika Biswas on the INTEGRATE project (German Development Cooperation), mapping informal settlements and climate/disaster vulnerability in secondary cities of Bangladesh.
+
+  As KRTC's University Coordinator & Student Ambassador at BRUR, she supports campus outreach, community engagement, and student mobilization around KRTC's applied-science and social-development programs.`,
+    education: [
+      {
+        degree: "Bachelor of Social Science (BSS), Sociology",
+        institution: "Begum Rokeya University, Rangpur",
+        year: "Passing Year 2024",
+        grade: "CGPA 3.50 / 4.00 (2nd Year Result)",
+      },
+      {
+        degree: "Higher Secondary Certificate (HSC)",
+        institution: "Govt. Shah Abdur Rouf College, Pirganj, Rangpur",
+        year: "2021",
+        grade: "GPA 5.00 / 5.00 (Science, Dinajpur Board)",
+      },
+      {
+        degree: "Secondary School Certificate (SSC)",
+        institution: "Jamdani High School, Pirganj, Rangpur",
+        year: "2019",
+        grade: "GPA 4.89 / 5.00 (Science, Dinajpur Board)",
+      },
+    ],
+    experience: [
+      {
+        role: "University Coordinator & Student Ambassador",
+        org: "Kekuleon Research and Training Center (KRTC)",
+        period: "2026 - Present",
+        description:
+          "Representing KRTC at Begum Rokeya University, Rangpur — coordinating campus outreach, community engagement, and student mobilization in the North Zone.",
+      },
+      {
+        role: "Data Collector — INTEGRATE Project",
+        org: "Dept. of Sociology, BRUR (under German Development Cooperation)",
+        period: "20 - 30 May 2025",
+        description:
+          "Worked under Lecturer Dipika Biswas on “Informal Settlement Mapping and Selection Based on Climate Change and Disaster Vulnerability in Secondary Cities of Bangladesh” — strengthening urban integration capacities of internally displaced persons (IDPs) and host communities.",
+      },
+    ],
+    skills: [
+      "Communicative Skills",
+      "Public Speaking",
+      "Presentation & Management",
+      "Strategic Planning",
+      "Field Data Collection",
+      "Accountability & Flexibility",
+    ],
+    languages: [
+      { language: "Bangla", level: "Native (Best)" },
+      { language: "English", level: "Communicative (Good)" },
+    ],
+    achievements: [
+      "University Coordinator & Student Ambassador, KRTC",
+      "GPA 5.00 — HSC (Govt. Shah Abdur Rouf College, 2021)",
+      "GPA 4.89 — SSC (Jamdani High School, 2019)",
+      "INTEGRATE Project data collector (German Development Cooperation)",
+    ],
+  },
+
+  "noshin-tabasum-puspita": {
+    id: 30,
+    slug: "noshin-tabasum-puspita",
+    name: "Noshin Tabasum Puspita",
+    title: "University Coordinator & Student Ambassador",
+    department: "Begum Rokeya University, Rangpur",
+    initials: "NP",
+    color: "bg-fuchsia-600",
+    email: "noshintabasumpuspita9874@gmail.com",
+    phone: "+880 1729686485",
+    location: "Rangpur Sadar, Rangpur",
+    address: "House #36, Road #1, Dhap, Rangpur",
+    dateOfBirth: "06-10-2003",
+    type: "university-coordinator",
+    university: "Begum Rokeya University, Rangpur",
+    universityCode: "BRUR",
+    zone: "north",
+    coordinatorRole: "coordinator",
+    priority: 3,
+    bio: `Noshin Tabasum Puspita is a third-year BSc student in the Department of Chemistry at Begum Rokeya University, Rangpur, with a consistent record of academic excellence — GPA 5.00 in both SSC and HSC. She is an active student leader, serving in executive and secretarial roles across multiple BRUR clubs — including the NEON Club, Debate Association, Chemistry Debate Society, Sports Association, Art & Literature, and the Rangpur Sadar Students Welfare Association.
+
+  As KRTC's University Coordinator & Student Ambassador at BRUR, she leverages this strong campus network to drive outreach for KRTC's applied-science training and research opportunities in the North Zone.`,
+    education: [
+      {
+        degree: "BSc in Chemistry (Year 3, Semester 2 — Ongoing)",
+        institution: "Begum Rokeya University, Rangpur",
+        year: "Ongoing",
+      },
+      {
+        degree: "Higher Secondary Certificate (HSC)",
+        institution: "Cantonment Public School and College, Rangpur",
+        year: "2021",
+        grade: "GPA 5.00 / 5.00 (Science)",
+      },
+      {
+        degree: "Secondary School Certificate (SSC)",
+        institution: "Cantonment Public School and College, Rangpur",
+        year: "2019",
+        grade: "GPA 5.00 / 5.00 (Science)",
+      },
+    ],
+    experience: [
+      {
+        role: "University Coordinator & Student Ambassador",
+        org: "Kekuleon Research and Training Center (KRTC)",
+        period: "2026 - Present",
+        description:
+          "Representing KRTC at Begum Rokeya University, Rangpur — connecting Chemistry and allied-science students with KRTC's training, research and community programs.",
+      },
+    ],
+    skills: [
+      "Event Coordination",
+      "Debate & Public Speaking",
+      "Leadership & Teamwork",
+      "Club & Society Management",
+      "Networking & Student Engagement",
+    ],
+    languages: [
+      { language: "Bangla", level: "Native (Excellent)" },
+      { language: "English", level: "Excellent (Reading, Writing, Speaking)" },
+    ],
+    organizations: [
+      {
+        role: "General Secretary",
+        org: "NEON Club, BRUR",
+      },
+      {
+        role: "Program In-Charge",
+        org: "BRUR (student body)",
+      },
+      {
+        role: "Assistant Financial Secretary",
+        org: "Begum Rokeya University Debate Association (BRUDA)",
+      },
+      {
+        role: "Assistant Organizing Secretary",
+        org: "Begum Rokeya University Chemistry Debate Society (BRUCDS)",
+      },
+      {
+        role: "Joint General Secretary",
+        org: "Begum Rokeya University Sports Association",
+      },
+      {
+        role: "Executive Member",
+        org: "BRUR Art & Literature",
+      },
+      {
+        role: "Joint General Secretary",
+        org: "Rangpur Sadar Students Welfare Association, BRUR",
+      },
+    ],
+    achievements: [
+      "University Coordinator & Student Ambassador, KRTC",
+      "GPA 5.00 in both SSC and HSC",
+      "General Secretary, NEON Club",
+      "Executive roles across 7 BRUR clubs/societies",
+    ],
+  },
+
+  // ---- Southwest Zone — KUET (additional) ----
+  "md-shamiul-islam": {
+    id: 31,
+    slug: "md-shamiul-islam",
+    name: "Md Shamiul Islam",
+    title: "University Coordinator & Student Ambassador",
+    department: "Khulna University of Engineering & Technology (KUET)",
+    initials: "SI",
+    color: "bg-cyan-500",
+    email: "mdshamiulislam204@gmail.com",
+    phone: "+880 1775954203",
+    location: "Khulna, Bangladesh",
+    type: "university-coordinator",
+    university: "Khulna University of Engineering & Technology, Khulna",
+    universityCode: "KUET",
+    zone: "southwest",
+    coordinatorRole: "coordinator",
+    priority: 3,
+    bio: `Md Shamiul Islam is a research-oriented undergraduate student of Chemical Engineering at Khulna University of Engineering & Technology (KUET), with GPA 5.00 in both SSC and HSC. He brings strong engineering fundamentals, analytical thinking and active university-club leadership to KRTC's Southwest Zone outreach — connecting KUET's engineering student community with KRTC's applied-science training, research and community programs.`,
+    education: [
+      {
+        degree: "BSc in Chemical Engineering (Ongoing)",
+        institution: "Khulna University of Engineering & Technology (KUET)",
+        year: "Undergraduate (Ongoing)",
+      },
+      {
+        degree: "Higher Secondary Certificate (HSC)",
+        institution: "Varendra College, Rajshahi",
+        year: "HSC",
+        grade: "GPA 5.00 / 5.00 (Science)",
+      },
+      {
+        degree: "Secondary School Certificate (SSC)",
+        institution: "Dadonchak H.M. High School",
+        year: "SSC",
+        grade: "GPA 5.00 / 5.00 (Science)",
+      },
+    ],
+    experience: [
+      {
+        role: "University Coordinator & Student Ambassador",
+        org: "Kekuleon Research and Training Center (KRTC)",
+        period: "2026 - Present",
+        description:
+          "Representing KRTC at Khulna University of Engineering & Technology (KUET) — connecting engineering students in the Southwest Zone with KRTC training, research and community initiatives.",
+      },
+    ],
+    skills: [
+      "Analytical & Critical Thinking",
+      "Academic Excellence",
+      "Time Management",
+      "Mechanical & Engineering Drawing",
+      "Physics & Chemistry Lab",
+      "Electrical Machines",
+    ],
+    languages: [
+      { language: "Bengali", level: "Native" },
+      { language: "English", level: "Proficient" },
+    ],
+    achievements: [
+      "University Coordinator & Student Ambassador, KRTC",
+      "GPA 5.00 / 5.00 — HSC (Varendra College, Rajshahi)",
+      "GPA 5.00 / 5.00 — SSC (Dadonchak H.M. High School)",
+      "Active participation in multiple KUET university clubs",
+    ],
+  },
+
+  // ---- North Zone — BRUR (additional) ----
+  "md-hafijur-rahman": {
+    id: 32,
+    slug: "md-hafijur-rahman",
+    name: "Md. Hafijur Rahman",
+    title: "University Coordinator & Student Ambassador",
+    department: "Begum Rokeya University, Rangpur",
+    initials: "HR",
+    color: "bg-emerald-500",
+    email: "hafijbrur2.0@gmail.com",
+    phone: "+880 1746136847",
+    location: "Rangpur, Bangladesh",
+    address:
+      "Village: Pachgachi, Post: Jahangirabad, Upazila: Pirganj, District: Rangpur, Bangladesh",
+    type: "university-coordinator",
+    university: "Begum Rokeya University, Rangpur",
+    universityCode: "BRUR",
+    zone: "north",
+    coordinatorRole: "coordinator",
+    priority: 4,
+    bio: `Md. Hafijur Rahman is a Sociology postgraduate from Begum Rokeya University, Rangpur, with strong communication, interpersonal and coordination skills. He brings multi-sector experience across banking sales, social-research assistance, field data collection and independent qualitative research — including work on the INTEGRATE Project (German Development Cooperation) and a self-led study on the mainstream-education-to-employment transition for students with disabilities at BRUR.
+
+  As KRTC's University Coordinator & Student Ambassador at BRUR, he supports student engagement, program organization and research-training outreach within the North Zone.`,
+    education: [
+      {
+        degree: "Master of Social Science (MSS), Sociology",
+        institution: "Begum Rokeya University, Rangpur",
+        year: "Passing Year 2024",
+        grade: "CGPA 3.50 / 4.00",
+      },
+      {
+        degree: "Bachelor of Social Science (BSS), Sociology",
+        institution: "Begum Rokeya University, Rangpur",
+        year: "Passing Year 2023",
+        grade: "CGPA 3.36 / 4.00",
+      },
+      {
+        degree: "Higher Secondary Certificate (HSC)",
+        institution: "Carmichael College, Rangpur",
+        year: "2019",
+        grade: "GPA 5.00 / 5.00 (Humanities)",
+      },
+      {
+        degree: "Secondary School Certificate (SSC)",
+        institution: "Jahangirabad High School, Pirganj, Rangpur",
+        year: "2017",
+        grade: "GPA 4.91 / 5.00 (Science)",
+      },
+    ],
+    experience: [
+      {
+        role: "University Coordinator & Student Ambassador",
+        org: "Kekuleon Research and Training Center (KRTC)",
+        period: "2026 - Present",
+        description:
+          "Representing KRTC at BRUR — supporting student engagement, program organization and research-training outreach within the North Zone.",
+      },
+      {
+        role: "Direct Sales Associate (DSA)",
+        org: "IFIC Bank Limited, Rangpur",
+        period: "1 September 2025 - 5 January 2026",
+        description:
+          "Promoted banking products against sales targets; assisted customers with account opening and service inquiries; developed customer-service and target-based sales skills.",
+      },
+      {
+        role: "Data Collector — INTEGRATE Project",
+        org: "Dept. of Sociology, BRUR (under German Development Cooperation)",
+        period: "20 - 30 May 2025",
+        description:
+          "Under Lecturer Dipika Biswas: field surveys, data collection, informal-settlement mapping and climate-vulnerability assessment for internally displaced persons and host communities in secondary cities of Bangladesh.",
+      },
+      {
+        role: "Research Assistant (Contractual)",
+        org: "HELIOS CONSULTANCY, Khulna",
+        period: "17 September - 17 October 2024",
+        description:
+          "Social-research projects: survey design, data collection, interviews, focus-group facilitation; compiled and analyzed qualitative and quantitative data contributing to research reports, presentations and publications.",
+      },
+      {
+        role: "Independent Researcher",
+        org: "Self-led study, BRUR",
+        period: "2025",
+        description:
+          '"The Role of Mainstream Education and Transitional Preparation to Mainstream Employment: A Study of University Students with Disabilities at Begum Rokeya University" — qualitative research supporting inclusive education and employment policies.',
+      },
+    ],
+    skills: [
+      "Communication & Interpersonal",
+      "Coordination & Event Organization",
+      "Field Research & Data Collection",
+      "Qualitative & Quantitative Analysis",
+      "Public Speaking & Presentation",
+      "MS Word, Excel, PowerPoint (Basic)",
+      "Online Education Content Creation",
+    ],
+    languages: [
+      { language: "Bangla", level: "Native" },
+      { language: "English", level: "Communicative" },
+    ],
+    organizations: [
+      {
+        role: "Vice-President",
+        org: "Pirganj Student Welfare Organization, BRUR",
+        description:
+          "Provided leadership and strategic direction for student-welfare initiatives; coordinated events, scholarships and mentoring programs.",
+      },
+    ],
+    achievements: [
+      "University Coordinator & Student Ambassador, KRTC",
+      "GPA 5.00 — HSC (Carmichael College, Rangpur, 2019)",
+      "Job Readiness Training (Career Hub powered by BRAC, Nov 2024)",
+      "Computer Office Application Training (BRAC ISD)",
+      "INTEGRATE Project data collector (German Development Cooperation)",
+    ],
+  },
+
+  // ---- Central Zone — University of Dhaka (additional) ----
+  "asraful-alam-akash": {
+    id: 33,
+    slug: "asraful-alam-akash",
+    name: "Md. Asraful Alam Akash",
+    title: "University Coordinator & Student Ambassador",
+    department: "University of Dhaka",
+    initials: "AA",
+    color: "bg-sky-500",
+    email: "asrafulalamakash2345@gmail.com",
+    phone: "+880 1719751673",
+    location: "Dhaka, Bangladesh",
+    address: "Sir A. F. Rahman Hall, University of Dhaka",
+    type: "university-coordinator",
+    university: "University of Dhaka",
+    universityCode: "DU",
+    zone: "central",
+    coordinatorRole: "coordinator",
+    priority: 2,
+    bio: `Md. Asraful Alam Akash is a second-year BA (Honors) student at the University of Dhaka (CGPA 3.75), with GPA 5.00 in both SSC and HSC. An active member of the Dhaka University Research Society, he combines strong interpersonal and digital-communication skills with debating experience to bridge the gap between KRTC's research community and the DU student body.
+
+  As KRTC's University Coordinator & Student Ambassador at DU, he focuses on promoting KRTC programs, recruiting participants for training and research initiatives, and fostering a culture of curiosity and evidence-based learning on campus.`,
+    education: [
+      {
+        degree: "BA (Honors), 2nd Year",
+        institution: "University of Dhaka",
+        year: "Running",
+        grade: "CGPA 3.75",
+      },
+      {
+        degree: "Higher Secondary Certificate (HSC)",
+        institution: "Rajshahi College",
+        year: "2023",
+        grade: "GPA 5.00",
+      },
+      {
+        degree: "Secondary School Certificate (SSC)",
+        institution: "Sirajganj Police Lines School & College",
+        year: "2021",
+        grade: "GPA 5.00",
+      },
+    ],
+    experience: [
+      {
+        role: "University Coordinator & Student Ambassador",
+        org: "Kekuleon Research and Training Center (KRTC)",
+        period: "2026 - Present",
+        description:
+          "Representing KRTC at the University of Dhaka — promoting programs, recruiting participants for research/training and connecting DU students with KRTC's applied-science pathways.",
+      },
+      {
+        role: "Member / Volunteer Researcher",
+        org: "Dhaka University Research Society",
+        period: "1 February 2024 - Present",
+        description:
+          "Working as a volunteer and researcher across DU Research Society activities.",
+      },
+    ],
+    skills: [
+      "Debating",
+      "Campus Connectivity",
+      "English Speaking",
+      "Interpersonal & Digital Communication",
+    ],
+    languages: [
+      { language: "Bengali", level: "Native" },
+      { language: "English", level: "Proficient" },
+    ],
+    organizations: [
+      {
+        role: "Member",
+        org: "Dhaka University Research Society",
+      },
+    ],
+    achievements: [
+      "University Coordinator & Student Ambassador, KRTC",
+      "CGPA 3.75 — BA Honors, University of Dhaka",
+      "GPA 5.00 — HSC (Rajshahi College, 2023)",
+      "GPA 5.00 — SSC (Sirajganj Police Lines School & College, 2021)",
+    ],
+  },
+
+  // ---- East Zone — University of Chittagong ----
+  "misbah-uddin": {
+    id: 34,
+    slug: "misbah-uddin",
+    name: "Misbah Uddin",
+    title: "University Coordinator & Student Ambassador",
+    department: "University of Chittagong",
+    initials: "MU",
+    color: "bg-violet-500",
+    email: "misbah.ir@std.cu.ac.bd",
+    emailAlt: "misbah.cuir@yahoo.com",
+    phone: "+880 1798192029",
+    location: "Chattogram, Bangladesh",
+    address:
+      "Room No. 218, Alaol Hall, University of Chittagong, Chattogram-4331, Bangladesh",
+    linkedin: "https://linkedin.com/in/misbahrumman",
+    type: "university-coordinator",
+    university: "University of Chittagong",
+    universityCode: "CU",
+    zone: "east",
+    coordinatorRole: "coordinator",
+    priority: 1,
+    bio: `Misbah Uddin is a final-year BSS student in International Relations at the University of Chittagong, with extensive field-based research experience in both quantitative and qualitative methods. His research interests span the politics of Rare Earth Elements (REE) and Critical Minerals, International Political Economy, and Geopolitics.
+
+  He has worked as a Research Assistant and Interpreter for the Asian Network for Free Elections (ANFREL) during the 13th National Parliamentary Election and Referendum 2026 in Bangladesh, and as a Field Research Assistant (quantitative and qualitative) for the BRAC James P Grant School of Public Health. A Millennium Fellow (Class of 2024) and Talent Pool Scholar, he co-founded Kutnitik, translates foreign political analyses into Bangla, and serves as IT Secretary of the Chittagong University Research and Higher Study Society.
+
+  As KRTC's University Coordinator & Student Ambassador at CU, he leads the East Zone outreach — connecting CU students to KRTC's research, applied-science and community programs.`,
+    education: [
+      {
+        degree: "B.S.S. in International Relations (Final Year, Ongoing)",
+        institution: "University of Chittagong",
+        year: "Dec 2022 - Apr 2026",
+      },
+      {
+        degree: "Higher Secondary School Certificate (HSC)",
+        institution:
+          "Tumchar Islamia Kamil Madrasah (Bangladesh Madrasah Education Board)",
+        year: "Jun 2019 - Dec 2021",
+        grade: "GPA 5.00 / 5.00 (Humanities) · Scholarship Awardee",
+      },
+    ],
+    experience: [
+      {
+        role: "University Coordinator & Student Ambassador",
+        org: "Kekuleon Research and Training Center (KRTC)",
+        period: "2026 - Present",
+        description:
+          "Representing KRTC at the University of Chittagong — leading East Zone outreach, connecting CU students to KRTC's research, applied-science and community programs.",
+      },
+      {
+        role: "Research Assistant & Interpreter — IEOM 2026",
+        org: "Asian Network for Free Elections (ANFREL)",
+        period: "8 - 14 February 2026",
+        description:
+          "International Election Observation Mission for the 13th National Parliamentary Election and Referendum 2026: supported international observers, English–Bangla interpretation, coordinated meetings with Returning Officers, Superintendents of Police, EC officials and candidates in Feni and Noakhali.",
+      },
+      {
+        role: "Field Research Assistant — Quantitative",
+        org: "BRAC James P Grant School of Public Health, BRAC University",
+        period: "17 December 2025 - 31 January 2026",
+        description:
+          "Implementation Research on Childhood-Onset Noncommunicable Diseases (NCD) in Two Piloted Districts: structured household and patient-satisfaction surveys assessing UNICEF and icddr,b supported NCD Corners in Kishoreganj; KoboToolbox data collection.",
+      },
+      {
+        role: "Field Research Assistant — Qualitative",
+        org: "BRAC James P Grant School of Public Health, BRAC University",
+        period: "5 - 20 November 2025",
+        description:
+          "Community Paramedic (CP) Programme study: KIIs, IDIs, and FGDs across Shunamganj and Kishoreganj; transcription and qualitative documentation.",
+      },
+      {
+        role: "Research Assistant",
+        org: "University of Chittagong (under Asst. Prof. Md Shahidulla Kaiser, Public Administration)",
+        period: "March 2024 - June 2024",
+        description:
+          "Secondary data collection, dataset cleaning and preliminary analysis for a research project.",
+      },
+      {
+        role: "Co-Founder, Content Generator & Visualizer",
+        org: "Kutnitik",
+        period: "June 2025 - Present",
+        description:
+          "Content and visual materials on global politics, international relations, geopolitics; Bangla translation of foreign analyses.",
+      },
+      {
+        role: "IT Secretary",
+        org: "Chittagong University Research and Higher Study Society",
+        period: "February 2024 - Present",
+        description:
+          "Official website, digital database, organizational email systems and comprehensive IT support for events.",
+      },
+    ],
+    skills: [
+      "Quantitative & Qualitative Research",
+      "Survey Design (KoboToolbox)",
+      "R Programming — Data Analysis & Visualization",
+      "SPSS, Zotero, MS Office, Gsuite, Canva",
+      "MERN Stack",
+      "English–Bangla Interpretation & Translation",
+      "Event Management, Negotiation, Teamwork",
+    ],
+    languages: [
+      { language: "Bengali", level: "Native" },
+      { language: "English", level: "Fluent" },
+      { language: "Arabic", level: "Basic" },
+    ],
+    organizations: [
+      {
+        role: "IT Secretary",
+        org: "Chittagong University Research and Higher Study Society",
+      },
+      {
+        role: "Co-Founder",
+        org: "Kutnitik (global-politics content platform)",
+      },
+      {
+        role: "Core Committee Volunteer & Scribe",
+        org: "Third Eye (accessibility / visually impaired students)",
+        description: "Oct 2023 – Present",
+      },
+      {
+        role: "Grassroot Policy Envoy",
+        org: "Youth Policy Forum (YPF)",
+        description: "Apr 2024 – Dec 2024",
+      },
+    ],
+    achievements: [
+      "University Coordinator & Student Ambassador, KRTC — East Zone",
+      "Millennium Fellow, Class of 2024 — Millennium Campus Network (UN Academic Impact)",
+      "Talent Pool Scholarship — Bangladesh Madrasah Education Board (JSC, SSC & HSC)",
+      "GPA 5.00 — HSC (Tumchar Islamia Kamil Madrasah, 2021)",
+      "Project Bubble (2023) — student-led hygiene initiative impacting 4,000+ CU students",
+      "Organizer — TEDx Chittagong University 2025",
+    ],
+  },
+
+  "md-tajim-chowdhury": {
+    id: 35,
+    slug: "md-tajim-chowdhury",
+    name: "Md Tajim Chowdhury",
+    title: "University Coordinator & Student Ambassador",
+    department: "University of Chittagong",
+    initials: "TC",
+    color: "bg-orange-500",
+    email: "tajimchowdhury.cu.ir@gmail.com",
+    phone: "+880 1718627935",
+    location: "Chattogram, Bangladesh",
+    address: "A. F. Rahman Hall, University of Chittagong",
+    type: "university-coordinator",
+    university: "University of Chittagong",
+    universityCode: "CU",
+    zone: "east",
+    coordinatorRole: "coordinator",
+    priority: 2,
+    bio: `Md Tajim Chowdhury is a third-year BSS student in International Relations at the University of Chittagong, with strong communication, critical-thinking and leadership skills honed through debating, event management and club coordination. He holds an international certificate in "Democracy: From Theory to Practice" from USAID and is a Champion of the CUCC Re-Think and Reform of CU competition on campus environmental preservation.
+
+  He has served as an Executive Member of the Event Management Wing at the CU Career Club, Assistant Coordinator of the Finance & Resource Management Wing at the CU International Relations Society (CUIRS), and held associate memberships across CUSD, CAB Youth CU and Our Green Campus. As KRTC's University Coordinator & Student Ambassador at CU, he supports East Zone outreach — student engagement, events and partnership-building with the CU community.`,
+    education: [
+      {
+        degree: "BSS in International Relations (3rd Year, Running)",
+        institution: "University of Chittagong",
+        year: "Running",
+        grade: "2nd Year GPA: 3.39 / 4.00",
+      },
+      {
+        degree: "Higher Secondary Certificate (HSC)",
+        institution:
+          "Jalalabad Cantonment Public School and College, Sylhet",
+        year: "2022",
+        grade: "GPA 5.00 / 5.00 (Humanities)",
+      },
+      {
+        degree: "Secondary School Certificate (SSC)",
+        institution: "Habiganj High School and College, Habiganj",
+        year: "2020",
+        grade: "GPA 4.78 / 5.00 (Science)",
+      },
+    ],
+    experience: [
+      {
+        role: "University Coordinator & Student Ambassador",
+        org: "Kekuleon Research and Training Center (KRTC)",
+        period: "2026 - Present",
+        description:
+          "Representing KRTC at the University of Chittagong — supporting East Zone outreach, student engagement and partnership-building with the CU community.",
+      },
+      {
+        role: "Assistant Coordinator — Finance & Resource Management Wing",
+        org: "Chittagong University International Relations Society (CUIRS)",
+        period: "2025 - Present",
+        description:
+          "Member communication, financial collection and resource management to support club activities.",
+      },
+      {
+        role: "Executive Member — Event Management Wing",
+        org: "Chittagong University Career Club (CUCC)",
+        period: "2023 - Present",
+        description:
+          "Led multiple events, coordinated teams and earned recognition for leadership and organizational contributions.",
+      },
+      {
+        role: "Associate Member",
+        org: "Chittagong University School of Debate (CUSD)",
+        period: "2023 - 2025",
+        description:
+          "Public speaking, critical thinking and teamwork through active participation in debates and session-organizing.",
+      },
+      {
+        role: "Surveyor",
+        org: "TPA — Chittagong Metro Rail Master Plan",
+        period: "3 months",
+        description:
+          "Household visits and passenger interviews to collect essential data for the Chittagong Metro Rail Master Plan.",
+      },
+    ],
+    skills: [
+      "Critical Thinking",
+      "Communication & Public Speaking",
+      "Leadership & Team Coordination",
+      "Event Management",
+      "MS Office & Presentation Tools",
+    ],
+    languages: [
+      { language: "Bangla", level: "Native" },
+      { language: "English", level: "Proficient" },
+    ],
+    organizations: [
+      {
+        role: "Assistant Coordinator — Finance & Resource Management",
+        org: "Chittagong University International Relations Society (CUIRS)",
+      },
+      {
+        role: "Executive Member — Event Management",
+        org: "Chittagong University Career Club (CUCC)",
+      },
+      {
+        role: "Associate Member",
+        org: "Consumers Association of Bangladesh (CAB Youth CU)",
+        description: "2024 - Present",
+      },
+      {
+        role: "Associate Member",
+        org: "Our Green Campus",
+        description: "2025 - Present",
+      },
+    ],
+    achievements: [
+      "University Coordinator & Student Ambassador, KRTC — East Zone",
+      "Graduate — Democracy: From Theory to Practice (USAID international certificate)",
+      "Champion — CUCC Re-Think and Reform of CU Competition",
+      "GPA 5.00 — HSC (Jalalabad Cantonment Public School and College, Sylhet, 2022)",
+      "Project Associate — UNICEF Passport to Earning (implemented by Shomvob)",
+      "Cyber Security, Ethical Hacking & IT Career Guiding session (GM IT Academy)",
     ],
   },
 };
@@ -2250,19 +2966,161 @@ export const getUniversityCoordinators = () =>
     .filter((m) => m.type === "university-coordinator")
     .sort(byPriority);
 
-// Groups university coordinators by their university field.
-// Returns an array of { university, members } ordered by the first-appearing university.
-export const getUniversityCoordinatorsByUniversity = () => {
-  const coordinators = getUniversityCoordinators();
-  const groups = new Map<string, TeamMember[]>();
-  for (const m of coordinators) {
-    const uni = m.university || "Other";
-    if (!groups.has(uni)) groups.set(uni, []);
-    groups.get(uni)!.push(m);
-  }
-  return Array.from(groups.entries()).map(([university, members]) => ({
-    university,
-    members,
-  }));
+// ======================================
+// UC&SA Program — Zone Structure
+// (Source: KRTC UC&SA Agreement §9.2 — 4 regional coordination zones)
+// ======================================
+
+export type ZoneId = "north" | "central" | "southwest" | "east";
+
+export interface ZoneUniversity {
+  name: string;
+  code: string;
+}
+
+export interface ZoneDefinition {
+  id: ZoneId;
+  name: string; // e.g. "North Zone"
+  region: string; // e.g. "Rajshahi & Rangpur Divisions"
+  universities: ZoneUniversity[];
+  affiliatedNote: string; // e.g. "All affiliated National University colleges in Rajshahi & Rangpur Divisions"
+}
+
+export const universityZones: ZoneDefinition[] = [
+  {
+    id: "north",
+    name: "North Zone",
+    region: "Rajshahi & Rangpur Divisions",
+    universities: [
+      { name: "University of Rajshahi, Rajshahi", code: "RU" },
+      { name: "Begum Rokeya University, Rangpur", code: "BRUR" },
+      {
+        name: "Haji Mohammad Danesh Science & Technology University, Dinajpur",
+        code: "HSTU",
+      },
+      { name: "Bogura Science & Technology University, Bogura", code: "BSTU" },
+      { name: "Pabna University of Science & Technology, Pabna", code: "PUST" },
+    ],
+    affiliatedNote:
+      "All affiliated National University colleges in Rajshahi & Rangpur Divisions",
+  },
+  {
+    id: "central",
+    name: "Central Zone",
+    region: "Dhaka & Mymensingh Divisions",
+    universities: [
+      { name: "University of Dhaka, Dhaka", code: "DU" },
+      { name: "Jahangirnagar University, Savar, Dhaka", code: "JU" },
+      { name: "Jagannath University, Dhaka", code: "JnU" },
+      { name: "Bangladesh University of Professionals, Dhaka", code: "BUP" },
+      {
+        name: "Jatiya Kabi Kazi Nazrul Islam University, Mymensingh",
+        code: "JKKNIU",
+      },
+      {
+        name: "Mawlana Bhashani Science & Technology University, Tangail",
+        code: "MBSTU",
+      },
+      {
+        name: "Bangabandhu Sheikh Mujibur Rahman S&T University, Gopalganj",
+        code: "BSMRSTU",
+      },
+    ],
+    affiliatedNote:
+      "All affiliated National University colleges in Dhaka & Mymensingh Divisions",
+  },
+  {
+    id: "southwest",
+    name: "Southwest Zone",
+    region: "Khulna & Barishal Divisions",
+    universities: [
+      { name: "Khulna University, Khulna", code: "KU" },
+      {
+        name: "Khulna University of Engineering & Technology, Khulna",
+        code: "KUET",
+      },
+      { name: "Islamic University, Kushtia", code: "IU" },
+      { name: "University of Barishal, Barishal", code: "BU" },
+      {
+        name: "Patuakhali Science & Technology University, Patuakhali",
+        code: "PSTU",
+      },
+      {
+        name: "Jashore University of Science & Technology, Jashore",
+        code: "JUST",
+      },
+    ],
+    affiliatedNote:
+      "All affiliated National University colleges in Khulna & Barishal Divisions",
+  },
+  {
+    id: "east",
+    name: "East Zone",
+    region: "Chattogram & Sylhet Divisions",
+    universities: [
+      { name: "University of Chattogram", code: "CU" },
+      {
+        name: "Shahjalal University of Science & Technology, Sylhet",
+        code: "SUST",
+      },
+      { name: "Comilla University, Cumilla", code: "CoU" },
+      {
+        name: "Noakhali Science & Technology University, Noakhali",
+        code: "NSTU",
+      },
+    ],
+    affiliatedNote:
+      "All affiliated National University colleges in Chattogram & Sylhet Divisions",
+  },
+];
+
+export interface ZoneGroup extends ZoneDefinition {
+  advisor: TeamMember | null; // null → To Be Announced; drawn from the coordinators in this zone
+  coordinators: TeamMember[]; // Flat list, serial priority order (includes the advisor — dual-listed)
+}
+
+// Single program-level Board of Director for the entire UC&SA program.
+// null → To Be Announced. Set this to a member slug once appointed.
+export const PROGRAM_BOARD_DIRECTOR_SLUG: string | null = null;
+
+// Zone-level advisor assignments. Each zone has ONE advisor drawn from within
+// that zone's university coordinators — so the same member appears in BOTH
+// the zone's advisor slot AND in the flat coordinator list (dual-listed).
+// null → To Be Announced.
+export const ZONE_ADVISOR_SLUGS: Record<ZoneId, string | null> = {
+  north: "mahmudul-hasan-abir",
+  central: null,
+  southwest: null,
+  east: null,
 };
+
+export const getProgramBoardDirector = (): TeamMember | null =>
+  PROGRAM_BOARD_DIRECTOR_SLUG
+    ? allTeamMembers[PROGRAM_BOARD_DIRECTOR_SLUG] || null
+    : null;
+
+// Builds the zone-based view of the UC&SA program.
+// Each zone returns its assigned advisor (looked up by slug from
+// ZONE_ADVISOR_SLUGS) plus the flat list of coordinators in priority order.
+export const getUniversityCoordinatorsByZone = (): ZoneGroup[] => {
+  const all = getUniversityCoordinators();
+
+  return universityZones.map((zone) => {
+    const coordinators = all
+      .filter((m) => m.zone === zone.id)
+      .sort(byPriority);
+
+    const advisorSlug = ZONE_ADVISOR_SLUGS[zone.id];
+    const advisor =
+      (advisorSlug && coordinators.find((m) => m.slug === advisorSlug)) ||
+      null;
+
+    return {
+      ...zone,
+      advisor,
+      coordinators,
+    };
+  });
+};
+
 export const getMemberBySlug = (slug: string) => allTeamMembers[slug] || null;

@@ -12,7 +12,8 @@ import {
   getSchooling,
   getAdvisoryJAT,
   getAdvisoryCJATAll,
-  getUniversityCoordinatorsByUniversity,
+  getUniversityCoordinatorsByZone,
+  getProgramBoardDirector,
 } from "@/lib/team-data";
 import Image from "next/image";
 import type { TeamMember } from "@/lib/team-data";
@@ -24,7 +25,8 @@ const schoolingLeadership = getSchoolingLeadership();
 const schoolingTeachers = getSchooling();
 const advisoryJAT = getAdvisoryJAT();
 const advisoryCJAT = getAdvisoryCJATAll();
-const universityCoordinatorGroups = getUniversityCoordinatorsByUniversity();
+const universityCoordinatorZones = getUniversityCoordinatorsByZone();
+const programBoardDirector = getProgramBoardDirector();
 
 // Applied Sciences section mirrors the four Strategic Partners
 // (dual-listing — each partner also leads an applied sciences department).
@@ -61,8 +63,105 @@ function Section({
   );
 }
 
-function MemberCard({ member }: { member: TeamMember }) {
+// Fills either a Board of Director or Zone Advisor slot for a zone.
+// When the slot is empty, renders a "To Be Announced" placeholder styled to
+// match the role accent so the structure stays visually balanced.
+function ZoneLeadershipSlot({
+  roleLabel,
+  member,
+  accent,
+}: {
+  roleLabel: string;
+  member: TeamMember | null;
+  accent: "violet" | "amber";
+}) {
+  const palette =
+    accent === "violet"
+      ? {
+          badgeBg: "bg-violet-50",
+          badgeText: "text-violet-700",
+          badgeBorder: "border-violet-100",
+          avatarBg: "bg-violet-100",
+          avatarText: "text-violet-600",
+        }
+      : {
+          badgeBg: "bg-amber-50",
+          badgeText: "text-amber-700",
+          badgeBorder: "border-amber-100",
+          avatarBg: "bg-amber-100",
+          avatarText: "text-amber-700",
+        };
+
+  if (!member) {
+    return (
+      <div className="flex items-center gap-4 p-5 rounded-xl border border-dashed border-gray-200 bg-gray-50/50">
+        <div
+          className={`w-11 h-11 rounded-full ${palette.avatarBg} flex items-center justify-center flex-shrink-0`}
+        >
+          <span className={`text-sm font-bold ${palette.avatarText}`}>?</span>
+        </div>
+        <div className="flex-1 min-w-0">
+          <span
+            className={`inline-block text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded ${palette.badgeBg} ${palette.badgeText} border ${palette.badgeBorder} mb-1`}
+          >
+            {roleLabel}
+          </span>
+          <p className="text-sm font-semibold text-gray-400">To Be Announced</p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <Link href={`/team/${member.slug}`}>
+      <div className="flex items-center gap-4 p-5 rounded-xl border border-gray-200 bg-white hover:shadow-md hover:border-primary/20 transition-all group cursor-pointer h-full">
+        {member.image ? (
+          <div className="w-11 h-11 rounded-full overflow-hidden flex-shrink-0">
+            <Image
+              src={member.image}
+              alt={member.name}
+              width={96}
+              height={96}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        ) : (
+          <div
+            className={`w-11 h-11 rounded-full ${member.color} flex items-center justify-center flex-shrink-0`}
+          >
+            <span className="text-sm font-bold text-white">
+              {member.initials}
+            </span>
+          </div>
+        )}
+        <div className="flex-1 min-w-0">
+          <span
+            className={`inline-block text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded ${palette.badgeBg} ${palette.badgeText} border ${palette.badgeBorder} mb-1`}
+          >
+            {roleLabel}
+          </span>
+          <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors truncate">
+            {member.name}
+          </h3>
+          <p className="text-xs text-gray-500 truncate">
+            {member.university || member.department}
+          </p>
+        </div>
+        <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-primary group-hover:translate-x-1 transition-all flex-shrink-0" />
+      </div>
+    </Link>
+  );
+}
+
+function MemberCard({
+  member,
+  isZoneAdvisor = false,
+}: {
+  member: TeamMember;
+  isZoneAdvisor?: boolean;
+}) {
   const isPlaceholder = member.name === "To Be Announced";
+  const isCoordinator = member.type === "university-coordinator";
 
   if (isPlaceholder) {
     return (
@@ -81,6 +180,15 @@ function MemberCard({ member }: { member: TeamMember }) {
       </div>
     );
   }
+
+  // For university coordinators, surface the university (code + name) as the
+  // primary secondary line — since all coordinators share the same title,
+  // the university is what differentiates them within the flat zone list.
+  const secondary = isCoordinator
+    ? member.university || member.department
+    : member.title;
+  const tertiary =
+    member.education.length > 0 ? member.education[0].degree : null;
 
   return (
     <Link href={`/team/${member.slug}`}>
@@ -105,16 +213,26 @@ function MemberCard({ member }: { member: TeamMember }) {
           </div>
         )}
         <div className="flex-1 min-w-0">
-          <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors truncate">
-            {member.name}
-          </h3>
+          <div className="flex items-center gap-2 min-w-0">
+            <h3 className="font-bold text-gray-900 group-hover:text-primary transition-colors truncate">
+              {member.name}
+            </h3>
+            {isZoneAdvisor && (
+              <span className="flex-shrink-0 text-[9px] font-semibold uppercase tracking-wider px-1.5 py-0.5 rounded bg-amber-50 text-amber-700 border border-amber-100">
+                Advisor
+              </span>
+            )}
+          </div>
           <p className="text-sm text-primary font-medium truncate">
-            {member.title}
+            {isCoordinator && member.universityCode && (
+              <span className="font-mono text-[11px] font-semibold px-1.5 py-0.5 mr-1.5 rounded bg-primary/5 text-primary/70">
+                {member.universityCode}
+              </span>
+            )}
+            {secondary}
           </p>
-          {member.education.length > 0 && (
-            <p className="text-xs text-gray-400 mt-0.5 truncate">
-              {member.education[0].degree}
-            </p>
+          {tertiary && (
+            <p className="text-xs text-gray-400 mt-0.5 truncate">{tertiary}</p>
           )}
         </div>
         <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-primary group-hover:translate-x-1 transition-all flex-shrink-0" />
@@ -255,53 +373,111 @@ export default function TeamPage() {
         </Section>
       )}
 
-      {/* University Coordinator & Student Ambassador */}
+      {/* University Coordinator & Student Ambassador — Zone-based */}
       <Section className="py-12 bg-gradient-to-b from-white to-gray-50 border-t border-gray-100">
         <div className="container-custom">
-          <div className="flex items-start justify-between flex-wrap gap-4 mb-6">
-            <div>
-              <h2 className="text-xl font-bold text-gray-900">
-                University Coordinators & Student Ambassadors
-              </h2>
-              <p className="text-sm text-gray-500 mt-1">
-                Representing KRTC across partner universities in Bangladesh
-              </p>
+          <div className="mb-8">
+            <h2 className="text-xl font-bold text-gray-900">
+              University Coordinators & Student Ambassadors
+            </h2>
+            <p className="text-sm text-gray-500 mt-1 max-w-3xl">
+              A nationwide academic network organized into{" "}
+              <span className="font-semibold text-gray-700">
+                4 regional coordination zones
+              </span>{" "}
+              — connecting public universities, science & technology
+              universities and their affiliated National University colleges
+              across Bangladesh.
+            </p>
+          </div>
+
+          {/* Program Leadership — single Board of Director overseeing all zones */}
+          <div className="mb-8">
+            <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
+              Program Leadership
+            </h3>
+            <div className="max-w-xl">
+              <ZoneLeadershipSlot
+                roleLabel="Board of Director — UC&SA Program"
+                member={programBoardDirector}
+                accent="violet"
+              />
             </div>
           </div>
 
-          {universityCoordinatorGroups.length > 0 ? (
-            <div className="space-y-10">
-              {universityCoordinatorGroups.map((group) => (
-                <div key={group.university}>
-                  <div className="flex items-baseline gap-3 mb-4">
-                    <h3 className="text-base font-semibold text-gray-900">
-                      {group.university}
+          <div className="space-y-8">
+            {universityCoordinatorZones.map((zone) => (
+              <div
+                key={zone.id}
+                className="bg-white rounded-2xl border border-gray-200 overflow-hidden"
+              >
+                {/* Zone header */}
+                <div className="px-6 py-5 bg-gradient-to-r from-gray-50 to-white border-b border-gray-100">
+                  <div className="flex items-baseline flex-wrap gap-x-4 gap-y-1">
+                    <h3 className="text-base font-bold text-gray-900 uppercase tracking-wide">
+                      {zone.name}
                     </h3>
-                    <span className="text-xs text-gray-400">
-                      {group.members.length}{" "}
-                      {group.members.length === 1 ? "member" : "members"}
+                    <span className="text-sm text-gray-500">
+                      {zone.region}
                     </span>
-                    <div className="flex-1 h-px bg-gray-200" />
                   </div>
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {group.members.map((member) => (
-                      <MemberCard key={member.id} member={member} />
-                    ))}
+                  <p className="text-xs text-gray-400 mt-1">
+                    {zone.universities.length} partner universities ·{" "}
+                    {zone.affiliatedNote}
+                  </p>
+                </div>
+
+                <div className="p-6 space-y-6">
+                  {/* Zone Advisor slot (single role per zone) */}
+                  <div>
+                    <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
+                      Zone Advisor
+                    </h4>
+                    <div className="max-w-xl">
+                      <ZoneLeadershipSlot
+                        roleLabel="Zone Advisor"
+                        member={zone.advisor}
+                        accent="amber"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Flat coordinator list — serial order, not grouped by university */}
+                  <div>
+                    <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
+                      University Coordinators & Student Ambassadors
+                      {zone.coordinators.length > 0 && (
+                        <span className="ml-2 text-gray-400 normal-case tracking-normal font-normal">
+                          · {zone.coordinators.length}{" "}
+                          {zone.coordinators.length === 1
+                            ? "member"
+                            : "members"}
+                        </span>
+                      )}
+                    </h4>
+                    {zone.coordinators.length > 0 ? (
+                      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                        {zone.coordinators.map((member) => (
+                          <MemberCard
+                            key={member.id}
+                            member={member}
+                            isZoneAdvisor={member.slug === zone.advisor?.slug}
+                          />
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="rounded-xl border border-dashed border-gray-200 px-5 py-6 text-center bg-gray-50/50">
+                        <p className="text-xs text-gray-400">
+                          Coordinator appointments for {zone.name} universities
+                          are in progress — to be announced soon.
+                        </p>
+                      </div>
+                    )}
                   </div>
                 </div>
-              ))}
-            </div>
-          ) : (
-            <div className="bg-white rounded-xl p-10 text-center border border-dashed border-gray-200">
-              <p className="text-gray-500 mb-1">
-                Coordinator appointments are in progress
-              </p>
-              <p className="text-xs text-gray-400">
-                Selected members from partner universities will be listed here —
-                organized by institution.
-              </p>
-            </div>
-          )}
+              </div>
+            ))}
+          </div>
         </div>
       </Section>
 

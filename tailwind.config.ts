@@ -7,18 +7,15 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   safelist: [
-    // Team member avatar colors - dynamically applied
+    // Team member avatar colors - dynamically applied from team-data.ts
+    // Any Tailwind color at shades 400-700 will render without needing to
+    // update this list manually. Add more shades here if you ever use them.
+    {
+      pattern:
+        /^bg-(slate|gray|zinc|neutral|stone|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-(400|500|600|700)$/,
+    },
     "bg-primary",
     "bg-gray-800",
-    "bg-slate-500",
-    "bg-red-500",
-    "bg-blue-500",
-    "bg-violet-500",
-    "bg-emerald-500",
-    "bg-amber-500",
-    "bg-teal-500",
-    "bg-indigo-500",
-    "bg-lime-600",
   ],
   theme: {
     extend: {
