@@ -6,6 +6,7 @@ import { existsSync, readFileSync, writeFileSync } from "fs";
 import {
   getSeminarBySlug,
   isNorthZoneUniversityCode,
+  isRegistrationStillOpen,
 } from "@/lib/seminars-data";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -132,9 +133,12 @@ export async function POST(request: Request) {
         { status: 404 },
       );
     }
-    if (!seminar.registrationOpen) {
+    if (!isRegistrationStillOpen(seminar)) {
       return NextResponse.json(
-        { error: "Registration for this seminar is closed." },
+        {
+          error:
+            "Registration for this seminar has closed. Please contact kekuleoninfo@gmail.com if you have questions.",
+        },
         { status: 400 },
       );
     }

@@ -54,7 +54,11 @@ export interface Seminar {
   faq: SeminarFAQ[];
   // Logistics
   registrationOpen: boolean;
-  registrationDeadline?: string;
+  // Optional auto-close. ISO datetime (UTC). If set, registration is treated
+  // as closed once Date.now() >= this moment — even if registrationOpen=true.
+  // Lets us schedule a hard deadline without manually flipping the flag.
+  registrationCloseAt?: string;
+  registrationDeadline?: string; // human-readable display, e.g. "29 April 2026 (11:59 PM BST)"
   capacity?: number;
   fee?: string; // e.g. "Free" or "BDT 500"
   certificateNote?: string;
@@ -173,7 +177,11 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
       },
     ],
     registrationOpen: true,
-    registrationDeadline: "29 April 2026 (11:59 PM BST)",
+    // 29 April 2026, 11:30 AM BST (UTC+6) → 29 April 2026, 05:30 UTC.
+    // Closing in the morning gives organizers time to send afternoon
+    // reminders and finalize the attendee list before the seminar.
+    registrationCloseAt: "2026-04-29T05:30:00.000Z",
+    registrationDeadline: "29 April 2026 (11:30 AM BST)",
     fee: "Free",
     certificateNote:
       "A KRTC-signed Certificate of Participation will be emailed to every attendee within 7–10 days after the event.",
@@ -189,3 +197,15 @@ export const getActiveSeminar = (): Seminar | null =>
 
 export const isNorthZoneUniversityCode = (code: string): boolean =>
   NORTH_ZONE_UNIVERSITIES.some((u) => u.code === code);
+
+// Single source of truth for "can someone register right now?".
+// Combines the manual flag (`registrationOpen`) with the optional auto-close
+// timestamp (`registrationCloseAt`). Used by both the API route and the UI.
+export const isRegistrationStillOpen = (seminar: Seminar): boolean => {
+  if (!seminar.registrationOpen) return false;
+  if (seminar.registrationCloseAt) {
+    const closeAt = new Date(seminar.registrationCloseAt).getTime();
+    if (!Number.isNaN(closeAt) && Date.now() >= closeAt) return false;
+  }
+  return true;
+};

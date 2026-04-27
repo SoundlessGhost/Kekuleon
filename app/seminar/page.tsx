@@ -15,7 +15,10 @@ import {
   ArrowDown,
   Mail,
 } from "lucide-react";
-import { getActiveSeminar } from "@/lib/seminars-data";
+import {
+  getActiveSeminar,
+  isRegistrationStillOpen,
+} from "@/lib/seminars-data";
 import SeminarRegistrationForm from "@/components/seminar/SeminarRegistrationForm";
 
 function Section({
@@ -42,6 +45,7 @@ function Section({
 
 export default function SeminarPage() {
   const seminar = getActiveSeminar();
+  const registrationOpen = seminar ? isRegistrationStillOpen(seminar) : false;
 
   if (!seminar) {
     return (
@@ -110,13 +114,22 @@ export default function SeminarPage() {
             </div>
 
             <div className="flex flex-wrap gap-3">
-              <a
-                href="#register"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full font-medium hover:bg-primary/90 transition-colors"
-              >
-                Register Now
-                <ArrowDown className="w-4 h-4" />
-              </a>
+              {registrationOpen ? (
+                <a
+                  href="#register"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-full font-medium hover:bg-primary/90 transition-colors"
+                >
+                  Register Now
+                  <ArrowDown className="w-4 h-4" />
+                </a>
+              ) : (
+                <span
+                  aria-disabled="true"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-gray-200 text-gray-500 rounded-full font-medium cursor-not-allowed select-none"
+                >
+                  Registration closed
+                </span>
+              )}
               <a
                 href="#agenda"
                 className="inline-flex items-center gap-2 px-6 py-3 border border-gray-200 text-gray-700 rounded-full font-medium hover:border-gray-300 hover:bg-gray-50 transition-colors"
@@ -346,7 +359,8 @@ export default function SeminarPage() {
                 seminarSlug={seminar.slug}
                 seminarTitle={seminar.title}
                 seminarDate={seminar.date}
-                registrationOpen={seminar.registrationOpen}
+                registrationOpen={registrationOpen}
+                registrationDeadline={seminar.registrationDeadline}
                 universities={seminar.audienceUniversities}
               />
             </div>

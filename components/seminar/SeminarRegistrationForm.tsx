@@ -20,6 +20,8 @@ interface SeminarRegistrationFormProps {
   seminarTitle: string;
   seminarDate: string;
   registrationOpen: boolean;
+  /** Human-readable deadline. Shown in the closed-state UI for clarity. */
+  registrationDeadline?: string;
   universities?: SeminarUniversityOption[];
 }
 
@@ -49,6 +51,7 @@ export default function SeminarRegistrationForm({
   seminarTitle,
   seminarDate,
   registrationOpen,
+  registrationDeadline,
   universities = NORTH_ZONE_UNIVERSITIES,
 }: SeminarRegistrationFormProps) {
   const [formData, setFormData] = useState(initialState);
@@ -115,17 +118,23 @@ export default function SeminarRegistrationForm({
           <Calendar className="w-7 h-7 text-gray-500" />
         </div>
         <h3 className="text-xl font-bold text-gray-900 mb-2">
-          Registration is currently closed
+          Registration is closed
         </h3>
-        <p className="text-gray-600 max-w-md mx-auto">
-          Please check back soon, or email{" "}
+        <p className="text-gray-600 max-w-md mx-auto mb-2">
+          {registrationDeadline
+            ? `The registration deadline (${registrationDeadline}) has passed.`
+            : "Registration is no longer accepting new participants."}
+        </p>
+        <p className="text-sm text-gray-500 max-w-md mx-auto">
+          If you registered earlier, your seat is confirmed — please check your
+          email for the confirmation. For urgent questions, contact{" "}
           <a
             href="mailto:kekuleoninfo@gmail.com"
             className="text-primary hover:underline"
           >
             kekuleoninfo@gmail.com
-          </a>{" "}
-          to be notified when this seminar opens.
+          </a>
+          .
         </p>
       </div>
     );
