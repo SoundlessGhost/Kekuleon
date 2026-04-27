@@ -78,6 +78,7 @@ export const navigation = {
       ],
     },
     { name: "PhD Programs", href: "/phd-programs" },
+    { name: "Seminar", href: "/seminar" },
     { name: "Our Experts", href: "/team" },
     { name: "Career", href: "/careers" },
     { name: "Contact", href: "/contact" },
