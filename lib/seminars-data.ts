@@ -69,8 +69,12 @@ export interface Seminar {
 // the team-data zone module — easier to evolve independently.
 export const NORTH_ZONE_UNIVERSITIES: SeminarUniversityOption[] = [
   { code: "RU", name: "University of Rajshahi" },
+  { code: "TU", name: "Teesta University, Rangpur" },
   { code: "BRUR", name: "Begum Rokeya University, Rangpur" },
-  { code: "HSTU", name: "Haji Mohammad Danesh Science & Technology University" },
+  {
+    code: "HSTU",
+    name: "Haji Mohammad Danesh Science & Technology University",
+  },
   { code: "BSTU", name: "Bogura Science & Technology University" },
   { code: "PUST", name: "Pabna University of Science & Technology" },
   { code: "OTHER", name: "Other NU-affiliated college (North Zone)" },
@@ -79,7 +83,8 @@ export const NORTH_ZONE_UNIVERSITIES: SeminarUniversityOption[] = [
 export const seminars: Seminar[] = [
   {
     slug: "bridging-theory-practice-rangpur",
-    title: "Bridging the Theory and Practice Gap in Science Education in Bangladesh",
+    title:
+      "Bridging the Theory and Practice Gap in Science Education in Bangladesh",
     tagline:
       "A KRTC volunteer-led seminar for North Zone students — connecting theory to laboratory, research, and industry practice.",
     description: `This seminar is part of KRTC's volunteer-led outreach to bring the conversation about practical, applied science education directly to students in the North Zone. Participants will hear from researchers, industry professionals, and KRTC's University Coordinators on how to move from textbook understanding to laboratory competence, scholarly research, and industry-ready scientific work.
