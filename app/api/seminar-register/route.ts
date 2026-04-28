@@ -260,32 +260,41 @@ export async function POST(request: Request) {
       );
     }
 
-    // Confirmation email to the registrant
-    const registrantEmail = await resend.emails.send({
-      from: "KRTC Seminars <noreply@kekuleon.com>",
-      to: [email],
-      replyTo: "kekuleoninfo@gmail.com",
-      subject: `[KRTC] Your seminar registration is confirmed — ${seminar.title}`,
-      html: registrantConfirmationHtml({
-        fullName,
-        seminarTitle: seminar.title,
-        date: seminar.date,
-        time: seminar.time,
-        venue: seminar.venue,
-        certificateNote: seminar.certificateNote,
-      }),
-    });
+    // Confirmation email to the registrant.
+    // The Sheet row is already written above — the registration is "saved"
+    // from the user's perspective. If the email step fails (Resend free-tier
+    // daily limit, transient outage, etc.) we still treat the registration
+    // as successful so the user isn't shown a confusing error. The failure
+    // is logged server-side so admins can follow up manually from the Sheet.
+    try {
+      const registrantEmail = await resend.emails.send({
+        from: "KRTC Seminars <noreply@kekuleon.com>",
+        to: [email],
+        replyTo: "kekuleoninfo@gmail.com",
+        subject: `[KRTC] Your seminar registration is confirmed — ${seminar.title}`,
+        html: registrantConfirmationHtml({
+          fullName,
+          seminarTitle: seminar.title,
+          date: seminar.date,
+          time: seminar.time,
+          venue: seminar.venue,
+          certificateNote: seminar.certificateNote,
+        }),
+      });
 
-    if (registrantEmail.error) {
-      console.error("Resend (registrant) error:", registrantEmail.error);
-      // Sheet already has the row; we still tell the user it failed at email
-      // step so they can contact us. They can also re-register tomorrow.
-      return NextResponse.json(
-        {
-          error:
-            "Registered, but we couldn't send your confirmation email. Please email kekuleoninfo@gmail.com to confirm.",
-        },
-        { status: 500 },
+      if (registrantEmail.error) {
+        console.error(
+          "Resend (registrant) error — email NOT sent for:",
+          email,
+          registrantEmail.error,
+        );
+      }
+    } catch (err) {
+      // Network/SDK-level failure — same policy: don't block the user.
+      console.error(
+        "Resend (registrant) threw — email NOT sent for:",
+        email,
+        err,
       );
     }
 
@@ -293,6 +302,8 @@ export async function POST(request: Request) {
     // registrations directly from the Google Sheet to keep email volume low
     // (Resend free tier: 100/day). Re-enable later if needed.
 
+    // Always record the rate-limit key — Sheet has the row, so further
+    // submissions for the same (seminar, email) would create duplicates.
     recordKey(rateKey);
 
     return NextResponse.json({ success: true });
