@@ -2087,6 +2087,159 @@ As a Joint Advisory Team (JAT) member of the Kekuleon Research and Training Cent
     ],
   },
 
+  "taposh-shingha-roy": {
+    id: 40,
+    slug: "taposh-shingha-roy",
+    name: "Taposh Shingha Roy",
+    nameBn: "তপশ সিংহ রায়",
+    title:
+      "Senior Officer, Research and Development — Healthcare Pharmaceuticals Limited",
+    department: "Pharmaceutical Research & Development",
+    initials: "TR",
+    color: "bg-violet-600",
+    email: "t.shingharoy@gmail.com",
+    phone: "+880 1751 588 151",
+    location: "Gazipur, Bangladesh",
+    address:
+      "Toma Nibash, House No-398, Ward No-16, Gazipur City Corporation, Gazipur",
+    dateOfBirth: "03 March 1993",
+    type: "advisory-jat",
+    priority: 5,
+    bio: `Taposh Shingha Roy is a pharmaceutical research and development specialist with formulation, analytical method development, and validation expertise. He currently serves as Senior Officer, Research and Development at Healthcare Pharmaceuticals Limited — a leading Bangladeshi pharmaceutical manufacturer — where he leads development activities for drug substances and finished products, prepares and executes verification and validation protocols, develops and validates analytical methods for non-compendial drugs, and oversees stability studies for laboratory and validation batches.
+
+He holds an MSc and a BSc in Applied Chemistry and Chemical Engineering from the University of Rajshahi (CGPA 3.55 and 3.45 out of 4.00 respectively), with his MSc thesis focused on the development of single-bath bioscouring and bleaching of cotton fabric using pectinase and peracetic acid. He has completed specialised industrial training on Industrial Process Unit Operation & Process Control Technique at the Training Institute for Chemical Industries (TICI), Polash, Narsingdi (Grade A⁺), and a three-month course on Microsoft Excel, SPSS, and Research Methodology from the Department of Statistics, University of Rajshahi. His professional career — spanning Quality Control at Popular Pharmaceuticals Limited and progressively senior R&D roles at Healthcare Pharmaceuticals Limited — has built deep applied experience in pharmaceutical R&D workflows, method validation, and stability science.
+
+As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Training Center (KRTC), he contributes industry-grounded insights to curriculum design, hands-on training methodology, and laboratory infrastructure — particularly in pharmaceutical R&D, analytical method development, and validation practice — helping align KRTC's applied chemistry programmes with the day-to-day standards of regulated pharmaceutical manufacturing.`,
+    education: [
+      {
+        degree: "MSc in Applied Chemistry and Chemical Engineering",
+        institution: "University of Rajshahi",
+        year: "2016 (Held in 2018)",
+        grade: "CGPA 3.55 / 4.00",
+      },
+      {
+        degree: "BSc in Applied Chemistry and Chemical Engineering",
+        institution: "University of Rajshahi",
+        year: "2015 (Held in 2016)",
+        grade: "CGPA 3.45 / 4.00",
+      },
+      {
+        degree: "Higher Secondary Certificate (HSC) — Science",
+        institution: "Notre Dame College, Dhaka",
+        year: "2010",
+        grade: "GPA 5.00 / 5.00",
+      },
+      {
+        degree: "Secondary School Certificate (SSC) — Science",
+        institution: "Nilphamari Government High School",
+        year: "2008",
+        grade: "GPA 5.00 / 5.00",
+      },
+      {
+        degree:
+          "Training on Industrial Process Unit Operation & Process Control Technique",
+        institution:
+          "Training Institute for Chemical Industries (TICI), Polash, Narsingdi",
+        year: "June 2016",
+        grade: "Grade A⁺",
+      },
+      {
+        degree:
+          "Training on Microsoft Excel, SPSS and Research Methodology",
+        institution:
+          "Department of Statistics, University of Rajshahi",
+        year: "Completed (3 months)",
+      },
+    ],
+    experience: [
+      {
+        role: "Joint Advisory Team (JAT) Member",
+        org: "Kekuleon Research and Training Center (KRTC)",
+        period: "2025 - Present",
+        description:
+          "Advising on curriculum design, applied training methodology, and laboratory infrastructure — particularly in pharmaceutical R&D, analytical method development, and validation practice.",
+      },
+      {
+        role: "Senior Officer, Research and Development",
+        org: "Healthcare Pharmaceuticals Limited",
+        period: "January 2023 - Present",
+        description:
+          "Leads development of drug substances and products; prepares and executes verification and validation protocols; develops and validates analytical methods for non-compendial drugs; manages stability studies for lab and validation batches; oversees R&D reagent requisition and inventory.",
+      },
+      {
+        role: "Officer, Research and Development",
+        org: "Healthcare Pharmaceuticals Limited",
+        period: "January 2020 - December 2022",
+        description:
+          "Drug substance and product development, protocol preparation, and analytical method development under R&D operations.",
+      },
+      {
+        role: "Executive, Quality Control",
+        org: "Popular Pharmaceuticals Limited",
+        period: "December 2019 - January 2020",
+        description:
+          "Quality control of pharmaceutical products in a regulated manufacturing environment.",
+      },
+    ],
+    research: [
+      {
+        title:
+          "Development of Single-Bath Bioscouring and Bleaching of Cotton Fabric with Pectinase and Peracetic Acid",
+        institution: "MSc Thesis, University of Rajshahi",
+        period: "2016",
+      },
+      {
+        title: "Future Prospect of Steam Generator",
+        institution: "BSc Project, University of Rajshahi",
+        period: "2015",
+      },
+    ],
+    skills: [
+      "Pharmaceutical R&D",
+      "Drug Substance & Product Development",
+      "Analytical Method Development & Validation",
+      "Verification & Validation Protocol Design",
+      "Stability Studies (Lab Batch & Validation Batch)",
+      "Non-Compendial Method Development",
+      "Quality Control",
+      "Industrial Process Unit Operation & Process Control",
+      "Research Methodology (SPSS, Microsoft Excel)",
+      "Leadership & Team-Building",
+      "Analytical Reasoning",
+      "Public Speaking & Communication",
+    ],
+    languages: [
+      { language: "Bangla", level: "Native" },
+      { language: "English", level: "Excellent" },
+    ],
+    organizations: [
+      {
+        role: "President",
+        org: "ACCE Group, University of Rajshahi",
+        description:
+          "Departmental network of current and former students and teachers of Applied Chemistry and Chemical Engineering, University of Rajshahi.",
+      },
+      {
+        role: "General Member",
+        org: "Nilphamari Zilla Somiti, University of Rajshahi",
+      },
+      {
+        role: "General Member",
+        org: "Rajshahi University Higher Study Club (RUHSC)",
+      },
+    ],
+    achievements: [
+      "MSc in Applied Chemistry and Chemical Engineering (CGPA 3.55), University of Rajshahi",
+      "GPA 5.00 in both SSC and HSC (Notre Dame College, Dhaka)",
+      "Senior Officer, R&D, Healthcare Pharmaceuticals Limited",
+      "Government Scholarships at 5th and 8th grade, and for excellent SSC result",
+      "University Scholarship for excellent BSc Engineering result",
+      "TICI-certified (Grade A⁺) — Industrial Process Unit Operation & Process Control",
+      "President, ACCE Group, University of Rajshahi",
+      "JAT Member, Kekuleon Research and Training Center (KRTC)",
+    ],
+  },
+
   // ======================================
   // University Coordinator & Student Ambassador
   // ======================================
