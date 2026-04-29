@@ -1362,6 +1362,51 @@ His teaching approach focuses on making physics accessible and engaging for stud
   // ==================
   // Joint Advisory Team (JAT)
   // ==================
+  "ranjit-kumar-biswas": {
+    id: 38,
+    slug: "ranjit-kumar-biswas",
+    name: "Dr. Ranjit Kumar Biswas",
+    title: "Professor",
+    department:
+      "Department of Applied Chemistry and Chemical Engineering, University of Rajshahi",
+    initials: "RB",
+    color: "bg-emerald-600",
+    location: "Rajshahi-6205, Bangladesh",
+    type: "advisory-jat",
+    priority: 1,
+    bio: `Dr. Ranjit Kumar Biswas is a Professor at the Department of Applied Chemistry and Chemical Engineering, University of Rajshahi. His research programme spans hydrometallurgy and separation science — with sustained contributions in leaching of mineral resources, liquid-liquid (solvent) extraction of metal ions, kinetics of leaching and extraction processes, precipitation chemistry, and ion-exchange separation. His scholarship is reflected in a substantial peer-reviewed publication record with over 1,800 citations and an h-index of 26 (Google Scholar).
+
+As a senior member of the Joint Advisory Team (JAT) of the Kekuleon Research and Training Center (KRTC), he provides academic guidance on curriculum design, applied training methodology, and laboratory infrastructure — particularly in the areas of hydrometallurgy, separation science, and analytical chemistry — helping align KRTC's programmes with internationally benchmarked standards.`,
+    education: [],
+    experience: [
+      {
+        role: "Joint Advisory Team (JAT) Member",
+        org: "Kekuleon Research and Training Center (KRTC)",
+        period: "2025 - Present",
+      },
+      {
+        role: "Professor",
+        org: "Department of Applied Chemistry and Chemical Engineering, University of Rajshahi",
+        period: "Present",
+      },
+    ],
+    skills: [
+      "Hydrometallurgy",
+      "Liquid-Liquid (Solvent) Extraction of Metal Ions",
+      "Leaching & Kinetics of Leaching",
+      "Precipitation Chemistry",
+      "Ion-Exchange Separation",
+      "Separation Science",
+      "Analytical Chemistry",
+      "Research Mentoring",
+    ],
+    achievements: [
+      "Professor, Department of Applied Chemistry and Chemical Engineering, University of Rajshahi",
+      "1,800+ citations and h-index of 26 (Google Scholar)",
+      "i10-index of 38 — sustained record of cited peer-reviewed publications",
+      "JAT Member, Kekuleon Research and Training Center (KRTC)",
+    ],
+  },
   "sha-md-shahan-shahriar": {
     id: 19,
     slug: "sha-md-shahan-shahriar",
@@ -1375,7 +1420,7 @@ His teaching approach focuses on making physics accessible and engaging for stud
     emailAlt: "shahan.acrubd@gmail.com",
     location: "Rajshahi-6205, Bangladesh",
     type: "advisory-jat",
-    priority: 2,
+    priority: 3,
     bio: `Dr. Sha Md. Shahan Shahriar is an Associate Professor at the Department of Applied Chemistry and Chemical Engineering, Faculty of Engineering, University of Rajshahi, Bangladesh. His scholarship spans environmental chemistry, water and wastewater treatment, heavy metal pollution and risk assessment, environmental monitoring, and food safety — with an extensive peer-reviewed publication record in journals including Food Control (Elsevier), Toxicology Reports (Elsevier), Journal of Food Composition and Analysis (Elsevier), and Environmental Science and Pollution Research (Springer Nature).
 
 As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Training Center (KRTC), he contributes academic guidance on curriculum design, applied training methodology, and laboratory infrastructure — helping align KRTC's programmes with internationally benchmarked standards in environmental and analytical chemistry.`,
@@ -1522,7 +1567,7 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
     email: "dilipkumar249@ru.ac.bd",
     location: "Rajshahi, Bangladesh",
     type: "advisory-jat",
-    priority: 1,
+    priority: 2,
     bio: `Dr. Dilip Kumar Sarkar is an Associate Professor at the Department of Applied Chemistry and Chemical Engineering, University of Rajshahi. He earned his PhD from Universiti Kebangsaan Malaysia (UKM) and his MSc and BSc from the University of Rajshahi. His research centres on renewable energy harvesting, conversion, and storage — with contributions to green hydrogen energy, electrocatalysts for electrocatalytic and photoelectrochemical water splitting, and development of solar cell materials (HTMs, ETMs for Perovskite, CdTe, CZTS), alongside energy-storage materials for batteries, capacitors/supercapacitors, and sensors.
 
 As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Training Center (KRTC), he advises on curriculum development, laboratory infrastructure, and applied training programmes that bridge theoretical education and internationally benchmarked practice, particularly in materials science and renewable-energy-related applied chemistry.`,
@@ -1769,7 +1814,7 @@ As a member of the Co-Joint Advisory Team (C-JAT) of the Kekuleon Research and T
     address: "Village: Ranipur, P.O. Kamdebpur-5210, P.S. Biral, Dinajpur",
     dateOfBirth: "09 January 1994",
     type: "advisory-jat",
-    priority: 3,
+    priority: 4,
     bio: `Md. Mohedul Islam is an analytical chemist and pharmaceutical quality-control specialist with over six years of industry experience, currently serving as Senior Executive-2 in Quality Control at Healthcare Pharmaceuticals Limited — an EU GMP approved facility in Rajendrapur, Gazipur. He leads stability study and method validation activities for higher regulatory market (HRM) products and has direct experience facing EU GMP audits.
 
 He holds both BSc and MSc degrees in Applied Chemistry & Chemical Engineering from the University of Rajshahi. His career spans Healthcare Pharmaceuticals Limited, Opsonin Pharma Limited (Barishal), and Bureau Veritas Consumer Product Services (BD) Ltd — covering analytical method validation, handling of sophisticated instrumentation (HPLC, GC, AAS, UV-Vis, FTIR, Dissolution tester, Karl Fischer, disintegration tester), OOS/deviation/change-control handling, and regulatory-compliant documentation.
