@@ -1947,6 +1947,165 @@ As a member of the Co-Joint Advisory Team (C-JAT) of the Kekuleon Research and T
     ],
   },
 
+  "md-nazrul-islam": {
+    id: 41,
+    slug: "md-nazrul-islam",
+    name: "Md. Nazrul Islam",
+    nameBn: "মো. নজরুল ইসলাম",
+    title:
+      "Assistant Manager, Quality Control (Oncology QC) — Healthcare Pharmaceuticals Limited",
+    department: "Pharmaceutical Quality Control & Analytical Sciences",
+    initials: "NI",
+    color: "bg-teal-600",
+    email: "nazrulchemist@gmail.com",
+    phone: "+880 1711 713 161",
+    location: "Gazipur, Bangladesh",
+    address:
+      "Adib Villa, Holding No. 662, Great Wall City, Gazipur Sadar, Gazipur-1702, Bangladesh",
+    dateOfBirth: "07 April 1985",
+    type: "advisory-jat",
+    priority: 4,
+    bio: `Md. Nazrul Islam is a pharmaceutical Quality Control and analytical-sciences specialist with about 16 years of industry experience spanning General Solid, Cephalosporin, Ophthalmic, MDI, DPI, General Sterile, Oncology Solid, and Oncology Sterile dosage forms. He currently serves as Assistant Manager, Quality Control (Oncology QC) at Healthcare Pharmaceuticals Limited, Rajendrapur — leading QC operations for testing and release of starting materials, finished products, and packaging materials, including toll-manufactured products for Beximco and Aristopharma.
+
+His technical expertise covers analytical method validation and transfer (ICH/USP), stability studies (ICH), instrument qualification (URS, DQ, IQ, OQ, PQ), Out-of-Specification (OOS) investigation, deviation and quality risk assessment, CAPA, and the establishment of GLP- and data-integrity-compliant laboratories aligned with USFDA (21 CFR), EU (Eudralex), PIC/S, and TGA guidelines. He has served as Lab Solution Manager for the Shimadzu CDS System, has hands-on experience with Waters Empower 3 and Shimadzu LabSolutions CS, and works routinely with XRD, HPLC, GC, TLC, UV-Vis and IR spectroscopy, AAS, KF, dissolution tester, polarimeter, viscometer, DSC, surface area analyzer, polarized microscope, and Malvern particle-size analyzer. He has prepared QC laboratories for and faced audits from TGA, NPRA, ISO, and EU-GMP, with active preparation underway for upcoming USFDA, EU, and ANVISA inspections.
+
+He holds an MSc in Inorganic Chemistry (Department of Chemistry, University of Rajshahi — 1st Class 9th) and a BSc (Honours) in Chemistry from the same institution. As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Training Center (KRTC), he contributes regulatory- and audit-grade insights to curriculum design, instrument training, and laboratory-quality practice — helping align KRTC's analytical-chemistry programmes with the standards of internationally regulated pharmaceutical manufacturing.`,
+    education: [
+      {
+        degree: "MSc in Inorganic Chemistry",
+        institution: "Department of Chemistry, University of Rajshahi",
+        year: "2008 (Held in 2010)",
+        grade: "1st Class 9th",
+      },
+      {
+        degree: "BSc (Honours) in Chemistry — 4 Years",
+        institution: "Department of Chemistry, University of Rajshahi",
+        year: "2007 (Held in 2008)",
+        grade: "2nd Class",
+      },
+      {
+        degree: "Higher Secondary Certificate (HSC) — Science",
+        institution: "Chuadanga Government College (Jessore Board)",
+        year: "2003",
+        grade: "A- (GPA 3.50, 1st Division)",
+      },
+      {
+        degree: "Secondary School Certificate (SSC) — Science",
+        institution: "Asmankhali High School (Jessore Board)",
+        year: "2001",
+        grade: "A (GPA 4.25, 1st Division)",
+      },
+    ],
+    experience: [
+      {
+        role: "Joint Advisory Team (JAT) Member",
+        org: "Kekuleon Research and Training Center (KRTC)",
+        period: "2025 - Present",
+        description:
+          "Advising on curriculum design, instrument training, and laboratory-quality practice — particularly in pharmaceutical QC, analytical method validation, stability science, and regulatory audit readiness.",
+      },
+      {
+        role: "Assistant Manager, Quality Control (Oncology QC)",
+        org: "Healthcare Pharmaceuticals Limited, Rajendrapur, Gazipur",
+        period: "January 2023 - Present",
+        description:
+          "Leads Oncology QC operations — testing and release of raw, intermediate, and finished products including toll-manufactured products for Beximco and Aristopharma; Lab Solution Manager of the Shimadzu CDS System; designs lab specifications and documentation to comply with USFDA, EU (21 CFR, Eudralex, PIC/S) and ANVISA guidelines; manages analytical method validation/verification, process validation, instrument qualification, stability studies, OOS investigations, deviation and quality risk assessment, CAPA, and audit preparation.",
+      },
+      {
+        role: "Senior Executive, Quality Control (Acting In-charge, Oncology QC)",
+        org: "Healthcare Pharmaceuticals Limited, Rajendrapur, Gazipur",
+        period: "January 2020 - December 2022",
+        description:
+          "Acting in-charge of Oncology QC — laboratory setup of Specialised Oncology QC, Chromatographic Data System establishment, OOS investigation framework, employee training, and EU/USFDA audit readiness.",
+      },
+      {
+        role: "Senior Executive-2, Quality Control (General QC)",
+        org: "Healthcare Pharmaceuticals Limited, Rajendrapur, Gazipur",
+        period: "January 2018 - December 2019",
+        description:
+          "Quality Control readiness for TGA and NPRA audits, finished-product analysis monitoring, instrument calibration, OOS handling, follow-up stability sample management, SOP/STP preparation, training execution, and management of HPLC columns and reference/working standards.",
+      },
+      {
+        role: "Senior Officer, Quality Control (General QC)",
+        org: "Healthcare Pharmaceuticals Limited, Rajendrapur, Gazipur",
+        period: "January 2015 - December 2017",
+        description:
+          "Regulatory-audit readiness, finished-product analysis monitoring, biotech product analysis (SE-HPLC and RP-HPLC), MDI/DPI product analysis, SOP/STP preparation, qualification documentation, and laboratory troubleshooting.",
+      },
+      {
+        role: "Officer, Quality Control (Cephalosporin QC)",
+        org: "Healthcare Pharmaceuticals Limited, Rajendrapur, Gazipur",
+        period: "June 2012 - December 2014",
+        description:
+          "Cephalosporin solid finished-product analysis, calibration of HPLC, UV-Vis spectrophotometer and dissolution tester, SOP/STP and qualification document preparation, and laboratory troubleshooting.",
+      },
+      {
+        role: "Officer, Quality Control",
+        org: "Supreme Pharmaceuticals Limited, Palashbari, Ashulia, Dhaka",
+        period: "May 2010 - June 2012",
+        description:
+          "Raw-material sampling and analysis, finished-product analysis, in-process checks, line clearance, batch document compilation, and product stability studies.",
+      },
+    ],
+    skills: [
+      "Pharmaceutical Quality Control (USFDA / EU / TGA / ICH compliant)",
+      "Analytical Method Validation, Verification & Transfer (ICH, USP)",
+      "Stability Study Management (ICH guidelines)",
+      "Instrument Qualification (URS, DQ, IQ, OQ, PQ)",
+      "Out-of-Specification (OOS) Investigation, Deviation & QRM",
+      "QMS, Change Control, CAPA",
+      "Data Integrity (21 CFR Part 11) & Chromatographic Data Systems",
+      "Waters Empower 3, Shimadzu LabSolutions CS, NOVA-LIMS",
+      "HPLC, GC, TLC, UV-Vis, IR, AAS, KF, DSC, XRD",
+      "Dissolution Tester, Polarimeter, Viscometer, Surface Area Analyzer, Malvern Particle Size",
+      "GLP Laboratory Setup & Internal Audit",
+      "Regulatory Audit Readiness (USFDA, EU-GMP, TGA, NPRA, ISO, ANVISA)",
+      "Analysis of Biotech Products (Darbepoietin, Bevacizumab, Adalimumab)",
+      "Oncology, Cephalosporin, MDI/DPI, Sterile, Ophthalmic Dosage Forms",
+      "Leadership, Team Building & Training",
+    ],
+    languages: [
+      { language: "Bangla", level: "Native" },
+      { language: "English", level: "Proficient (Reading, Writing, Speaking)" },
+    ],
+    organizations: [
+      {
+        role: "Trained Professional",
+        org: "Waters India Pvt. Limited (Bangalore, India)",
+        description:
+          "Training on Method Development and Custom Fields.",
+      },
+      {
+        role: "Trained Professional",
+        org: "Waters Malaysia Pvt. Limited (Shah Alam, Malaysia)",
+        description:
+          "Basic Troubleshooting on Chromatographic System.",
+      },
+      {
+        role: "Trained Professional",
+        org: "Shimadzu Asia Pacific Pte. Ltd. (Singapore)",
+        description:
+          "Principles and Operation of HPLC/UHPLC with LabSolutions Workstation; Regulatory Requirement on Data Integrity.",
+      },
+      {
+        role: "Trained Professional",
+        org: "Novatek International, Canada",
+        description:
+          "Training on NOVA-LIMS Software Module.",
+      },
+    ],
+    achievements: [
+      "Approximately 16 years of pharmaceutical Quality Control experience",
+      "Assistant Manager, QC (Oncology QC), Healthcare Pharmaceuticals Limited",
+      "MSc in Inorganic Chemistry (1st Class 9th), University of Rajshahi",
+      "Lab Solution Manager — Shimadzu CDS System",
+      "Audit experience facing TGA, NPRA, ISO, and EU-GMP inspections",
+      "International training: Waters India, Waters Malaysia, Shimadzu Singapore",
+      "Specialised expertise across Oncology, Cephalosporin, MDI/DPI, Sterile and Ophthalmic dosage forms",
+      "JAT Member, Kekuleon Research and Training Center (KRTC)",
+    ],
+  },
+
   "md-mohedul-islam": {
     id: 24,
     slug: "md-mohedul-islam",
@@ -1962,7 +2121,7 @@ As a member of the Co-Joint Advisory Team (C-JAT) of the Kekuleon Research and T
     address: "Village: Ranipur, P.O. Kamdebpur-5210, P.S. Biral, Dinajpur",
     dateOfBirth: "09 January 1994",
     type: "advisory-jat",
-    priority: 4,
+    priority: 5,
     bio: `Md. Mohedul Islam is an analytical chemist and pharmaceutical quality-control specialist with over six years of industry experience, currently serving as Senior Executive-2 in Quality Control at Healthcare Pharmaceuticals Limited — an EU GMP approved facility in Rajendrapur, Gazipur. He leads stability study and method validation activities for higher regulatory market (HRM) products and has direct experience facing EU GMP audits.
 
 He holds both BSc and MSc degrees in Applied Chemistry & Chemical Engineering from the University of Rajshahi. His career spans Healthcare Pharmaceuticals Limited, Opsonin Pharma Limited (Barishal), and Bureau Veritas Consumer Product Services (BD) Ltd — covering analytical method validation, handling of sophisticated instrumentation (HPLC, GC, AAS, UV-Vis, FTIR, Dissolution tester, Karl Fischer, disintegration tester), OOS/deviation/change-control handling, and regulatory-compliant documentation.
@@ -2104,7 +2263,7 @@ As a Joint Advisory Team (JAT) member of the Kekuleon Research and Training Cent
       "Toma Nibash, House No-398, Ward No-16, Gazipur City Corporation, Gazipur",
     dateOfBirth: "03 March 1993",
     type: "advisory-jat",
-    priority: 5,
+    priority: 6,
     bio: `Taposh Shingha Roy is a pharmaceutical research and development specialist with formulation, analytical method development, and validation expertise. He currently serves as Senior Officer, Research and Development at Healthcare Pharmaceuticals Limited — a leading Bangladeshi pharmaceutical manufacturer — where he leads development activities for drug substances and finished products, prepares and executes verification and validation protocols, develops and validates analytical methods for non-compendial drugs, and oversees stability studies for laboratory and validation batches.
 
 He holds an MSc and a BSc in Applied Chemistry and Chemical Engineering from the University of Rajshahi (CGPA 3.55 and 3.45 out of 4.00 respectively), with his MSc thesis focused on the development of single-bath bioscouring and bleaching of cotton fabric using pectinase and peracetic acid. He has completed specialised industrial training on Industrial Process Unit Operation & Process Control Technique at the Training Institute for Chemical Industries (TICI), Polash, Narsingdi (Grade A⁺), and a three-month course on Microsoft Excel, SPSS, and Research Methodology from the Department of Statistics, University of Rajshahi. His professional career — spanning Quality Control at Popular Pharmaceuticals Limited and progressively senior R&D roles at Healthcare Pharmaceuticals Limited — has built deep applied experience in pharmaceutical R&D workflows, method validation, and stability science.
