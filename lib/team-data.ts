@@ -435,24 +435,51 @@ He received professional training from TICI on Industrial Process Unit Operation
   // ==================
   // Executive Management
   // ==================
-  "executive-tba-md": {
+  "md-abdul-mojid": {
     id: 15,
-    slug: "executive-tba-md",
-    name: "To Be Announced",
-    nameBn: "শীঘ্রই ঘোষণা করা হবে",
+    slug: "md-abdul-mojid",
+    name: "Md Abdul Mojid",
+    nameBn: "মো. আব্দুল মজিদ",
     title: "Managing Director, KRTC",
     department: "KRTC Executive Management",
-    initials: "TBA",
-    color: "bg-slate-500",
+    initials: "AM",
+    color: "bg-orange-600",
     location: "KRTC, Sirajganj, Bangladesh",
     type: "executive",
     equityShare: 20,
     priority: 1,
-    bio: `The Managing Director position at the Kekuleon Research and Training Center (KRTC) is currently open. The incoming MD will oversee the strategic direction and operational management of the institution's integrated framework across applied science, schooling, and research-oriented activities.`,
+    bio: `Md Abdul Mojid serves as the Managing Director of the Kekuleon Research and Training Center (KRTC). In this capacity, he oversees the strategic direction and operational management of KRTC's integrated institutional framework — spanning applied science programmes, schooling, and research-oriented activities.
+
+Working in close coordination with the Founder & Chairman and the Joint Advisory Team (JAT), the Managing Director's office is responsible for translating KRTC's mission to bridge the theory–practice gap in science education in Bangladesh into day-to-day institutional execution. This includes supporting the development of KRTC's six specialised departments, coordinating across the executive management and strategic-partner network, and ensuring that operations remain aligned with internationally benchmarked standards in applied chemistry, training, and institutional development.`,
     education: [],
-    experience: [],
-    skills: [],
-    achievements: [],
+    experience: [
+      {
+        role: "Managing Director",
+        org: "Kekuleon Research and Training Center (KRTC)",
+        period: "2025 - Present",
+        description:
+          "Leading the strategic direction, operational management, and institutional governance of KRTC across applied science, schooling, and research-oriented activities.",
+      },
+    ],
+    skills: [
+      "Strategic Leadership",
+      "Institutional Governance",
+      "Operational Management",
+      "Organisational Development",
+      "Stakeholder Coordination",
+      "Programme Implementation",
+      "Cross-Functional Team Leadership",
+      "Institutional Development",
+    ],
+    languages: [
+      { language: "Bangla", level: "Native" },
+      { language: "English", level: "Proficient" },
+    ],
+    achievements: [
+      "Managing Director, Kekuleon Research and Training Center (KRTC)",
+      "Leading KRTC's integrated framework across applied science, schooling, and research",
+      "Coordinating executive management with the Founder & Chairman and Joint Advisory Team",
+    ],
   },
 
   // ==================
