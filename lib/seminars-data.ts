@@ -182,11 +182,11 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
       },
     ],
     registrationOpen: true,
-    // 29 April 2026, 11:30 AM BST (UTC+6) → 29 April 2026, 05:30 UTC.
-    // Closing in the morning gives organizers time to send afternoon
-    // reminders and finalize the attendee list before the seminar.
-    registrationCloseAt: "2026-04-29T05:30:00.000Z",
-    registrationDeadline: "29 April 2026 (11:30 AM BST)",
+    // 29 April 2026, 3:00 PM BST (UTC+6) → 29 April 2026, 09:00 UTC.
+    // Extended from 11:30 AM to 3:00 PM at the client's request to allow
+    // last-minute registrations on the day before the seminar.
+    registrationCloseAt: "2026-04-29T09:00:00.000Z",
+    registrationDeadline: "29 April 2026 (3:00 PM BST)",
     fee: "Free",
     certificateNote:
       "A KRTC-signed Certificate of Participation will be emailed to every attendee within 7–10 days after the event.",
