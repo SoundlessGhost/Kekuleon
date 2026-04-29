@@ -1979,8 +1979,7 @@ As a member of the Co-Joint Advisory Team (C-JAT) of the Kekuleon Research and T
     slug: "md-parvez-hossain",
     name: "Md Parvez Hossain",
     nameBn: "মো. পারভেজ হোসেন",
-    title:
-      "Assistant Case Manager — Raju Law | Advisor, Marketing, Branding & Project Sustainability",
+    title: "Advisor, Marketing, Branding & Project Sustainability",
     department: "Marketing, Branding & Project Sustainability",
     initials: "PH",
     color: "bg-cyan-600",
@@ -2220,14 +2219,12 @@ He holds an MSc in Inorganic Chemistry (Department of Chemistry, University of R
       {
         role: "Trained Professional",
         org: "Waters India Pvt. Limited (Bangalore, India)",
-        description:
-          "Training on Method Development and Custom Fields.",
+        description: "Training on Method Development and Custom Fields.",
       },
       {
         role: "Trained Professional",
         org: "Waters Malaysia Pvt. Limited (Shah Alam, Malaysia)",
-        description:
-          "Basic Troubleshooting on Chromatographic System.",
+        description: "Basic Troubleshooting on Chromatographic System.",
       },
       {
         role: "Trained Professional",
@@ -2238,8 +2235,7 @@ He holds an MSc in Inorganic Chemistry (Department of Chemistry, University of R
       {
         role: "Trained Professional",
         org: "Novatek International, Canada",
-        description:
-          "Training on NOVA-LIMS Software Module.",
+        description: "Training on NOVA-LIMS Software Module.",
       },
     ],
     achievements: [
@@ -2451,10 +2447,8 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
         grade: "Grade A⁺",
       },
       {
-        degree:
-          "Training on Microsoft Excel, SPSS and Research Methodology",
-        institution:
-          "Department of Statistics, University of Rajshahi",
+        degree: "Training on Microsoft Excel, SPSS and Research Methodology",
+        institution: "Department of Statistics, University of Rajshahi",
         year: "Completed (3 months)",
       },
     ],
@@ -2850,12 +2844,7 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
           "Representing KRTC at the University of Dhaka — connecting students with KRTC training, research and community programs; coordinating campus outreach.",
       },
     ],
-    skills: [
-      "Computer Fundamentals",
-      "MS Word",
-      "MS Excel",
-      "MS PowerPoint",
-    ],
+    skills: ["Computer Fundamentals", "MS Word", "MS Excel", "MS PowerPoint"],
     languages: [
       { language: "Bengali", level: "Native" },
       { language: "English", level: "Proficient" },
@@ -3407,8 +3396,7 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
         role: "Lab Work — Analytical Chemistry Techniques",
         org: "Jashore University of Science & Technology",
         period: "Undergraduate (Ongoing)",
-        description:
-          "Titration, spectroscopy and chemical safety protocols.",
+        description: "Titration, spectroscopy and chemical safety protocols.",
       },
     ],
     skills: [
@@ -3624,14 +3612,11 @@ export const getUniversityCoordinatorsByZone = (): ZoneGroup[] => {
   const all = getUniversityCoordinators();
 
   return universityZones.map((zone) => {
-    const coordinators = all
-      .filter((m) => m.zone === zone.id)
-      .sort(byPriority);
+    const coordinators = all.filter((m) => m.zone === zone.id).sort(byPriority);
 
     const advisorSlug = ZONE_ADVISOR_SLUGS[zone.id];
     const advisor =
-      (advisorSlug && coordinators.find((m) => m.slug === advisorSlug)) ||
-      null;
+      (advisorSlug && coordinators.find((m) => m.slug === advisorSlug)) || null;
 
     return {
       ...zone,
