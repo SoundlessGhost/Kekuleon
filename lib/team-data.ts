@@ -1734,6 +1734,154 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
   // ==================
   // Co-Joint Advisory Team (C-JAT)
   // ==================
+  "md-sadequl-islam": {
+    id: 42,
+    slug: "md-sadequl-islam",
+    name: "Md. Sadequl Islam",
+    nameBn: "মো. সাদেকুল ইসলাম",
+    title:
+      "Senior Executive-2, Quality Control — Healthcare Pharmaceuticals Limited",
+    department: "Head, Co-Joint Advisory Team (C-JAT) — KRTC",
+    initials: "SI",
+    color: "bg-pink-600",
+    email: "sadequlsaju@gmail.com",
+    phone: "+880 1751 432 185",
+    location: "Tongi, Gazipur, Bangladesh",
+    address: "Cherag Ali, Tongi, Gazipur, Bangladesh",
+    dateOfBirth: "08 August 1992",
+    type: "advisory-cjat",
+    priority: 1,
+    bio: `Md. Sadequl Islam is a pharmaceutical Quality Control specialist with seven years of professional experience across regulated manufacturing environments. He currently serves as Senior Executive-2, Quality Control at Healthcare Pharmaceuticals Limited, Rajendrapur — handling Laboratory Incident Reports (LIR), Out-of-Specification (OOS) investigations, deviations, and change control; preparing and reviewing method-transfer protocols and reports; designing QRM and URS for QC equipment; and overseeing specification, test method and SOP preparation alongside ALCOA⁺-aligned data integrity and audit-ready GLP practice.
+
+He holds an MSc Engg and a BSc Engg in Applied Chemistry and Chemical Engineering from the University of Rajshahi (CGPA 3.47 and 3.25 out of 4.00), with his MSc thesis on "Production of Soybean Methyl Ester and Its Engine Performance Test" (supervisor: Dr. Md. Anwarul Karim) and his undergraduate project on fuel-cell technology (supervisor: Dr. C. M. Mustafa). His earlier career — as Senior Officer, QC at Healthcare Pharmaceuticals Limited and prior to that as Executive, QC at Popular Pharmaceuticals Limited (Tongi Industrial Area) — spans hands-on operation of HPLC, GC, AAS, UV-Vis, FTIR, dissolution tester, Karl Fischer apparatus, autotitrator and disintegration tester, alongside SOP preparation, working-standard documentation, calibration, and laboratory investigation. He has also completed specialised training on Industrial Process Unit Operation and Process Control Technique at the Training Institute for Chemical Industries (TICI), Polash, Norshingdi.
+
+As **Head of the Co-Joint Advisory Team (C-JAT)** at the Kekuleon Research and Training Center (KRTC), Md. Sadequl Islam leads the body responsible for the research, development, and institutional-modelling dimensions of KRTC's mission. He convenes C-JAT discussions, sets the team's collective advisory direction, coordinates with the Founder & Chairman and the Joint Advisory Team (JAT), and ensures that KRTC's research projects, applied training programmes, and laboratory practices are aligned with internationally benchmarked pharmaceutical-industry standards and broader societal development objectives.`,
+    education: [
+      {
+        degree:
+          "MSc in Engineering (M.Sc. Engg.) — Applied Chemistry and Chemical Engineering",
+        institution: "University of Rajshahi",
+        year: "2015 (1.5 Years)",
+        grade: "CGPA 3.47 / 4.00",
+      },
+      {
+        degree:
+          "BSc in Engineering (B.Sc. Engg.) — Applied Chemistry and Chemical Engineering",
+        institution: "University of Rajshahi",
+        year: "2014 (4 Years)",
+        grade: "CGPA 3.25 / 4.00",
+      },
+      {
+        degree: "Higher Secondary Certificate (HSC) — Science",
+        institution: "Kaunia Degree College, Rangpur (Dinajpur Board)",
+        year: "2010",
+        grade: "GPA 4.80 / 5.00",
+      },
+      {
+        degree: "Secondary School Certificate (SSC) — Science",
+        institution: "Bhayer Hat High School, Kaunia, Rangpur (Rajshahi Board)",
+        year: "2008",
+        grade: "GPA 4.69 / 5.00",
+      },
+      {
+        degree:
+          "Training on Industrial Process Unit Operation and Process Control Technique",
+        institution:
+          "Training Institute for Chemical Industries (TICI), Polash, Norshingdi-1611",
+        year: "2014 (1 Month)",
+      },
+    ],
+    experience: [
+      {
+        role: "Head, Co-Joint Advisory Team (C-JAT)",
+        org: "Kekuleon Research and Training Center (KRTC)",
+        period: "2025 - Present",
+        description:
+          "Leads the Co-Joint Advisory Team — convening advisory discussions on research direction, institutional modelling, and applied-science programme design; coordinates with the Founder & Chairman and the Joint Advisory Team to align KRTC's research and training activities with internationally benchmarked pharmaceutical and applied-chemistry standards.",
+      },
+      {
+        role: "Senior Executive-2, Quality Control",
+        org: "Healthcare Pharmaceuticals Limited, Rajendrapur, Gazipur",
+        period: "January 2024 - Present",
+        description:
+          "Handles LIR, OOS, deviations and change control; prepares and reviews method-transfer protocols and reports; designs QRM and URS for QC equipment in line with regulatory guidelines; prepares and reviews specifications, test methods and SOPs for the QC laboratory; ensures ALCOA⁺-aligned data integrity and audit-ready GLP practice.",
+      },
+      {
+        role: "Senior Officer, Quality Control",
+        org: "Healthcare Pharmaceuticals Limited, Rajendrapur, Gazipur",
+        period: "August 2022 - December 2023",
+        description:
+          "Sampling and analysis of raw materials, bulk products and finished products as per STP; operation of HPLC, GC, AAS, UV-Vis, FTIR, dissolution tester, Karl Fischer apparatus and disintegration tester; calibration of all QC instruments; URS preparation and comparative studies; QIR/OOS/deviation/change-control handling; specification, test method and SOP preparation.",
+      },
+      {
+        role: "Executive, Quality Control",
+        org: "Popular Pharmaceuticals Limited, Tongi Industrial Area, Gazipur",
+        period: "October 2018 - March 2022",
+        description:
+          "Analysis of raw materials, bulk products and finished products as per procedure; preparation and standardisation of working standards, volumetric solutions and test solutions; CRS monitoring and control; daily accuracy checks and equipment calibration; operation of HPLC, GC, AAS, UV-Vis, FTIR, dissolution tester, Karl Fischer apparatus, autotitrator and disintegration tester; OOS, deviation and laboratory investigation handling; SOP and method preparation.",
+      },
+    ],
+    research: [
+      {
+        title:
+          "Production of Soybean Methyl Ester and Its Engine Performance Test (MSc Thesis)",
+        supervisor: "Dr. Md. Anwarul Karim, Assistant Professor, ACCE, RU",
+        institution: "University of Rajshahi",
+        period: "MSc Engg",
+      },
+      {
+        title: "Project on Fuel Cell (BSc Project)",
+        supervisor: "Dr. C. M. Mustafa, Professor, ACCE, RU",
+        institution: "University of Rajshahi",
+        period: "BSc Engg",
+      },
+    ],
+    skills: [
+      "C-JAT Leadership & Advisory Programme Design",
+      "Pharmaceutical Quality Control",
+      "LIR, OOS, Deviation & Change Control Investigation",
+      "Method Transfer Protocol & Reporting",
+      "QRM & URS Preparation for QC Equipment",
+      "Specification, Test Method & SOP Authoring",
+      "Data Integrity (ALCOA⁺ Principles)",
+      "GLP Compliance & Audit Readiness",
+      "HPLC, GC, AAS, UV-Vis, FTIR Operation",
+      "Dissolution Tester, Karl Fischer, Autotitrator, Disintegration Tester",
+      "Working Standard, CRS Monitoring & Control",
+      "Volumetric & Test Solution Preparation",
+      "Instrument Calibration & Comparative Studies",
+      "Laboratory Investigation",
+      "Industrial Process Unit Operation & Process Control",
+    ],
+    languages: [
+      { language: "Bangla", level: "Native" },
+      { language: "English", level: "Fluent (Reading, Writing, Speaking)" },
+    ],
+    organizations: [
+      {
+        role: "Joint Secretary",
+        org: "Applied Chemistry & Chemical Engineering (ACCE) Group, University of Rajshahi",
+      },
+      {
+        role: "Member",
+        org: "Rajshahi University Higher Study Club (RUHSC)",
+      },
+      {
+        role: "Player",
+        org: "ACCE Department Football Team, University of Rajshahi",
+      },
+    ],
+    achievements: [
+      "Head, Co-Joint Advisory Team (C-JAT), Kekuleon Research and Training Center (KRTC)",
+      "Senior Executive-2, Quality Control, Healthcare Pharmaceuticals Limited",
+      "Seven years of pharmaceutical Quality Control experience",
+      "MSc Engg in Applied Chemistry and Chemical Engineering (CGPA 3.47), University of Rajshahi",
+      "BSc Engg in Applied Chemistry and Chemical Engineering (CGPA 3.25), University of Rajshahi",
+      "TICI-trained — Industrial Process Unit Operation and Process Control Technique",
+      "Joint Secretary, ACCE Group, University of Rajshahi",
+    ],
+  },
+
   "md-ashiqul-islam": {
     id: 21,
     slug: "md-ashiqul-islam",
@@ -1749,7 +1897,7 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
     address: "10/5, Ananda Nagar, Mirpur, 1216, Dhaka, Bangladesh",
     dateOfBirth: "31 December 1993",
     type: "advisory-cjat",
-    priority: 1,
+    priority: 2,
     bio: `Md Ashiqul Islam is an analytical chemist specialising in spectrometric and instrumental methods applied to food safety, water quality, and chemical manufacturing. He currently serves as an Executive in the Chemical Lab, C&P at SGS Bangladesh Limited, Dhaka, where he conducts physical and chemical testing of food and water using UV-Vis spectroscopy (APHA method), metal analysis by ICP-OES, crude protein testing by GAFTA method, and moisture, ash, energy, fat and carbohydrate assays.
 
 He holds a Bachelor of Science in Chemistry from the University of Dhaka and has completed specialised professional training on Chemical Analysis by Spectrometric Methods at the Training Institute for Chemical Industries (TICI), covering UV-Vis, AAS, ICP-OES and ICP-MS instrumentation. Prior industrial experience spans Transcom Beverages Ltd (Quality Control, 2022) and Kohinoor Chemical Company (KCCL) (Cosmetic Chemist, 2021–2022), giving him applied grounding in formulation development, stability testing, and compliance with manufacturing safety and regulatory protocols.
@@ -1841,7 +1989,7 @@ As a member of the Co-Joint Advisory Team (C-JAT) of the Kekuleon Research and T
     location: "Rajshahi, Bangladesh",
     address: "H-832, East Dharampur, Binodpur, Motihar, Rajshahi",
     type: "advisory-cjat",
-    priority: 2,
+    priority: 3,
     bio: `Md Parvez Hossain is a marketing, branding, and business-operations specialist with a multidisciplinary background spanning accounting, human resources, graphic design, and legal-business compliance. He holds an MBA and a BBA in Accounting and Information Systems from the University of Rajshahi, complemented by professional certification as a Graphics Designer from Creative IT Institute Limited.
 
 He currently serves as an Assistant Case Manager at Raju Law, where he handles EB-2 / EB-3 employment-based immigration cases, E-2 investment visas, change-of-status matters, and coordinates business and trademark registrations — liaising directly with clients, attorneys, and internal teams. Prior to this, he served as Head of Human Resources at Macroman Solution, leading talent acquisition, employee development, and organisational compliance. His earlier career spans extended graphic-design engagements with Macroman Solution and MCM Esports — building brand identities, logos, and multi-channel marketing collateral — alongside a content-writing role at Prime Fanatics, producing student-facing educational materials.
