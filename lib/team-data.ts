@@ -1826,6 +1826,127 @@ As a member of the Co-Joint Advisory Team (C-JAT) of the Kekuleon Research and T
     ],
   },
 
+  "md-parvez-hossain": {
+    id: 39,
+    slug: "md-parvez-hossain",
+    name: "Md Parvez Hossain",
+    nameBn: "মো. পারভেজ হোসেন",
+    title:
+      "Assistant Case Manager — Raju Law | Advisor, Marketing, Branding & Project Sustainability",
+    department: "Marketing, Branding & Project Sustainability",
+    initials: "PH",
+    color: "bg-cyan-600",
+    email: "hparvez13@gmail.com",
+    phone: "+880 1633 037 197",
+    location: "Rajshahi, Bangladesh",
+    address: "H-832, East Dharampur, Binodpur, Motihar, Rajshahi",
+    type: "advisory-cjat",
+    priority: 2,
+    bio: `Md Parvez Hossain is a marketing, branding, and business-operations specialist with a multidisciplinary background spanning accounting, human resources, graphic design, and legal-business compliance. He holds an MBA and a BBA in Accounting and Information Systems from the University of Rajshahi, complemented by professional certification as a Graphics Designer from Creative IT Institute Limited.
+
+He currently serves as an Assistant Case Manager at Raju Law, where he handles EB-2 / EB-3 employment-based immigration cases, E-2 investment visas, change-of-status matters, and coordinates business and trademark registrations — liaising directly with clients, attorneys, and internal teams. Prior to this, he served as Head of Human Resources at Macroman Solution, leading talent acquisition, employee development, and organisational compliance. His earlier career spans extended graphic-design engagements with Macroman Solution and MCM Esports — building brand identities, logos, and multi-channel marketing collateral — alongside a content-writing role at Prime Fanatics, producing student-facing educational materials.
+
+As a member of the Co-Joint Advisory Team (C-JAT) of the Kekuleon Research and Training Center (KRTC), he advises the Marketing, Branding & Project Sustainability function — contributing strategic input on KRTC's brand identity, communication design, project revenue and income-stream modelling, business and trademark compliance, and the long-term financial sustainability of KRTC's training, schooling, and applied-science programmes.`,
+    education: [
+      {
+        degree: "MBA in Accounting and Information Systems",
+        institution: "University of Rajshahi",
+        year: "2021 - 2022",
+      },
+      {
+        degree: "BBA in Accounting and Information Systems",
+        institution: "University of Rajshahi",
+        year: "2018 - 2021",
+      },
+      {
+        degree: "Professional Graphics Designer",
+        institution: "Creative IT Institute Limited",
+        year: "2016 - 2017",
+      },
+      {
+        degree: "Higher Secondary Certificate (HSC) — Business Studies",
+        institution: "Nazneen School and College",
+        year: "2016",
+      },
+      {
+        degree: "Secondary School Certificate (SSC) — Business Studies",
+        institution: "Nazneen School and College",
+        year: "2014",
+      },
+    ],
+    experience: [
+      {
+        role: "C-JAT Member — Advisor, Marketing, Branding & Project Sustainability",
+        org: "Kekuleon Research and Training Center (KRTC)",
+        period: "2025 - Present",
+        description:
+          "Advising on KRTC's marketing strategy, brand identity, project revenue and income-stream design, and the long-term financial sustainability of training, schooling, and applied-science programmes.",
+      },
+      {
+        role: "Assistant Case Manager",
+        org: "Raju Law",
+        period: "July 2024 - Present",
+        description:
+          "Manages EB-2 / EB-3 employment-based immigration visa cases, assists with E-2 investment visas and Change-of-Status matters, and coordinates business and trademark registrations.",
+      },
+      {
+        role: "Head of Human Resources",
+        org: "Macroman Solution",
+        period: "January 2023 - May 2024",
+        description:
+          "Oversaw all HR functions including talent acquisition, employee development, and compliance to support organisational growth.",
+      },
+      {
+        role: "Graphic Designer",
+        org: "Macroman Solution",
+        period: "December 2019 - May 2024",
+        description:
+          "Created visually compelling designs supporting the company's marketing and branding initiatives.",
+      },
+      {
+        role: "Graphic Designer",
+        org: "MCM Esports",
+        period: "April 2021 - April 2023",
+        description:
+          "Crafted brand-aligned graphics, logos, and promotional materials across digital and print media.",
+      },
+      {
+        role: "Content Writer",
+        org: "Prime Fanatics",
+        period: "September 2021 - March 2024",
+        description:
+          "Researched, wrote, and edited articles, guides, and study materials for student learning.",
+      },
+    ],
+    skills: [
+      "Marketing Strategy & Brand Identity",
+      "Logo Design & Visual Marketing Collateral",
+      "Digital & Print Media Creation",
+      "Project Revenue & Income-Stream Design",
+      "Financial & Income Sustainability Planning",
+      "Business & Trademark Registration",
+      "Legal Documentation & Petitions",
+      "U.S. Immigration Case Management (EB-2 / EB-3 / E-2)",
+      "Human Resources Operations",
+      "Talent Acquisition & Development",
+      "Client & Stakeholder Relations",
+      "Content Writing & Editorial",
+      "Regulatory Compliance",
+    ],
+    languages: [
+      { language: "Bangla", level: "Native" },
+      { language: "English", level: "Professional proficiency" },
+    ],
+    achievements: [
+      "MBA in Accounting and Information Systems, University of Rajshahi",
+      "Assistant Case Manager, Raju Law — US Immigration & Business Registration",
+      "Former Head of Human Resources, Macroman Solution",
+      "Multi-firm brand-identity and marketing-design portfolio (Macroman Solution, MCM Esports)",
+      "Professional Graphics Designer, Creative IT Institute Limited",
+      "C-JAT Member, Kekuleon Research and Training Center (KRTC) — Marketing, Branding & Project Sustainability",
+    ],
+  },
+
   "md-mohedul-islam": {
     id: 24,
     slug: "md-mohedul-islam",
