@@ -13,11 +13,15 @@ import {
   GraduationCap,
   CheckCircle2,
   ArrowDown,
+  ArrowRight,
+  ImageIcon,
   Mail,
 } from "lucide-react";
 import {
   getActiveSeminar,
+  hasPublishedRecap,
   isRegistrationStillOpen,
+  isSeminarPast,
 } from "@/lib/seminars-data";
 import SeminarRegistrationForm from "@/components/seminar/SeminarRegistrationForm";
 
@@ -46,6 +50,10 @@ function Section({
 export default function SeminarPage() {
   const seminar = getActiveSeminar();
   const registrationOpen = seminar ? isRegistrationStillOpen(seminar) : false;
+  // Show a "View recap" banner once the event date has passed AND a
+  // published recap exists. We deliberately gate on both — the date alone
+  // would lead to a banner pointing nowhere if the recap isn't ready yet.
+  const recapAvailable = !!seminar && isSeminarPast(seminar) && hasPublishedRecap(seminar);
 
   if (!seminar) {
     return (
@@ -68,8 +76,43 @@ export default function SeminarPage() {
 
   return (
     <>
+      {/* Post-event recap banner — appears only when the seminar date has
+          passed AND a published recap exists. Sits above the hero so it
+          catches the eye of returning visitors. */}
+      {recapAvailable && (
+        <div className="pt-28 pb-0 bg-white">
+          <div className="container-custom">
+            <Link
+              href={`/seminar/recap/${seminar.slug}`}
+              className="group flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-primary/20 bg-primary/5 px-5 py-4 transition-colors hover:border-primary/40 hover:bg-primary/10"
+            >
+              <div className="flex items-center gap-3">
+                <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <ImageIcon className="h-4 w-4" />
+                </span>
+                <div>
+                  <p className="text-sm font-semibold text-gray-900">
+                    This seminar was held on {seminar.date}.
+                  </p>
+                  <p className="text-xs text-gray-600">
+                    View photos, the recap article, and the team that made it
+                    happen.
+                  </p>
+                </div>
+              </div>
+              <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary">
+                View recap
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </span>
+            </Link>
+          </div>
+        </div>
+      )}
+
       {/* Hero */}
-      <section className="pt-36 pb-16 bg-white">
+      <section
+        className={recapAvailable ? "pt-8 pb-16 bg-white" : "pt-36 pb-16 bg-white"}
+      >
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

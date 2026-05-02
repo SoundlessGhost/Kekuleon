@@ -31,6 +31,59 @@ export interface SeminarFAQ {
   answer: string;
 }
 
+// =============================================
+// Post-event recap (added in Phase 2)
+// =============================================
+
+// A single image used in a recap section or in the gallery.
+// `src` is a path under /public (e.g. "/images/seminar/<slug>/01-hero.jpg").
+export interface RecapPhoto {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
+// One section of the recap page. Each section optionally has an image
+// followed by one or more paragraphs of body text. The `kind` lets the
+// recap page pick a sensible default heading and styling per section.
+export interface RecapSection {
+  kind:
+    | "opening"
+    | "guests"
+    | "activity"
+    | "two-sessions"
+    | "krtc-model"
+    | "team-northzone"
+    | "team-project"
+    | "closing"
+    | "custom";
+  heading?: string; // overrides the default heading for this kind
+  image?: RecapPhoto;
+  paragraphs: string[];
+}
+
+// A named guest or team member shown on the recap page.
+// `teamSlug` (when set) makes the name clickable to /team/<slug>.
+export interface RecapPerson {
+  name: string;
+  role: string;
+  teamSlug?: string;
+}
+
+// Full recap block for one seminar. Optional on `Seminar` — only present
+// once we have photos and copy ready to publish.
+export interface SeminarRecap {
+  isPublished: boolean;
+  publishedDate?: string; // human-readable, e.g. "1 May 2026"
+  publishedDateISO?: string; // for <time>, e.g. "2026-05-01"
+  intro: string; // short blurb under the recap hero
+  heroImage: RecapPhoto; // also used as the OpenGraph preview
+  sections: RecapSection[];
+  distinguishedGuests: RecapPerson[];
+  organisingTeam: RecapPerson[];
+  gallery: RecapPhoto[];
+}
+
 export interface Seminar {
   slug: string;
   title: string;
@@ -62,6 +115,10 @@ export interface Seminar {
   capacity?: number;
   fee?: string; // e.g. "Free" or "BDT 500"
   certificateNote?: string;
+  // Optional post-event recap. When present and `recap.isPublished` is true,
+  // the recap page at /seminar/recap/<slug> renders + the /seminar page shows
+  // a "View recap" banner. See PHASE 2 in the plan file for the wider design.
+  recap?: SeminarRecap;
 }
 
 // Universities for the North Zone (source of truth: lib/team-data.ts).
@@ -190,6 +247,239 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
     fee: "Free",
     certificateNote:
       "A KRTC-signed Certificate of Participation will be emailed to every attendee within 7–10 days after the event.",
+    // Post-event recap. Photo files live on Cloudinary (cloud name:
+    // `dohbigfue`) — the client uploads them with the agreed filenames
+    // (01-hero-group.jpg, 02-opening-zakaria.jpg, ..., 09-closing-qa.jpg
+    // for the section photos; gallery-01.jpg through gallery-10.jpg for
+    // the gallery). Cloudinary's "asset folders" mode keeps the delivery
+    // URL flat regardless of which folder the asset is organised under
+    // in the Media Library, so the URLs below are predictable from
+    // filename alone.
+    recap: {
+      isPublished: true,
+      publishedDate: "1 May 2026",
+      publishedDateISO: "2026-05-01",
+      intro:
+        "KRTC's first volunteer-organised academic seminar on applied science education was held at Begum Rokeya University, Rangpur — bringing together teachers, students, distinguished academic guests, and KRTC's North Zone team for an open conversation on bridging the theory–practice gap in Bangladeshi science education.",
+      heroImage: {
+        src: "https://res.cloudinary.com/dohbigfue/image/upload/01-hero-group.jpg",
+        alt: "Group photo of guests, teachers, KRTC team, and students at the Rangpur seminar",
+        caption:
+          "KRTC's first academic seminar on bridging the theory–practice gap in science education",
+      },
+      sections: [
+        {
+          kind: "opening",
+          heading: "About the seminar",
+          image: {
+            src: "https://res.cloudinary.com/dohbigfue/image/upload/02-opening-zakaria.jpg",
+            alt: "Md. Zakaria Hossain presenting KRTC's integrated institutional model",
+            caption:
+              "Md. Zakaria Hossain presenting KRTC's integrated institutional model",
+          },
+          paragraphs: [
+            'Kekuleon Research and Training Center (KRTC) organised its first academic seminar on applied science education, titled "Bridging the Theory–Practice Gap in Science Education in Bangladesh." The seminar focused on problem-based learning, laboratory-oriented training, research exposure, and integrated institutional support for developing students\' practical scientific competence.',
+            "The seminar was held at Begum Rokeya University, Rangpur, as part of KRTC's North Zone academic outreach. The programme aimed to connect theory with laboratory learning, research practice, and industry-relevant scientific work for North Zone students.",
+            "The seminar was coordinated by Md. Zakaria Hossain, Founder and Chairman of KRTC and MSc Chemistry candidate at the University of Siegen, Germany. The initiative was guided by Dr. Dilip Kumar Sarkar and Dr. Shah Md. Shahan Shahriar, Associate Professors in the Department of Applied Chemistry and Chemical Engineering, University of Rajshahi.",
+          ],
+        },
+        {
+          kind: "guests",
+          heading: "Distinguished academic guests",
+          image: {
+            src: "https://res.cloudinary.com/dohbigfue/image/upload/03-guests.jpg",
+            alt: "Distinguished academic guests seated and speaking at the seminar",
+            caption:
+              "Academic guests supported the KRTC initiative and appreciated its integrated approach",
+          },
+          paragraphs: [
+            "The honourable guests and participating teachers expressed clear support for the KRTC initiative and appreciated its integrated institutional model. They noted that, alongside academic and institutional support, students need this kind of coordinated platform to gain access to practical scientific competence, guided research exposure, laboratory-oriented learning, and applied STEM skills. They also recognised that theory-based education alone cannot fully prepare students for research, applied scientific careers, higher education mobility, or development-focused technical work.",
+          ],
+        },
+        {
+          kind: "activity",
+          heading: "From classroom to laboratory",
+          image: {
+            src: "https://res.cloudinary.com/dohbigfue/image/upload/04-activity.jpg",
+            alt: "Students and teachers during the seminar session",
+            caption:
+              "Participants discussed practical scientific competence, research exposure, and applied STEM training",
+          },
+          paragraphs: [
+            "The seminar addressed several structural challenges in science education in Bangladesh. These included limited laboratory exposure, weak connection between theoretical learning and real-life application, insufficient undergraduate research opportunities, limited scientific mentoring, and barriers to higher education and research careers. KRTC's presentation identified these issues as part of a wider theory–practice gap in science education.",
+          ],
+        },
+        {
+          kind: "two-sessions",
+          heading: "Two sessions, one conversation",
+          image: {
+            src: "https://res.cloudinary.com/dohbigfue/image/upload/05-two-sessions.jpg",
+            alt: "Audience attending the seminar across both sessions",
+            caption:
+              "The seminar was arranged in two sessions due to limited space and strong student interest",
+          },
+          paragraphs: [
+            "Teachers, students, researchers, distinguished academic guests, and KRTC team members joined the programme. Due to strong participation interest and limited space, the seminar was conducted in two separate sessions. The discussion created an academic platform for examining how Bangladesh's science education system can better connect classroom knowledge with practical training, research methods, technical skill development, and development-oriented scientific work.",
+          ],
+        },
+        {
+          kind: "krtc-model",
+          heading: "KRTC's integrated institutional model",
+          image: {
+            src: "https://res.cloudinary.com/dohbigfue/image/upload/06-krtc-model.jpg",
+            alt: "Slide showing KRTC's integrated institutional model",
+            caption:
+              "KRTC's model connects academic learning, laboratory practice, research engagement, and capacity development",
+          },
+          paragraphs: [
+            "As a possible institutional response, KRTC presented its integrated institutional model for applied STEM education in developing-country contexts, with special relevance to Bangladesh. The model connects academic learning, laboratory-based practice, research engagement, institutional mentoring, capacity development, and community-oriented scientific activities — a decentralised and integrated approach designed to address the gap between theoretical education and practical scientific competence.",
+            "The guests also appreciated KRTC's broader capacity-building initiative. They recognised the value of connecting students, teachers, researchers, professionals, regional academic teams, and community-based activities within one institutional structure — linking academic preparation, applied and laboratory-based learning, research exposure, industry-relevant training, and community engagement.",
+          ],
+        },
+        {
+          kind: "team-northzone",
+          heading: "KRTC North Zone team",
+          image: {
+            src: "https://res.cloudinary.com/dohbigfue/image/upload/07-northzone-team.jpg",
+            alt: "KRTC North Zone team supporting regional academic coordination",
+            caption:
+              "KRTC North Zone team supporting regional academic coordination",
+          },
+          paragraphs: [
+            "KRTC's regional academic network was also represented through its Rangpur / North Zone team, with Md. Mahmudul Hasan Abir Mia serving as North Zone Advisor at Begum Rokeya University, Rangpur. The Rangpur team supported the seminar's local coordination and student engagement throughout the day.",
+          ],
+        },
+        {
+          kind: "team-project",
+          heading: "Project support team",
+          image: {
+            src: "https://res.cloudinary.com/dohbigfue/image/upload/08-project-team.jpg",
+            alt: "Project and advisory team members at the seminar",
+            caption:
+              "Project-support team contributing to institutional development and capacity building",
+          },
+          paragraphs: [
+            "The organising and project-support team included Nazmul Haque Mitun, Strategic Partner and Department Instructor; Md. Omar Faruque, Advisor — Sustainability and Income; Md. Abdul Mojid, Managing Director, KRTC; and Mokter Hossain, Project Lawyer. Their involvement reflected the multidisciplinary support structure behind KRTC's applied science education, institutional development, and capacity-building work.",
+          ],
+        },
+        {
+          kind: "closing",
+          heading: "Open academic dialogue",
+          image: {
+            src: "https://res.cloudinary.com/dohbigfue/image/upload/09-closing-qa.jpg",
+            alt: "Open Q&A and discussion with students, teachers, and KRTC representatives",
+            caption:
+              "Open academic dialogue with students, teachers, and KRTC representatives",
+          },
+          paragraphs: [
+            "At the same time, the discussion remained academically balanced. Participants noted that this type of model should develop through long-term planning, quality control, pilot training, student feedback, research-based assessment, and cooperation with universities, development organisations, research institutions, industry professionals, and policy-focused bodies. They recommended that KRTC continue this initiative through regular seminars, teacher engagement, curriculum dialogue, student training, regional coordination, and institutional collaboration.",
+            "The seminar also highlighted KRTC's planned pathways for secondary-level students, undergraduate and master's applicants, PhD candidates, recent graduates, and professionals. The proposed activities include merit-based scholarship opportunities, affordable training, support for disadvantaged students, laboratory skill development, environmental awareness, student volunteer programmes, and community healthcare outreach.",
+            "Through this first seminar, KRTC opened an academic discussion on how decentralised and integrated training institutions can support applied science education in Bangladesh. The event concluded with a call for collaboration among universities, development organisations, academic scholars, industry professionals, and policy-focused institutions to strengthen practical science education, research culture, and technical capacity in the country.",
+          ],
+        },
+      ],
+      distinguishedGuests: [
+        {
+          name: "Professor Dr. Md. Showkat Ali",
+          role: "Vice Chancellor, Begum Rokeya University, Rangpur",
+        },
+        {
+          name: "Dr. Abu Reza Md. Towfiqul Islam",
+          role: "Professor, Department of Disaster Science and Management, BRUR",
+        },
+        {
+          name: "Dr. Md. Abdul Latif",
+          role: "Associate Professor, Department of Chemistry, BRUR",
+        },
+        {
+          name: "Md. Mostafizur Rahman",
+          role: "Associate Professor, Department of Geography and Environmental Science, BRUR",
+        },
+      ],
+      organisingTeam: [
+        {
+          name: "Md. Zakaria Hossain",
+          role: "Founder & Chairman, KRTC — Coordinator",
+          teamSlug: "zakaria-hossain",
+        },
+        {
+          name: "Dr. Dilip Kumar Sarkar",
+          role: "Associate Professor, ACCE, University of Rajshahi — Guide",
+          teamSlug: "dilip-kumar-sarkar",
+        },
+        {
+          name: "Dr. Shah Md. Shahan Shahriar",
+          role: "Associate Professor, ACCE, University of Rajshahi — Guide",
+          teamSlug: "sha-md-shahan-shahriar",
+        },
+        {
+          name: "Md. Mahmudul Hasan Abir Mia",
+          role: "North Zone Advisor, Begum Rokeya University, Rangpur",
+          teamSlug: "mahmudul-hasan-abir",
+        },
+        {
+          name: "Nazmul Haque Mitun",
+          role: "Strategic Partner & Department Instructor",
+          teamSlug: "nazmul-haque-mitun",
+        },
+        {
+          name: "Md. Omar Faruque",
+          role: "Advisor — Sustainability and Income",
+          teamSlug: "omar-faruque",
+        },
+        {
+          name: "Md. Abdul Mojid",
+          role: "Managing Director, KRTC",
+          teamSlug: "md-abdul-mojid",
+        },
+        {
+          name: "Mokter Hossain",
+          role: "Project Lawyer",
+        },
+      ],
+      gallery: [
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/gallery-01.jpg",
+          alt: "Seminar moment — presentation",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/gallery-02.jpg",
+          alt: "Seminar moment — discussion",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/gallery-03.jpg",
+          alt: "Seminar moment — guests",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/gallery-04.jpg",
+          alt: "Seminar moment — students",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/gallery-05.jpg",
+          alt: "Seminar moment — KRTC team",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/gallery-06.jpg",
+          alt: "Seminar moment — engagement",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/gallery-07.jpg",
+          alt: "Seminar moment — audience",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/gallery-08.jpg",
+          alt: "Seminar moment — Q&A",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/gallery-09.jpg",
+          alt: "Seminar moment — closing remarks",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/gallery-10.jpg",
+          alt: "Seminar moment — group photo",
+        },
+      ],
+    },
   },
 ];
 
@@ -214,3 +504,17 @@ export const isRegistrationStillOpen = (seminar: Seminar): boolean => {
   }
   return true;
 };
+
+// True once the seminar's calendar date has passed. Used by the /seminar
+// page to decide whether to surface a "View recap" banner instead of the
+// pre-event UI. Falls back to `false` if `dateISO` is malformed.
+export const isSeminarPast = (seminar: Seminar): boolean => {
+  const t = new Date(seminar.dateISO).getTime();
+  if (Number.isNaN(t)) return false;
+  return Date.now() > t;
+};
+
+// Convenience predicate — both "has a recap block" and "marked published".
+// Pre-event seminars never satisfy this; recaps in draft state don't either.
+export const hasPublishedRecap = (seminar: Seminar): boolean =>
+  !!(seminar.recap && seminar.recap.isPublished);
