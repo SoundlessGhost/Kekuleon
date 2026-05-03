@@ -115,6 +115,12 @@ export interface Seminar {
   capacity?: number;
   fee?: string; // e.g. "Free" or "BDT 500"
   certificateNote?: string;
+  // Optional pre-event survey link (e.g. a Google Form). When set, the
+  // per-seminar page surfaces it in two places: a thin banner above the
+  // hero, and an info card right above the registration form. Always
+  // optional for the registrant — it's a "we'd also love your input"
+  // nudge, not a gate.
+  surveyUrl?: string;
   // Optional post-event recap. When present and `recap.isPublished` is true,
   // the recap page at /seminar/recap/<slug> renders + the /seminar page shows
   // a "View recap" banner. See PHASE 2 in the plan file for the wider design.
@@ -134,6 +140,10 @@ export const NORTH_ZONE_UNIVERSITIES: SeminarUniversityOption[] = [
   },
   { code: "BSTU", name: "Bogura Science & Technology University" },
   { code: "PUST", name: "Pabna University of Science & Technology" },
+  // MBSTU is technically Central Zone (Tangail), but per the user's
+  // decision in Phase 3 we keep a single shared audience list across
+  // all KRTC seminars rather than splitting by zone for now.
+  { code: "MBSTU", name: "Maulana Bhasani Science & Technology University" },
   { code: "OTHER", name: "Other NU-affiliated college (North Zone)" },
 ];
 
@@ -481,14 +491,387 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
       ],
     },
   },
+
+  // ==========================================================
+  // KRTC Bridging Theory–Practice — Rajshahi (May 2026)
+  // ==========================================================
+  // Venue confirmed: TSCC, University of Rajshahi.
+  // Time/date confirmed by client over WhatsApp on 2 May 2026.
+  // Registration auto-closes on 6 May 2026 at 11:59 PM BST.
+  {
+    slug: "rajshahi",
+    title:
+      "Bridging the Theory and Practice Gap in Science Education in Bangladesh — Rajshahi",
+    tagline:
+      "A KRTC volunteer-led seminar at the University of Rajshahi — connecting theory to laboratory, research, and industry practice.",
+    description: `This seminar is part of KRTC's volunteer-led outreach to bring the conversation about practical, applied science education directly to students at the University of Rajshahi and surrounding North Zone universities. Participants will hear from researchers, industry professionals, and KRTC's University Coordinators on how to move from textbook understanding to laboratory competence, scholarly research, and industry-ready scientific work.
+
+A certificate of participation, signed by KRTC leadership, will be issued to every attendee after the event.`,
+    date: "Friday, 8 May 2026",
+    dateISO: "2026-05-08",
+    time: "3:30 PM – 5:30 PM (BST)",
+    venue:
+      "Shahid Shukhranjan Samddar Students Teachers Cultural Center (TSCC), University of Rajshahi",
+    venueAddress: "University of Rajshahi, Rajshahi-6205, Bangladesh",
+    targetZone: "north",
+    audienceUniversities: NORTH_ZONE_UNIVERSITIES,
+    audienceNote:
+      "Open to undergraduate and postgraduate students from the University of Rajshahi and surrounding North Zone universities, including affiliated National University colleges.",
+    agenda: [
+      {
+        time: "Session 1",
+        title: "Why theory alone is not enough",
+        description:
+          "Framing the gap between conceptual learning and laboratory / industry-ready scientific competence in Bangladesh.",
+      },
+      {
+        time: "Session 2",
+        title: "From classroom to laboratory",
+        description:
+          "Practical pathways into hands-on research, instrumentation training, and applied projects.",
+      },
+      {
+        time: "Session 3",
+        title: "Research, scholarships & global pathways",
+        description:
+          "How undergraduates from North Zone universities can prepare for graduate research, scholarships, and international academic mobility.",
+      },
+      {
+        time: "Session 4",
+        title: "Q&A + KRTC University Coordinator network",
+        description:
+          "Open discussion with KRTC's University Coordinators and Advisor — how to stay connected after the seminar.",
+      },
+    ],
+    speakers: [
+      {
+        name: "Md Zakaria Hossain",
+        role: "Founder & Chairman, KRTC",
+        affiliation: "MSc Chemistry Candidate, University of Siegen",
+      },
+      {
+        name: "Md. Mahmudul Hasan Abir Mia",
+        role: "North Zone Advisor",
+        affiliation: "Begum Rokeya University, Rangpur",
+      },
+    ],
+    whatYoullGet: [
+      {
+        title: "Certificate of Participation",
+        description:
+          "A KRTC-signed certificate is issued to every attendee after the event, useful for academic and professional portfolios.",
+      },
+      {
+        title: "Direct connection to KRTC's University Coordinator network",
+        description:
+          "Meet KRTC's Coordinators and Advisor — your local point of contact for future trainings, research, and opportunities.",
+      },
+      {
+        title: "Practical guidance on the next step",
+        description:
+          "Concrete pointers on labs, research methods, scholarships, and industry pathways relevant to your field of study.",
+      },
+    ],
+    faq: [
+      {
+        question: "Who can register for this seminar?",
+        answer:
+          "Currently undergraduate and postgraduate students of the University of Rajshahi and surrounding North Zone universities — RU, BRUR, HSTU, BSTU, PUST, MBSTU, and affiliated National University colleges in Rajshahi & Rangpur Divisions.",
+      },
+      {
+        question: "Is there any registration fee?",
+        answer:
+          "No. This seminar is free for all eligible students. Seats are limited, so registration confirms your spot.",
+      },
+      {
+        question: "Will I receive a certificate?",
+        answer:
+          "Yes. A KRTC-signed Certificate of Participation will be emailed to every attendee after the event. Attendance is verified at the venue.",
+      },
+      {
+        question: "What if my university is not in the dropdown?",
+        answer:
+          "Choose 'Other NU-affiliated college (North Zone)' if you're from an affiliated college in the surrounding region. If you're from a different zone, please wait — KRTC will host seminars in your region soon.",
+      },
+      {
+        question: "How will I know the final schedule and directions?",
+        answer:
+          "Date and venue are confirmed: Friday, 8 May 2026, 3:30 PM – 5:30 PM, Shahid Shukhranjan Samddar Students Teachers Cultural Center (TSCC), University of Rajshahi. After registering you will receive a confirmation email with the on-campus location and any last-minute updates.",
+      },
+    ],
+    registrationOpen: true,
+    // 6 May 2026, 11:59 PM BST (UTC+6) → 6 May 2026, 17:59 UTC.
+    registrationCloseAt: "2026-05-06T17:59:00.000Z",
+    registrationDeadline: "6 May 2026 (11:59 PM BST)",
+    fee: "Free",
+    certificateNote:
+      "A KRTC-signed Certificate of Participation will be emailed to every attendee within 7–10 days after the event.",
+    surveyUrl: "https://forms.gle/2Kyx9JXhqrtXYYYy5",
+  },
+
+  // ==========================================================
+  // KRTC Bridging Theory–Practice — Pabna (May 2026)
+  // ==========================================================
+  // Venue pending — placeholder text shown until confirmed.
+  // Date is a working placeholder (Friday after Rajshahi); confirm with
+  // client and edit `date`/`dateISO` + `registrationCloseAt`/`-Deadline`.
+  {
+    slug: "pabna",
+    title:
+      "Bridging the Theory and Practice Gap in Science Education in Bangladesh — Pabna",
+    tagline:
+      "A KRTC volunteer-led seminar in Pabna — connecting theory to laboratory, research, and industry practice for PUST and surrounding students.",
+    description: `This seminar is part of KRTC's volunteer-led outreach to bring the conversation about practical, applied science education directly to students at Pabna University of Science & Technology and surrounding universities. Participants will hear from researchers, industry professionals, and KRTC's University Coordinators on how to move from textbook understanding to laboratory competence, scholarly research, and industry-ready scientific work.
+
+A certificate of participation, signed by KRTC leadership, will be issued to every attendee after the event.`,
+    date: "Thursday, 7 May 2026",
+    dateISO: "2026-05-07",
+    time: "3:30 PM – 5:30 PM (BST)",
+    venue: "To be announced — Pabna",
+    targetZone: "north",
+    audienceUniversities: NORTH_ZONE_UNIVERSITIES,
+    audienceNote:
+      "Open to undergraduate and postgraduate students from Pabna University of Science & Technology (PUST) and surrounding North Zone universities, including affiliated National University colleges.",
+    agenda: [
+      {
+        time: "Session 1",
+        title: "Why theory alone is not enough",
+        description:
+          "Framing the gap between conceptual learning and laboratory / industry-ready scientific competence in Bangladesh.",
+      },
+      {
+        time: "Session 2",
+        title: "From classroom to laboratory",
+        description:
+          "Practical pathways into hands-on research, instrumentation training, and applied projects.",
+      },
+      {
+        time: "Session 3",
+        title: "Research, scholarships & global pathways",
+        description:
+          "How undergraduates from North Zone universities can prepare for graduate research, scholarships, and international academic mobility.",
+      },
+      {
+        time: "Session 4",
+        title: "Q&A + KRTC University Coordinator network",
+        description:
+          "Open discussion with KRTC's University Coordinators and Advisor — how to stay connected after the seminar.",
+      },
+    ],
+    speakers: [
+      {
+        name: "Md Zakaria Hossain",
+        role: "Founder & Chairman, KRTC",
+        affiliation: "MSc Chemistry Candidate, University of Siegen",
+      },
+      {
+        name: "Md. Mahmudul Hasan Abir Mia",
+        role: "North Zone Advisor",
+        affiliation: "Begum Rokeya University, Rangpur",
+      },
+    ],
+    whatYoullGet: [
+      {
+        title: "Certificate of Participation",
+        description:
+          "A KRTC-signed certificate is issued to every attendee after the event, useful for academic and professional portfolios.",
+      },
+      {
+        title: "Direct connection to KRTC's University Coordinator network",
+        description:
+          "Meet KRTC's Coordinators and Advisor — your local point of contact for future trainings, research, and opportunities.",
+      },
+      {
+        title: "Practical guidance on the next step",
+        description:
+          "Concrete pointers on labs, research methods, scholarships, and industry pathways relevant to your field of study.",
+      },
+    ],
+    faq: [
+      {
+        question: "Who can register for this seminar?",
+        answer:
+          "Currently undergraduate and postgraduate students of Pabna University of Science & Technology and surrounding North Zone universities — PUST, RU, BRUR, HSTU, BSTU, MBSTU, and affiliated National University colleges in Rajshahi & Rangpur Divisions.",
+      },
+      {
+        question: "Is there any registration fee?",
+        answer:
+          "No. This seminar is free for all eligible students. Seats are limited, so registration confirms your spot.",
+      },
+      {
+        question: "Will I receive a certificate?",
+        answer:
+          "Yes. A KRTC-signed Certificate of Participation will be emailed to every attendee after the event. Attendance is verified at the venue.",
+      },
+      {
+        question: "What if my university is not in the dropdown?",
+        answer:
+          "Choose 'Other NU-affiliated college (North Zone)' if you're from an affiliated college in the surrounding region. If you're from a different zone, please wait — KRTC will host seminars in your region soon.",
+      },
+      {
+        question: "How will I know the final schedule and directions?",
+        answer:
+          "Date is confirmed: Thursday, 7 May 2026, 3:30 PM – 5:30 PM. Venue will be announced shortly — registered participants will be the first to know by email as soon as it is confirmed.",
+      },
+    ],
+    registrationOpen: true,
+    // 6 May 2026, 11:59 PM BST → 6 May 2026, 17:59 UTC. Pabna is the
+    // earliest of the three May seminars (7 May), so its registration
+    // closes the day before.
+    registrationCloseAt: "2026-05-06T17:59:00.000Z",
+    registrationDeadline: "6 May 2026 (11:59 PM BST)",
+    fee: "Free",
+    certificateNote:
+      "A KRTC-signed Certificate of Participation will be emailed to every attendee within 7–10 days after the event.",
+    surveyUrl: "https://forms.gle/2Kyx9JXhqrtXYYYy5",
+  },
+
+  // ==========================================================
+  // KRTC Bridging Theory–Practice — MBSTU (May 2026)
+  // ==========================================================
+  // Venue pending — placeholder text shown until confirmed.
+  // Date placeholder (Saturday after Pabna); confirm with client.
+  {
+    slug: "mbstu",
+    title:
+      "Bridging the Theory and Practice Gap in Science Education in Bangladesh — MBSTU",
+    tagline:
+      "A KRTC volunteer-led seminar at Maulana Bhasani Science & Technology University — connecting theory to laboratory, research, and industry practice.",
+    description: `This seminar is part of KRTC's volunteer-led outreach to bring the conversation about practical, applied science education directly to students at Maulana Bhasani Science & Technology University and surrounding universities. Participants will hear from researchers, industry professionals, and KRTC's University Coordinators on how to move from textbook understanding to laboratory competence, scholarly research, and industry-ready scientific work.
+
+A certificate of participation, signed by KRTC leadership, will be issued to every attendee after the event.`,
+    date: "Saturday, 9 May 2026",
+    dateISO: "2026-05-09",
+    time: "3:30 PM – 5:30 PM (BST)",
+    venue:
+      "To be announced — Maulana Bhasani Science & Technology University, Tangail",
+    targetZone: "north",
+    audienceUniversities: NORTH_ZONE_UNIVERSITIES,
+    audienceNote:
+      "Open to undergraduate and postgraduate students from Maulana Bhasani Science & Technology University (MBSTU) and surrounding universities, including affiliated National University colleges.",
+    agenda: [
+      {
+        time: "Session 1",
+        title: "Why theory alone is not enough",
+        description:
+          "Framing the gap between conceptual learning and laboratory / industry-ready scientific competence in Bangladesh.",
+      },
+      {
+        time: "Session 2",
+        title: "From classroom to laboratory",
+        description:
+          "Practical pathways into hands-on research, instrumentation training, and applied projects.",
+      },
+      {
+        time: "Session 3",
+        title: "Research, scholarships & global pathways",
+        description:
+          "How undergraduates can prepare for graduate research, scholarships, and international academic mobility.",
+      },
+      {
+        time: "Session 4",
+        title: "Q&A + KRTC University Coordinator network",
+        description:
+          "Open discussion with KRTC's University Coordinators and Advisor — how to stay connected after the seminar.",
+      },
+    ],
+    speakers: [
+      {
+        name: "Md Zakaria Hossain",
+        role: "Founder & Chairman, KRTC",
+        affiliation: "MSc Chemistry Candidate, University of Siegen",
+      },
+      {
+        name: "Md. Mahmudul Hasan Abir Mia",
+        role: "North Zone Advisor",
+        affiliation: "Begum Rokeya University, Rangpur",
+      },
+    ],
+    whatYoullGet: [
+      {
+        title: "Certificate of Participation",
+        description:
+          "A KRTC-signed certificate is issued to every attendee after the event, useful for academic and professional portfolios.",
+      },
+      {
+        title: "Direct connection to KRTC's University Coordinator network",
+        description:
+          "Meet KRTC's Coordinators and Advisor — your local point of contact for future trainings, research, and opportunities.",
+      },
+      {
+        title: "Practical guidance on the next step",
+        description:
+          "Concrete pointers on labs, research methods, scholarships, and industry pathways relevant to your field of study.",
+      },
+    ],
+    faq: [
+      {
+        question: "Who can register for this seminar?",
+        answer:
+          "Currently undergraduate and postgraduate students of MBSTU and surrounding universities — MBSTU, RU, BRUR, HSTU, BSTU, PUST, and affiliated National University colleges.",
+      },
+      {
+        question: "Is there any registration fee?",
+        answer:
+          "No. This seminar is free for all eligible students. Seats are limited, so registration confirms your spot.",
+      },
+      {
+        question: "Will I receive a certificate?",
+        answer:
+          "Yes. A KRTC-signed Certificate of Participation will be emailed to every attendee after the event. Attendance is verified at the venue.",
+      },
+      {
+        question: "What if my university is not in the dropdown?",
+        answer:
+          "Choose 'Other NU-affiliated college (North Zone)' if you're from an affiliated college. If you're from a different zone entirely, please wait — KRTC will host seminars in your region soon.",
+      },
+      {
+        question: "How will I know the final schedule and directions?",
+        answer:
+          "Date is confirmed: Saturday, 9 May 2026, 3:30 PM – 5:30 PM. Venue will be announced shortly — registered participants will be the first to know by email as soon as it is confirmed.",
+      },
+    ],
+    registrationOpen: true,
+    // 8 May 2026, 11:59 PM BST → 8 May 2026, 17:59 UTC.
+    registrationCloseAt: "2026-05-08T17:59:00.000Z",
+    registrationDeadline: "8 May 2026 (11:59 PM BST)",
+    fee: "Free",
+    certificateNote:
+      "A KRTC-signed Certificate of Participation will be emailed to every attendee within 7–10 days after the event.",
+    surveyUrl: "https://forms.gle/2Kyx9JXhqrtXYYYy5",
+  },
 ];
 
 // Helpers
 export const getSeminarBySlug = (slug: string): Seminar | null =>
   seminars.find((s) => s.slug === slug) || null;
 
+// Returns the first seminar that is *currently* taking registrations
+// (combines the manual `registrationOpen` flag with the auto-close
+// timestamp). Falls back to the first seminar in the array if none is
+// active, which keeps callers like the old single-seminar page from
+// crashing during the empty-state. Mostly superseded by the hub page
+// + per-seminar pages introduced in PHASE 3, but retained as a utility.
 export const getActiveSeminar = (): Seminar | null =>
-  seminars.find((s) => s.registrationOpen) || seminars[0] || null;
+  seminars.find(isRegistrationStillOpen) || seminars[0] || null;
+
+// All seminars where someone can register right now, sorted soonest-first.
+// Used by the hub page to render the "upcoming" cards.
+export const getUpcomingSeminars = (): Seminar[] =>
+  seminars
+    .filter(isRegistrationStillOpen)
+    .sort(
+      (a, b) => new Date(a.dateISO).getTime() - new Date(b.dateISO).getTime(),
+    );
+
+// All seminars whose date has passed AND that have a published recap.
+// Used by the hub page to render the "past — view recap" cards.
+export const getPastSeminarsWithRecap = (): Seminar[] =>
+  seminars
+    .filter((s) => isSeminarPast(s) && hasPublishedRecap(s))
+    .sort(
+      (a, b) => new Date(b.dateISO).getTime() - new Date(a.dateISO).getTime(),
+    );
 
 export const isNorthZoneUniversityCode = (code: string): boolean =>
   NORTH_ZONE_UNIVERSITIES.some((u) => u.code === code);

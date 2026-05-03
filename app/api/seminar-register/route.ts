@@ -5,11 +5,23 @@ import { NextResponse } from "next/server";
 import { existsSync, readFileSync, writeFileSync } from "fs";
 import {
   getSeminarBySlug,
-  isNorthZoneUniversityCode,
   isRegistrationStillOpen,
 } from "@/lib/seminars-data";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Resend is instantiated lazily so the route module doesn't crash on
+// load when RESEND_API_KEY is missing (e.g. local dev without the key).
+// Registration still saves to the Sheet — only the confirmation email
+// is skipped, with a warning logged for the admin to follow up manually.
+function getResend(): Resend | null {
+  const key = process.env.RESEND_API_KEY;
+  if (!key) return null;
+  try {
+    return new Resend(key);
+  } catch (err) {
+    console.error("Failed to construct Resend client:", err);
+    return null;
+  }
+}
 
 // Rate limit: 1 registration per (seminar, email) per 24 hours.
 // Keyed as `${seminarSlug}:${email}` so a registrant can sign up for
@@ -143,13 +155,15 @@ export async function POST(request: Request) {
       );
     }
 
-    // University must be in the seminar's audience whitelist
-    if (!isNorthZoneUniversityCode(universityCode)) {
+    // University must be in the seminar's audience whitelist. Validating
+    // against the seminar's own list (rather than a global function) lets
+    // each seminar declare a different audience without code changes.
+    const allowedCodes = new Set(
+      seminar.audienceUniversities.map((u) => u.code),
+    );
+    if (!allowedCodes.has(universityCode)) {
       return NextResponse.json(
-        {
-          error:
-            "This seminar is currently open to North Zone universities only.",
-        },
+        { error: "Please select a valid university for this seminar." },
         { status: 400 },
       );
     }
@@ -263,39 +277,48 @@ export async function POST(request: Request) {
     // Confirmation email to the registrant.
     // The Sheet row is already written above — the registration is "saved"
     // from the user's perspective. If the email step fails (Resend free-tier
-    // daily limit, transient outage, etc.) we still treat the registration
-    // as successful so the user isn't shown a confusing error. The failure
-    // is logged server-side so admins can follow up manually from the Sheet.
-    try {
-      const registrantEmail = await resend.emails.send({
-        from: "KRTC Seminars <noreply@kekuleon.com>",
-        to: [email],
-        replyTo: "kekuleoninfo@gmail.com",
-        subject: `[KRTC] Your seminar registration is confirmed — ${seminar.title}`,
-        html: registrantConfirmationHtml({
-          fullName,
-          seminarTitle: seminar.title,
-          date: seminar.date,
-          time: seminar.time,
-          venue: seminar.venue,
-          certificateNote: seminar.certificateNote,
-        }),
-      });
+    // daily limit, transient outage, missing key in local dev, etc.) we
+    // still treat the registration as successful so the user isn't shown
+    // a confusing error. The failure is logged server-side so admins can
+    // follow up manually from the Sheet.
+    const resend = getResend();
+    if (!resend) {
+      console.warn(
+        "RESEND_API_KEY not set — skipping confirmation email for:",
+        email,
+      );
+    } else {
+      try {
+        const registrantEmail = await resend.emails.send({
+          from: "KRTC Seminars <noreply@kekuleon.com>",
+          to: [email],
+          replyTo: "kekuleoninfo@gmail.com",
+          subject: `[KRTC] Your seminar registration is confirmed — ${seminar.title}`,
+          html: registrantConfirmationHtml({
+            fullName,
+            seminarTitle: seminar.title,
+            date: seminar.date,
+            time: seminar.time,
+            venue: seminar.venue,
+            certificateNote: seminar.certificateNote,
+          }),
+        });
 
-      if (registrantEmail.error) {
+        if (registrantEmail.error) {
+          console.error(
+            "Resend (registrant) error — email NOT sent for:",
+            email,
+            registrantEmail.error,
+          );
+        }
+      } catch (err) {
+        // Network/SDK-level failure — same policy: don't block the user.
         console.error(
-          "Resend (registrant) error — email NOT sent for:",
+          "Resend (registrant) threw — email NOT sent for:",
           email,
-          registrantEmail.error,
+          err,
         );
       }
-    } catch (err) {
-      // Network/SDK-level failure — same policy: don't block the user.
-      console.error(
-        "Resend (registrant) threw — email NOT sent for:",
-        email,
-        err,
-      );
     }
 
     // Admin notification email is intentionally disabled — admins read
