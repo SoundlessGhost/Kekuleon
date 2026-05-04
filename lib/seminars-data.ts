@@ -509,7 +509,7 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
 A certificate of participation, signed by KRTC leadership, will be issued to every attendee after the event.`,
     date: "Friday, 8 May 2026",
     dateISO: "2026-05-08",
-    time: "3:30 PM – 5:30 PM (BST)",
+    time: "3:45 PM – 5:30 PM (BST)",
     venue:
       "Shahid Shukhranjan Samddar Students Teachers Cultural Center (TSCC), University of Rajshahi",
     venueAddress: "University of Rajshahi, Rajshahi-6205, Bangladesh",
@@ -596,7 +596,7 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
       {
         question: "How will I know the final schedule and directions?",
         answer:
-          "Date and venue are confirmed: Friday, 8 May 2026, 3:30 PM – 5:30 PM, Shahid Shukhranjan Samddar Students Teachers Cultural Center (TSCC), University of Rajshahi. After registering you will receive a confirmation email with the on-campus location and any last-minute updates.",
+          "Date and venue are confirmed: Friday, 8 May 2026, 3:45 PM – 5:30 PM, Shahid Shukhranjan Samddar Students Teachers Cultural Center (TSCC), University of Rajshahi. After registering you will receive a confirmation email with the on-campus location and any last-minute updates.",
       },
     ],
     registrationOpen: true,
@@ -626,8 +626,11 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
 A certificate of participation, signed by KRTC leadership, will be issued to every attendee after the event.`,
     date: "Thursday, 7 May 2026",
     dateISO: "2026-05-07",
-    time: "3:30 PM – 5:30 PM (BST)",
-    venue: "To be announced — Pabna",
+    time: "3:45 PM – 5:30 PM (BST)",
+    venue:
+      "Exam Centre (3rd floor), Pabna University of Science and Technology",
+    venueAddress:
+      "Pabna University of Science and Technology, Pabna, Bangladesh",
     targetZone: "north",
     audienceUniversities: NORTH_ZONE_UNIVERSITIES,
     audienceNote:
@@ -711,15 +714,16 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
       {
         question: "How will I know the final schedule and directions?",
         answer:
-          "Date is confirmed: Thursday, 7 May 2026, 3:30 PM – 5:30 PM. Venue will be announced shortly — registered participants will be the first to know by email as soon as it is confirmed.",
+          "Date and venue are confirmed: Thursday, 7 May 2026, 3:45 PM – 5:30 PM, Exam Centre (3rd floor), Pabna University of Science and Technology. After registering you will receive a confirmation email with the on-campus location and any last-minute updates.",
       },
     ],
     registrationOpen: true,
-    // 6 May 2026, 11:59 PM BST → 6 May 2026, 17:59 UTC. Pabna is the
-    // earliest of the three May seminars (7 May), so its registration
-    // closes the day before.
-    registrationCloseAt: "2026-05-06T17:59:00.000Z",
-    registrationDeadline: "6 May 2026 (11:59 PM BST)",
+    // 6 May 2026, 2:00 PM BST (UTC+6) → 6 May 2026, 08:00 UTC. Pabna's
+    // deadline closes earlier in the day (per client) so the venue
+    // capacity at PUST's Exam Centre can be finalised before the event
+    // on Thursday, 7 May.
+    registrationCloseAt: "2026-05-06T08:00:00.000Z",
+    registrationDeadline: "6 May 2026 (2:00 PM BST)",
     fee: "Free",
     certificateNote:
       "A KRTC-signed Certificate of Participation will be emailed to every attendee within 7–10 days after the event.",
@@ -742,7 +746,7 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
 A certificate of participation, signed by KRTC leadership, will be issued to every attendee after the event.`,
     date: "Saturday, 9 May 2026",
     dateISO: "2026-05-09",
-    time: "3:30 PM – 5:30 PM (BST)",
+    time: "3:45 PM – 5:30 PM (BST)",
     venue:
       "To be announced — Maulana Bhasani Science & Technology University, Tangail",
     targetZone: "north",
@@ -828,7 +832,7 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
       {
         question: "How will I know the final schedule and directions?",
         answer:
-          "Date is confirmed: Saturday, 9 May 2026, 3:30 PM – 5:30 PM. Venue will be announced shortly — registered participants will be the first to know by email as soon as it is confirmed.",
+          "Date is confirmed: Saturday, 9 May 2026, 3:45 PM – 5:30 PM. Venue will be announced shortly — registered participants will be the first to know by email as soon as it is confirmed.",
       },
     ],
     registrationOpen: true,
