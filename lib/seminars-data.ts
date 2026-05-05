@@ -140,6 +140,7 @@ export const NORTH_ZONE_UNIVERSITIES: SeminarUniversityOption[] = [
   },
   { code: "BSTU", name: "Bogura Science & Technology University" },
   { code: "PUST", name: "Pabna University of Science & Technology" },
+  { code: "RUET", name: "Rajshahi University of Engineering & Technology" },
   // MBSTU is technically Central Zone (Tangail), but per the user's
   // decision in Phase 3 we keep a single shared audience list across
   // all KRTC seminars rather than splitting by zone for now.

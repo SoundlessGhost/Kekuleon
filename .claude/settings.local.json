@@ -29,7 +29,10 @@
       "Bash(git commit -m ' *)",
       "Bash(git push *)",
       "Bash(git restore *)",
-      "Bash(awk ' *)"
+      "Bash(awk ' *)",
+      "Bash(lsof -i :3000 -sTCP:LISTEN)",
+      "Bash(curl -s -X POST http://localhost:3000/api/seminar-register -H 'Content-Type: application/json' -d '{\"seminarSlug\":\"rajshahi\",\"fullName\":\"Test\",\"email\":\"test@gmail.com\",\"phone\":\"01711111111\",\"universityCode\":\"RU\",\"department\":\"h\",\"yearOfStudy\":\"3rd\",\"studentId\":\"966\",\"whyInterested\":\"\",\"consent\":true}' -w '\\\\n\\\\n[HTTP %{http_code}]')",
+      "Bash(curl -s -X POST http://localhost:3000/api/seminar-register -H 'Content-Type: application/json' -d '{\"seminarSlug\":\"rajshahi\",\"fullName\":\"Test User\",\"email\":\"shahedmk47@gmail.com\",\"phone\":\"01711111111\",\"universityCode\":\"RU\",\"department\":\"chemistry\",\"yearOfStudy\":\"3rd Year \\(Undergraduate\\)\",\"studentId\":\"966\",\"whyInterested\":\"\",\"consent\":true}' -w '\\\\n[HTTP %{http_code}]')"
     ]
   }
 }
