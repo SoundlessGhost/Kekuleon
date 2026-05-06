@@ -720,12 +720,11 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
       },
     ],
     registrationOpen: true,
-    // 6 May 2026, 2:00 PM BST (UTC+6) → 6 May 2026, 08:00 UTC. Pabna's
-    // deadline closes earlier in the day (per client) so the venue
-    // capacity at PUST's Exam Centre can be finalised before the event
-    // on Thursday, 7 May.
-    registrationCloseAt: "2026-05-06T08:00:00.000Z",
-    registrationDeadline: "6 May 2026 (2:00 PM BST)",
+    // 6 May 2026, 10:00 PM BST (UTC+6) → 6 May 2026, 16:00 UTC.
+    // Extended from 2:00 PM at the client's request to give students
+    // more time to register ahead of the Thursday, 7 May event.
+    registrationCloseAt: "2026-05-06T16:00:00.000Z",
+    registrationDeadline: "6 May 2026 (10:00 PM BST)",
     fee: "Free",
     certificateNote:
       "A KRTC-signed Certificate of Participation will be emailed to every attendee within 7–10 days after the event.",
@@ -750,7 +749,9 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
     dateISO: "2026-05-09",
     time: "3:45 PM – 5:30 PM (BST)",
     venue:
-      "To be announced — Maulana Bhasani Science & Technology University, Tangail",
+      "Multipurpose Building (2nd Floor), Maulana Bhasani Science & Technology University",
+    venueAddress:
+      "Maulana Bhasani Science & Technology University, Tangail, Bangladesh",
     targetZone: "north",
     audienceUniversities: NORTH_ZONE_UNIVERSITIES,
     audienceNote:
@@ -834,13 +835,15 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
       {
         question: "How will I know the final schedule and directions?",
         answer:
-          "Date is confirmed: Saturday, 9 May 2026, 3:45 PM – 5:30 PM. Venue will be announced shortly — registered participants will be the first to know by email as soon as it is confirmed.",
+          "Date and venue are confirmed: Saturday, 9 May 2026, 3:45 PM – 5:30 PM, Multipurpose Building (2nd Floor), Maulana Bhasani Science & Technology University. After registering you will receive a confirmation email with the on-campus location and any last-minute updates.",
       },
     ],
     registrationOpen: true,
-    // 8 May 2026, 11:59 PM BST → 8 May 2026, 17:59 UTC.
-    registrationCloseAt: "2026-05-08T17:59:00.000Z",
-    registrationDeadline: "8 May 2026 (11:59 PM BST)",
+    // 8 May 2026, 2:00 PM BST (UTC+6) → 8 May 2026, 08:00 UTC. MBSTU
+    // closes a day before the Saturday, 9 May event so the venue
+    // capacity at the Multipurpose Building can be finalised on time.
+    registrationCloseAt: "2026-05-08T08:00:00.000Z",
+    registrationDeadline: "8 May 2026 (2:00 PM BST)",
     fee: "Free",
     certificateNote:
       "A KRTC-signed Certificate of Participation will be emailed to every attendee within 7–10 days after the event.",
