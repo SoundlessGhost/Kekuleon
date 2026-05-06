@@ -127,7 +127,7 @@ export interface Seminar {
   recap?: SeminarRecap;
 }
 
-// Universities for the North Zone (source of truth: lib/team-data.ts).
+// Universities for the North Zone (source of truth: lib/team-data.ts). Mawlana Bhashani
 // Mirrored here as plain data so the seminar form has zero coupling to
 // the team-data zone module — easier to evolve independently.
 export const NORTH_ZONE_UNIVERSITIES: SeminarUniversityOption[] = [
@@ -145,7 +145,7 @@ export const NORTH_ZONE_UNIVERSITIES: SeminarUniversityOption[] = [
   // MBSTU is technically Central Zone (Tangail), but per the user's
   // decision in Phase 3 we keep a single shared audience list across
   // all KRTC seminars rather than splitting by zone for now.
-  { code: "MBSTU", name: "Maulana Bhasani Science & Technology University" },
+  { code: "MBSTU", name: "Mawlana Bhashani Science & Technology University" },
   { code: "OTHER", name: "Other NU-affiliated college (North Zone)" },
 ];
 
@@ -741,21 +741,21 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
     title:
       "Bridging the Theory and Practice Gap in Science Education in Bangladesh — MBSTU",
     tagline:
-      "A KRTC volunteer-led seminar at Maulana Bhasani Science & Technology University — connecting theory to laboratory, research, and industry practice.",
-    description: `This seminar is part of KRTC's volunteer-led outreach to bring the conversation about practical, applied science education directly to students at Maulana Bhasani Science & Technology University and surrounding universities. Participants will hear from researchers, industry professionals, and KRTC's University Coordinators on how to move from textbook understanding to laboratory competence, scholarly research, and industry-ready scientific work.
+      "A KRTC volunteer-led seminar at Mawlana Bhashani Science & Technology University — connecting theory to laboratory, research, and industry practice.",
+    description: `This seminar is part of KRTC's volunteer-led outreach to bring the conversation about practical, applied science education directly to students at Mawlana Bhashani Science & Technology University and surrounding universities. Participants will hear from researchers, industry professionals, and KRTC's University Coordinators on how to move from textbook understanding to laboratory competence, scholarly research, and industry-ready scientific work.
 
 A certificate of participation, signed by KRTC leadership, will be issued to every attendee after the event.`,
     date: "Saturday, 9 May 2026",
     dateISO: "2026-05-09",
     time: "3:45 PM – 5:30 PM (BST)",
     venue:
-      "Multipurpose Building (2nd Floor), Maulana Bhasani Science & Technology University",
+      "Multipurpose Building (2nd Floor), Mawlana Bhashani Science & Technology University",
     venueAddress:
-      "Maulana Bhasani Science & Technology University, Tangail, Bangladesh",
+      "Mawlana Bhashani Science & Technology University, Tangail, Bangladesh",
     targetZone: "north",
     audienceUniversities: NORTH_ZONE_UNIVERSITIES,
     audienceNote:
-      "Open to undergraduate and postgraduate students from Maulana Bhasani Science & Technology University (MBSTU) and surrounding universities, including affiliated National University colleges.",
+      "Open to undergraduate and postgraduate students from Mawlana Bhashani Science & Technology University (MBSTU) and surrounding universities, including affiliated National University colleges.",
     agenda: [
       {
         time: "Session 1",
@@ -835,7 +835,7 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
       {
         question: "How will I know the final schedule and directions?",
         answer:
-          "Date and venue are confirmed: Saturday, 9 May 2026, 3:45 PM – 5:30 PM, Multipurpose Building (2nd Floor), Maulana Bhasani Science & Technology University. After registering you will receive a confirmation email with the on-campus location and any last-minute updates.",
+          "Date and venue are confirmed: Saturday, 9 May 2026, 3:45 PM – 5:30 PM, Multipurpose Building (2nd Floor), Mawlana Bhashani Science & Technology University. After registering you will receive a confirmation email with the on-campus location and any last-minute updates.",
       },
     ],
     registrationOpen: true,
