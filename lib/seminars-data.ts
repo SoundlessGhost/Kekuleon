@@ -720,11 +720,13 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
       },
     ],
     registrationOpen: true,
-    // 6 May 2026, 10:00 PM BST (UTC+6) → 6 May 2026, 16:00 UTC.
-    // Extended from 2:00 PM at the client's request to give students
-    // more time to register ahead of the Thursday, 7 May event.
-    registrationCloseAt: "2026-05-06T16:00:00.000Z",
-    registrationDeadline: "6 May 2026 (10:00 PM BST)",
+    // 7 May 2026, 2:30 AM BST (UTC+6) → 6 May 2026, 20:30 UTC.
+    // Deadline extended several times at the client's request:
+    // first from 2:00 PM (6 May) to 10:00 PM (6 May), then to
+    // 2:30 AM on 7 May to give late registrants a final window
+    // before the Thursday, 7 May event.
+    registrationCloseAt: "2026-05-06T20:30:00.000Z",
+    registrationDeadline: "7 May 2026 (2:30 AM BST)",
     fee: "Free",
     certificateNote:
       "A KRTC-signed Certificate of Participation will be emailed to every attendee within 7–10 days after the event.",
