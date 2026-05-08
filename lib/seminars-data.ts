@@ -611,6 +611,191 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
     certificateNote:
       "A KRTC-signed Certificate of Participation will be emailed to every attendee within 7–10 days after the event.",
     surveyUrl: "https://forms.gle/2Kyx9JXhqrtXYYYy5",
+    // Post-event summary documentation. Pre-built as a DRAFT (isPublished
+    // is false) — the seminar is on Friday, 8 May 2026, so the recap is
+    // not yet live. After the event, flip `isPublished: true`, replace
+    // any draft copy that needs tightening, and the recap goes live at
+    // /seminar/recap/rajshahi automatically. Photos use the `rajshahi-`
+    // filename prefix on Cloudinary (cloud: dohbigfue).
+    recap: {
+      isPublished: false,
+      publishedDate: "8 May 2026",
+      publishedDateISO: "2026-05-08",
+      intro:
+        "KRTC's volunteer-led seminar on bridging the theory–practice gap in science education was held at the University of Rajshahi — bringing together teachers, students, distinguished academic guests, and KRTC's North Zone team for an open conversation on practical scientific competence and applied training.",
+      heroImage: {
+        src: "https://res.cloudinary.com/dohbigfue/image/upload/rajshahi-01-hero-group.jpg",
+        alt: "Group photo of guests, teachers, KRTC team, and students at the Rajshahi seminar",
+        caption:
+          "KRTC's seminar at the University of Rajshahi — bridging theory and practice in science education",
+      },
+      sections: [
+        {
+          kind: "opening",
+          heading: "About the seminar",
+          image: {
+            src: "https://res.cloudinary.com/dohbigfue/image/upload/rajshahi-02-opening.jpg",
+            alt: "Md. Zakaria Hossain presenting at the Rajshahi seminar",
+            caption:
+              "Md. Zakaria Hossain presenting KRTC's integrated institutional model",
+          },
+          paragraphs: [
+            "Kekuleon Research and Training Center (KRTC) organised an academic seminar on \"Bridging the Theory and Practice Gap in Science Education in Bangladesh\" at the University of Rajshahi — held at the Shahid Shukhranjan Samddar Students Teachers Cultural Center (TSCC) on Friday, 8 May 2026.",
+            "The seminar was part of KRTC's North Zone academic outreach, designed to bring the conversation about practical, applied science education directly to RU students and the surrounding North Zone academic community.",
+            "The programme was coordinated by Md. Zakaria Hossain, Founder and Research Coordinator of KRTC and MSc Chemistry candidate at the University of Siegen, Germany. The initiative was guided by Dr. Dilip Kumar Sarkar and Dr. Shah Md. Shahan Shahriar, Associate Professors at the Department of Applied Chemistry and Chemical Engineering, University of Rajshahi.",
+          ],
+        },
+        {
+          kind: "guests",
+          heading: "Distinguished academic guests",
+          image: {
+            src: "https://res.cloudinary.com/dohbigfue/image/upload/rajshahi-03-guests.jpg",
+            alt: "Distinguished academic guests at the Rajshahi seminar",
+            caption:
+              "Faculty and academic guests supporting the KRTC initiative at RU",
+          },
+          paragraphs: [
+            "Senior faculty members from the University of Rajshahi and the surrounding academic community joined the programme. Their presence reinforced the ongoing dialogue between students, faculty, and KRTC's North Zone team on the practical realities of science education in Bangladesh.",
+          ],
+        },
+        {
+          kind: "activity",
+          heading: "Programme highlights",
+          image: {
+            src: "https://res.cloudinary.com/dohbigfue/image/upload/rajshahi-04-activity.jpg",
+            alt: "Students and teachers during the Rajshahi seminar session",
+            caption:
+              "Participants engaging with the discussion on practical scientific competence and applied STEM training",
+          },
+          paragraphs: [
+            "The seminar addressed several structural challenges in science education in Bangladesh — including limited laboratory exposure, weak connection between theoretical learning and real-life application, insufficient undergraduate research opportunities, limited scientific mentoring, and barriers to higher education and research careers.",
+            "Participants discussed how RU students can prepare for graduate research, scholarship pathways, instrument training, and industry-ready scientific work — connecting classroom knowledge with the laboratory and industry standards expected in regulated applied chemistry settings.",
+          ],
+        },
+        {
+          kind: "custom",
+          heading: "Key outcomes & takeaways",
+          image: {
+            src: "https://res.cloudinary.com/dohbigfue/image/upload/rajshahi-05-outcomes.jpg",
+            alt: "Open Q&A and discussion at the Rajshahi seminar",
+            caption:
+              "Open dialogue between students, faculty, and KRTC's leadership",
+          },
+          paragraphs: [
+            "The seminar produced several concrete outcomes that strengthen the connection between RU students and KRTC's broader academic and applied-science network:",
+            "• Reinforced Rajshahi as a central node in KRTC's North Zone academic outreach — building on the institutional ties between KRTC's faculty advisors and the University of Rajshahi.",
+            "• Direct exposure for RU undergraduate and postgraduate students to KRTC's University Coordinator network and laboratory practice methodology.",
+            "• Open dialogue between students, faculty, and KRTC's leadership on bridging classroom learning with applied scientific work — including hands-on research, instrumentation, and industry-grade quality practice.",
+            "• Concrete pathways introduced — research methodology preparation, scholarship and graduate-research opportunities, industry-ready skills development, and global academic mobility routes.",
+            "• Foundation laid for continued engagement through KRTC's training programmes, follow-up workshops, and ongoing mentoring through the regional Coordinator network.",
+            "• Strengthened the regional KRTC network connecting RU, BRUR, HSTU, BSTU, PUST, MBSTU, and partner institutions — reinforcing the decentralised, integrated approach to applied science education in Bangladesh.",
+          ],
+        },
+        {
+          kind: "team-project",
+          heading: "Organising & project-support team",
+          image: {
+            src: "https://res.cloudinary.com/dohbigfue/image/upload/rajshahi-06-team.jpg",
+            alt: "Project and KRTC team members at the Rajshahi seminar",
+            caption:
+              "Project-support team contributing to KRTC's institutional development and capacity building",
+          },
+          paragraphs: [
+            "The seminar's organising and project-support team — drawn from KRTC's volunteer-led leadership, faculty advisors, North Zone coordinators, and strategic partners — reflects the multidisciplinary collaboration behind KRTC's applied science education and institutional development work.",
+          ],
+        },
+        {
+          kind: "closing",
+          heading: "Looking ahead",
+          image: {
+            src: "https://res.cloudinary.com/dohbigfue/image/upload/rajshahi-07-closing.jpg",
+            alt: "Closing moments and audience interaction at the Rajshahi seminar",
+            caption:
+              "Closing remarks and continued engagement with students and faculty",
+          },
+          paragraphs: [
+            "The Rajshahi seminar is part of a three-city KRTC seminar series across the North Zone in May 2026 — following the Pabna seminar on Thursday, 7 May at Pabna University of Science and Technology, and concluding on Saturday, 9 May at Maulana Bhasani Science & Technology University (Multipurpose Building, 2nd Floor).",
+            "Beyond this series, KRTC continues to build pathways for secondary-level students, undergraduate and master's applicants, PhD candidates, recent graduates, and professionals — through merit-based scholarship opportunities, affordable training, support for disadvantaged students, laboratory skill development, environmental awareness initiatives, student volunteer programmes, and community healthcare outreach.",
+            "Through this seminar at the University of Rajshahi, KRTC reaffirmed its commitment to a decentralised and integrated model of applied STEM education in Bangladesh — and renewed its call for collaboration among universities, research institutions, industry professionals, and policy-focused bodies.",
+          ],
+        },
+      ],
+      distinguishedGuests: [],
+      organisingTeam: [
+        {
+          name: "Md. Zakaria Hossain",
+          role: "Founder & Research Coordinator, KRTC",
+          teamSlug: "zakaria-hossain",
+        },
+        {
+          name: "Dr. Dilip Kumar Sarkar",
+          role: "Associate Professor, ACCE, University of Rajshahi — Guide",
+          teamSlug: "dilip-kumar-sarkar",
+        },
+        {
+          name: "Dr. Shah Md. Shahan Shahriar",
+          role: "Associate Professor, ACCE, University of Rajshahi — Guide",
+          teamSlug: "sha-md-shahan-shahriar",
+        },
+        {
+          name: "Md. Mahmudul Hasan Abir Mia",
+          role: "North Zone Advisor, Begum Rokeya University, Rangpur",
+          teamSlug: "mahmudul-hasan-abir",
+        },
+        {
+          name: "Nazmul Haque Mitun",
+          role: "Strategic Partner & Department Instructor",
+          teamSlug: "nazmul-haque-mitun",
+        },
+        {
+          name: "Md. Abdul Mojid",
+          role: "Managing Director, KRTC",
+          teamSlug: "md-abdul-mojid",
+        },
+      ],
+      gallery: [
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/rajshahi-gallery-01.jpg",
+          alt: "Rajshahi seminar moment — presentation",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/rajshahi-gallery-02.jpg",
+          alt: "Rajshahi seminar moment — discussion",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/rajshahi-gallery-03.jpg",
+          alt: "Rajshahi seminar moment — guests",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/rajshahi-gallery-04.jpg",
+          alt: "Rajshahi seminar moment — students",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/rajshahi-gallery-05.jpg",
+          alt: "Rajshahi seminar moment — KRTC team",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/rajshahi-gallery-06.jpg",
+          alt: "Rajshahi seminar moment — engagement",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/rajshahi-gallery-07.jpg",
+          alt: "Rajshahi seminar moment — audience",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/rajshahi-gallery-08.jpg",
+          alt: "Rajshahi seminar moment — Q&A",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/rajshahi-gallery-09.jpg",
+          alt: "Rajshahi seminar moment — closing remarks",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/rajshahi-gallery-10.jpg",
+          alt: "Rajshahi seminar moment — group photo",
+        },
+      ],
+    },
   },
 
   // ==========================================================
@@ -1035,6 +1220,192 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
     certificateNote:
       "A KRTC-signed Certificate of Participation will be emailed to every attendee within 7–10 days after the event.",
     surveyUrl: "https://forms.gle/2Kyx9JXhqrtXYYYy5",
+    // Post-event summary documentation. Pre-built as a DRAFT
+    // (isPublished is false) — the seminar is on Saturday, 9 May 2026,
+    // so the recap is not yet live. After the event, flip
+    // `isPublished: true`, replace any draft copy that needs tightening,
+    // and the recap goes live at /seminar/recap/mbstu automatically.
+    // Photos use the `mbstu-` filename prefix on Cloudinary (cloud:
+    // dohbigfue).
+    recap: {
+      isPublished: false,
+      publishedDate: "9 May 2026",
+      publishedDateISO: "2026-05-09",
+      intro:
+        "KRTC's volunteer-led seminar on bridging the theory–practice gap in science education was held at Maulana Bhasani Science & Technology University — bringing together teachers, students, distinguished academic guests, and KRTC's North Zone team for an open conversation on practical scientific competence and applied training.",
+      heroImage: {
+        src: "https://res.cloudinary.com/dohbigfue/image/upload/mbstu-01-hero-group.jpg",
+        alt: "Group photo of guests, teachers, KRTC team, and students at the MBSTU seminar",
+        caption:
+          "KRTC's seminar at Maulana Bhasani Science & Technology University — bridging theory and practice in science education",
+      },
+      sections: [
+        {
+          kind: "opening",
+          heading: "About the seminar",
+          image: {
+            src: "https://res.cloudinary.com/dohbigfue/image/upload/mbstu-02-opening.jpg",
+            alt: "Md. Zakaria Hossain presenting at the MBSTU seminar",
+            caption:
+              "Md. Zakaria Hossain presenting KRTC's integrated institutional model",
+          },
+          paragraphs: [
+            "Kekuleon Research and Training Center (KRTC) organised an academic seminar on \"Bridging the Theory and Practice Gap in Science Education in Bangladesh\" at Maulana Bhasani Science & Technology University — held at the Multipurpose Building (2nd Floor) on Saturday, 9 May 2026.",
+            "The seminar concluded a three-city KRTC outreach across Bangladesh's North Zone in May 2026, designed to bring the conversation about practical, applied science education directly to MBSTU students and the surrounding academic community.",
+            "The programme was coordinated by Md. Zakaria Hossain, Founder and Research Coordinator of KRTC and MSc Chemistry candidate at the University of Siegen, Germany. The initiative was guided by Dr. Dilip Kumar Sarkar and Dr. Shah Md. Shahan Shahriar, Associate Professors at the Department of Applied Chemistry and Chemical Engineering, University of Rajshahi.",
+          ],
+        },
+        {
+          kind: "guests",
+          heading: "Distinguished academic guests",
+          image: {
+            src: "https://res.cloudinary.com/dohbigfue/image/upload/mbstu-03-guests.jpg",
+            alt: "Distinguished academic guests at the MBSTU seminar",
+            caption:
+              "Faculty and academic guests supporting the KRTC initiative at MBSTU",
+          },
+          paragraphs: [
+            "Senior faculty members from Maulana Bhasani Science & Technology University and the surrounding academic community joined the programme. Their presence reinforced the ongoing dialogue between students, faculty, and KRTC's leadership on the practical realities of science education in Bangladesh.",
+          ],
+        },
+        {
+          kind: "activity",
+          heading: "Programme highlights",
+          image: {
+            src: "https://res.cloudinary.com/dohbigfue/image/upload/mbstu-04-activity.jpg",
+            alt: "Students and teachers during the MBSTU seminar session",
+            caption:
+              "Participants engaging with the discussion on practical scientific competence and applied STEM training",
+          },
+          paragraphs: [
+            "The seminar addressed several structural challenges in science education in Bangladesh — including limited laboratory exposure, weak connection between theoretical learning and real-life application, insufficient undergraduate research opportunities, limited scientific mentoring, and barriers to higher education and research careers.",
+            "Participants discussed how MBSTU students can prepare for graduate research, scholarship pathways, instrument training, and industry-ready scientific work — connecting classroom knowledge with the laboratory and industry standards expected in regulated applied chemistry settings.",
+          ],
+        },
+        {
+          kind: "custom",
+          heading: "Key outcomes & takeaways",
+          image: {
+            src: "https://res.cloudinary.com/dohbigfue/image/upload/mbstu-05-outcomes.jpg",
+            alt: "Open Q&A and discussion at the MBSTU seminar",
+            caption:
+              "Open dialogue between students, faculty, and KRTC's leadership",
+          },
+          paragraphs: [
+            "The seminar produced several concrete outcomes that strengthen the connection between MBSTU students and KRTC's broader academic and applied-science network:",
+            "• Extended KRTC's outreach into Tangail and the wider Mymensingh / Dhaka academic region — broadening the network beyond the traditional Rajshahi–Rangpur axis.",
+            "• Direct exposure for MBSTU undergraduate and postgraduate students to KRTC's University Coordinator network and laboratory practice methodology.",
+            "• Open dialogue between students, faculty, and KRTC's leadership on bridging classroom learning with applied scientific work — including hands-on research, instrumentation, and industry-grade quality practice.",
+            "• Concrete pathways introduced — research methodology preparation, scholarship and graduate-research opportunities, industry-ready skills development, and global academic mobility routes.",
+            "• Foundation laid for continued engagement through KRTC's training programmes, follow-up workshops, and ongoing mentoring through the Coordinator network.",
+            "• Strengthened the cross-regional KRTC network connecting MBSTU with RU, BRUR, HSTU, BSTU, PUST, and partner institutions — reinforcing the decentralised, integrated approach to applied science education in Bangladesh.",
+          ],
+        },
+        {
+          kind: "team-project",
+          heading: "Organising & project-support team",
+          image: {
+            src: "https://res.cloudinary.com/dohbigfue/image/upload/mbstu-06-team.jpg",
+            alt: "Project and KRTC team members at the MBSTU seminar",
+            caption:
+              "Project-support team contributing to KRTC's institutional development and capacity building",
+          },
+          paragraphs: [
+            "The seminar's organising and project-support team — drawn from KRTC's volunteer-led leadership, faculty advisors, regional coordinators, and strategic partners — reflects the multidisciplinary collaboration behind KRTC's applied science education and institutional development work.",
+          ],
+        },
+        {
+          kind: "closing",
+          heading: "Looking ahead",
+          image: {
+            src: "https://res.cloudinary.com/dohbigfue/image/upload/mbstu-07-closing.jpg",
+            alt: "Closing moments and audience interaction at the MBSTU seminar",
+            caption:
+              "Closing remarks and continued engagement with students and faculty",
+          },
+          paragraphs: [
+            "The MBSTU seminar concluded KRTC's three-city seminar series across the North Zone in May 2026 — following the seminars at Pabna University of Science and Technology (Thursday, 7 May) and the University of Rajshahi (Friday, 8 May).",
+            "Beyond this series, KRTC continues to build pathways for secondary-level students, undergraduate and master's applicants, PhD candidates, recent graduates, and professionals — through merit-based scholarship opportunities, affordable training, support for disadvantaged students, laboratory skill development, environmental awareness initiatives, student volunteer programmes, and community healthcare outreach.",
+            "Through this seminar at MBSTU, KRTC reaffirmed its commitment to a decentralised and integrated model of applied STEM education in Bangladesh — and renewed its call for collaboration among universities, research institutions, industry professionals, and policy-focused bodies.",
+          ],
+        },
+      ],
+      distinguishedGuests: [],
+      organisingTeam: [
+        {
+          name: "Md. Zakaria Hossain",
+          role: "Founder & Research Coordinator, KRTC",
+          teamSlug: "zakaria-hossain",
+        },
+        {
+          name: "Dr. Dilip Kumar Sarkar",
+          role: "Associate Professor, ACCE, University of Rajshahi — Guide",
+          teamSlug: "dilip-kumar-sarkar",
+        },
+        {
+          name: "Dr. Shah Md. Shahan Shahriar",
+          role: "Associate Professor, ACCE, University of Rajshahi — Guide",
+          teamSlug: "sha-md-shahan-shahriar",
+        },
+        {
+          name: "Md. Mahmudul Hasan Abir Mia",
+          role: "North Zone Advisor, Begum Rokeya University, Rangpur",
+          teamSlug: "mahmudul-hasan-abir",
+        },
+        {
+          name: "Nazmul Haque Mitun",
+          role: "Strategic Partner & Department Instructor",
+          teamSlug: "nazmul-haque-mitun",
+        },
+        {
+          name: "Md. Abdul Mojid",
+          role: "Managing Director, KRTC",
+          teamSlug: "md-abdul-mojid",
+        },
+      ],
+      gallery: [
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/mbstu-gallery-01.jpg",
+          alt: "MBSTU seminar moment — presentation",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/mbstu-gallery-02.jpg",
+          alt: "MBSTU seminar moment — discussion",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/mbstu-gallery-03.jpg",
+          alt: "MBSTU seminar moment — guests",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/mbstu-gallery-04.jpg",
+          alt: "MBSTU seminar moment — students",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/mbstu-gallery-05.jpg",
+          alt: "MBSTU seminar moment — KRTC team",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/mbstu-gallery-06.jpg",
+          alt: "MBSTU seminar moment — engagement",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/mbstu-gallery-07.jpg",
+          alt: "MBSTU seminar moment — audience",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/mbstu-gallery-08.jpg",
+          alt: "MBSTU seminar moment — Q&A",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/mbstu-gallery-09.jpg",
+          alt: "MBSTU seminar moment — closing remarks",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/mbstu-gallery-10.jpg",
+          alt: "MBSTU seminar moment — group photo",
+        },
+      ],
+    },
   },
 ];
 
