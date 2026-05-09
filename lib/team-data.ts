@@ -3155,6 +3155,206 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
     ],
   },
 
+  // ---- Central Zone — Zone Advisor ----
+  // Note: Nabil is based at the University of Rajshahi but is assigned
+  // to KRTC's Central Zone advisory role per the client's decision. His
+  // `zone` is "central" and `coordinatorRole` is "advisor", so he
+  // surfaces only in the Central Zone advisor slot — not in the
+  // coordinator list (mirrors Toukir's Southwest setup).
+  "md-nabil-bin-zakir": {
+    id: 45,
+    slug: "md-nabil-bin-zakir",
+    name: "Md. Nabil Bin Zakir",
+    title:
+      "University Coordinator & Student Ambassador · Zone Advisor — Central Zone",
+    department: "University of Rajshahi",
+    initials: "NZ",
+    color: "bg-fuchsia-600",
+    email: "mdnabilbinzakir@gmail.com",
+    phone: "+880 1310 103 077",
+    location: "Rajshahi, Bangladesh",
+    address:
+      "University of Rajshahi, Motihar, Rajshahi, Bangladesh",
+    type: "university-coordinator",
+    university: "University of Rajshahi",
+    universityCode: "RU",
+    zone: "central",
+    coordinatorRole: "advisor",
+    priority: 1,
+    bio: `Md. Nabil Bin Zakir serves as the Zone Advisor for KRTC's Central Zone (Dhaka & Mymensingh Divisions) under the University Coordinator & Student Ambassador Program. He is a final-year B.Sc. (Hons) student in Applied Chemistry and Chemical Engineering at the University of Rajshahi (160 credits), with a strong interest in research, drug design, and the management of academic programmes.
+
+A published author in journals including Supply Chain Insider — co-authoring "Toward Sustainable Alternatives: Analyzing Bioplastic Supply Chain Challenges in Bangladesh's Local Market" — he has also presented at international conferences including the RSBRU International Research Summit 2026 (paper: "Nanofibre Revolution Against Glioblastoma — Comprehensive Insights into Synthesis and Clinical Applications") and the International Conference on Business Innovation and Sustainable Development (ICBISD 2026, paper: "Mapping the Knowledge Landscape of ESG in Emerging Markets"). He is trained at BCSIR Rajshahi Laboratories on advanced analytical instrumentation (FESEM, GC-MS, FTIR, ICP-OES, Particle Size Analyzer) and at the Training Institute for Chemical Industries (TICI) on Industrial Process Unit Operation & Process Control (SCADA, PID, GC, HPLC, FTIR, boiler and heat-exchange operation), alongside a Basic Programming with Python certification from the Bangladesh Computer Council, ICT Division.
+
+A proven student leader, he serves as General Secretary of the Rajshahi University Research Society (RURS) — having organised 50+ international research conferences and workshops — and is the Founding Vice President of the Dinajpur District Students' Welfare Association at the University of Rajshahi. As Zone Advisor, he guides University Coordinators across Central Zone universities and affiliated National University colleges in Dhaka and Mymensingh Divisions, ensuring regional coherence and institutional alignment with KRTC's applied-science training, research, and community mission.`,
+    education: [
+      {
+        degree:
+          "B.Sc. (Hons) in Applied Chemistry and Chemical Engineering",
+        institution: "University of Rajshahi",
+        year: "August 2021 - Present (Final Year)",
+        credits: "160 credits",
+      },
+      {
+        degree:
+          "Industrial Process Unit Operation & Process Control Technique (4 weeks)",
+        institution:
+          "Training Institute for Chemical Industries (TICI), Polash, Narsingdi",
+        year: "January – March 2026",
+      },
+      {
+        degree:
+          "5-day Intensive Training Program on Advanced Analytical Instruments",
+        institution:
+          "Bangladesh Council of Scientific Research (BCSIR) Rajshahi Laboratories",
+        year: "December 2025",
+      },
+      {
+        degree: "Basic Programming with Python",
+        institution:
+          "Bangladesh Computer Council, ICT Division",
+        year: "November – December 2024",
+      },
+    ],
+    experience: [
+      {
+        role: "Zone Advisor — Central Zone (Dhaka & Mymensingh Divisions)",
+        org: "Kekuleon Research and Training Center (KRTC) — University Coordinator & Student Ambassador Program",
+        period: "2026 - Present",
+        description:
+          "Advising University Coordinators across Central Zone universities and affiliated National University colleges in Dhaka and Mymensingh Divisions — ensuring regional coherence, partnership-building, and alignment with KRTC's applied-science mission.",
+      },
+      {
+        role: "General Secretary",
+        org: "Rajshahi University Research Society (RURS)",
+        period: "January 2025 - Present",
+        description:
+          "Organised 50+ international conferences and research workshops at the university; managed academic events focusing on student engagement and participation; arranged and organised two new courses on campus.",
+      },
+      {
+        role: "Editorial Member (Book of Abstracts) & Co-Leader, Graphics Team",
+        org: "RURS 1st International Student Conference and Research Fair 2024",
+        period: "December 2024 - February 2025",
+        description:
+          "Reviewed, formatted, and prepared research abstracts for publication in the official conference book; led the Graphics Designing Team, creating posters, banners, and promotional content.",
+      },
+      {
+        role: "Founding Vice President",
+        org: "Dinajpur District Students' Welfare Association, University of Rajshahi",
+        period: "October 2024 - Present",
+        description:
+          "Promoting student development through awareness, self-reliance, progressive thinking, and knowledge sharing; strengthening collaboration and networking among students, faculty, and staff; leading initiatives focused on community welfare and social responsibility.",
+      },
+      {
+        role: "IT Secretary",
+        org: "ACCE Group, University of Rajshahi",
+        period: "September 2025 - Present",
+        description:
+          "Supporting digital tools and documentation; assisting in academic and departmental programmes.",
+      },
+      {
+        role: "General Secretary",
+        org: "Badhon — Sher-e-Bangla Fazlul Hauque Hall Unit",
+        period: "January 2024 - Present",
+        description:
+          "Voluntary organisation focusing on community service; facilitating communication between students and faculty for better event management; leading a team for community health initiatives.",
+      },
+      {
+        role: "President",
+        org: "Dinajpur Sadar Thana Samity, Rajshahi University",
+        period: "May 2024 - June 2025",
+        description:
+          "Led community service activities aimed at enhancing public health awareness; coordinated with local organisations for blood-donation drives.",
+      },
+      {
+        role: "Volunteer Coordinator — Blood Donor Management",
+        org: "BADHAN — A Voluntary Blood Donors' Organisation",
+        period: "December 2023 - Present",
+        description:
+          "Managed 63 blood donors in one year (the highest among all members); engaged in blood-donor recruitment and management; coordinator ensuring free and timely access to blood for critically ill patients in emergencies.",
+      },
+    ],
+    research: [
+      {
+        title:
+          "Toward Sustainable Alternatives: Analyzing Bioplastic Supply Chain Challenges in Bangladesh's Local Market",
+        institution: "Supply Chain Insider (peer-reviewed)",
+        period: "Published",
+        description:
+          "Co-authored with Md. Toukir Biswas, Shahriar Siam, Raghib Mohammad Altafin — qualitative research model applying systematic literature review, case study, stakeholder analysis, and life-cycle assessment to map the technological, economic, environmental, and policy landscape of bioplastics in Bangladesh.",
+      },
+      {
+        title:
+          "Nanofibre Revolution Against Glioblastoma: Comprehensive Insights into Synthesis and Clinical Applications",
+        institution:
+          "Oral presentation — RSBRU International Research Summit 2026",
+        period: "January 2026",
+      },
+      {
+        title:
+          "Mapping the Knowledge Landscape of ESG in Emerging Markets: A Bibliometric and Science Mapping Analysis",
+        institution:
+          "International Conference on Business Innovation and Sustainable Development (ICBISD 2026), Paper ID: 433",
+        period: "2026",
+      },
+    ],
+    skills: [
+      "Research Coordination & Drug Design Interest",
+      "Conference & Workshop Organisation (50+ events)",
+      "Editorial Review & Publication Workflow",
+      "Project & Event Management",
+      "Leadership & Team Coordination",
+      "Communication & Stakeholder Engagement",
+      "Laboratory Instrumentation: FESEM, GC-MS, FTIR, ICP-OES, Particle Size Analyzer",
+      "Industrial Process Control: SCADA, PID, GC, HPLC, FTIR",
+      "Boiler & Heat-Exchanger Operation",
+      "Python — Basic Programming for Data Analysis",
+      "Graphics & Design — Canva, Capcut",
+      "Microsoft Office (Word, Excel)",
+    ],
+    languages: [
+      { language: "Bangla", level: "Native" },
+      { language: "English", level: "Independent user (B2)" },
+    ],
+    organizations: [
+      {
+        role: "General Secretary",
+        org: "Rajshahi University Research Society (RURS)",
+        description:
+          "Promoting research and innovation at the University of Rajshahi.",
+      },
+      {
+        role: "Founding Vice President",
+        org: "Dinajpur District Students' Welfare Association, University of Rajshahi",
+      },
+      {
+        role: "IT Secretary",
+        org: "ACCE Group, University of Rajshahi",
+      },
+      {
+        role: "General Secretary",
+        org: "Badhon — Sher-e-Bangla Fazlul Hauque Hall Unit",
+      },
+      {
+        role: "Volunteer Coordinator",
+        org: "BADHAN — A Voluntary Blood Donors' Organisation",
+      },
+    ],
+    achievements: [
+      "Zone Advisor — Central Zone, KRTC University Coordinator & Student Ambassador Program",
+      "Co-author — Supply Chain Insider — Bioplastic Supply Chain Challenges in Bangladesh",
+      "Oral presentation — RSBRU International Research Summit 2026 (Nanofibre / Glioblastoma)",
+      "Conference paper — ICBISD 2026 (ESG Knowledge Landscape in Emerging Markets)",
+      "Winner — Pitching Competition, ProCon 2025, IEEE Rajshahi University Student Branch",
+      "Runners-Up — ProCon 2025 Case Study Competition, IEEE Rajshahi University Student Branch",
+      "1st Runner-Up — RUBiC Business Competition 2025, IQAC, University of Rajshahi",
+      "2nd Runner-Up — Project Showcasing Competition 2024, IEEE Rajshahi University Student Branch",
+      "2nd Runner-Up — Project Show Competition 2025, Rajshahi University Science Club",
+      "BCSIR-trained — Advanced analytical instrumentation (FESEM, GC-MS, FTIR, ICP-OES)",
+      "TICI-trained — Industrial Process Unit Operation & Process Control (SCADA, PID, GC, HPLC)",
+      "BADHAN — Managed 63 blood donors in one year (highest among all members)",
+    ],
+  },
+
   // ---- Southwest Zone — Zone Advisor ----
   // Note: Toukir is based at the University of Rajshahi but is assigned
   // to KRTC's Southwest Zone advisory role per the client's decision.
@@ -3865,7 +4065,7 @@ export const PROGRAM_BOARD_DIRECTOR_SLUG: string | null = null;
 // null → To Be Announced.
 export const ZONE_ADVISOR_SLUGS: Record<ZoneId, string | null> = {
   north: "mahmudul-hasan-abir",
-  central: null,
+  central: "md-nabil-bin-zakir",
   southwest: "toukir-biswas",
   east: "md-rasel-rana",
 };
