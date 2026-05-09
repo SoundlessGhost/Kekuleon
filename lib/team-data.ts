@@ -215,42 +215,37 @@ His long-term goal is to develop scalable educational frameworks that enable stu
 
 Her work reflects a strong foundation in organizational development, institutional communication, and programme implementation — competencies shaped through direct involvement in the centre's formation phase. In her current role as Manager, she coordinates administrative workflows, supports departmental alignment, and contributes to the day-to-day operational translation of KRTC's decentralised and integrated institutional model across schooling, applied-science, and research-oriented activities.
 
-Her professional orientation combines developmental thinking with practical organizational execution. She holds postgraduate qualifications in Islamic History and Culture, complemented by applied technical and language competencies including a National Skill Standard certification in Database Programming (Grade A) from the Bangladesh Technical Education Board, the Goethe-Zertifikat A1 (Start Deutsch 1) from the Goethe-Institut, and recognition from the British Council's Active Citizens Youth Leadership Training — strengthening her profile in cross-cultural engagement and community-oriented institutional leadership.`,
+Her professional orientation combines developmental thinking with practical organizational execution. She holds postgraduate qualifications in Islamic History and Culture, complemented by applied technical and language competencies including a National Skill Standard certification in Database Programming from the Bangladesh Technical Education Board, the Goethe-Zertifikat A1 (Start Deutsch 1) from the Goethe-Institut, and recognition from the British Council's Active Citizens Youth Leadership Training — strengthening her profile in cross-cultural engagement and community-oriented institutional leadership.`,
     education: [
       {
         degree: "MA in Islamic History and Culture",
         institution:
           "National University, Bangladesh (Sirajganj Govt. College)",
         year: "Session 2017-2018",
-        grade: "CGPA: 3.22",
       },
       {
         degree: "BA (Honours) in Islamic History and Culture",
         institution:
           "National University, Bangladesh (Sirajganj Govt. College)",
         year: "Session 2013-2014",
-        grade: "CGPA: 3.15 (Credits: 120/120)",
       },
       {
         degree: "Fazil (Bachelor of Theology and Islamic Studies)",
         institution:
           "Islamic University, Kushtia-Jhenaidah (Char Sonagachhia Islamia Fazil Madrasah, Sirajganj)",
         year: "2016",
-        grade: "CGPA: 3.50",
       },
       {
         degree: "Alim (HSC Equivalent)",
         institution:
           "Bangladesh Madrasah Education Board (Char Sonagachhia Islamia Fazil Madrasah, Sirajganj)",
         year: "2013",
-        grade: "GPA: 4.17",
       },
       {
         degree: "Dakhil (SSC Equivalent)",
         institution:
           "Bangladesh Madrasah Education Board (Char Sonagachhia Islamia Fazil Madrasah, Sirajganj)",
         year: "2011",
-        grade: "GPA: 4.25",
       },
       {
         degree:
@@ -258,13 +253,11 @@ Her professional orientation combines developmental thinking with practical orga
         institution:
           "Bangladesh Technical Education Board / Amar IT Skill Development Institute, Rajshahi",
         year: "Jul-Dec 2020",
-        grade: "Grade A",
       },
       {
         degree: "Goethe-Zertifikat A1 (Start Deutsch 1)",
         institution: "Goethe-Institut, Dhaka",
         year: "2023",
-        grade: "71/100 (Satisfactory)",
       },
     ],
     experience: [
@@ -335,9 +328,9 @@ Her professional orientation combines developmental thinking with practical orga
     dateOfBirth: "05 February 1994",
     type: "schooling-leadership",
     priority: 1,
-    bio: `Md. Omar Faruque is the Managing Director of KRTC Schooling at Kekuleon Research and Training Center (KRTC). He is currently working as an Officer at Sonali Bank PLC, Bangladesh. He completed his M.Engg in Applied Chemistry and Chemical Engineering and BSc (160 credits with CGPA 3.24) from University of Rajshahi.
+    bio: `Md. Omar Faruque is the Managing Director of KRTC Schooling at Kekuleon Research and Training Center (KRTC). He is currently working as an Officer at Sonali Bank PLC, Bangladesh. He completed his M.Engg in Applied Chemistry and Chemical Engineering and BSc (160 credits) from University of Rajshahi.
 
-He received professional training from TICI on Industrial Process Unit Operation & Process Control Technique with Grade A (3.50/4.00). His expertise spans applied chemistry, analytical chemistry, research methodology, and institutional development.`,
+He received professional training from TICI on Industrial Process Unit Operation & Process Control Technique. His expertise spans applied chemistry, analytical chemistry, research methodology, and institutional development.`,
     education: [
       {
         degree: "M.Engg in Applied Chemistry & Chemical Engineering",
@@ -348,14 +341,12 @@ He received professional training from TICI on Industrial Process Unit Operation
         degree: "BSc in Applied Chemistry & Chemical Engineering",
         institution: "University of Rajshahi",
         year: "2012 - 2015",
-        grade: "CGPA: 3.24 (160 Credits)",
       },
       {
         degree:
           "Training on Industrial Process Unit Operation & Process Control Technique",
         institution: "Training Institute for Chemical Industries (TICI)",
         year: "Completed",
-        grade: "Grade A (3.50/4.00)",
       },
       {
         degree: "Foundation Course for Officer",
@@ -595,26 +586,22 @@ He currently works as an Executive Officer at SGS (Testing Lab, Chemical), handl
           "Master of Engineering in Applied Chemistry and Chemical Engineering",
         institution: "University of Rajshahi",
         year: "2021",
-        grade: "3.38 out of 4.00",
       },
       {
         degree:
           "Bachelor of Science in Applied Chemistry and Chemical Engineering",
         institution: "University of Rajshahi",
         year: "2020",
-        grade: "2.92 out of 4.00",
       },
       {
         degree: "Higher Secondary Certificate (HSC)",
         institution: "R.D.A Laboratory School & College, Bogura",
         year: "2013",
-        grade: "GPA 4.10",
       },
       {
         degree: "Secondary School Certificate (SSC)",
         institution: "Chopinagar High School, Bogura",
         year: "2010",
-        grade: "GPA 5.00",
       },
     ],
     experience: [
@@ -767,19 +754,16 @@ He is the founder of NM Chemistry Academic & Admission Care, where he has mentor
         institution:
           "Training Institute for Chemical Industries (TICI), Norsingdi",
         year: "Mar - Apr 2022",
-        grade: "A+ (4.00/4.00)",
       },
       {
         degree: "Higher Secondary Certificate (HSC)",
         institution: "Govt. Gurudayal College, Kishoreganj",
         year: "2014",
-        grade: "A (GPA 4.70/5.00)",
       },
       {
         degree: "Secondary School Certificate (SSC)",
         institution: "Kishoreganj Ideal High School",
         year: "2012",
-        grade: "A (GPA 4.75/5.00)",
       },
     ],
     experience: [
@@ -887,19 +871,16 @@ Currently working as an instructor at Pi Math Academy and KRTC, he specializes i
         degree: "BSc in Mathematics",
         institution: "University of Rajshahi",
         year: "2020-2023",
-        grade: "CGPA: 3.14",
       },
       {
         degree: "Higher Secondary Certificate (HSC)",
         institution: "Varendra College, Rajshahi",
         year: "2019",
-        grade: "GPA: 4.42",
       },
       {
         degree: "Secondary School Certificate (SSC)",
         institution: "Baliapukur Vidyaniketon, Rajshahi",
         year: "2017",
-        grade: "GPA: 5.00",
       },
     ],
     experience: [
@@ -926,7 +907,6 @@ Currently working as an instructor at Pi Math Academy and KRTC, he specializes i
     achievements: [
       "8th Position - 15th National Undergraduate Math Olympiad 2024",
       "3x Regional Math Olympiad Winner",
-      "SSC GPA 5.00",
     ],
   },
 
@@ -957,13 +937,11 @@ Currently pursuing BSc in Mathematics at University of Rajshahi, he has been tea
         degree: "Higher Secondary Certificate (HSC)",
         institution: "Ramu Govt College",
         year: "2023",
-        grade: "GPA: 5.00",
       },
       {
         degree: "Secondary School Certificate (SSC)",
         institution: "Eidgah Adarsha Shiksha Niketon",
         year: "2021",
-        grade: "GPA: 4.61",
       },
     ],
     experience: [
@@ -980,7 +958,6 @@ Currently pursuing BSc in Mathematics at University of Rajshahi, he has been tea
     ],
     achievements: [
       "Winner - Bangladesh Physics Olympiad 2019",
-      "HSC GPA 5.00",
       "Multi-subject Expertise",
     ],
   },
@@ -999,27 +976,24 @@ Currently pursuing BSc in Mathematics at University of Rajshahi, he has been tea
     location: "Belkuchi, Sirajganj, Bangladesh",
     type: "schooling",
     priority: 6,
-    bio: `Arifin Asad is a motivated undergraduate student of Applied Chemistry and Chemical Engineering with strong academic results and extensive teaching experience. Currently in his 4th year at Rajshahi University with GPA 3.45, he has been actively involved in teaching.
+    bio: `Arifin Asad is a motivated undergraduate student of Applied Chemistry and Chemical Engineering with strong academic results and extensive teaching experience. Currently in his 4th year at Rajshahi University, he has been actively involved in teaching.
 
-He works as an instructor at Chorcha Coaching Center and UAC Coaching Center, teaching 4+ batches independently. He also teaches more than 60 students privately. His perfect GPA 5.00 in both HSC and SSC reflects his academic excellence.`,
+He works as an instructor at Chorcha Coaching Center and UAC Coaching Center, teaching 4+ batches independently. He also teaches more than 60 students privately.`,
     education: [
       {
         degree: "BSc Applied Chemistry & Chemical Engineering (4th Year)",
         institution: "Rajshahi University",
         year: "2021-Present",
-        grade: "GPA: 3.45/4.00",
       },
       {
         degree: "Higher Secondary Certificate (HSC)",
         institution: "Rajshahi Board",
         year: "2020",
-        grade: "GPA: 5.00",
       },
       {
         degree: "Secondary School Certificate (SSC)",
         institution: "Rajshahi Board",
         year: "2018",
-        grade: "GPA: 5.00",
       },
     ],
     experience: [
@@ -1047,7 +1021,6 @@ He works as an instructor at Chorcha Coaching Center and UAC Coaching Center, te
     achievements: [
       "60+ Private Students",
       "4+ Independent Batches",
-      "HSC & SSC GPA 5.00",
     ],
   },
 
@@ -1102,7 +1075,7 @@ He believes in staying updated with new technology and teaching techniques to al
     location: "Rajshahi, Bangladesh",
     type: "schooling",
     priority: 6,
-    bio: `Md. Faridul Islam is the most experienced instructor at KRTC with 6-7 years of teaching experience. He holds both MSc and BSc (Hons) in Physics from University of Rajshahi with excellent academic records (CGPA 3.44 and 3.52 respectively).
+    bio: `Md. Faridul Islam is the most experienced instructor at KRTC with 6-7 years of teaching experience. He holds both MSc and BSc (Hons) in Physics from University of Rajshahi.
 
 His extensive experience spans teaching Physics, Chemistry, Math, and ICT to students from Class 6 to 12. His deep subject knowledge combined with years of practical teaching experience makes him a valuable mentor for students preparing for higher studies.`,
     education: [
@@ -1110,13 +1083,11 @@ His extensive experience spans teaching Physics, Chemistry, Math, and ICT to stu
         degree: "MSc in Physics",
         institution: "University of Rajshahi",
         year: "2020-2021",
-        grade: "CGPA: 3.44",
       },
       {
         degree: "BSc (Hons) in Physics",
         institution: "University of Rajshahi",
         year: "2016-2020",
-        grade: "CGPA: 3.52",
       },
     ],
     experience: [
@@ -1171,19 +1142,16 @@ He started teaching as a private tutor during the Corona period in 2021 and has 
         degree: "BSc (Honours) in Physics (Final Year)",
         institution: "University of Rajshahi",
         year: "2022-Present",
-        grade: "First Class in all exams",
       },
       {
         degree: "Higher Secondary Certificate (HSC)",
         institution: "Govt. Azizul Haque College, Bogura",
         year: "2021",
-        grade: "GPA: 5.00 (95%)",
       },
       {
         degree: "Secondary School Certificate (SSC)",
         institution: "Talora Altaf Ali High School, Bogura",
         year: "2019",
-        grade: "GPA: 5.00 (92%)",
       },
     ],
     experience: [
@@ -1209,9 +1177,6 @@ He started teaching as a private tutor during the Corona period in 2021 and has 
       "Communication",
     ],
     achievements: [
-      "HSC GPA 5.00 (95%)",
-      "SSC GPA 5.00 (92%)",
-      "First Class in University Exams",
       "Students in Public Universities",
     ],
   },
@@ -1229,7 +1194,7 @@ He started teaching as a private tutor during the Corona period in 2021 and has 
     location: "Shahazadpur, Sirajganj / Rajshahi",
     type: "schooling",
     priority: 7,
-    bio: `Md. Sojib Hossain is a 4th-year student of Crop Science and Technology at the University of Rajshahi. With excellent academic credentials including GPA 5.00 in both SSC and HSC, he brings strong knowledge in science subjects.
+    bio: `Md. Sojib Hossain is a 4th-year student of Crop Science and Technology at the University of Rajshahi. With excellent academic credentials, he brings strong knowledge in science subjects.
 
 He has the ability to teach students in an easy and effective way with good communication skills. He is punctual, responsible, and has experience in both private tutoring and teaching in coaching centers/academies.`,
     education: [
@@ -1242,13 +1207,11 @@ He has the ability to teach students in an easy and effective way with good comm
         degree: "Higher Secondary Certificate (HSC)",
         institution: "Shahid Bulbul Govt College, Pabna",
         year: "2021",
-        grade: "GPA: 5.00",
       },
       {
         degree: "Secondary School Certificate (SSC)",
         institution: "B B Pilot Govt High School, Bera, Pabna",
         year: "2019",
-        grade: "GPA: 5.00",
       },
     ],
     experience: [
@@ -1273,8 +1236,6 @@ He has the ability to teach students in an easy and effective way with good comm
       "Time Management",
     ],
     achievements: [
-      "HSC GPA 5.00",
-      "SSC GPA 5.00",
       "University of Rajshahi Student",
     ],
   },
@@ -1753,7 +1714,7 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
     priority: 1,
     bio: `Md. Sadequl Islam is a pharmaceutical Quality Control specialist with seven years of professional experience across regulated manufacturing environments. He currently serves as Senior Executive-2, Quality Control at Healthcare Pharmaceuticals Limited, Rajendrapur — handling Laboratory Incident Reports (LIR), Out-of-Specification (OOS) investigations, deviations, and change control; preparing and reviewing method-transfer protocols and reports; designing QRM and URS for QC equipment; and overseeing specification, test method and SOP preparation alongside ALCOA⁺-aligned data integrity and audit-ready GLP practice.
 
-He holds an MSc Engg and a BSc Engg in Applied Chemistry and Chemical Engineering from the University of Rajshahi (CGPA 3.47 and 3.25 out of 4.00), with his MSc thesis on "Production of Soybean Methyl Ester and Its Engine Performance Test" (supervisor: Dr. Md. Anwarul Karim) and his undergraduate project on fuel-cell technology (supervisor: Dr. C. M. Mustafa). His earlier career — as Senior Officer, QC at Healthcare Pharmaceuticals Limited and prior to that as Executive, QC at Popular Pharmaceuticals Limited (Tongi Industrial Area) — spans hands-on operation of HPLC, GC, AAS, UV-Vis, FTIR, dissolution tester, Karl Fischer apparatus, autotitrator and disintegration tester, alongside SOP preparation, working-standard documentation, calibration, and laboratory investigation. He has also completed specialised training on Industrial Process Unit Operation and Process Control Technique at the Training Institute for Chemical Industries (TICI), Polash, Norshingdi.
+He holds an MSc Engg and a BSc Engg in Applied Chemistry and Chemical Engineering from the University of Rajshahi, with his MSc thesis on "Production of Soybean Methyl Ester and Its Engine Performance Test" (supervisor: Dr. Md. Anwarul Karim) and his undergraduate project on fuel-cell technology (supervisor: Dr. C. M. Mustafa). His earlier career — as Senior Officer, QC at Healthcare Pharmaceuticals Limited and prior to that as Executive, QC at Popular Pharmaceuticals Limited (Tongi Industrial Area) — spans hands-on operation of HPLC, GC, AAS, UV-Vis, FTIR, dissolution tester, Karl Fischer apparatus, autotitrator and disintegration tester, alongside SOP preparation, working-standard documentation, calibration, and laboratory investigation. He has also completed specialised training on Industrial Process Unit Operation and Process Control Technique at the Training Institute for Chemical Industries (TICI), Polash, Norshingdi.
 
 As **Head of the Co-Joint Advisory Team (C-JAT)** at the Kekuleon Research and Training Center (KRTC), Md. Sadequl Islam leads the body responsible for the research, development, and institutional-modelling dimensions of KRTC's mission. He convenes C-JAT discussions, sets the team's collective advisory direction, coordinates with the Founder & Chairman and the Joint Advisory Team (JAT), and ensures that KRTC's research projects, applied training programmes, and laboratory practices are aligned with internationally benchmarked pharmaceutical-industry standards and broader societal development objectives.`,
     education: [
@@ -1762,26 +1723,22 @@ As **Head of the Co-Joint Advisory Team (C-JAT)** at the Kekuleon Research and T
           "MSc in Engineering (M.Sc. Engg.) — Applied Chemistry and Chemical Engineering",
         institution: "University of Rajshahi",
         year: "2015 (1.5 Years)",
-        grade: "CGPA 3.47 / 4.00",
       },
       {
         degree:
           "BSc in Engineering (B.Sc. Engg.) — Applied Chemistry and Chemical Engineering",
         institution: "University of Rajshahi",
         year: "2014 (4 Years)",
-        grade: "CGPA 3.25 / 4.00",
       },
       {
         degree: "Higher Secondary Certificate (HSC) — Science",
         institution: "Kaunia Degree College, Rangpur (Dinajpur Board)",
         year: "2010",
-        grade: "GPA 4.80 / 5.00",
       },
       {
         degree: "Secondary School Certificate (SSC) — Science",
         institution: "Bhayer Hat High School, Kaunia, Rangpur (Rajshahi Board)",
         year: "2008",
-        grade: "GPA 4.69 / 5.00",
       },
       {
         degree:
@@ -1875,8 +1832,8 @@ As **Head of the Co-Joint Advisory Team (C-JAT)** at the Kekuleon Research and T
       "Head, Co-Joint Advisory Team (C-JAT), Kekuleon Research and Training Center (KRTC)",
       "Senior Executive-2, Quality Control, Healthcare Pharmaceuticals Limited",
       "Seven years of pharmaceutical Quality Control experience",
-      "MSc Engg in Applied Chemistry and Chemical Engineering (CGPA 3.47), University of Rajshahi",
-      "BSc Engg in Applied Chemistry and Chemical Engineering (CGPA 3.25), University of Rajshahi",
+      "MSc Engg in Applied Chemistry and Chemical Engineering, University of Rajshahi",
+      "BSc Engg in Applied Chemistry and Chemical Engineering, University of Rajshahi",
       "TICI-trained — Industrial Process Unit Operation and Process Control Technique",
       "Joint Secretary, ACCE Group, University of Rajshahi",
     ],
@@ -1908,7 +1865,6 @@ As a member of the Co-Joint Advisory Team (C-JAT) of the Kekuleon Research and T
         degree: "Bachelor of Science in Chemistry",
         institution: "University of Dhaka",
         year: "2018",
-        grade: "3.18",
       },
       {
         degree: "Chemical Analysis by Spectrometric Methods (Training)",
@@ -2116,31 +2072,27 @@ As a member of the Co-Joint Advisory Team (C-JAT) of the Kekuleon Research and T
 
 His technical expertise covers analytical method validation and transfer (ICH/USP), stability studies (ICH), instrument qualification (URS, DQ, IQ, OQ, PQ), Out-of-Specification (OOS) investigation, deviation and quality risk assessment, CAPA, and the establishment of GLP- and data-integrity-compliant laboratories aligned with USFDA (21 CFR), EU (Eudralex), PIC/S, and TGA guidelines. He has served as Lab Solution Manager for the Shimadzu CDS System, has hands-on experience with Waters Empower 3 and Shimadzu LabSolutions CS, and works routinely with XRD, HPLC, GC, TLC, UV-Vis and IR spectroscopy, AAS, KF, dissolution tester, polarimeter, viscometer, DSC, surface area analyzer, polarized microscope, and Malvern particle-size analyzer. He has prepared QC laboratories for and faced audits from TGA, NPRA, ISO, and EU-GMP, with active preparation underway for upcoming USFDA, EU, and ANVISA inspections.
 
-He holds an MSc in Inorganic Chemistry (Department of Chemistry, University of Rajshahi — 1st Class 9th) and a BSc (Honours) in Chemistry from the same institution. As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Training Center (KRTC), he contributes regulatory- and audit-grade insights to curriculum design, instrument training, and laboratory-quality practice — helping align KRTC's analytical-chemistry programmes with the standards of internationally regulated pharmaceutical manufacturing.`,
+He holds an MSc in Inorganic Chemistry (Department of Chemistry, University of Rajshahi) and a BSc (Honours) in Chemistry from the same institution. As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Training Center (KRTC), he contributes regulatory- and audit-grade insights to curriculum design, instrument training, and laboratory-quality practice — helping align KRTC's analytical-chemistry programmes with the standards of internationally regulated pharmaceutical manufacturing.`,
     education: [
       {
         degree: "MSc in Inorganic Chemistry",
         institution: "Department of Chemistry, University of Rajshahi",
         year: "2008 (Held in 2010)",
-        grade: "1st Class 9th",
       },
       {
         degree: "BSc (Honours) in Chemistry — 4 Years",
         institution: "Department of Chemistry, University of Rajshahi",
         year: "2007 (Held in 2008)",
-        grade: "2nd Class",
       },
       {
         degree: "Higher Secondary Certificate (HSC) — Science",
         institution: "Chuadanga Government College (Jessore Board)",
         year: "2003",
-        grade: "A- (GPA 3.50, 1st Division)",
       },
       {
         degree: "Secondary School Certificate (SSC) — Science",
         institution: "Asmankhali High School (Jessore Board)",
         year: "2001",
-        grade: "A (GPA 4.25, 1st Division)",
       },
     ],
     experience: [
@@ -2241,7 +2193,7 @@ He holds an MSc in Inorganic Chemistry (Department of Chemistry, University of R
     achievements: [
       "Approximately 16 years of pharmaceutical Quality Control experience",
       "Assistant Manager, QC (Oncology QC), Healthcare Pharmaceuticals Limited",
-      "MSc in Inorganic Chemistry (1st Class 9th), University of Rajshahi",
+      "MSc in Inorganic Chemistry, University of Rajshahi",
       "Lab Solution Manager — Shimadzu CDS System",
       "Audit experience facing TGA, NPRA, ISO, and EU-GMP inspections",
       "International training: Waters India, Waters Malaysia, Shimadzu Singapore",
@@ -2276,25 +2228,21 @@ As a Joint Advisory Team (JAT) member of the Kekuleon Research and Training Cent
         degree: "MSc in Applied Chemistry & Chemical Engineering",
         institution: "University of Rajshahi, Bangladesh",
         year: "2017",
-        grade: "CGPA 2.97 / 4.00",
       },
       {
         degree: "BSc in Applied Chemistry & Chemical Engineering",
         institution: "University of Rajshahi, Bangladesh",
         year: "2015",
-        grade: "CGPA 2.87 / 4.00",
       },
       {
         degree: "Higher Secondary Certificate (HSC), Science",
         institution: "Dinajpur Govt. College, Dinajpur",
         year: "2010",
-        grade: "GPA 4.80 / 5.00 (Dinajpur Board)",
       },
       {
         degree: "Secondary School Certificate (SSC), Science",
         institution: "Kamdebpur High School, Dinajpur",
         year: "2008",
-        grade: "GPA 5.00 / 5.00 (Rajshahi Board)",
       },
     ],
     experience: [
@@ -2410,7 +2358,7 @@ As a Joint Advisory Team (JAT) member of the Kekuleon Research and Training Cent
     priority: 6,
     bio: `Taposh Shingha Roy is a pharmaceutical research and development specialist with formulation, analytical method development, and validation expertise. He currently serves as Senior Officer, Research and Development at Healthcare Pharmaceuticals Limited — a leading Bangladeshi pharmaceutical manufacturer — where he leads development activities for drug substances and finished products, prepares and executes verification and validation protocols, develops and validates analytical methods for non-compendial drugs, and oversees stability studies for laboratory and validation batches.
 
-He holds an MSc and a BSc in Applied Chemistry and Chemical Engineering from the University of Rajshahi (CGPA 3.55 and 3.45 out of 4.00 respectively), with his MSc thesis focused on the development of single-bath bioscouring and bleaching of cotton fabric using pectinase and peracetic acid. He has completed specialised industrial training on Industrial Process Unit Operation & Process Control Technique at the Training Institute for Chemical Industries (TICI), Polash, Narsingdi (Grade A⁺), and a three-month course on Microsoft Excel, SPSS, and Research Methodology from the Department of Statistics, University of Rajshahi. His professional career — spanning Quality Control at Popular Pharmaceuticals Limited and progressively senior R&D roles at Healthcare Pharmaceuticals Limited — has built deep applied experience in pharmaceutical R&D workflows, method validation, and stability science.
+He holds an MSc and a BSc in Applied Chemistry and Chemical Engineering from the University of Rajshahi, with his MSc thesis focused on the development of single-bath bioscouring and bleaching of cotton fabric using pectinase and peracetic acid. He has completed specialised industrial training on Industrial Process Unit Operation & Process Control Technique at the Training Institute for Chemical Industries (TICI), Polash, Narsingdi, and a three-month course on Microsoft Excel, SPSS, and Research Methodology from the Department of Statistics, University of Rajshahi. His professional career — spanning Quality Control at Popular Pharmaceuticals Limited and progressively senior R&D roles at Healthcare Pharmaceuticals Limited — has built deep applied experience in pharmaceutical R&D workflows, method validation, and stability science.
 
 As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Training Center (KRTC), he contributes industry-grounded insights to curriculum design, hands-on training methodology, and laboratory infrastructure — particularly in pharmaceutical R&D, analytical method development, and validation practice — helping align KRTC's applied chemistry programmes with the day-to-day standards of regulated pharmaceutical manufacturing.`,
     education: [
@@ -2418,25 +2366,21 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
         degree: "MSc in Applied Chemistry and Chemical Engineering",
         institution: "University of Rajshahi",
         year: "2016 (Held in 2018)",
-        grade: "CGPA 3.55 / 4.00",
       },
       {
         degree: "BSc in Applied Chemistry and Chemical Engineering",
         institution: "University of Rajshahi",
         year: "2015 (Held in 2016)",
-        grade: "CGPA 3.45 / 4.00",
       },
       {
         degree: "Higher Secondary Certificate (HSC) — Science",
         institution: "Notre Dame College, Dhaka",
         year: "2010",
-        grade: "GPA 5.00 / 5.00",
       },
       {
         degree: "Secondary School Certificate (SSC) — Science",
         institution: "Nilphamari Government High School",
         year: "2008",
-        grade: "GPA 5.00 / 5.00",
       },
       {
         degree:
@@ -2444,7 +2388,6 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
         institution:
           "Training Institute for Chemical Industries (TICI), Polash, Narsingdi",
         year: "June 2016",
-        grade: "Grade A⁺",
       },
       {
         degree: "Training on Microsoft Excel, SPSS and Research Methodology",
@@ -2530,12 +2473,11 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
       },
     ],
     achievements: [
-      "MSc in Applied Chemistry and Chemical Engineering (CGPA 3.55), University of Rajshahi",
-      "GPA 5.00 in both SSC and HSC (Notre Dame College, Dhaka)",
+      "MSc in Applied Chemistry and Chemical Engineering, University of Rajshahi",
       "Senior Officer, R&D, Healthcare Pharmaceuticals Limited",
       "Government Scholarships at 5th and 8th grade, and for excellent SSC result",
       "University Scholarship for excellent BSc Engineering result",
-      "TICI-certified (Grade A⁺) — Industrial Process Unit Operation & Process Control",
+      "TICI-certified — Industrial Process Unit Operation & Process Control",
       "President, ACCE Group, University of Rajshahi",
       "JAT Member, Kekuleon Research and Training Center (KRTC)",
     ],
@@ -2659,13 +2601,11 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
         degree: "Higher Secondary Certificate (HSC)",
         institution: "Rajshahi Government Women's College",
         year: "2020",
-        grade: "GPA: 5.00 (Science)",
       },
       {
         degree: "Secondary School Certificate (SSC)",
         institution: "Masjid Mission Academy",
         year: "2018",
-        grade: "GPA: 5.00",
       },
     ],
     experience: [
@@ -2690,7 +2630,6 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
     ],
     achievements: [
       "University Coordinator & Student Ambassador, KRTC",
-      "GPA 5.00 in both SSC and HSC",
       "Preparing for advanced research and higher studies in an international academic environment",
     ],
   },
@@ -2725,13 +2664,11 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
         degree: "MSS in Public Administration",
         institution: "Begum Rokeya University, Rangpur",
         year: "Session 2023-2024",
-        grade: "CGPA: 3.31",
       },
       {
         degree: "Bachelor of Social Science (BSS), Public Administration",
         institution: "Begum Rokeya University, Rangpur",
         year: "Session 2019-2020",
-        grade: "CGPA: 3.41",
       },
     ],
     experience: [
@@ -2815,7 +2752,7 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
     zone: "central",
     coordinatorRole: "coordinator",
     priority: 1,
-    bio: `Md Aminul Islam is an undergraduate student at the University of Dhaka (BSc Honours, 2022–2026), with a consistent record of academic excellence — GPA 5.00 in both SSC and HSC. As KRTC's University Coordinator & Student Ambassador at the University of Dhaka, he focuses on campus outreach, connecting DU students to KRTC's applied-science training, research programs and community initiatives.`,
+    bio: `Md Aminul Islam is an undergraduate student at the University of Dhaka (BSc Honours, 2022–2026), with a consistent record of academic excellence. As KRTC's University Coordinator & Student Ambassador at the University of Dhaka, he focuses on campus outreach, connecting DU students to KRTC's applied-science training, research programs and community initiatives.`,
     education: [
       {
         degree: "BSc Honours",
@@ -2826,13 +2763,11 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
         degree: "Higher Secondary Certificate (HSC)",
         institution: "Dighir Hat College, Sapahar, Naogaon",
         year: "2018 - 2020",
-        grade: "GPA: 5.00 (Roll: 113509, Rajshahi Board)",
       },
       {
         degree: "Secondary School Certificate (SSC)",
         institution: "Jobai Somija Begum High School, Sapahar, Naogaon",
         year: "2013 - 2018",
-        grade: "GPA: 5.00 (Roll: 133449, Rajshahi Board)",
       },
     ],
     experience: [
@@ -2851,8 +2786,8 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
     ],
     achievements: [
       "University Coordinator & Student Ambassador, KRTC",
-      "GPA 5.00 — HSC (Dighir Hat College, 2020)",
-      "GPA 5.00 — SSC (Jobai Somija Begum High School, 2018)",
+      "HSC (Dighir Hat College, 2020)",
+      "SSC (Jobai Somija Begum High School, 2018)",
     ],
   },
 
@@ -2885,19 +2820,16 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
         degree: "Bachelor of Social Science (BSS), Sociology",
         institution: "Begum Rokeya University, Rangpur",
         year: "Passing Year 2024",
-        grade: "CGPA 3.50 / 4.00 (2nd Year Result)",
       },
       {
         degree: "Higher Secondary Certificate (HSC)",
         institution: "Govt. Shah Abdur Rouf College, Pirganj, Rangpur",
         year: "2021",
-        grade: "GPA 5.00 / 5.00 (Science, Dinajpur Board)",
       },
       {
         degree: "Secondary School Certificate (SSC)",
         institution: "Jamdani High School, Pirganj, Rangpur",
         year: "2019",
-        grade: "GPA 4.89 / 5.00 (Science, Dinajpur Board)",
       },
     ],
     experience: [
@@ -2930,8 +2862,8 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
     ],
     achievements: [
       "University Coordinator & Student Ambassador, KRTC",
-      "GPA 5.00 — HSC (Govt. Shah Abdur Rouf College, 2021)",
-      "GPA 4.89 — SSC (Jamdani High School, 2019)",
+      "HSC (Govt. Shah Abdur Rouf College, 2021)",
+      "SSC (Jamdani High School, 2019)",
       "INTEGRATE Project data collector (German Development Cooperation)",
     ],
   },
@@ -2955,7 +2887,7 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
     zone: "north",
     coordinatorRole: "coordinator",
     priority: 3,
-    bio: `Noshin Tabasum Puspita is a third-year BSc student in the Department of Chemistry at Begum Rokeya University, Rangpur, with a consistent record of academic excellence — GPA 5.00 in both SSC and HSC. She is an active student leader, serving in executive and secretarial roles across multiple BRUR clubs — including the NEON Club, Debate Association, Chemistry Debate Society, Sports Association, Art & Literature, and the Rangpur Sadar Students Welfare Association.
+    bio: `Noshin Tabasum Puspita is a third-year BSc student in the Department of Chemistry at Begum Rokeya University, Rangpur, with a consistent record of academic excellence. She is an active student leader, serving in executive and secretarial roles across multiple BRUR clubs — including the NEON Club, Debate Association, Chemistry Debate Society, Sports Association, Art & Literature, and the Rangpur Sadar Students Welfare Association.
 
   As KRTC's University Coordinator & Student Ambassador at BRUR, she leverages this strong campus network to drive outreach for KRTC's applied-science training and research opportunities in the North Zone.`,
     education: [
@@ -2968,13 +2900,11 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
         degree: "Higher Secondary Certificate (HSC)",
         institution: "Cantonment Public School and College, Rangpur",
         year: "2021",
-        grade: "GPA 5.00 / 5.00 (Science)",
       },
       {
         degree: "Secondary School Certificate (SSC)",
         institution: "Cantonment Public School and College, Rangpur",
         year: "2019",
-        grade: "GPA 5.00 / 5.00 (Science)",
       },
     ],
     experience: [
@@ -3029,7 +2959,6 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
     ],
     achievements: [
       "University Coordinator & Student Ambassador, KRTC",
-      "GPA 5.00 in both SSC and HSC",
       "General Secretary, NEON Club",
       "Executive roles across 7 BRUR clubs/societies",
     ],
@@ -3063,25 +2992,21 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
         degree: "Master of Social Science (MSS), Sociology",
         institution: "Begum Rokeya University, Rangpur",
         year: "Passing Year 2024",
-        grade: "CGPA 3.50 / 4.00",
       },
       {
         degree: "Bachelor of Social Science (BSS), Sociology",
         institution: "Begum Rokeya University, Rangpur",
         year: "Passing Year 2023",
-        grade: "CGPA 3.36 / 4.00",
       },
       {
         degree: "Higher Secondary Certificate (HSC)",
         institution: "Carmichael College, Rangpur",
         year: "2019",
-        grade: "GPA 5.00 / 5.00 (Humanities)",
       },
       {
         degree: "Secondary School Certificate (SSC)",
         institution: "Jahangirabad High School, Pirganj, Rangpur",
         year: "2017",
-        grade: "GPA 4.91 / 5.00 (Science)",
       },
     ],
     experience: [
@@ -3144,7 +3069,7 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
     ],
     achievements: [
       "University Coordinator & Student Ambassador, KRTC",
-      "GPA 5.00 — HSC (Carmichael College, Rangpur, 2019)",
+      "HSC (Carmichael College, Rangpur, 2019)",
       "Job Readiness Training (Career Hub powered by BRAC, Nov 2024)",
       "Computer Office Application Training (BRAC ISD)",
       "INTEGRATE Project data collector (German Development Cooperation)",
@@ -3170,7 +3095,7 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
     zone: "central",
     coordinatorRole: "coordinator",
     priority: 2,
-    bio: `Md. Asraful Alam Akash is a second-year BA (Honors) student at the University of Dhaka (CGPA 3.75), with GPA 5.00 in both SSC and HSC. An active member of the Dhaka University Research Society, he combines strong interpersonal and digital-communication skills with debating experience to bridge the gap between KRTC's research community and the DU student body.
+    bio: `Md. Asraful Alam Akash is a second-year BA (Honors) student at the University of Dhaka. An active member of the Dhaka University Research Society, he combines strong interpersonal and digital-communication skills with debating experience to bridge the gap between KRTC's research community and the DU student body.
 
   As KRTC's University Coordinator & Student Ambassador at DU, he focuses on promoting KRTC programs, recruiting participants for training and research initiatives, and fostering a culture of curiosity and evidence-based learning on campus.`,
     education: [
@@ -3178,19 +3103,16 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
         degree: "BA (Honors), 2nd Year",
         institution: "University of Dhaka",
         year: "Running",
-        grade: "CGPA 3.75",
       },
       {
         degree: "Higher Secondary Certificate (HSC)",
         institution: "Rajshahi College",
         year: "2023",
-        grade: "GPA 5.00",
       },
       {
         degree: "Secondary School Certificate (SSC)",
         institution: "Sirajganj Police Lines School & College",
         year: "2021",
-        grade: "GPA 5.00",
       },
     ],
     experience: [
@@ -3227,9 +3149,190 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
     ],
     achievements: [
       "University Coordinator & Student Ambassador, KRTC",
-      "CGPA 3.75 — BA Honors, University of Dhaka",
-      "GPA 5.00 — HSC (Rajshahi College, 2023)",
-      "GPA 5.00 — SSC (Sirajganj Police Lines School & College, 2021)",
+      "BA Honors, University of Dhaka",
+      "HSC (Rajshahi College, 2023)",
+      "SSC (Sirajganj Police Lines School & College, 2021)",
+    ],
+  },
+
+  // ---- Southwest Zone — Zone Advisor ----
+  // Note: Toukir is based at the University of Rajshahi but is assigned
+  // to KRTC's Southwest Zone advisory role per the client's decision.
+  // His `zone` field is "southwest" so he surfaces in the Southwest
+  // group on the team page (advisor slot + coordinator list).
+  "toukir-biswas": {
+    id: 43,
+    slug: "toukir-biswas",
+    name: "Md. Toukir Biswas",
+    title:
+      "University Coordinator & Student Ambassador · Zone Advisor — Southwest Zone",
+    department: "University of Rajshahi",
+    initials: "TB",
+    color: "bg-emerald-500",
+    email: "toukirb2243@gmail.com",
+    phone: "+880 1752412243",
+    location: "Rajshahi, Bangladesh",
+    address:
+      "Sharabaria, Atgharia, Par Khidirpur, 6623 Pabna, Bangladesh",
+    dateOfBirth: "20 October 2002",
+    linkedin: "https://www.linkedin.com/in/toukirbiswas8",
+    type: "university-coordinator",
+    university: "University of Rajshahi",
+    universityCode: "RU",
+    zone: "southwest",
+    coordinatorRole: "advisor",
+    priority: 1,
+    bio: `Md. Toukir Biswas serves as the Zone Advisor for KRTC's Southwest Zone (Khulna & Barishal Divisions) under the University Coordinator & Student Ambassador Program. He is a final-year B.Sc. (Hons) student in Applied Chemistry and Chemical Engineering at the University of Rajshahi (160 credits, expected graduation April 2026), with an active research and publication record in nanomaterials, Schiff base metal complexes, computational chemistry (DFT, ADMET, molecular docking), and green synthesis.
+
+A published author in journals including Scientific Reports (Springer Nature) and the Asian Journal of Chemical Sciences, he has presented at multiple international conferences including the International Conference on Applied Statistics and Data Science 2025 (ISRT, University of Dhaka) and the 2nd International Conference on Recent Advances in Science and Technology 2025 (Faculty of Science, University of Rajshahi). He was awarded 1st Runner-Up at the IQAC University of Rajshahi Business Idea Competition 2025 and twice received 2nd Runner-Up recognition for innovative projects on bioplastics production.
+
+Currently serving as Vice President of the Rajshahi University Higher Study Club, he brings hands-on experience in academic event coordination, research methodology mentoring, and student engagement — including leadership roles at the RURS 1st International Student Conference and Research Fair 2024. As Zone Advisor, he guides University Coordinators across Southwest Zone universities (KU, KUET, IU, BU, PSTU, JUST) and affiliated National University colleges, ensuring regional coherence and institutional alignment with KRTC's applied-science training, research, and community mission.`,
+    education: [
+      {
+        degree:
+          "B.Sc. (Hons) in Applied Chemistry and Chemical Engineering",
+        institution: "University of Rajshahi",
+        year: "December 2021 - April 2026 (Expected)",
+        credits: "160 credits — Final Year (4th Year, Even Semester)",
+      },
+      {
+        degree:
+          "In-plant Training on Industrial Process Unit Operation & Process Control Technique",
+        institution:
+          "Training Institute for Chemical Industries (TICI), Narsingdi",
+        year: "January – March 2026",
+      },
+      {
+        degree:
+          "5-day Intensive Training Program on Advanced Analytical Instruments",
+        institution:
+          "Bangladesh Council of Scientific Research (BCSIR) Rajshahi Laboratories",
+        year: "December 2025",
+      },
+      {
+        degree: "40-Hour Intensive Training on ASPEN Plus Simulation Software",
+        institution:
+          "Society of Process Engineers (SPER), Department of Chemical Engineering, RUET",
+        year: "July – October 2025",
+      },
+      {
+        degree:
+          "Basic to Advanced of Computer-Aided Drug Design and Discovery",
+        institution: "Panacea Research Center, Rajshahi",
+        year: "March – April 2024",
+      },
+      {
+        degree: "Higher Secondary Certificate (HSC) — Science",
+        institution: "Dashuria Degree College, Pabna",
+        year: "2018 - 2020",
+      },
+    ],
+    experience: [
+      {
+        role: "Zone Advisor — Southwest Zone (Khulna & Barishal Divisions)",
+        org: "Kekuleon Research and Training Center (KRTC) — University Coordinator & Student Ambassador Program",
+        period: "2026 - Present",
+        description:
+          "Advising University Coordinators across the 6 Southwest Zone universities (KU, KUET, IU, BU, PSTU, JUST) and all affiliated National University colleges — ensuring regional coherence, partnership-building, and alignment with KRTC's applied-science mission.",
+      },
+      {
+        role: "Vice President",
+        org: "Rajshahi University Higher Study Club",
+        period: "July 2025 - Present",
+        description:
+          "Leading initiatives to support students in pursuing higher education opportunities; coordinating recruitment activities, academic events, and student engagement programmes; collaborating with academic professionals to provide guidance on higher studies.",
+      },
+      {
+        role: "Coordinator — Engineering and Science Faculty Research Team",
+        org: "RURS 1st International Student Conference and Research Fair 2024, Rajshahi",
+        period: "March 2025 - Present",
+        description:
+          "Convenor for a Research Methodology course; designed and evaluated assignments across 30+ student submissions; provided academic guidance and mentoring to research teams.",
+      },
+      {
+        role: "Editorial Member — Book of Abstracts",
+        org: "RURS 1st International Student Conference and Research Fair 2024",
+        period: "February 2025",
+        description:
+          "Reviewed, edited, and formatted abstracts for the official conference book; maintained communication with authors and reviewers; ensured consistency, quality, and professionalism in published materials.",
+      },
+      {
+        role: "Organizer — Conference Management Team",
+        org: "RURS 1st International Student Conference and Research Fair 2024",
+        period: "October 2024 - February 2025",
+        description:
+          "Managed registration response sheets; coordinated abstract review process with professors; drafted official emails to participants; assisted in event coordination, queries, and execution.",
+      },
+    ],
+    research: [
+      {
+        title:
+          "Structural Elucidation, Biological Significance and Computational Approach of Copper(II), Nickel(II) and Cobalt(II) with Bidentate Schiff Base of N-(Naphthalene-1-ylmethylene)isonicotinohydrazide",
+        institution: "Scientific Reports (Springer Nature), Vol. 16, Article 3893",
+        period: "2026",
+        description:
+          "Co-authored peer-reviewed publication on Schiff base metal complexes — synthesis, characterisation, and computational analysis.",
+      },
+      {
+        title:
+          "Exploring N-Benzylidene Isonicotinohydrazide Schiff Base and Its Ni(II), Cu(II), and Co(II) Complexes: Synthesis, Spectroscopic, Computational, and Molecular Docking Insights with the COVID-19 Protein Receptor",
+        institution:
+          "Asian Journal of Chemical Sciences, Vol. 15, Issue 2, pp. 135–151",
+        period: "2025",
+      },
+      {
+        title:
+          "Preparation and Characterization of TiO₂ Nanoparticles from River-born Rutile",
+        institution: "University of Rajshahi (B.Sc. project)",
+        period: "July – December 2025",
+        supervisor:
+          "Md. Nuruzzaman, Lecturer, Department of Applied Chemistry & Chemical Engineering, University of Rajshahi",
+      },
+      {
+        title:
+          "In Silico Screening of Neem-Derived Phytochemicals as Potential Inhibitors of Nipah Virus Attachment Glycoprotein",
+        institution:
+          "Oral presentation — International Conference on Applied Statistics and Data Science 2025, ISRT, University of Dhaka",
+        period: "December 2025",
+      },
+    ],
+    skills: [
+      "Research Methodology & Academic Mentoring",
+      "Computational Chemistry — DFT, ADMET, Molecular Docking",
+      "Nanomaterials Synthesis & Characterisation",
+      "Schiff Base & Metal Complex Chemistry",
+      "Green Synthesis (plant-extract-mediated nanoparticles)",
+      "Laboratory Instrumentation: UV-Vis, FTIR, XRD, FESEM, GC-MS, ICP-OES, Particle Size Analyzer",
+      "Process Simulation — ASPEN Plus",
+      "Scientific Software — OriginLab, VESTA, Zotero, ChemDraw, Gaussian/GaussView, PyRx, PyMOL, BIOVIA Discovery Studio, SwissADME",
+      "Academic Event Coordination & Conference Management",
+      "Editorial Review & Publication Workflow",
+      "Project Coordination & Team Leadership",
+      "Microsoft Office (Word, Excel, PowerPoint)",
+    ],
+    languages: [
+      { language: "Bengali", level: "Native" },
+      { language: "English", level: "Independent user (B2)" },
+    ],
+    organizations: [
+      {
+        role: "Vice President",
+        org: "Rajshahi University Higher Study Club",
+        description:
+          "Leading higher-education guidance, recruitment, and academic events for RU students.",
+      },
+    ],
+    achievements: [
+      "Zone Advisor — Southwest Zone, KRTC University Coordinator & Student Ambassador Program",
+      "Co-author — Scientific Reports (Springer Nature) — Schiff base metal complexes",
+      "Co-author — Asian Journal of Chemical Sciences — molecular docking with COVID-19 protein receptor",
+      "1st Runner-Up — Business Idea Competition 2025, IQAC, University of Rajshahi",
+      "2nd Runner-Up — Project Showcasing Competition, 8th RUSC National Science Fiesta 2024 (Bioplastics)",
+      "2nd Runner-Up — Project Showcasing Competition 2024, IEEE University of Rajshahi Student Branch (Bioplastic Production)",
+      "TICI Certified — Industrial Process Unit Operation & Process Control Technique",
+      "BCSIR-trained — Advanced Analytical Instruments (FESEM, GC-MS, FTIR, ICP-OES)",
+      "HSC — Dashuria Degree College, Pabna",
+      "3 international conference oral presentations (October – December 2025)",
     ],
   },
 
@@ -3254,7 +3357,7 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
     zone: "southwest",
     coordinatorRole: "coordinator",
     priority: 3,
-    bio: `Md. Ibad Parvez is a research-oriented undergraduate student in the Department of Pharmacy at Jashore University of Science and Technology (JUST), with a stellar academic record — GPA 5.00/5.00 in both SSC and HSC. He brings a strong foundation in pharmaceutical sciences (drug development, pharmacology and clinical research), a passion for academic research and healthcare innovation, and proven leadership through active participation in university clubs and academic activities.
+    bio: `Md. Ibad Parvez is a research-oriented undergraduate student in the Department of Pharmacy at Jashore University of Science and Technology (JUST), with a stellar academic record. He brings a strong foundation in pharmaceutical sciences (drug development, pharmacology and clinical research), a passion for academic research and healthcare innovation, and proven leadership through active participation in university clubs and academic activities.
 
   As KRTC's University Coordinator & Student Ambassador at JUST, he supports Southwest Zone outreach — connecting JUST's pharmacy and science student community to KRTC's applied-science training, research and community programs.`,
     education: [
@@ -3267,13 +3370,11 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
         degree: "Higher Secondary Certificate (HSC) — Science",
         institution: "Varendra College, Rajshahi",
         year: "2024",
-        grade: "GPA 5.00 / 5.00 (Rajshahi Board)",
       },
       {
         degree: "Secondary School Certificate (SSC) — Science",
         institution: "Dadon chak H. M. High School, Nawabganj",
         year: "2022",
-        grade: "GPA 5.00 / 5.00 (Rajshahi Board)",
       },
     ],
     experience: [
@@ -3324,8 +3425,8 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
     ],
     achievements: [
       "University Coordinator & Student Ambassador, KRTC — Southwest Zone",
-      "GPA 5.00 / 5.00 — HSC (Varendra College, Rajshahi, 2024)",
-      "GPA 5.00 / 5.00 — SSC (Dadon chak H.M. High School, 2022)",
+      "HSC (Varendra College, Rajshahi, 2024)",
+      "SSC (Dadon chak H.M. High School, 2022)",
       "Member, Pharmacy Club, JUST",
       "Participant — National Pharmacy Quiz Competition",
     ],
@@ -3348,7 +3449,7 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
     zone: "southwest",
     coordinatorRole: "coordinator",
     priority: 4,
-    bio: `Md Eyamin Ahmed is a research-oriented undergraduate student of Chemistry at Jashore University of Science and Technology (JUST), with GPA 5.00/5.00 in both SSC and HSC. He brings a strong foundation in chemical principles, hands-on laboratory experience (synthesis, spectroscopy, titration, thermodynamics and kinetics) and a deep interest in academic research and laboratory innovation.
+    bio: `Md Eyamin Ahmed is a research-oriented undergraduate student of Chemistry at Jashore University of Science and Technology (JUST). He brings a strong foundation in chemical principles, hands-on laboratory experience (synthesis, spectroscopy, titration, thermodynamics and kinetics) and a deep interest in academic research and laboratory innovation.
 
   As KRTC's University Coordinator & Student Ambassador at JUST, he supports Southwest Zone outreach — connecting JUST's chemistry student community to KRTC's applied-science training, research and community programs.`,
     education: [
@@ -3361,13 +3462,11 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
         degree: "Higher Secondary Certificate (HSC) — Science",
         institution: "HSC",
         year: "HSC",
-        grade: "GPA 5.00 / 5.00",
       },
       {
         degree: "Secondary School Certificate (SSC) — Science",
         institution: "SSC",
         year: "SSC",
-        grade: "GPA 5.00 / 5.00",
       },
     ],
     experience: [
@@ -3414,9 +3513,180 @@ As a member of the Joint Advisory Team (JAT) of the Kekuleon Research and Traini
     ],
     achievements: [
       "University Coordinator & Student Ambassador, KRTC — Southwest Zone",
-      "GPA 5.00 / 5.00 — HSC (Science)",
-      "GPA 5.00 / 5.00 — SSC (Science)",
       "Consistent track record of academic excellence in Chemistry",
+    ],
+  },
+
+  // ---- East Zone — Zone Advisor ----
+  // Note: Rasel is based at the University of Rajshahi but is assigned
+  // to KRTC's East Zone advisory role per the client's decision. His
+  // `zone` is "east" and `coordinatorRole` is "advisor", so he surfaces
+  // only in the East Zone advisor slot — not in the coordinator list.
+  "md-rasel-rana": {
+    id: 44,
+    slug: "md-rasel-rana",
+    name: "Md Rasel Rana",
+    title:
+      "University Coordinator & Student Ambassador · Zone Advisor — East Zone",
+    department: "University of Rajshahi",
+    initials: "RR",
+    color: "bg-orange-500",
+    email: "rasel7076127@gmail.com",
+    phone: "+880 1766 193 564",
+    location: "Rangpur, Bangladesh",
+    linkedin:
+      "https://www.linkedin.com/in/md-rasel-rana-a26484373",
+    type: "university-coordinator",
+    university: "University of Rajshahi",
+    universityCode: "RU",
+    zone: "east",
+    coordinatorRole: "advisor",
+    priority: 1,
+    bio: `Md Rasel Rana serves as the Zone Advisor for KRTC's East Zone (Chattogram & Sylhet Divisions) under the University Coordinator & Student Ambassador Program. He is a final-year B.Sc. student in Applied Chemistry and Chemical Engineering at the University of Rajshahi, specialising in Food Technology and Industrial Automation, with hands-on family-business exposure to food production, quality standards, and the dynamics of the Bangladeshi food market.
+
+Trained at the Bangladesh Council of Scientific and Industrial Research (BCSIR) on advanced analytical instrumentation including FESEM, GC-MS, FTIR, ICP-OES, and Particle Size Analyzer, and holds an A+ grade from the Training Institute of Chemical Industries (TICI) in industrial automation — covering PLC and SCADA systems, sensor and control-loop instrumentation, and the operation and control of boilers, heat exchangers, pumps, and turbines.
+
+A proven student leader, he serves as President of the Dinajpur District Students Welfare Association at the University of Rajshahi (managing a network of 1,000+ students, 40+ faculty members, and 1,000+ alumni), and was a candidate for the Rajshahi University Central Students Union (RUCSU) — engaging a 30,000+ student body and securing 1,200+ votes through strategic campaigning. As Zone Advisor, he guides University Coordinators across East Zone universities (CU, SUST, CoU, NSTU) and affiliated National University colleges, ensuring regional coherence and institutional alignment with KRTC's applied-science training, research, and community mission.`,
+    education: [
+      {
+        degree: "B.Sc. in Applied Chemistry and Chemical Engineering",
+        institution: "University of Rajshahi",
+        year: "Final Year (in progress)",
+      },
+      {
+        degree:
+          "Industrial Trainee — Automation, Instrumentation & Machinery (PLC, SCADA, sensors, boilers, heat exchangers, pumps, turbines)",
+        institution: "Training Institute of Chemical Industries (TICI)",
+        year: "Completed",
+      },
+      {
+        degree:
+          "Trainee — Advanced Analytical Instrumentation (FESEM, GC-MS, FTIR, ICP-OES, Particle Size Analyzer)",
+        institution:
+          "Bangladesh Council of Scientific and Industrial Research (BCSIR)",
+        year: "Completed",
+      },
+      {
+        degree: "Higher Secondary Certificate (HSC) — Science",
+        institution:
+          "Cantonment Public School & College, BUSMS, Parbatipur, Dinajpur",
+        year: "Completed",
+      },
+      {
+        degree: "Secondary School Certificate (SSC) — Science",
+        institution: "Mohona Mangalpur High School, Dinajpur",
+        year: "Completed",
+      },
+    ],
+    experience: [
+      {
+        role: "Zone Advisor — East Zone (Chattogram & Sylhet Divisions)",
+        org: "Kekuleon Research and Training Center (KRTC) — University Coordinator & Student Ambassador Program",
+        period: "2026 - Present",
+        description:
+          "Advising University Coordinators across the East Zone universities (CU, SUST, CoU, NSTU) and all affiliated National University colleges — ensuring regional coherence, partnership-building, and alignment with KRTC's applied-science mission.",
+      },
+      {
+        role: "President — Dinajpur District Students Welfare Association",
+        org: "University of Rajshahi",
+        period: "Current",
+        description:
+          "Managing a vast network of 1,000+ students, 40+ faculty members, and 1,000+ alumni; organising welfare and academic engagement programmes.",
+      },
+      {
+        role: "Candidate — Rajshahi University Central Students Union (RUCSU)",
+        org: "University of Rajshahi",
+        period: "Recent",
+        description:
+          "Strategic campaigner engaging a 30,000+ student body and securing 1,200+ votes through coordinated outreach.",
+      },
+      {
+        role: "Mentor",
+        org: "Bangladesh Olympiadian Club",
+        description:
+          "Providing academic guidelines to a nationwide network of students; conducting periodic classes.",
+        period: "Ongoing",
+      },
+      {
+        role: "Academic Team Member",
+        org: "Birol Academy of Science",
+        description:
+          "Leading the organisation of annual Science Fairs and Math Olympiads; conducting workshops.",
+        period: "Ongoing",
+      },
+      {
+        role: "Organiser",
+        org: "ACCE Group, University of Rajshahi",
+        description:
+          "Key organiser for departmental events: Pahela Baishakh, poster presentations, and sports tournaments.",
+        period: "Ongoing",
+      },
+    ],
+    research: [
+      {
+        title:
+          "Innovative Shelf-Life Extension for Bangladeshi Vegetables (Project Lead)",
+        institution: "University of Rajshahi — Academic Project",
+        period: "Final Year",
+        description:
+          "Developed a chemical engineering framework for vegetable preservation to boost Bangladesh's export potential; conducted feasibility studies on scalable preservation methods for the local food industry.",
+      },
+      {
+        title:
+          "Sustainable Fish Pituitary Gland Extraction and Commercialization",
+        institution: "University of Rajshahi — Project",
+        period: "Project",
+        description:
+          "Developed a sustainable chemical extraction protocol for fish pituitary glands targeting agricultural and biomedical markets; analysed commercialisation strategies and supply-chain feasibility for the Bangladeshi market.",
+      },
+    ],
+    skills: [
+      "Industrial Process Control",
+      "SCADA & PLC Systems",
+      "Sensor, Transmitter & Control-Loop Instrumentation",
+      "Boilers, Heat Exchangers, Pumps & Turbines (operation & control)",
+      "Food Preservation & Shelf-Life Engineering",
+      "Food Technology & Industrial Quality Standards",
+      "Analytical Chemistry",
+      "Laboratory Instrumentation: FESEM, GC-MS, FTIR, ICP-OES, Particle Size Analyzer",
+      "Public Speaking & Professional Communication",
+      "Strategic Campaigning",
+      "Large-Scale Event & Volunteer Coordination",
+      "Multidisciplinary Team Leadership",
+    ],
+    languages: [
+      { language: "Bangla", level: "Native" },
+      { language: "English", level: "Professional working proficiency" },
+      { language: "Hindi", level: "Conversational proficiency" },
+    ],
+    organizations: [
+      {
+        role: "President",
+        org: "Dinajpur District Students Welfare Association, University of Rajshahi",
+        description:
+          "Managing a network of 1,000+ students, 40+ faculty members, and 1,000+ alumni.",
+      },
+      {
+        role: "Mentor",
+        org: "Bangladesh Olympiadian Club",
+      },
+      {
+        role: "Academic Team Member",
+        org: "Birol Academy of Science",
+      },
+      {
+        role: "Organiser",
+        org: "ACCE Group, University of Rajshahi",
+      },
+    ],
+    achievements: [
+      "Zone Advisor — East Zone, KRTC University Coordinator & Student Ambassador Program",
+      "1st Runner-Up — Rajshahi University Business Idea Competition",
+      "1st Runner-Up — 3rd Science Genius & 11th Mathematics Olympiad (Higher Secondary Group)",
+      "TICI Certified — Industrial automation, PLC/SCADA & process machinery",
+      "BCSIR-trained — Advanced analytical instrumentation (FESEM, GC-MS, FTIR, ICP-OES)",
+      "Strategic campaigner — 30,000+ student outreach, 1,200+ votes (RUCSU)",
+      "Long-term family-business exposure to Bangladeshi food production and market dynamics",
     ],
   },
 };
@@ -3596,8 +3866,8 @@ export const PROGRAM_BOARD_DIRECTOR_SLUG: string | null = null;
 export const ZONE_ADVISOR_SLUGS: Record<ZoneId, string | null> = {
   north: "mahmudul-hasan-abir",
   central: null,
-  southwest: null,
-  east: null,
+  southwest: "toukir-biswas",
+  east: "md-rasel-rana",
 };
 
 export const getProgramBoardDirector = (): TeamMember | null =>
@@ -3608,15 +3878,34 @@ export const getProgramBoardDirector = (): TeamMember | null =>
 // Builds the zone-based view of the UC&SA program.
 // Each zone returns its assigned advisor (looked up by slug from
 // ZONE_ADVISOR_SLUGS) plus the flat list of coordinators in priority order.
+//
+// Advisor vs coordinator semantics:
+// - `coordinatorRole: "advisor"` → person is *purely* a Zone Advisor and
+//   should NOT appear in the zone's flat coordinator list. They only
+//   surface in the advisor slot.
+// - `coordinatorRole: "coordinator"` → ordinary university coordinator;
+//   if they're also the zone's advisor they appear in BOTH lists
+//   (dual-listed) — that's intentional and preserves the existing
+//   behaviour for zones whose advisor is also a coordinator.
 export const getUniversityCoordinatorsByZone = (): ZoneGroup[] => {
   const all = getUniversityCoordinators();
 
   return universityZones.map((zone) => {
-    const coordinators = all.filter((m) => m.zone === zone.id).sort(byPriority);
+    const inZone = all.filter((m) => m.zone === zone.id).sort(byPriority);
 
+    // Look up the advisor across the full zone roster (including any
+    // pure-advisor members) so the advisor slot fills correctly even
+    // after we filter them out of the coordinator list below.
     const advisorSlug = ZONE_ADVISOR_SLUGS[zone.id];
     const advisor =
-      (advisorSlug && coordinators.find((m) => m.slug === advisorSlug)) || null;
+      (advisorSlug && inZone.find((m) => m.slug === advisorSlug)) || null;
+
+    // Coordinators list excludes anyone whose role is "advisor".
+    // Those members are pure advisors and shouldn't show up as
+    // coordinators alongside the actual coordinator roster.
+    const coordinators = inZone.filter(
+      (m) => m.coordinatorRole !== "advisor",
+    );
 
     return {
       ...zone,
