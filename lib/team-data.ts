@@ -23,7 +23,7 @@ export interface TeamMember {
   type:
     | "leadership"
     | "executive"
-    | "strategic-partner"
+    | "department-instructor"
     | "applied-science"
     | "schooling"
     | "schooling-leadership"
@@ -35,7 +35,7 @@ export interface TeamMember {
   zone?: "north" | "central" | "southwest" | "east"; // UC&SA program zone
   coordinatorRole?: "board-director" | "advisor" | "coordinator"; // Role within UC&SA
   equityShare?: number; // Internal: 100 = majority, 20/10/2 = partners/executives
-  partnerDepartment?: string; // For strategic partners — dept they lead
+  instructorDepartment?: string; // For department instructors — dept they instruct
   priority?: number; // For sorting within sections (lower = higher priority)
   bio: string;
   education: {
@@ -441,7 +441,7 @@ He received professional training from TICI on Industrial Process Unit Operation
     priority: 1,
     bio: `Md Abdul Mojid serves as the Managing Director of the Kekuleon Research and Training Center (KRTC). In this capacity, he oversees the strategic direction and operational management of KRTC's integrated institutional framework — spanning applied science programmes, schooling, and research-oriented activities.
 
-Working in close coordination with the Founder & Chairman and the Joint Advisory Team (JAT), the Managing Director's office is responsible for translating KRTC's mission to bridge the theory–practice gap in science education in Bangladesh into day-to-day institutional execution. This includes supporting the development of KRTC's six specialised departments, coordinating across the executive management and strategic-partner network, and ensuring that operations remain aligned with internationally benchmarked standards in applied chemistry, training, and institutional development.`,
+Working in close coordination with the Founder & Chairman and the Joint Advisory Team (JAT), the Managing Director's office is responsible for translating KRTC's mission to bridge the theory–practice gap in science education in Bangladesh into day-to-day institutional execution. This includes supporting the development of KRTC's six specialised departments, coordinating across the executive management and department-instructor network, and ensuring that operations remain aligned with internationally benchmarked standards in applied chemistry, training, and institutional development.`,
     education: [],
     experience: [
       {
@@ -474,26 +474,26 @@ Working in close coordination with the Founder & Chairman and the Joint Advisory
   },
 
   // ==================
-  // Strategic Partners
+  // Department Instructors
   // ==================
   "faruk-hasan": {
     id: 16,
     slug: "faruk-hasan",
     name: "Md. Faruk Hasan",
     nameBn: "মো. ফারুক হাসান",
-    title: "Strategic Partner & Department Instructor",
+    title: "Department Instructor",
     department: "Chemistry & Pharmaceutical Sciences",
-    partnerDepartment: "Chemistry & Pharmaceutical Sciences",
+    instructorDepartment: "Chemistry & Pharmaceutical Sciences",
     initials: "FH",
     color: "bg-emerald-600",
     location: "Bangladesh",
-    type: "strategic-partner",
+    type: "department-instructor",
     equityShare: 2,
     priority: 3,
     dateOfBirth: "06 January 1995",
     email: "farukhasanru787@gmail.com",
     phone: "+880 1760090928",
-    bio: `Md. Faruk Hasan is a QC Chemist with over three years of industrial experience in chemical manufacturing, specialising in HPLC, Gas Chromatography, and Karl Fischer titration. He serves as a Strategic Partner and Department Instructor at the Kekuleon Research and Training Center (KRTC), leading the Pharmaceutical Sciences department and bringing hands-on expertise in analytical instrumentation, quality assurance, and laboratory best practice to KRTC's applied training programmes.
+    bio: `Md. Faruk Hasan is a QC Chemist with over three years of industrial experience in chemical manufacturing, specialising in HPLC, Gas Chromatography, and Karl Fischer titration. He serves as a Department Instructor at the Kekuleon Research and Training Center (KRTC), leading the Pharmaceutical Sciences department and bringing hands-on expertise in analytical instrumentation, quality assurance, and laboratory best practice to KRTC's applied training programmes.
 
 Professionally, he works as a Chemist at United Sulpho Chemicals Limited, Dhaka, where he performs routine and non-routine quality testing, maintains and calibrates laboratory instruments, prepares analytical reports under SOPs and GMP principles, and supports investigation of out-of-specification (OOS) results. He holds an MEng and a BSc in Applied Chemistry and Chemical Engineering from the University of Rajshahi.`,
     education: [
@@ -512,7 +512,7 @@ Professionally, he works as a Chemist at United Sulpho Chemicals Limited, Dhaka,
     ],
     experience: [
       {
-        role: "Strategic Partner & Department Instructor",
+        role: "Department Instructor",
         org: "Kekuleon Research and Training Center (KRTC)",
         period: "2025 - Present",
         description:
@@ -553,7 +553,7 @@ Professionally, he works as a Chemist at United Sulpho Chemicals Limited, Dhaka,
       "3+ Years of Industrial QC Experience",
       "HPLC, GC & Karl Fischer Expertise",
       "GMP & SOP Compliance",
-      "Strategic Partner, KRTC",
+      "Department Instructor, KRTC",
     ],
   },
 
@@ -562,9 +562,9 @@ Professionally, he works as a Chemist at United Sulpho Chemicals Limited, Dhaka,
     slug: "monirul-islam",
     name: "Md. Monirul Islam",
     nameBn: "মো. মনিরুল ইসলাম",
-    title: "Strategic Partner & Department Instructor",
+    title: "Department Instructor",
     department: "Polymer & Plastic Processing Technologies",
-    partnerDepartment: "Polymer & Plastic Processing Technologies",
+    instructorDepartment: "Polymer & Plastic Processing Technologies",
     initials: "MI",
     color: "bg-lime-600",
     email: "moniracce@gmail.com",
@@ -574,10 +574,10 @@ Professionally, he works as a Chemist at United Sulpho Chemicals Limited, Dhaka,
     address:
       "Vill: Chopninagar, P.O: Kamarpara, P.S: Shajahanpur, Dist: Bogura, Bangladesh",
     dateOfBirth: "03 March 1995",
-    type: "strategic-partner",
+    type: "department-instructor",
     equityShare: 2,
     priority: 2,
-    bio: `Md. Monirul Islam serves as a Strategic Partner and Department Instructor at the Kekuleon Research and Training Center (KRTC), leading the Polymer and Plastic Processing Technologies department. He brings practical industry experience from quality control and executive roles in chemical and paint manufacturing, combined with academic training in Applied Chemistry and Chemical Engineering from the University of Rajshahi.
+    bio: `Md. Monirul Islam serves as a Department Instructor at the Kekuleon Research and Training Center (KRTC), leading the Polymer and Plastic Processing Technologies department. He brings practical industry experience from quality control and executive roles in chemical and paint manufacturing, combined with academic training in Applied Chemistry and Chemical Engineering from the University of Rajshahi.
 
 He currently works as an Executive Officer at SGS (Testing Lab, Chemical), handling pH and formaldehyde testing. Previously, he served as a Quality Control Officer at Pran RFL — Rainbow Paint, Norshindi, ensuring quality parameters of raw and finished goods. His academic research focused on sustainable methods for post-consumer plastic recycling and heavy metal remediation in ecosystems — work that directly informs his leadership of KRTC's polymer and plastic processing curriculum.`,
     education: [
@@ -606,7 +606,7 @@ He currently works as an Executive Officer at SGS (Testing Lab, Chemical), handl
     ],
     experience: [
       {
-        role: "Strategic Partner & Department Instructor",
+        role: "Department Instructor",
         org: "Kekuleon Research and Training Center (KRTC)",
         period: "2025 - Present",
         description:
@@ -686,24 +686,24 @@ He currently works as an Executive Officer at SGS (Testing Lab, Chemical), handl
       "TICI In-plant Training — A (3.75/4)",
       "Kemiko Pharmaceuticals Training",
       "Senior Vice President, RU ACCE Group 2023",
-      "Strategic Partner, KRTC",
+      "Department Instructor, KRTC",
     ],
   },
 
-  "strategic-partner-tba": {
+  "department-instructor-tba": {
     id: 18,
-    slug: "strategic-partner-tba",
+    slug: "department-instructor-tba",
     name: "To Be Announced",
     nameBn: "শীঘ্রই ঘোষণা করা হবে",
-    title: "Strategic Partner & Department Instructor",
+    title: "Department Instructor",
     department: "Applied Science Department",
     initials: "TBA",
     color: "bg-slate-500",
     location: "KRTC, Sirajganj, Bangladesh",
-    type: "strategic-partner",
+    type: "department-instructor",
     equityShare: 2,
     priority: 4,
-    bio: `This Strategic Partner position is currently open. The incoming partner will lead one of KRTC's applied science departments and contribute to the centre's institutional development and training activities.`,
+    bio: `This Department Instructor position is currently open. The incoming instructor will lead one of KRTC's applied science departments and contribute to the centre's institutional development and training activities.`,
     education: [],
     experience: [],
     skills: [],
@@ -718,9 +718,9 @@ He currently works as an Executive Officer at SGS (Testing Lab, Chemical), handl
     slug: "nazmul-haque-mitun",
     name: "Nazmul Haque Mitun",
     nameBn: "নাজমুল হক মিটুন",
-    title: "Strategic Partner & Department Instructor",
+    title: "Department Instructor",
     department: "Chemistry and Applied Chemical Sciences",
-    partnerDepartment: "Chemistry and Applied Chemical Sciences",
+    instructorDepartment: "Chemistry and Applied Chemical Sciences",
     initials: "NM",
     color: "bg-red-500",
     email: "mitun.ru729@gmail.com",
@@ -729,10 +729,10 @@ He currently works as an Executive Officer at SGS (Testing Lab, Chemical), handl
     address: "60/03 Harua Purba, Fisheri Road, 2300, Kishoreganj, Bangladesh",
     dateOfBirth: "11 November 1997",
     linkedin: "http://linkedin.com/in/nazmul-haque-mitun-194682132",
-    type: "strategic-partner",
+    type: "department-instructor",
     equityShare: 2,
     priority: 1,
-    bio: `Nazmul Haque Mitun serves as a Strategic Partner and Department Instructor at the Kekuleon Research and Training Center (KRTC), leading the Chemistry and Applied Chemical Sciences department. Alongside his role at KRTC, he is a Chemistry Lecturer at Milestone College, Dhaka, bringing a strong academic foundation in Applied Chemistry and Chemical Engineering from the University of Rajshahi and years of classroom and admission-coaching experience.
+    bio: `Nazmul Haque Mitun serves as a Department Instructor at the Kekuleon Research and Training Center (KRTC), leading the Chemistry and Applied Chemical Sciences department. Alongside his role at KRTC, he is a Chemistry Lecturer at Milestone College, Dhaka, bringing a strong academic foundation in Applied Chemistry and Chemical Engineering from the University of Rajshahi and years of classroom and admission-coaching experience.
 
 He is the founder of NM Chemistry Academic & Admission Care, where he has mentored students since 2016 through innovative teaching strategies and structured academic guidance. He completed specialised training on Industrial Process Unit Operation & Process Control Technique at the Training Institute for Chemical Industries (TICI), Norsingdi, which enables him to connect classroom learning with real-world industrial applications. He was awarded a Certificate of Appreciation by the Bangladesh Council of Scientific and Industrial Research (BCSIR) in 2024.`,
     education: [
@@ -768,7 +768,7 @@ He is the founder of NM Chemistry Academic & Admission Care, where he has mentor
     ],
     experience: [
       {
-        role: "Strategic Partner & Department Instructor",
+        role: "Department Instructor",
         org: "Kekuleon Research and Training Center (KRTC)",
         period: "Jan 2026 - Present",
         description:
@@ -845,7 +845,7 @@ He is the founder of NM Chemistry Academic & Admission Care, where he has mentor
       "TICI Certified — A+ (4.00/4.00)",
       "Founder, NM Chemistry Academic & Admission Care",
       "Chemistry Lecturer, Milestone College",
-      "Strategic Partner, KRTC",
+      "Department Instructor, KRTC",
     ],
   },
 
@@ -3903,9 +3903,9 @@ export const getExecutive = () =>
   Object.values(allTeamMembers)
     .filter((m) => m.type === "executive")
     .sort(byPriority);
-export const getStrategicPartners = () =>
+export const getDepartmentInstructors = () =>
   Object.values(allTeamMembers)
-    .filter((m) => m.type === "strategic-partner")
+    .filter((m) => m.type === "department-instructor")
     .sort(byPriority);
 export const getAppliedScience = () =>
   Object.values(allTeamMembers)
@@ -3928,7 +3928,7 @@ export const getAdvisoryCJAT = () =>
     .filter((m) => m.type === "advisory-cjat")
     .sort(byPriority);
 
-// C-JAT members PLUS strategic partners who also serve on C-JAT (dual-listed)
+// C-JAT members PLUS department instructors who also serve on C-JAT (dual-listed)
 const CJAT_DUAL_LISTED_SLUGS = ["nazmul-haque-mitun", "faruk-hasan"];
 export const getAdvisoryCJATAll = () => {
   const primary = getAdvisoryCJAT();

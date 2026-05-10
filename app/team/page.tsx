@@ -7,7 +7,7 @@ import { ArrowRight } from "lucide-react";
 import {
   getLeadership,
   getExecutive,
-  getStrategicPartners,
+  getDepartmentInstructors,
   getSchoolingLeadership,
   getSchooling,
   getAdvisoryJAT,
@@ -20,7 +20,7 @@ import type { TeamMember } from "@/lib/team-data";
 
 const leadership = getLeadership();
 const executive = getExecutive();
-const strategicPartners = getStrategicPartners();
+const departmentInstructors = getDepartmentInstructors();
 const schoolingLeadership = getSchoolingLeadership();
 const schoolingTeachers = getSchooling();
 const advisoryJAT = getAdvisoryJAT();
@@ -28,9 +28,9 @@ const advisoryCJAT = getAdvisoryCJATAll();
 const universityCoordinatorZones = getUniversityCoordinatorsByZone();
 const programBoardDirector = getProgramBoardDirector();
 
-// Applied Sciences section mirrors the four Strategic Partners
+// Applied Sciences section mirrors the four Department Instructors
 // (dual-listing — each partner also leads an applied sciences department).
-const appliedSciencesCombined: TeamMember[] = [...strategicPartners];
+const appliedSciencesCombined: TeamMember[] = [...departmentInstructors];
 
 const JAT_DESCRIPTION = `The Joint Advisory Team (JAT) of the Kekuleon Research and Training Center (KRTC) is an academic advisory body composed of distinguished national university professors, international scholars, and industry specialists. The JAT operates within KRTC's decentralised and integrated institutional model — contributing to the design and continuous improvement of internationally benchmarked curricula, applied science training programmes, and laboratory infrastructure across six specialised departments.
 
@@ -174,7 +174,7 @@ function MemberCard({
             To Be Announced
           </h3>
           <p className="text-sm text-gray-400 font-medium truncate">
-            {member.partnerDepartment || member.title}
+            {member.instructorDepartment || member.title}
           </p>
         </div>
       </div>
@@ -335,18 +335,18 @@ export default function TeamPage() {
         </Section>
       )}
 
-      {/* Strategic Partners */}
-      {strategicPartners.length > 0 && (
+      {/* Department Instructors */}
+      {departmentInstructors.length > 0 && (
         <Section className="py-12 bg-gray-50">
           <div className="container-custom">
             <h2 className="text-xl font-bold text-gray-900">
-              Strategic Partners
+              Department Instructors
             </h2>
             <p className="text-sm text-gray-500 mb-6">
               Departmental leads shaping KRTC&apos;s scientific direction
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {strategicPartners.map((member) => (
+              {departmentInstructors.map((member) => (
                 <MemberCard key={member.id} member={member} />
               ))}
             </div>

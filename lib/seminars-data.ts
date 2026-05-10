@@ -371,7 +371,7 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
               "Project-support team contributing to institutional development and capacity building",
           },
           paragraphs: [
-            "The organising and project-support team included Nazmul Haque Mitun, Strategic Partner and Department Instructor; Md. Omar Faruque, Advisor — Sustainability and Income; Md. Abdul Mojid, Managing Director, KRTC; and Mokter Hossain, Project Lawyer. Their involvement reflected the multidisciplinary support structure behind KRTC's applied science education, institutional development, and capacity-building work.",
+            "The organising and project-support team included Nazmul Haque Mitun, Department Instructor; Md. Omar Faruque, Advisor — Sustainability and Income; Md. Abdul Mojid, Managing Director, KRTC; and Mokter Hossain, Project Lawyer. Their involvement reflected the multidisciplinary support structure behind KRTC's applied science education, institutional development, and capacity-building work.",
           ],
         },
         {
@@ -431,7 +431,7 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
         },
         {
           name: "Nazmul Haque Mitun",
-          role: "Strategic Partner & Department Instructor",
+          role: "Department Instructor",
           teamSlug: "nazmul-haque-mitun",
         },
         {
@@ -701,7 +701,7 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
               "Project-support team contributing to KRTC's institutional development and capacity building",
           },
           paragraphs: [
-            "The seminar's organising and project-support team — drawn from KRTC's volunteer-led leadership, faculty advisors, North Zone coordinators, and strategic partners — reflects the multidisciplinary collaboration behind KRTC's applied science education and institutional development work.",
+            "The seminar's organising and project-support team — drawn from KRTC's volunteer-led leadership, faculty advisors, North Zone coordinators, and department instructors — reflects the multidisciplinary collaboration behind KRTC's applied science education and institutional development work.",
           ],
         },
         {
@@ -744,7 +744,7 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
         },
         {
           name: "Nazmul Haque Mitun",
-          role: "Strategic Partner & Department Instructor",
+          role: "Department Instructor",
           teamSlug: "nazmul-haque-mitun",
         },
         {
@@ -1006,7 +1006,7 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
               "Project-support team contributing to KRTC's institutional development and capacity building",
           },
           paragraphs: [
-            "The seminar's organising and project-support team — drawn from KRTC's volunteer-led leadership, faculty advisors, North Zone coordinators, and strategic partners — reflects the multidisciplinary collaboration behind KRTC's applied science education and institutional development work.",
+            "The seminar's organising and project-support team — drawn from KRTC's volunteer-led leadership, faculty advisors, North Zone coordinators, and department instructors — reflects the multidisciplinary collaboration behind KRTC's applied science education and institutional development work.",
           ],
         },
         {
@@ -1049,7 +1049,7 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
         },
         {
           name: "Nazmul Haque Mitun",
-          role: "Strategic Partner & Department Instructor",
+          role: "Department Instructor",
           teamSlug: "nazmul-haque-mitun",
         },
         {
@@ -1311,7 +1311,7 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
               "Project-support team contributing to KRTC's institutional development and capacity building",
           },
           paragraphs: [
-            "The seminar's organising and project-support team — drawn from KRTC's volunteer-led leadership, faculty advisors, regional coordinators, and strategic partners — reflects the multidisciplinary collaboration behind KRTC's applied science education and institutional development work.",
+            "The seminar's organising and project-support team — drawn from KRTC's volunteer-led leadership, faculty advisors, regional coordinators, and department instructors — reflects the multidisciplinary collaboration behind KRTC's applied science education and institutional development work.",
           ],
         },
         {
@@ -1354,7 +1354,7 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
         },
         {
           name: "Nazmul Haque Mitun",
-          role: "Strategic Partner & Department Instructor",
+          role: "Department Instructor",
           teamSlug: "nazmul-haque-mitun",
         },
         {
