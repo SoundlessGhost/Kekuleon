@@ -28,7 +28,7 @@ export const siteConfig = {
     capital: "TK 10,00,00,000 (Ten Crore)",
   },
   social: {
-    facebook: "https://facebook.com/kekuleon",
+    facebook: "https://www.facebook.com/profile.php?id=61575453945903",
     linkedin: "https://linkedin.com/company/kekuleon",
     twitter: "https://twitter.com/kekuleon",
   },
