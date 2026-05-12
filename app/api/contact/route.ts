@@ -5,7 +5,20 @@ import { Resend } from "resend";
 import { NextResponse } from "next/server";
 import { existsSync, readFileSync, writeFileSync } from "fs";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// Resend is instantiated lazily so the route module doesn't crash on
+// load when RESEND_API_KEY is missing (e.g. CI builds without secrets,
+// or local dev without the key). The handler returns 503 if the client
+// can't be constructed.
+function getResend(): Resend | null {
+  const key = process.env.RESEND_API_KEY;
+  if (!key) return null;
+  try {
+    return new Resend(key);
+  } catch (err) {
+    console.error("Failed to construct Resend client:", err);
+    return null;
+  }
+}
 
 // Rate limit: 1 email per email address per 24 hours
 const RATE_LIMIT_FILE = join(process.cwd(), ".rate-limit.json");
@@ -98,6 +111,18 @@ export async function POST(request: Request) {
             "You have already sent a message in the last 24 hours. Please try again later.",
         },
         { status: 429 },
+      );
+    }
+
+    const resend = getResend();
+    if (!resend) {
+      console.error("RESEND_API_KEY is not configured");
+      return NextResponse.json(
+        {
+          error:
+            "Email service is not configured. Please email kekuleoninfo@gmail.com directly.",
+        },
+        { status: 503 },
       );
     }
 

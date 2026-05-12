@@ -100,10 +100,11 @@ export default function SeminarRegistrationForm({
             "Could not register right now. Please try again or email kekuleoninfo@gmail.com.",
         );
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       setStatus("error");
+      const message = err instanceof Error ? err.message : null;
       setErrorMessage(
-        err?.message ||
+        message ||
           "Something went wrong. Please try again or email kekuleoninfo@gmail.com.",
       );
     } finally {
