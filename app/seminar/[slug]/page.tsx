@@ -47,9 +47,9 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const seminar = getSeminarBySlug(slug);
-  if (!seminar) return { title: "Seminar not found · KRTC" };
+  if (!seminar) return { title: "Seminar not found" };
   return {
-    title: `${seminar.title} · KRTC`,
+    title: seminar.title,
     description: seminar.tagline,
   };
 }

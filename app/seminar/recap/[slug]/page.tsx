@@ -29,10 +29,10 @@ export async function generateMetadata({
   const { slug } = await params;
   const seminar = getSeminarBySlug(slug);
   if (!seminar?.recap?.isPublished) {
-    return { title: "Recap not found · KRTC" };
+    return { title: "Recap not found" };
   }
   return {
-    title: `Recap — ${seminar.title} · KRTC`,
+    title: `Recap — ${seminar.title}`,
     description: seminar.recap.intro,
     openGraph: {
       title: `Recap — ${seminar.title}`,

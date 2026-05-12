@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import AboutPageClient from "./AboutPageClient";
 
 export const metadata: Metadata = {
-  title: "About KRTC",
+  title: "About",
   description:
     "Learn how Kekuleon Research and Training Center bridges the theory-practice gap in science education in Bangladesh through integrated research, laboratory training, and community engagement.",
   alternates: { canonical: "/about" },

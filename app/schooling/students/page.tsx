@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import StudentsPageClient from "./StudentsPageClient";
 
 export const metadata: Metadata = {
-  title: "KRTC Schooling Students",
+  title: "Schooling Students",
   description:
     "Meet the students currently enrolled in KRTC's foundation program — their backgrounds, target disciplines, and learning journeys.",
   alternates: { canonical: "/schooling/students" },

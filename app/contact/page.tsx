@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ContactPageClient from "./ContactPageClient";
 
 export const metadata: Metadata = {
-  title: "Contact KRTC",
+  title: "Contact",
   description:
     "Get in touch with Kekuleon Research and Training Center. Reach out for admissions, programs, partnerships, or general questions — we usually respond within one business day.",
   alternates: { canonical: "/contact" },

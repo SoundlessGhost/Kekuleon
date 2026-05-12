@@ -26,7 +26,7 @@ import {
 import SeminarSection from "@/components/seminar/SeminarSection";
 
 export const metadata: Metadata = {
-  title: "Seminar Series · KRTC",
+  title: "Seminar Series",
   description:
     "KRTC's volunteer-led seminar series — upcoming events and recaps from past seminars across Bangladesh.",
 };

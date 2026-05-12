@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import SchoolingPageClient from "./SchoolingPageClient";
 
 export const metadata: Metadata = {
-  title: "KRTC Schooling",
+  title: "Schooling",
   description:
     "KRTC's foundation-level academic program — bridging high-school science into university-readiness with rigorous fundamentals, practical labs, and personalised mentorship.",
   alternates: { canonical: "/schooling" },
