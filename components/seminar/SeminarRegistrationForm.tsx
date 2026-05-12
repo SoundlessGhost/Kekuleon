@@ -12,7 +12,9 @@ import {
 } from "lucide-react";
 import {
   NORTH_ZONE_UNIVERSITIES,
+  getZoneLabel,
   type SeminarUniversityOption,
+  type SeminarZone,
 } from "@/lib/seminars-data";
 
 interface SeminarRegistrationFormProps {
@@ -23,6 +25,10 @@ interface SeminarRegistrationFormProps {
   /** Human-readable deadline. Shown in the closed-state UI for clarity. */
   registrationDeadline?: string;
   universities?: SeminarUniversityOption[];
+  /** Zone the seminar targets; used to render the right "<Zone> students"
+   *  copy in the form header and footer. Defaults to "north" for backwards
+   *  compatibility with any older callers. */
+  targetZone?: SeminarZone;
 }
 
 const YEAR_OPTIONS = [
@@ -53,7 +59,9 @@ export default function SeminarRegistrationForm({
   registrationOpen,
   registrationDeadline,
   universities = NORTH_ZONE_UNIVERSITIES,
+  targetZone = "north",
 }: SeminarRegistrationFormProps) {
+  const zoneLabel = getZoneLabel(targetZone);
   const [formData, setFormData] = useState(initialState);
   const [consent, setConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -221,7 +229,7 @@ export default function SeminarRegistrationForm({
         Register for this seminar
       </h3>
       <p className="text-sm text-gray-500 mb-6">
-        Free for all eligible North Zone students. Seats are limited.
+        Free for all eligible {zoneLabel} students. Seats are limited.
       </p>
 
       <form onSubmit={handleSubmit} className="space-y-5" noValidate>
@@ -466,7 +474,7 @@ export default function SeminarRegistrationForm({
 
         <p className="text-xs text-gray-400 pt-1">
           By registering you confirm that you are a current student or faculty
-          member at one of the listed North Zone institutions.
+          member at one of the listed {zoneLabel} institutions.
         </p>
       </form>
     </div>

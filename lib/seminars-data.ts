@@ -1702,6 +1702,20 @@ export const getPastSeminarsWithRecap = (): Seminar[] =>
 export const isNorthZoneUniversityCode = (code: string): boolean =>
   NORTH_ZONE_UNIVERSITIES.some((u) => u.code === code);
 
+// Display label for a `SeminarZone`. Used in seminar page hero strips,
+// registration-form helper copy, and recap "next seminar" CTAs so the
+// rendered text matches the seminar's zone (e.g. "East Zone" for the
+// Chattogram seminar, "Southwest Zone" for the Jashore seminar) rather
+// than hard-coding "North Zone" everywhere.
+const ZONE_LABELS: Record<SeminarZone, string> = {
+  north: "North Zone",
+  central: "Central Zone",
+  southwest: "Southwest Zone",
+  east: "East Zone",
+};
+
+export const getZoneLabel = (zone: SeminarZone): string => ZONE_LABELS[zone];
+
 // Single source of truth for "can someone register right now?".
 // Combines the manual flag (`registrationOpen`) with the optional auto-close
 // timestamp (`registrationCloseAt`). Used by both the API route and the UI.

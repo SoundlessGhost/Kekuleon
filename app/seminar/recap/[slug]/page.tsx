@@ -15,7 +15,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Calendar, Mail } from "lucide-react";
-import { getSeminarBySlug } from "@/lib/seminars-data";
+import { getSeminarBySlug, getZoneLabel } from "@/lib/seminars-data";
 import SeminarRecapGallery from "@/components/seminar/SeminarRecapGallery";
 
 interface PageProps {
@@ -253,8 +253,8 @@ export default async function SeminarRecapPage({ params }: PageProps) {
             Want to know about the next KRTC seminar?
           </h2>
           <p className="text-gray-600 mb-6">
-            Stay in touch — we&apos;ll announce the next North Zone
-            seminar soon.
+            Stay in touch — we&apos;ll announce the next{" "}
+            {getZoneLabel(seminar.targetZone)} seminar soon.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link

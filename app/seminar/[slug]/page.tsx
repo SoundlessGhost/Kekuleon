@@ -30,6 +30,7 @@ import {
 } from "lucide-react";
 import {
   getSeminarBySlug,
+  getZoneLabel,
   hasPublishedRecap,
   isRegistrationStillOpen,
   isSeminarPast,
@@ -154,7 +155,7 @@ export default async function SeminarBySlugPage({ params }: PageProps) {
             <div className="flex items-center gap-2 mb-4">
               <span className="inline-block w-10 h-0.5 bg-primary" />
               <p className="text-sm font-medium text-primary uppercase tracking-wider">
-                KRTC Seminar Series · North Zone
+                KRTC Seminar Series · {getZoneLabel(seminar.targetZone)}
               </p>
             </div>
 
@@ -465,6 +466,7 @@ export default async function SeminarBySlugPage({ params }: PageProps) {
                 registrationOpen={registrationOpen}
                 registrationDeadline={seminar.registrationDeadline}
                 universities={seminar.audienceUniversities}
+                targetZone={seminar.targetZone}
               />
             </div>
           </div>
