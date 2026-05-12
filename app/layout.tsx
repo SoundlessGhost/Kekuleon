@@ -3,7 +3,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 
-import Script from "next/script"; // ← ADD THIS
+import Script from "next/script";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
@@ -18,13 +18,30 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
-// Google Analytics Measurement ID         // ← ADD THIS
-const GA_MEASUREMENT_ID = "G-3G556LZGJB"; // ← ADD THIS
+// Google Analytics Measurement ID (overridable via env for non-prod environments)
+const GA_MEASUREMENT_ID =
+  process.env.NEXT_PUBLIC_GA_ID || "G-3G556LZGJB";
+
+// Production site URL. Used as `metadataBase` so OpenGraph / Twitter card
+// image URLs resolve to absolute URLs even when set as site-relative paths.
+const SITE_URL = "https://kekuleon.com";
+
+// Default social-share image. KRTC logo is used as a placeholder until a
+// proper 1200x630 og-image is designed. Replace `/images/logo.png` below
+// with `/og-image.jpg` (or similar) once a branded social card exists.
+const DEFAULT_OG_IMAGE = "/images/logo.png";
+
+const SITE_TITLE = "Kekuleon Research and Training Center | KRTC";
+const SITE_DESCRIPTION =
+  "Bridging the Theory-Practice Gap in Science Education. Integrated research, laboratory training, industry collaboration, and community engagement for the next generation of scientists in Bangladesh.";
 
 export const metadata: Metadata = {
-  title: "Kekuleon Research and Training Center | KRTC",
-  description:
-    "Bridging the Theory-Practice Gap in Science Education. Integrated research, laboratory training, industry collaboration, and community engagement for the next generation of scientists in Bangladesh.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE_TITLE,
+    template: "%s | KRTC",
+  },
+  description: SITE_DESCRIPTION,
   keywords: [
     "KRTC",
     "Kekuleon",
@@ -42,15 +59,73 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Md. Zakaria Hossain" }],
   openGraph: {
-    title: "Kekuleon Research and Training Center | KRTC",
+    title: SITE_TITLE,
     description:
       "Bridging the Theory-Practice Gap in Science Education in Bangladesh",
-    url: "https://kekuleon.com",
+    url: SITE_URL,
     siteName: "KRTC",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: DEFAULT_OG_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: "Kekuleon Research and Training Center",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_TITLE,
+    description:
+      "Bridging the Theory-Practice Gap in Science Education in Bangladesh",
+    images: [DEFAULT_OG_IMAGE],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
   icons: "/icon.png",
+};
+
+// JSON-LD Organization schema. Helps Google show rich-snippet info
+// (logo, social profiles, contact) in search results and knowledge
+// panels. The site-wide markup lives in the root layout so every page
+// inherits it; per-page schemas (Article, Person) can be added later in
+// individual pages.
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Kekuleon Research and Training Center",
+  alternateName: "KRTC",
+  url: SITE_URL,
+  logo: `${SITE_URL}/images/logo.png`,
+  description: SITE_DESCRIPTION,
+  foundingLocation: {
+    "@type": "Place",
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "BD",
+      addressRegion: "Sirajganj",
+    },
+  },
+  sameAs: [
+    "https://www.facebook.com/kekuleon",
+    "https://www.linkedin.com/company/kekuleon",
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "general",
+    email: "kekuleoninfo@gmail.com",
+    availableLanguage: ["English", "Bengali"],
+  },
 };
 
 export default function RootLayout({
@@ -60,7 +135,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
-      {/* ↓↓↓ ADD THIS BLOCK ↓↓↓ */}
       <head>
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
@@ -74,8 +148,15 @@ export default function RootLayout({
             gtag('config', '${GA_MEASUREMENT_ID}');
           `}
         </Script>
+        <Script
+          id="organization-jsonld"
+          type="application/ld+json"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd),
+          }}
+        />
       </head>
-      {/* ↑↑↑ ADD THIS BLOCK ↑↑↑ */}
       <body className="font-sans antialiased">
         <Header />
         <main>{children}</main>
