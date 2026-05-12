@@ -149,6 +149,44 @@ export const NORTH_ZONE_UNIVERSITIES: SeminarUniversityOption[] = [
   { code: "OTHER", name: "Other NU-affiliated college (North Zone)" },
 ];
 
+// Universities for the East Zone (Chattogram & Sylhet Divisions).
+// Source of truth: lib/team-data.ts → `universityZones` for `east`.
+export const EAST_ZONE_UNIVERSITIES: SeminarUniversityOption[] = [
+  { code: "CU", name: "University of Chattogram" },
+  { code: "CUET", name: "Chittagong University of Engineering & Technology" },
+  {
+    code: "SUST",
+    name: "Shahjalal University of Science & Technology, Sylhet",
+  },
+  { code: "CoU", name: "Comilla University, Cumilla" },
+  {
+    code: "NSTU",
+    name: "Noakhali Science & Technology University, Noakhali",
+  },
+  { code: "OTHER", name: "Other NU-affiliated college (East Zone)" },
+];
+
+// Universities for the Southwest Zone (Khulna & Barishal Divisions).
+// Source of truth: lib/team-data.ts → `universityZones` for `southwest`.
+export const SOUTHWEST_ZONE_UNIVERSITIES: SeminarUniversityOption[] = [
+  { code: "KU", name: "Khulna University, Khulna" },
+  {
+    code: "KUET",
+    name: "Khulna University of Engineering & Technology, Khulna",
+  },
+  { code: "IU", name: "Islamic University, Kushtia" },
+  { code: "BU", name: "University of Barishal, Barishal" },
+  {
+    code: "PSTU",
+    name: "Patuakhali Science & Technology University, Patuakhali",
+  },
+  {
+    code: "JUST",
+    name: "Jashore University of Science & Technology, Jashore",
+  },
+  { code: "OTHER", name: "Other NU-affiliated college (Southwest Zone)" },
+];
+
 export const seminars: Seminar[] = [
   {
     slug: "bridging-theory-practice-rangpur",
@@ -618,7 +656,7 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
     // /seminar/recap/rajshahi automatically. Photos use the `rajshahi-`
     // filename prefix on Cloudinary (cloud: dohbigfue).
     recap: {
-      isPublished: false,
+      isPublished: true,
       publishedDate: "8 May 2026",
       publishedDateISO: "2026-05-08",
       intro:
@@ -1228,7 +1266,7 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
     // Photos use the `mbstu-` filename prefix on Cloudinary (cloud:
     // dohbigfue).
     recap: {
-      isPublished: false,
+      isPublished: true,
       publishedDate: "9 May 2026",
       publishedDateISO: "2026-05-09",
       intro:
@@ -1406,6 +1444,219 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
         },
       ],
     },
+  },
+
+  // ==========================================================
+  // Chattogram (East Zone) — placeholder entry.
+  // Date, time, venue, and registration deadline are all "To be
+  // announced" until confirmed. `dateISO` is set far in the future so
+  // `isSeminarPast()` returns false and the seminar surfaces in the
+  // "upcoming" list. Once the event is confirmed, replace the TBA
+  // strings, set `dateISO`/`registrationCloseAt`/`registrationDeadline`
+  // properly, and add a `venueAddress` + `mapEmbedUrl`.
+  // ==========================================================
+  {
+    slug: "chattogram",
+    title:
+      "Bridging the Theory and Practice Gap in Science Education in Bangladesh — Chattogram",
+    tagline:
+      "A KRTC volunteer-led seminar in Chattogram — connecting theory to laboratory, research, and industry practice for East Zone students.",
+    description: `This seminar is part of KRTC's volunteer-led outreach to bring the conversation about practical, applied science education directly to students in the East Zone (Chattogram & Sylhet Divisions). Participants will hear from researchers, industry professionals, and KRTC's University Coordinators on how to move from textbook understanding to laboratory competence, scholarly research, and industry-ready scientific work.
+
+A certificate of participation, signed by KRTC leadership, will be issued to every attendee after the event.`,
+    date: "To be announced",
+    dateISO: "2026-12-31",
+    time: "To be announced",
+    venue: "To be announced",
+    targetZone: "east",
+    audienceUniversities: EAST_ZONE_UNIVERSITIES,
+    audienceNote:
+      "Open to undergraduate and postgraduate students from East Zone universities (Chattogram & Sylhet Divisions) and affiliated National University colleges.",
+    agenda: [
+      {
+        time: "Session 1",
+        title: "Why theory alone is not enough",
+        description:
+          "Framing the gap between conceptual learning and laboratory / industry-ready scientific competence in Bangladesh.",
+      },
+      {
+        time: "Session 2",
+        title: "From classroom to laboratory",
+        description:
+          "Practical pathways into hands-on research, instrumentation training, and applied projects.",
+      },
+      {
+        time: "Session 3",
+        title: "Research, scholarships & global pathways",
+        description:
+          "How undergraduates from East Zone universities can prepare for graduate research, scholarships, and international academic mobility.",
+      },
+      {
+        time: "Session 4",
+        title: "Q&A + KRTC University Coordinator network",
+        description:
+          "Open discussion with KRTC's University Coordinators and Advisor — how to stay connected after the seminar.",
+      },
+    ],
+    speakers: [
+      {
+        name: "Md Zakaria Hossain",
+        role: "Founder & Chairman, KRTC",
+        affiliation: "MSc Chemistry Candidate, University of Siegen",
+      },
+    ],
+    whatYoullGet: [
+      {
+        title: "Certificate of Participation",
+        description:
+          "A KRTC-signed certificate is issued to every attendee after the event, useful for academic and professional portfolios.",
+      },
+      {
+        title: "Direct connection to KRTC's University Coordinator network",
+        description:
+          "Meet KRTC's Coordinators and Advisor — your local point of contact for future trainings, research, and opportunities.",
+      },
+      {
+        title: "Practical guidance on the next step",
+        description:
+          "Concrete pointers on labs, research methods, scholarships, and industry pathways relevant to your field of study.",
+      },
+    ],
+    faq: [
+      {
+        question: "Who can register for this seminar?",
+        answer:
+          "Undergraduate and postgraduate students from East Zone universities — University of Chattogram, CUET, SUST, Comilla University, Noakhali Science & Technology University, and affiliated National University colleges in Chattogram & Sylhet Divisions.",
+      },
+      {
+        question: "Is there any registration fee?",
+        answer:
+          "No. This seminar is free for all eligible students. Seats are limited, so registration confirms your spot.",
+      },
+      {
+        question: "Will I receive a certificate?",
+        answer:
+          "Yes. A KRTC-signed Certificate of Participation will be emailed to every attendee after the event. Attendance is verified at the venue.",
+      },
+      {
+        question: "What if my university is not in the dropdown?",
+        answer:
+          "Choose 'Other NU-affiliated college (East Zone)' if you're from an affiliated college in the surrounding region. If you're from a different zone, please wait — KRTC will host seminars in your region soon.",
+      },
+      {
+        question: "When and where exactly is the seminar?",
+        answer:
+          "Date, time, and venue are still being finalised. Once confirmed, every registered participant will receive a confirmation email with the on-campus location and any last-minute updates.",
+      },
+    ],
+    registrationOpen: true,
+    registrationDeadline: "To be announced",
+    fee: "Free",
+  },
+
+  // ==========================================================
+  // Jashore (Southwest Zone) — placeholder entry hosted at JUST.
+  // Same TBA pattern as the Chattogram entry above: replace the
+  // "To be announced" strings and the placeholder `dateISO` once the
+  // event is confirmed.
+  // ==========================================================
+  {
+    slug: "jashore-just",
+    title:
+      "Bridging the Theory and Practice Gap in Science Education in Bangladesh — Jashore",
+    tagline:
+      "A KRTC volunteer-led seminar at Jashore University of Science & Technology (JUST) — connecting theory to laboratory, research, and industry practice for Southwest Zone students.",
+    description: `This seminar is part of KRTC's volunteer-led outreach to bring the conversation about practical, applied science education directly to students at Jashore University of Science & Technology and surrounding Southwest Zone universities. Participants will hear from researchers, industry professionals, and KRTC's University Coordinators on how to move from textbook understanding to laboratory competence, scholarly research, and industry-ready scientific work.
+
+A certificate of participation, signed by KRTC leadership, will be issued to every attendee after the event.`,
+    date: "To be announced",
+    dateISO: "2026-12-31",
+    time: "To be announced",
+    venue: "To be announced",
+    targetZone: "southwest",
+    audienceUniversities: SOUTHWEST_ZONE_UNIVERSITIES,
+    audienceNote:
+      "Open to undergraduate and postgraduate students from Jashore University of Science & Technology (JUST) and surrounding Southwest Zone universities (Khulna & Barishal Divisions), including affiliated National University colleges.",
+    agenda: [
+      {
+        time: "Session 1",
+        title: "Why theory alone is not enough",
+        description:
+          "Framing the gap between conceptual learning and laboratory / industry-ready scientific competence in Bangladesh.",
+      },
+      {
+        time: "Session 2",
+        title: "From classroom to laboratory",
+        description:
+          "Practical pathways into hands-on research, instrumentation training, and applied projects.",
+      },
+      {
+        time: "Session 3",
+        title: "Research, scholarships & global pathways",
+        description:
+          "How undergraduates from Southwest Zone universities can prepare for graduate research, scholarships, and international academic mobility.",
+      },
+      {
+        time: "Session 4",
+        title: "Q&A + KRTC University Coordinator network",
+        description:
+          "Open discussion with KRTC's University Coordinators and Advisor — how to stay connected after the seminar.",
+      },
+    ],
+    speakers: [
+      {
+        name: "Md Zakaria Hossain",
+        role: "Founder & Chairman, KRTC",
+        affiliation: "MSc Chemistry Candidate, University of Siegen",
+      },
+    ],
+    whatYoullGet: [
+      {
+        title: "Certificate of Participation",
+        description:
+          "A KRTC-signed certificate is issued to every attendee after the event, useful for academic and professional portfolios.",
+      },
+      {
+        title: "Direct connection to KRTC's University Coordinator network",
+        description:
+          "Meet KRTC's Coordinators and Advisor — your local point of contact for future trainings, research, and opportunities.",
+      },
+      {
+        title: "Practical guidance on the next step",
+        description:
+          "Concrete pointers on labs, research methods, scholarships, and industry pathways relevant to your field of study.",
+      },
+    ],
+    faq: [
+      {
+        question: "Who can register for this seminar?",
+        answer:
+          "Undergraduate and postgraduate students from Southwest Zone universities — JUST, Khulna University, KUET, Islamic University Kushtia, University of Barishal, Patuakhali Science & Technology University, and affiliated National University colleges in Khulna & Barishal Divisions.",
+      },
+      {
+        question: "Is there any registration fee?",
+        answer:
+          "No. This seminar is free for all eligible students. Seats are limited, so registration confirms your spot.",
+      },
+      {
+        question: "Will I receive a certificate?",
+        answer:
+          "Yes. A KRTC-signed Certificate of Participation will be emailed to every attendee after the event. Attendance is verified at the venue.",
+      },
+      {
+        question: "What if my university is not in the dropdown?",
+        answer:
+          "Choose 'Other NU-affiliated college (Southwest Zone)' if you're from an affiliated college in the surrounding region. If you're from a different zone, please wait — KRTC will host seminars in your region soon.",
+      },
+      {
+        question: "When and where exactly is the seminar?",
+        answer:
+          "Date, time, and venue are still being finalised. Once confirmed, every registered participant will receive a confirmation email with the on-campus location and any last-minute updates.",
+      },
+    ],
+    registrationOpen: true,
+    registrationDeadline: "To be announced",
+    fee: "Free",
   },
 ];
 
