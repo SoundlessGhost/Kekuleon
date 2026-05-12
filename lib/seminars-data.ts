@@ -1460,18 +1460,19 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
     title:
       "Bridging the Theory and Practice Gap in Science Education in Bangladesh — Chattogram",
     tagline:
-      "A KRTC volunteer-led seminar in Chattogram — connecting theory to laboratory, research, and industry practice for East Zone students.",
-    description: `This seminar is part of KRTC's volunteer-led outreach to bring the conversation about practical, applied science education directly to students in the East Zone (Chattogram & Sylhet Divisions). Participants will hear from researchers, industry professionals, and KRTC's University Coordinators on how to move from textbook understanding to laboratory competence, scholarly research, and industry-ready scientific work.
+      "A KRTC volunteer-led seminar at the University of Chittagong — connecting theory to laboratory, research, and industry practice for CU and surrounding East Zone students.",
+    description: `This seminar is part of KRTC's volunteer-led outreach to bring the conversation about practical, applied science education directly to students at the University of Chittagong and surrounding East Zone universities. Participants will hear from researchers, industry professionals, and KRTC's University Coordinators on how to move from textbook understanding to laboratory competence, scholarly research, and industry-ready scientific work.
 
 A certificate of participation, signed by KRTC leadership, will be issued to every attendee after the event.`,
-    date: "To be announced",
-    dateISO: "2026-12-31",
-    time: "To be announced",
-    venue: "To be announced",
+    date: "Saturday, 16 May 2026",
+    dateISO: "2026-05-16",
+    time: "3:30 PM – 5:30 PM (BST)",
+    venue: "BBA Faculty's Auditorium, University of Chittagong",
+    venueAddress: "University of Chittagong, Chattogram, Bangladesh",
     targetZone: "east",
     audienceUniversities: EAST_ZONE_UNIVERSITIES,
     audienceNote:
-      "Open to undergraduate and postgraduate students from East Zone universities (Chattogram & Sylhet Divisions) and affiliated National University colleges.",
+      "Open to undergraduate and postgraduate students from the University of Chittagong (CU) and surrounding East Zone universities (Chattogram & Sylhet Divisions), including affiliated National University colleges.",
     agenda: [
       {
         time: "Session 1",
@@ -1526,7 +1527,7 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
       {
         question: "Who can register for this seminar?",
         answer:
-          "Undergraduate and postgraduate students from East Zone universities — University of Chattogram, CUET, SUST, Comilla University, Noakhali Science & Technology University, and affiliated National University colleges in Chattogram & Sylhet Divisions.",
+          "Undergraduate and postgraduate students from the University of Chittagong (CU) and surrounding East Zone universities — CUET, SUST, Comilla University, Noakhali Science & Technology University, and affiliated National University colleges in Chattogram & Sylhet Divisions.",
       },
       {
         question: "Is there any registration fee?",
@@ -1546,11 +1547,13 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
       {
         question: "When and where exactly is the seminar?",
         answer:
-          "Date, time, and venue are still being finalised. Once confirmed, every registered participant will receive a confirmation email with the on-campus location and any last-minute updates.",
+          "Date and venue are confirmed: Saturday, 16 May 2026, 3:30 PM – 5:30 PM, BBA Faculty's Auditorium, University of Chittagong. After registering you will receive a confirmation email with the on-campus location and any last-minute updates.",
       },
     ],
     registrationOpen: true,
-    registrationDeadline: "To be announced",
+    // 15 May 2026, 3:00 PM BST (UTC+6) → 15 May 2026, 09:00 UTC.
+    registrationCloseAt: "2026-05-15T09:00:00.000Z",
+    registrationDeadline: "15 May 2026 (3:00 PM BST)",
     fee: "Free",
   },
 
@@ -1569,10 +1572,13 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
     description: `This seminar is part of KRTC's volunteer-led outreach to bring the conversation about practical, applied science education directly to students at Jashore University of Science & Technology and surrounding Southwest Zone universities. Participants will hear from researchers, industry professionals, and KRTC's University Coordinators on how to move from textbook understanding to laboratory competence, scholarly research, and industry-ready scientific work.
 
 A certificate of participation, signed by KRTC leadership, will be issued to every attendee after the event.`,
-    date: "To be announced",
-    dateISO: "2026-12-31",
-    time: "To be announced",
-    venue: "To be announced",
+    date: "Friday, 15 May 2026",
+    dateISO: "2026-05-15",
+    time: "3:30 PM – 5:30 PM (BST)",
+    venue:
+      "Professor Md. Sharif Hossain Gallery (Room 101), Jashore University of Science & Technology",
+    venueAddress:
+      "Jashore University of Science & Technology, Jashore, Bangladesh",
     targetZone: "southwest",
     audienceUniversities: SOUTHWEST_ZONE_UNIVERSITIES,
     audienceNote:
@@ -1651,11 +1657,13 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
       {
         question: "When and where exactly is the seminar?",
         answer:
-          "Date, time, and venue are still being finalised. Once confirmed, every registered participant will receive a confirmation email with the on-campus location and any last-minute updates.",
+          "Date and venue are confirmed: Friday, 15 May 2026, 3:30 PM – 5:30 PM, Professor Md. Sharif Hossain Gallery (Room 101), Jashore University of Science & Technology. After registering you will receive a confirmation email with the on-campus location and any last-minute updates.",
       },
     ],
     registrationOpen: true,
-    registrationDeadline: "To be announced",
+    // 14 May 2026, 5:00 PM BST (UTC+6) → 14 May 2026, 11:00 UTC.
+    registrationCloseAt: "2026-05-14T11:00:00.000Z",
+    registrationDeadline: "14 May 2026 (5:00 PM BST)",
     fee: "Free",
   },
 ];
