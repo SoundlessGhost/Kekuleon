@@ -1572,11 +1572,10 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
     description: `This seminar is part of KRTC's volunteer-led outreach to bring the conversation about practical, applied science education directly to students at Jashore University of Science & Technology and surrounding Southwest Zone universities. Participants will hear from researchers, industry professionals, and KRTC's University Coordinators on how to move from textbook understanding to laboratory competence, scholarly research, and industry-ready scientific work.
 
 A certificate of participation, signed by KRTC leadership, will be issued to every attendee after the event.`,
-    date: "Friday, 15 May 2026",
-    dateISO: "2026-05-15",
+    date: "Tuesday, 19 May 2026",
+    dateISO: "2026-05-19",
     time: "3:30 PM – 5:30 PM (BST)",
-    venue:
-      "Professor Md. Sharif Hossain Gallery (Room 101), Jashore University of Science & Technology",
+    venue: "Central Gallery, Jashore University of Science & Technology",
     venueAddress:
       "Jashore University of Science & Technology, Jashore, Bangladesh",
     targetZone: "southwest",
@@ -1657,13 +1656,13 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
       {
         question: "When and where exactly is the seminar?",
         answer:
-          "Date and venue are confirmed: Friday, 15 May 2026, 3:30 PM – 5:30 PM, Professor Md. Sharif Hossain Gallery (Room 101), Jashore University of Science & Technology. After registering you will receive a confirmation email with the on-campus location and any last-minute updates.",
+          "Date and venue are confirmed: Tuesday, 19 May 2026, 3:30 PM – 5:30 PM, Central Gallery, Jashore University of Science & Technology. After registering you will receive a confirmation email with the on-campus location and any last-minute updates.",
       },
     ],
     registrationOpen: true,
-    // 14 May 2026, 5:00 PM BST (UTC+6) → 14 May 2026, 11:00 UTC.
-    registrationCloseAt: "2026-05-14T11:00:00.000Z",
-    registrationDeadline: "14 May 2026 (5:00 PM BST)",
+    // 18 May 2026, 3:00 PM BST (UTC+6) → 18 May 2026, 09:00 UTC.
+    registrationCloseAt: "2026-05-18T09:00:00.000Z",
+    registrationDeadline: "18 May 2026 (3:00 PM BST)",
     fee: "Free",
   },
 ];
