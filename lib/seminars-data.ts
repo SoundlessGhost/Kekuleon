@@ -1550,7 +1550,11 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
           "Date and venue are confirmed: Saturday, 16 May 2026, 3:30 PM – 5:30 PM, BBA Faculty's Auditorium, University of Chittagong. After registering you will receive a confirmation email with the on-campus location and any last-minute updates.",
       },
     ],
-    registrationOpen: true,
+    // Event already happened (16 May 2026) — explicitly close registration so
+    // the seminar drops out of the /seminar hub's "upcoming" list. No recap is
+    // attached yet, so the seminar is intentionally hidden from the "Recaps
+    // and photos" section too.
+    registrationOpen: false,
     // 15 May 2026, 3:00 PM BST (UTC+6) → 15 May 2026, 09:00 UTC.
     registrationCloseAt: "2026-05-15T09:00:00.000Z",
     registrationDeadline: "15 May 2026 (3:00 PM BST)",
@@ -1659,11 +1663,177 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
           "Date and venue are confirmed: Tuesday, 19 May 2026, 3:30 PM – 5:30 PM, Central Gallery, Jashore University of Science & Technology. After registering you will receive a confirmation email with the on-campus location and any last-minute updates.",
       },
     ],
-    registrationOpen: true,
+    // Event already happened (19 May 2026) — close registration explicitly
+    // so the seminar drops out of the "upcoming" list. The recap below is
+    // published, so it surfaces in the /seminar hub's "Recaps and photos"
+    // section instead.
+    registrationOpen: false,
     // 18 May 2026, 3:00 PM BST (UTC+6) → 18 May 2026, 09:00 UTC.
     registrationCloseAt: "2026-05-18T09:00:00.000Z",
     registrationDeadline: "18 May 2026 (3:00 PM BST)",
     fee: "Free",
+    // Recap photos use the `jashore-just-` filename prefix on Cloudinary
+    // (cloud: dohbigfue). Replace the placeholder copy below with the final
+    // post-event narrative whenever it's ready.
+    recap: {
+      isPublished: true,
+      publishedDate: "19 May 2026",
+      publishedDateISO: "2026-05-19",
+      intro:
+        "KRTC's volunteer-led seminar on bridging the theory–practice gap in science education was held at Jashore University of Science & Technology — bringing together teachers, students, distinguished academic guests, and KRTC's Southwest Zone team for an open conversation on practical scientific competence and applied training.",
+      heroImage: {
+        src: "https://res.cloudinary.com/dohbigfue/image/upload/jashore-just-01-hero-group.jpg",
+        alt: "Group photo of guests, teachers, KRTC team, and students at the Jashore seminar",
+        caption:
+          "KRTC's seminar at Jashore University of Science & Technology — bridging theory and practice in science education",
+      },
+      sections: [
+        {
+          kind: "opening",
+          heading: "About the seminar",
+          image: {
+            src: "https://res.cloudinary.com/dohbigfue/image/upload/jashore-just-02-opening.jpg",
+            alt: "Md. Zakaria Hossain presenting at the Jashore seminar",
+            caption:
+              "Md. Zakaria Hossain presenting KRTC's integrated institutional model",
+          },
+          paragraphs: [
+            "Kekuleon Research and Training Center (KRTC) organised an academic seminar on \"Bridging the Theory and Practice Gap in Science Education in Bangladesh\" at Jashore University of Science & Technology — held at the Central Gallery on Tuesday, 19 May 2026.",
+            "The seminar was part of KRTC's Southwest Zone academic outreach, designed to bring the conversation about practical, applied science education directly to JUST students and the surrounding Southwest Zone academic community.",
+            "The programme was coordinated by Md. Zakaria Hossain, Founder and Research Coordinator of KRTC and MSc Chemistry candidate at the University of Siegen, Germany.",
+          ],
+        },
+        {
+          kind: "guests",
+          heading: "Distinguished academic guests",
+          image: {
+            src: "https://res.cloudinary.com/dohbigfue/image/upload/jashore-just-03-guests.jpg",
+            alt: "Distinguished academic guests at the Jashore seminar",
+            caption:
+              "Faculty and academic guests supporting the KRTC initiative at JUST",
+          },
+          paragraphs: [
+            "Senior faculty members from Jashore University of Science & Technology and the surrounding Southwest Zone academic community joined the programme. Their presence reinforced the ongoing dialogue between students, faculty, and KRTC's Southwest Zone team on the practical realities of science education in Bangladesh.",
+          ],
+        },
+        {
+          kind: "activity",
+          heading: "Programme highlights",
+          image: {
+            src: "https://res.cloudinary.com/dohbigfue/image/upload/jashore-just-04-activity.jpg",
+            alt: "Students and teachers during the Jashore seminar session",
+            caption:
+              "Participants engaging with the discussion on practical scientific competence and applied STEM training",
+          },
+          paragraphs: [
+            "The seminar addressed several structural challenges in science education in Bangladesh — including limited laboratory exposure, weak connection between theoretical learning and real-life application, insufficient undergraduate research opportunities, limited scientific mentoring, and barriers to higher education and research careers.",
+            "Participants discussed how JUST students can prepare for graduate research, scholarship pathways, instrument training, and industry-ready scientific work — connecting classroom knowledge with the laboratory and industry standards expected in regulated applied science settings.",
+          ],
+        },
+        {
+          kind: "custom",
+          heading: "Key outcomes & takeaways",
+          image: {
+            src: "https://res.cloudinary.com/dohbigfue/image/upload/jashore-just-05-outcomes.jpg",
+            alt: "Open Q&A and discussion at the Jashore seminar",
+            caption:
+              "Open dialogue between students, faculty, and KRTC's leadership",
+          },
+          paragraphs: [
+            "The seminar produced several concrete outcomes that strengthen the connection between JUST students and KRTC's broader academic and applied-science network:",
+            "• Established Jashore as a key node in KRTC's Southwest Zone academic outreach — anchoring the initiative across the Khulna and Barishal Divisions.",
+            "• Direct exposure for JUST undergraduate and postgraduate students to KRTC's University Coordinator network and laboratory practice methodology.",
+            "• Open dialogue between students, faculty, and KRTC's leadership on bridging classroom learning with applied scientific work — including hands-on research, instrumentation, and industry-grade quality practice.",
+            "• Concrete pathways introduced — research methodology preparation, scholarship and graduate-research opportunities, industry-ready skills development, and global academic mobility routes.",
+            "• Foundation laid for continued engagement through KRTC's training programmes, follow-up workshops, and ongoing mentoring through the regional Coordinator network.",
+            "• Strengthened the regional KRTC network connecting JUST, Khulna University, KUET, Islamic University Kushtia, University of Barishal, PSTU, and partner institutions — reinforcing the decentralised, integrated approach to applied science education in Bangladesh.",
+          ],
+        },
+        {
+          kind: "team-project",
+          heading: "Organising & project-support team",
+          image: {
+            src: "https://res.cloudinary.com/dohbigfue/image/upload/jashore-just-06-team.jpg",
+            alt: "Project and KRTC team members at the Jashore seminar",
+            caption:
+              "Project-support team contributing to KRTC's institutional development and capacity building",
+          },
+          paragraphs: [
+            "The seminar's organising and project-support team — drawn from KRTC's volunteer-led leadership, faculty advisors, Southwest Zone coordinators, and department instructors — reflects the multidisciplinary collaboration behind KRTC's applied science education and institutional development work.",
+          ],
+        },
+        {
+          kind: "closing",
+          heading: "Looking ahead",
+          image: {
+            src: "https://res.cloudinary.com/dohbigfue/image/upload/jashore-just-07-closing.jpg",
+            alt: "Closing moments and audience interaction at the Jashore seminar",
+            caption:
+              "Closing remarks and continued engagement with students and faculty",
+          },
+          paragraphs: [
+            "The Jashore seminar marks KRTC's first Southwest Zone academic seminar of 2026 — extending the volunteer-led outreach beyond the May North Zone series at Pabna, Rajshahi, and MBSTU.",
+            "Beyond this seminar, KRTC continues to build pathways for secondary-level students, undergraduate and master's applicants, PhD candidates, recent graduates, and professionals — through merit-based scholarship opportunities, affordable training, support for disadvantaged students, laboratory skill development, environmental awareness initiatives, student volunteer programmes, and community healthcare outreach.",
+            "Through this seminar at Jashore University of Science & Technology, KRTC reaffirmed its commitment to a decentralised and integrated model of applied STEM education in Bangladesh — and renewed its call for collaboration among universities, research institutions, industry professionals, and policy-focused bodies.",
+          ],
+        },
+      ],
+      distinguishedGuests: [],
+      organisingTeam: [
+        {
+          name: "Md. Zakaria Hossain",
+          role: "Founder & Research Coordinator, KRTC",
+          teamSlug: "zakaria-hossain",
+        },
+        {
+          name: "Md. Abdul Mojid",
+          role: "Managing Director, KRTC",
+          teamSlug: "md-abdul-mojid",
+        },
+      ],
+      gallery: [
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/jashore-just-gallery-01.jpg",
+          alt: "Jashore seminar moment — presentation",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/jashore-just-gallery-02.jpg",
+          alt: "Jashore seminar moment — discussion",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/jashore-just-gallery-03.jpg",
+          alt: "Jashore seminar moment — guests",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/jashore-just-gallery-04.jpg",
+          alt: "Jashore seminar moment — students",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/jashore-just-gallery-05.jpg",
+          alt: "Jashore seminar moment — KRTC team",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/jashore-just-gallery-06.jpg",
+          alt: "Jashore seminar moment — engagement",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/jashore-just-gallery-07.jpg",
+          alt: "Jashore seminar moment — audience",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/jashore-just-gallery-08.jpg",
+          alt: "Jashore seminar moment — Q&A",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/jashore-just-gallery-09.jpg",
+          alt: "Jashore seminar moment — closing remarks",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/jashore-just-gallery-10.jpg",
+          alt: "Jashore seminar moment — group photo",
+        },
+      ],
+    },
   },
 ];
 
