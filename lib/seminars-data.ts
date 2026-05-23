@@ -1865,7 +1865,7 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
   // North Zone series without needing a manual flip.
   // ==========================================================
   {
-    slug: "dhaka-du",
+    slug: "bridging-theory-practice-dhaka",
     title:
       "Bridging the Theory and Practice Gap in Science Education in Bangladesh — Dhaka",
     tagline:
