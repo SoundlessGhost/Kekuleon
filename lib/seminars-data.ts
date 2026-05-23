@@ -187,6 +187,28 @@ export const SOUTHWEST_ZONE_UNIVERSITIES: SeminarUniversityOption[] = [
   { code: "OTHER", name: "Other NU-affiliated college (Southwest Zone)" },
 ];
 
+// Universities for the Central Zone (Dhaka & Mymensingh Divisions).
+// Source of truth: lib/team-data.ts → `universityZones` for `central`.
+export const CENTRAL_ZONE_UNIVERSITIES: SeminarUniversityOption[] = [
+  { code: "DU", name: "University of Dhaka, Dhaka" },
+  { code: "JU", name: "Jahangirnagar University, Savar, Dhaka" },
+  { code: "JnU", name: "Jagannath University, Dhaka" },
+  { code: "BUP", name: "Bangladesh University of Professionals, Dhaka" },
+  {
+    code: "JKKNIU",
+    name: "Jatiya Kabi Kazi Nazrul Islam University, Mymensingh",
+  },
+  {
+    code: "MBSTU",
+    name: "Mawlana Bhashani Science & Technology University, Tangail",
+  },
+  {
+    code: "BSMRSTU",
+    name: "Bangabandhu Sheikh Mujibur Rahman S&T University, Gopalganj",
+  },
+  { code: "OTHER", name: "Other NU-affiliated college (Central Zone)" },
+];
+
 export const seminars: Seminar[] = [
   {
     slug: "bridging-theory-practice-rangpur",
@@ -1834,6 +1856,118 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
         },
       ],
     },
+  },
+
+  // ==========================================================
+  // Dhaka (Central Zone) — hosted at the University of Dhaka.
+  // Registration is open until the day before the event; the
+  // auto-close timestamp keeps the cards consistent with the
+  // North Zone series without needing a manual flip.
+  // ==========================================================
+  {
+    slug: "dhaka-du",
+    title:
+      "Bridging the Theory and Practice Gap in Science Education in Bangladesh — Dhaka",
+    tagline:
+      "A KRTC volunteer-led seminar at the University of Dhaka — connecting theory to laboratory, research, and industry practice for Central Zone students.",
+    description: `This seminar is part of KRTC's volunteer-led outreach to bring the conversation about practical, applied science education directly to students at the University of Dhaka and surrounding Central Zone universities. Participants will hear from researchers, industry professionals, and KRTC's University Coordinators on how to move from textbook understanding to laboratory competence, scholarly research, and industry-ready scientific work.
+
+A certificate of participation, signed by KRTC leadership, will be issued to every attendee after the event.`,
+    date: "Saturday, 13 June 2026",
+    dateISO: "2026-06-13",
+    time: "3:30 PM – 5:30 PM (BST)",
+    venue: "Teacher-Student Centre, University of Dhaka",
+    venueAddress:
+      "Teacher-Student Centre (TSC), University of Dhaka, Dhaka, Bangladesh",
+    targetZone: "central",
+    audienceUniversities: CENTRAL_ZONE_UNIVERSITIES,
+    audienceNote:
+      "Open to undergraduate and postgraduate students from the University of Dhaka and surrounding Central Zone universities (Dhaka & Mymensingh Divisions), including affiliated National University colleges.",
+    agenda: [
+      {
+        time: "Session 1",
+        title: "Why theory alone is not enough",
+        description:
+          "Framing the gap between conceptual learning and laboratory / industry-ready scientific competence in Bangladesh.",
+      },
+      {
+        time: "Session 2",
+        title: "From classroom to laboratory",
+        description:
+          "Practical pathways into hands-on research, instrumentation training, and applied projects.",
+      },
+      {
+        time: "Session 3",
+        title: "Research, scholarships & global pathways",
+        description:
+          "How undergraduates from Central Zone universities can prepare for graduate research, scholarships, and international academic mobility.",
+      },
+      {
+        time: "Session 4",
+        title: "Q&A + KRTC University Coordinator network",
+        description:
+          "Open discussion with KRTC's University Coordinators and Advisor — how to stay connected after the seminar.",
+      },
+    ],
+    speakers: [
+      {
+        name: "Md Zakaria Hossain",
+        role: "Founder & Chairman, KRTC",
+        affiliation: "MSc Chemistry Candidate, University of Siegen",
+      },
+    ],
+    whatYoullGet: [
+      {
+        title: "Certificate of Participation",
+        description:
+          "A KRTC-signed certificate is issued to every attendee after the event, useful for academic and professional portfolios.",
+      },
+      {
+        title: "Direct connection to KRTC's University Coordinator network",
+        description:
+          "Meet KRTC's Coordinators and Advisor — your local point of contact for future trainings, research, and opportunities.",
+      },
+      {
+        title: "Practical guidance on the next step",
+        description:
+          "Concrete pointers on labs, research methods, scholarships, and industry pathways relevant to your field of study.",
+      },
+    ],
+    faq: [
+      {
+        question: "Who can register for this seminar?",
+        answer:
+          "Undergraduate and postgraduate students from Central Zone universities — University of Dhaka, Jahangirnagar University, Jagannath University, Bangladesh University of Professionals, Jatiya Kabi Kazi Nazrul Islam University, Mawlana Bhashani Science & Technology University, Bangabandhu Sheikh Mujibur Rahman S&T University, and affiliated National University colleges in Dhaka & Mymensingh Divisions.",
+      },
+      {
+        question: "Is there any registration fee?",
+        answer:
+          "No. This seminar is free for all eligible students. Seats are limited, so registration confirms your spot.",
+      },
+      {
+        question: "Will I receive a certificate?",
+        answer:
+          "Yes. A KRTC-signed Certificate of Participation will be emailed to every attendee after the event. Attendance is verified at the venue.",
+      },
+      {
+        question: "What if my university is not in the dropdown?",
+        answer:
+          "Choose 'Other NU-affiliated college (Central Zone)' if you're from an affiliated college in the surrounding region. If you're from a different zone, please wait — KRTC will host seminars in your region soon.",
+      },
+      {
+        question: "When and where exactly is the seminar?",
+        answer:
+          "Date and venue are confirmed: Saturday, 13 June 2026, 3:30 PM – 5:30 PM, Teacher-Student Centre, University of Dhaka. After registering you will receive a confirmation email with the on-campus location and any last-minute updates.",
+      },
+    ],
+    registrationOpen: true,
+    // 12 June 2026, 3:00 PM BST (UTC+6) → 12 June 2026, 09:00 UTC.
+    registrationCloseAt: "2026-06-12T09:00:00.000Z",
+    registrationDeadline: "12 June 2026 (3:00 PM BST)",
+    fee: "Free",
+    certificateNote:
+      "A KRTC-signed Certificate of Participation will be emailed to every attendee within 7–10 days after the event.",
+    surveyUrl: "https://forms.gle/2Kyx9JXhqrtXYYYy5",
   },
 ];
 
