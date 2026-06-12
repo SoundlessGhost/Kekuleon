@@ -1,9 +1,6 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
-
-import { motion } from "framer-motion";
+import { FadeIn } from "@/components/animations";
 import { Calendar, Clock, ArrowLeft, ArrowRight } from "lucide-react";
 
 export default function BlogPage() {
@@ -12,12 +9,7 @@ export default function BlogPage() {
       {/* Article Header */}
       <header className="pt-36 pb-10 bg-white border-b border-gray-100">
         <div className="container-custom">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="max-w-4xl mx-auto"
-          >
+          <FadeIn className="max-w-4xl mx-auto">
             {/* Breadcrumb */}
             <div className="flex items-center gap-2 text-sm text-gray-500 mb-8">
               <Link href="/" className="hover:text-primary transition-colors">
@@ -80,7 +72,7 @@ export default function BlogPage() {
                 <span>5 min read</span>
               </div>
             </div>
-          </motion.div>
+          </FadeIn>
         </div>
       </header>
 
