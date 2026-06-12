@@ -1,7 +1,4 @@
-"use client";
-
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { FadeIn } from "@/components/animations";
 
 const problems = [
   {
@@ -85,17 +82,10 @@ const solutions = [
 ];
 
 export default function ProblemSolution() {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   return (
-    <section ref={ref} className="section bg-gray-50">
+    <section className="section bg-gray-50">
       <div className="container-custom">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-        >
+        <FadeIn>
           {/* Header */}
           <div className="text-center mb-14 max-w-2xl mx-auto">
             <p className="text-sm font-medium text-primary uppercase tracking-wider mb-3">
@@ -186,7 +176,7 @@ export default function ProblemSolution() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </FadeIn>
       </div>
     </section>
   );

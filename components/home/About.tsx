@@ -1,23 +1,13 @@
-"use client";
-
-import { useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, useInView } from "framer-motion";
+import { FadeIn } from "@/components/animations";
 import { ArrowRight } from "lucide-react";
 
 export default function About() {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   return (
-    <section ref={ref} className="section bg-white">
+    <section className="section bg-white">
       <div className="container-custom">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-        >
+        <FadeIn>
           <div className="grid lg:grid-cols-5 gap-12 lg:gap-16">
             {/* Left — Text content (3 cols) */}
             <div className="lg:col-span-3">
@@ -155,7 +145,7 @@ export default function About() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </FadeIn>
       </div>
     </section>
   );

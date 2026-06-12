@@ -1,24 +1,13 @@
-"use client";
-
-import { useRef } from "react";
 import Link from "next/link";
-import { motion, useInView } from "framer-motion";
+import { FadeIn } from "@/components/animations";
 import { ArrowRight, Phone, Mail } from "lucide-react";
 import { siteConfig } from "@/lib/data";
 
 export default function CTA() {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   return (
-    <section ref={ref} className="py-20 lg:py-28 bg-gray-50">
+    <section className="py-20 lg:py-28 bg-gray-50">
       <div className="container-custom">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-          className="max-w-4xl mx-auto text-center"
-        >
+        <FadeIn className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight text-gray-900 mb-6">
             Ready to Start Your{" "}
             <span className="">Scientific Journey</span>?
@@ -59,7 +48,7 @@ export default function CTA() {
               {siteConfig.email}
             </a>
           </div>
-        </motion.div>
+        </FadeIn>
       </div>
     </section>
   );

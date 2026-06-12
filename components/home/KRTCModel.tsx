@@ -1,7 +1,4 @@
-"use client";
-
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import { FadeIn } from "@/components/animations";
 import {
   GraduationCap,
   FlaskConical,
@@ -54,17 +51,10 @@ const steps = [
 ];
 
 export default function KRTCModel() {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   return (
-    <section ref={ref} className="section bg-white">
+    <section className="section bg-white">
       <div className="container-custom">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
-        >
+        <FadeIn>
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto mb-16">
             <p className="text-sm font-medium text-primary uppercase tracking-wider mb-3">
@@ -122,7 +112,7 @@ export default function KRTCModel() {
               <span className="text-primary font-medium">application</span>
             </p>
           </div>
-        </motion.div>
+        </FadeIn>
       </div>
     </section>
   );

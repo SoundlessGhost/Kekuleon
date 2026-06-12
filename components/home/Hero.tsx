@@ -1,8 +1,6 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { FadeIn } from "@/components/animations";
 import { heroContent } from "@/lib/data";
 
 export default function Hero() {
@@ -23,12 +21,7 @@ export default function Hero() {
       </div>
 
       {/* Content — centered */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        className="relative z-10 container-custom py-32 lg:py-40 text-center"
-      >
+      <FadeIn className="relative z-10 container-custom py-32 lg:py-40 text-center">
         <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight tracking-tight text-white max-w-5xl mx-auto">
           Bridging the Theory and Practice Gap in Science Education in Bangladesh
         </h1>
@@ -58,7 +51,7 @@ export default function Hero() {
             {heroContent.cta.secondary.text}
           </Link>
         </div>
-      </motion.div>
+      </FadeIn>
     </section>
   );
 }
