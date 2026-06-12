@@ -1859,7 +1859,7 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
   },
 
   // ==========================================================
-  // Dhaka (Central Zone) — hosted at the University of Dhaka.
+  // Dhaka (Central Zone) — hosted at Bangla Academy, Dhaka.
   // Registration is open until the day before the event; the
   // auto-close timestamp keeps the cards consistent with the
   // North Zone series without needing a manual flip.
@@ -1869,16 +1869,16 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
     title:
       "Bridging the Theory and Practice Gap in Science Education in Bangladesh — Dhaka",
     tagline:
-      "A KRTC volunteer-led seminar at the University of Dhaka — connecting theory to laboratory, research, and industry practice for Central Zone students.",
+      "A KRTC volunteer-led seminar in Dhaka — connecting theory to laboratory, research, and industry practice for Central Zone students.",
     description: `This seminar is part of KRTC's volunteer-led outreach to bring the conversation about practical, applied science education directly to students at the University of Dhaka and surrounding Central Zone universities. Participants will hear from researchers, industry professionals, and KRTC's University Coordinators on how to move from textbook understanding to laboratory competence, scholarly research, and industry-ready scientific work.
 
 A certificate of participation, signed by KRTC leadership, will be issued to every attendee after the event.`,
-    date: "Saturday, 13 June 2026",
-    dateISO: "2026-06-13",
-    time: "3:30 PM – 5:30 PM (BST)",
-    venue: "Teacher-Student Centre, University of Dhaka",
+    date: "Wednesday, 17 June 2026",
+    dateISO: "2026-06-17",
+    time: "3:00 PM – 5:30 PM (BST)",
+    venue: "Abdul Karim Sahitya Bisharad Auditorium, Bangla Academy",
     venueAddress:
-      "Teacher-Student Centre (TSC), University of Dhaka, Dhaka, Bangladesh",
+      "Abdul Karim Sahitya Bisharad Auditorium, Bangla Academy, Shahbagh, Dhaka, Bangladesh",
     targetZone: "central",
     audienceUniversities: CENTRAL_ZONE_UNIVERSITIES,
     audienceNote:
@@ -1957,13 +1957,13 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
       {
         question: "When and where exactly is the seminar?",
         answer:
-          "Date and venue are confirmed: Saturday, 13 June 2026, 3:30 PM – 5:30 PM, Teacher-Student Centre, University of Dhaka. After registering you will receive a confirmation email with the on-campus location and any last-minute updates.",
+          "Date and venue are confirmed: Wednesday, 17 June 2026, 3:00 PM – 5:30 PM, Abdul Karim Sahitya Bisharad Auditorium, Bangla Academy, Dhaka. After registering you will receive a confirmation email with the venue location and any last-minute updates.",
       },
     ],
     registrationOpen: true,
-    // 12 June 2026, 3:00 PM BST (UTC+6) → 12 June 2026, 09:00 UTC.
-    registrationCloseAt: "2026-06-12T09:00:00.000Z",
-    registrationDeadline: "12 June 2026 (3:00 PM BST)",
+    // 16 June 2026, 3:00 PM BST (UTC+6) → 16 June 2026, 09:00 UTC.
+    registrationCloseAt: "2026-06-16T09:00:00.000Z",
+    registrationDeadline: "16 June 2026 (3:00 PM BST)",
     fee: "Free",
     certificateNote:
       "A KRTC-signed Certificate of Participation will be emailed to every attendee within 7–10 days after the event.",
