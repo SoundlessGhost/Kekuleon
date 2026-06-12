@@ -2,7 +2,6 @@
 
 import { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
-import emailjs from "@emailjs/browser";
 import {
   ArrowRight,
   X,
@@ -12,11 +11,6 @@ import {
   ChevronDown,
 } from "lucide-react";
 import Link from "next/link";
-
-// EmailJS Credentials (same as contact page)
-const EMAILJS_SERVICE_ID = "service_4q2b1np";
-const EMAILJS_TEMPLATE_ID = "template_tden6u9";
-const EMAILJS_PUBLIC_KEY = "dUpLZYUAf9t68d8UG";
 
 // Scholarship Data
 const scholarshipPrograms = {
@@ -166,6 +160,7 @@ export default function ScholarshipsPage() {
   const [formStatus, setFormStatus] = useState<
     "idle" | "sending" | "success" | "error"
   >("idle");
+  const [errorMsg, setErrorMsg] = useState("");
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -186,18 +181,32 @@ export default function ScholarshipsPage() {
     if (!formRef.current) return;
 
     setFormStatus("sending");
+    setErrorMsg("");
 
     try {
-      await emailjs.sendForm(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        formRef.current,
-        EMAILJS_PUBLIC_KEY,
+      const payload = Object.fromEntries(
+        new FormData(formRef.current).entries(),
       );
+      const res = await fetch("/api/scholarship", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        setErrorMsg(data.error || "Something went wrong. Please try again.");
+        setFormStatus("error");
+        return;
+      }
+
       setFormStatus("success");
       formRef.current.reset();
     } catch (error) {
-      console.error("EmailJS Error:", error);
+      console.error("Scholarship submit error:", error);
+      setErrorMsg(
+        "Network error. Please check your connection and try again.",
+      );
       setFormStatus("error");
     }
   };
@@ -652,6 +661,21 @@ export default function ScholarshipsPage() {
                           name="subject"
                           value={`Scholarship Application - ${currentProgram.title}`}
                         />
+                        {/* Honeypot — hidden from humans, bots fill it */}
+                        <input
+                          type="text"
+                          name="website"
+                          tabIndex={-1}
+                          autoComplete="off"
+                          aria-hidden="true"
+                          style={{
+                            position: "absolute",
+                            left: "-9999px",
+                            width: "1px",
+                            height: "1px",
+                            opacity: 0,
+                          }}
+                        />
 
                         {/* Name */}
                         <div>
@@ -778,7 +802,7 @@ export default function ScholarshipsPage() {
                         {/* Error */}
                         {formStatus === "error" && (
                           <div className="p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm">
-                            Something went wrong. Please try again.
+                            {errorMsg || "Something went wrong. Please try again."}
                           </div>
                         )}
                       </form>
