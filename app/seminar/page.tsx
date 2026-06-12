@@ -25,6 +25,11 @@ import {
 } from "@/lib/seminars-data";
 import SeminarSection from "@/components/seminar/SeminarSection";
 
+// Re-generate every 60s (ISR) so the time-based registration open/close state
+// from isRegistrationStillOpen() / isSeminarPast() re-evaluates without a
+// manual redeploy. Data is file-based, so regeneration is cheap.
+export const revalidate = 60;
+
 export const metadata: Metadata = {
   title: "Seminar Series",
   description:

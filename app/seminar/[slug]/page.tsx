@@ -38,6 +38,11 @@ import {
 import SeminarSection from "@/components/seminar/SeminarSection";
 import SeminarRegistrationForm from "@/components/seminar/SeminarRegistrationForm";
 
+// Re-generate every 60s (ISR) so the time-based registration open/close
+// (isRegistrationStillOpen) and "past seminar" (isSeminarPast) state
+// re-evaluate without a manual redeploy.
+export const revalidate = 60;
+
 interface PageProps {
   // Next.js 15+ — `params` is a Promise, must be awaited.
   params: Promise<{ slug: string }>;
