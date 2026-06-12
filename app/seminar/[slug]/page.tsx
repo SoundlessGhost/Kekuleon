@@ -37,6 +37,7 @@ import {
 } from "@/lib/seminars-data";
 import SeminarSection from "@/components/seminar/SeminarSection";
 import SeminarRegistrationForm from "@/components/seminar/SeminarRegistrationForm";
+import { SITE_URL } from "@/lib/site";
 
 // Re-generate every 60s (ISR) so the time-based registration open/close
 // (isRegistrationStillOpen) and "past seminar" (isSeminarPast) state
@@ -54,9 +55,22 @@ export async function generateMetadata({
   const { slug } = await params;
   const seminar = getSeminarBySlug(slug);
   if (!seminar) return { title: "Seminar not found" };
+  const url = `/seminar/${slug}`;
   return {
     title: seminar.title,
     description: seminar.tagline,
+    alternates: { canonical: url },
+    openGraph: {
+      title: seminar.title,
+      description: seminar.tagline,
+      url,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: seminar.title,
+      description: seminar.tagline,
+    },
   };
 }
 
@@ -73,8 +87,52 @@ export default async function SeminarBySlugPage({ params }: PageProps) {
   const surveyBannerVisible = !!seminar.surveyUrl && registrationOpen;
   const hasTopBanner = surveyBannerVisible || recapAvailable;
 
+  // schema.org/Event structured data — lets Google show this seminar as an
+  // event rich result (date, venue, free admission). Uses the seminar's own
+  // data; rendered as a plain ld+json script so non-JS crawlers see it.
+  const eventJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "EducationEvent",
+    name: seminar.title,
+    description: seminar.tagline,
+    startDate: seminar.dateISO,
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    eventStatus: "https://schema.org/EventScheduled",
+    location: {
+      "@type": "Place",
+      name: seminar.venue,
+      address: seminar.venueAddress || seminar.venue,
+    },
+    organizer: {
+      "@type": "Organization",
+      name: "Kekuleon Research and Training Center",
+      url: SITE_URL,
+    },
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "BDT",
+      availability: registrationOpen
+        ? "https://schema.org/InStock"
+        : "https://schema.org/SoldOut",
+      url: `${SITE_URL}/seminar/${seminar.slug}`,
+    },
+    ...(seminar.speakers.length > 0
+      ? {
+          performer: seminar.speakers.map((s) => ({
+            "@type": "Person",
+            name: s.name,
+          })),
+        }
+      : {}),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }}
+      />
       {/* Pre-event survey banner. Optional — renders only when the seminar
           carries a `surveyUrl` AND registration is still open. Cyan styling
           deliberately differs from the primary-red recap banner so the two

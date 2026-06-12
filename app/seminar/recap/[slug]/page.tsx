@@ -31,12 +31,15 @@ export async function generateMetadata({
   if (!seminar?.recap?.isPublished) {
     return { title: "Recap not found" };
   }
+  const url = `/seminar/recap/${slug}`;
   return {
     title: `Recap — ${seminar.title}`,
     description: seminar.recap.intro,
+    alternates: { canonical: url },
     openGraph: {
       title: `Recap — ${seminar.title}`,
       description: seminar.recap.intro,
+      url,
       images: [seminar.recap.heroImage.src],
       type: "article",
       publishedTime: seminar.recap.publishedDateISO,

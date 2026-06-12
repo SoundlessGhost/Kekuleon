@@ -34,6 +34,7 @@ export const metadata: Metadata = {
   title: "Seminar Series",
   description:
     "KRTC's volunteer-led seminar series — upcoming events and recaps from past seminars across Bangladesh.",
+  alternates: { canonical: "/seminar" },
 };
 
 export default function SeminarHubPage() {
