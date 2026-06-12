@@ -8,6 +8,7 @@ import {
   markSeen,
 } from "@/lib/ratelimit";
 import { escapeHtml } from "@/lib/escape-html";
+import { tooLong } from "@/lib/validate";
 
 // Scholarship applications used to be sent straight from the browser via
 // EmailJS (credentials hard-coded in the client bundle, zero spam protection).
@@ -90,6 +91,24 @@ export async function POST(request: Request) {
     ) {
       return NextResponse.json(
         { error: "Please fill in all required fields." },
+        { status: 400 },
+      );
+    }
+
+    // Length caps — block multi-MB spam payloads
+    if (
+      tooLong({
+        program_type: [program_type, 120],
+        from_name: [from_name, 100],
+        from_email: [from_email, 254],
+        phone: [phone, 30],
+        education_level: [education_level, 60],
+        department: [department, 120],
+        message: [message, 2000],
+      })
+    ) {
+      return NextResponse.json(
+        { error: "One of your fields is too long. Please shorten it and try again." },
         { status: 400 },
       );
     }

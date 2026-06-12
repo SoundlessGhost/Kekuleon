@@ -12,6 +12,7 @@ import {
   markSeen,
 } from "@/lib/ratelimit";
 import { escapeHtml } from "@/lib/escape-html";
+import { tooLong } from "@/lib/validate";
 
 // Resend is instantiated lazily so the route module doesn't crash on
 // load when RESEND_API_KEY is missing (e.g. local dev without the key).
@@ -105,6 +106,25 @@ export async function POST(request: Request) {
     ) {
       return NextResponse.json(
         { error: "Please fill in all required fields." },
+        { status: 400 },
+      );
+    }
+
+    // Length caps — block multi-MB spam payloads
+    if (
+      tooLong({
+        fullName: [fullName, 100],
+        email: [email, 254],
+        phone: [phone, 30],
+        universityOther: [universityOther, 120],
+        department: [department, 120],
+        yearOfStudy: [yearOfStudy, 50],
+        studentId: [studentId, 50],
+        whyInterested: [whyInterested, 2000],
+      })
+    ) {
+      return NextResponse.json(
+        { error: "One of your fields is too long. Please shorten it and try again." },
         { status: 400 },
       );
     }
