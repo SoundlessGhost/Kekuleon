@@ -1,9 +1,13 @@
 import dns from "dns/promises";
 
-import { join } from "path";
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
-import { existsSync, readFileSync, writeFileSync } from "fs";
+import {
+  checkIpLimit,
+  getClientIp,
+  wasSeen,
+  markSeen,
+} from "@/lib/ratelimit";
 
 // Resend is instantiated lazily so the route module doesn't crash on
 // load when RESEND_API_KEY is missing (e.g. CI builds without secrets,
@@ -20,45 +24,8 @@ function getResend(): Resend | null {
   }
 }
 
-// Rate limit: 1 email per email address per 24 hours
-const RATE_LIMIT_FILE = join(process.cwd(), ".rate-limit.json");
-const RATE_LIMIT_HOURS = 24;
-
-function getRateLimitData(): Record<string, number> {
-  try {
-    if (existsSync(RATE_LIMIT_FILE)) {
-      return JSON.parse(readFileSync(RATE_LIMIT_FILE, "utf-8"));
-    }
-  } catch {}
-  return {};
-}
-
-function saveRateLimitData(data: Record<string, number>) {
-  try {
-    writeFileSync(RATE_LIMIT_FILE, JSON.stringify(data));
-  } catch {}
-}
-
-function isRateLimited(email: string): boolean {
-  const data = getRateLimitData();
-  const lastSent = data[email.toLowerCase()];
-  if (!lastSent) return false;
-  const hoursSince = (Date.now() - lastSent) / (1000 * 60 * 60);
-  return hoursSince < RATE_LIMIT_HOURS;
-}
-
-function recordEmail(email: string) {
-  const data = getRateLimitData();
-  // Clean old entries (older than 24h)
-  const now = Date.now();
-  for (const key of Object.keys(data)) {
-    if (now - data[key] > RATE_LIMIT_HOURS * 60 * 60 * 1000) {
-      delete data[key];
-    }
-  }
-  data[email.toLowerCase()] = now;
-  saveRateLimitData(data);
-}
+// Rate limiting now lives in lib/ratelimit.ts (Upstash Redis). The old
+// file-based store here was a silent no-op on Vercel — see that file.
 
 // Validate email domain has real MX records
 async function isValidEmailDomain(email: string): Promise<boolean> {
@@ -76,6 +43,18 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
     const { from_name, from_email, phone, subject, message } = body;
+
+    // Per-IP abuse limit (3/hour) — stops spam loops hitting the admin inbox.
+    const ip = getClientIp(request);
+    if (!(await checkIpLimit("contact", ip))) {
+      return NextResponse.json(
+        {
+          error:
+            "Too many messages from your network. Please try again in about an hour.",
+        },
+        { status: 429 },
+      );
+    }
 
     // Validation
     if (!from_name || !from_email || !subject || !message) {
@@ -103,8 +82,9 @@ export async function POST(request: Request) {
       );
     }
 
-    // Rate limit check
-    if (isRateLimited(from_email)) {
+    // Per-email dedup — one message per address per 24h.
+    const emailKey = `krtc/contact:${from_email.toLowerCase()}`;
+    if (await wasSeen(emailKey)) {
       return NextResponse.json(
         {
           error:
@@ -245,8 +225,8 @@ ${message}
       );
     }
 
-    // Record this email for rate limiting
-    recordEmail(from_email);
+    // Mark this email as seen — one message per address per 24h (Redis TTL).
+    await markSeen(emailKey);
 
     return NextResponse.json({ success: true, id: data?.id });
   } catch (err) {

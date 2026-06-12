@@ -1,12 +1,16 @@
 import dns from "dns/promises";
-import { join } from "path";
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
-import { existsSync, readFileSync, writeFileSync } from "fs";
 import {
   getSeminarBySlug,
   isRegistrationStillOpen,
 } from "@/lib/seminars-data";
+import {
+  checkIpLimit,
+  getClientIp,
+  wasSeen,
+  markSeen,
+} from "@/lib/ratelimit";
 
 // Resend is instantiated lazily so the route module doesn't crash on
 // load when RESEND_API_KEY is missing (e.g. local dev without the key).
@@ -23,46 +27,8 @@ function getResend(): Resend | null {
   }
 }
 
-// Rate limit: 1 registration per (seminar, email) per 24 hours.
-// Keyed as `${seminarSlug}:${email}` so a registrant can sign up for
-// future seminars without being blocked by a previous registration.
-const RATE_LIMIT_FILE = join(process.cwd(), ".rate-limit.json");
-const RATE_LIMIT_HOURS = 24;
-
-function getRateLimitData(): Record<string, number> {
-  try {
-    if (existsSync(RATE_LIMIT_FILE)) {
-      return JSON.parse(readFileSync(RATE_LIMIT_FILE, "utf-8"));
-    }
-  } catch {}
-  return {};
-}
-
-function saveRateLimitData(data: Record<string, number>) {
-  try {
-    writeFileSync(RATE_LIMIT_FILE, JSON.stringify(data));
-  } catch {}
-}
-
-function isRateLimited(key: string): boolean {
-  const data = getRateLimitData();
-  const lastSent = data[key];
-  if (!lastSent) return false;
-  const hoursSince = (Date.now() - lastSent) / (1000 * 60 * 60);
-  return hoursSince < RATE_LIMIT_HOURS;
-}
-
-function recordKey(key: string) {
-  const data = getRateLimitData();
-  const now = Date.now();
-  for (const k of Object.keys(data)) {
-    if (now - data[k] > RATE_LIMIT_HOURS * 60 * 60 * 1000) {
-      delete data[k];
-    }
-  }
-  data[key] = now;
-  saveRateLimitData(data);
-}
+// Rate limiting now lives in lib/ratelimit.ts (Upstash Redis). The old
+// file-based store here was a silent no-op on Vercel — see that file.
 
 async function isValidEmailDomain(email: string): Promise<boolean> {
   try {
@@ -98,6 +64,18 @@ export async function POST(request: Request) {
     // Honeypot — silently accept and drop bot submissions
     if (body.website && body.website.trim().length > 0) {
       return NextResponse.json({ success: true });
+    }
+
+    // Per-IP abuse limit (3/hour) — main defence against email-bombing loops.
+    const ip = getClientIp(request);
+    if (!(await checkIpLimit("seminar", ip))) {
+      return NextResponse.json(
+        {
+          error:
+            "Too many registration attempts from your network. Please try again in about an hour.",
+        },
+        { status: 429 },
+      );
     }
 
     const {
@@ -189,9 +167,9 @@ export async function POST(request: Request) {
       );
     }
 
-    // Rate limit per (seminar, email)
-    const rateKey = `${seminarSlug}:${email.toLowerCase()}`;
-    if (isRateLimited(rateKey)) {
+    // Duplicate-registration guard per (seminar, email)
+    const rateKey = `krtc/reg:${seminarSlug}:${email.toLowerCase()}`;
+    if (await wasSeen(rateKey)) {
       return NextResponse.json(
         {
           error:
@@ -219,11 +197,6 @@ export async function POST(request: Request) {
     const universityLabel =
       seminar.audienceUniversities.find((u) => u.code === universityCode)
         ?.name || universityCode;
-
-    const ip =
-      request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
-      request.headers.get("x-real-ip") ||
-      "";
 
     const sheetPayload = {
       secret: webhookSecret,
@@ -325,9 +298,9 @@ export async function POST(request: Request) {
     // registrations directly from the Google Sheet to keep email volume low
     // (Resend free tier: 100/day). Re-enable later if needed.
 
-    // Always record the rate-limit key — Sheet has the row, so further
-    // submissions for the same (seminar, email) would create duplicates.
-    recordKey(rateKey);
+    // Mark the (seminar, email) as registered — the Sheet has the row, so
+    // further submissions would create duplicates. 24h TTL in Redis.
+    await markSeen(rateKey);
 
     return NextResponse.json({ success: true });
   } catch (err) {
