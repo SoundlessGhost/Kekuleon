@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getTeamPageData } from "@/lib/team-data";
 import TeamPageClient from "./TeamPageClient";
 
 export const metadata: Metadata = {
@@ -16,5 +17,6 @@ export const metadata: Metadata = {
 };
 
 export default function TeamPage() {
-  return <TeamPageClient />;
+  const data = getTeamPageData();
+  return <TeamPageClient data={data} />;
 }

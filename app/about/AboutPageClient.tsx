@@ -4,7 +4,7 @@ import { useRef } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { getLeadership } from "@/lib/team-data";
+import type { TeamMember } from "@/lib/team-data";
 import Image from "next/image";
 
 const whatWeDo = [
@@ -106,9 +106,7 @@ function Section({
   );
 }
 
-export default function AboutPage() {
-  const leaders = getLeadership();
-
+export default function AboutPage({ leaders }: { leaders: TeamMember[] }) {
   return (
     <>
       {/* Hero */}

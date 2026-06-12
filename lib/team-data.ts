@@ -4116,3 +4116,21 @@ export const getUniversityCoordinatorsByZone = (): ZoneGroup[] => {
 };
 
 export const getMemberBySlug = (slug: string) => allTeamMembers[slug] || null;
+
+// Aggregated data for the /team listing page. Computed on the server (in
+// app/team/page.tsx) and passed to the client component as a single prop, so
+// the full ~191KB team dataset is never bundled into the browser JS. The
+// `TeamPageData` type is inferred from this function's return shape.
+export const getTeamPageData = () => ({
+  leadership: getLeadership(),
+  executive: getExecutive(),
+  departmentInstructors: getDepartmentInstructors(),
+  schoolingLeadership: getSchoolingLeadership(),
+  schoolingTeachers: getSchooling(),
+  advisoryJAT: getAdvisoryJAT(),
+  advisoryCJAT: getAdvisoryCJATAll(),
+  universityCoordinatorZones: getUniversityCoordinatorsByZone(),
+  programBoardDirector: getProgramBoardDirector(),
+});
+
+export type TeamPageData = ReturnType<typeof getTeamPageData>;

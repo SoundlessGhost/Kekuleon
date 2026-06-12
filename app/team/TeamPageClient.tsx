@@ -4,33 +4,8 @@ import { useRef } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import {
-  getLeadership,
-  getExecutive,
-  getDepartmentInstructors,
-  getSchoolingLeadership,
-  getSchooling,
-  getAdvisoryJAT,
-  getAdvisoryCJATAll,
-  getUniversityCoordinatorsByZone,
-  getProgramBoardDirector,
-} from "@/lib/team-data";
 import Image from "next/image";
-import type { TeamMember } from "@/lib/team-data";
-
-const leadership = getLeadership();
-const executive = getExecutive();
-const departmentInstructors = getDepartmentInstructors();
-const schoolingLeadership = getSchoolingLeadership();
-const schoolingTeachers = getSchooling();
-const advisoryJAT = getAdvisoryJAT();
-const advisoryCJAT = getAdvisoryCJATAll();
-const universityCoordinatorZones = getUniversityCoordinatorsByZone();
-const programBoardDirector = getProgramBoardDirector();
-
-// Applied Sciences section mirrors the four Department Instructors
-// (dual-listing — each partner also leads an applied sciences department).
-const appliedSciencesCombined: TeamMember[] = [...departmentInstructors];
+import type { TeamMember, TeamPageData } from "@/lib/team-data";
 
 const JAT_DESCRIPTION = `The Joint Advisory Team (JAT) of the Kekuleon Research and Training Center (KRTC) is an academic advisory body composed of distinguished national university professors, international scholars, and industry specialists. The JAT operates within KRTC's decentralised and integrated institutional model — contributing to the design and continuous improvement of internationally benchmarked curricula, applied science training programmes, and laboratory infrastructure across six specialised departments.
 
@@ -241,7 +216,23 @@ function MemberCard({
   );
 }
 
-export default function TeamPage() {
+export default function TeamPage({ data }: { data: TeamPageData }) {
+  const {
+    leadership,
+    executive,
+    departmentInstructors,
+    schoolingLeadership,
+    schoolingTeachers,
+    advisoryJAT,
+    advisoryCJAT,
+    universityCoordinatorZones,
+    programBoardDirector,
+  } = data;
+
+  // Applied Sciences section mirrors the four Department Instructors
+  // (dual-listing — each partner also leads an applied sciences department).
+  const appliedSciencesCombined: TeamMember[] = [...departmentInstructors];
+
   return (
     <>
       {/* Hero */}

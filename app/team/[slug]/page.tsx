@@ -75,5 +75,5 @@ export default async function TeamMemberPage({ params }: PageProps) {
   // "Member Not Found" panel with a 200 status.
   if (!member) notFound();
 
-  return <TeamMemberPageClient />;
+  return <TeamMemberPageClient member={member} />;
 }

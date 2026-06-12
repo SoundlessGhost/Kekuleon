@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { getLeadership } from "@/lib/team-data";
 import AboutPageClient from "./AboutPageClient";
 
 export const metadata: Metadata = {
@@ -16,5 +17,6 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  return <AboutPageClient />;
+  const leaders = getLeadership();
+  return <AboutPageClient leaders={leaders} />;
 }

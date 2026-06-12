@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef } from "react";
-import { useParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
@@ -13,7 +12,7 @@ import {
   ArrowLeft,
   ExternalLink,
 } from "lucide-react";
-import { getMemberBySlug } from "@/lib/team-data";
+import type { TeamMember } from "@/lib/team-data";
 
 function Section({
   children,
@@ -56,11 +55,11 @@ function SectionHeader({
   );
 }
 
-export default function TeamMemberProfilePage() {
-  const params = useParams();
-  const slug = params.slug as string;
-  const member = getMemberBySlug(slug);
-
+export default function TeamMemberProfilePage({
+  member,
+}: {
+  member: TeamMember;
+}) {
   const isAcademic =
     member?.type === "advisory-jat" || member?.type === "advisory-cjat";
 
