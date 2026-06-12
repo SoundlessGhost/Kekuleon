@@ -11,6 +11,7 @@ import {
   wasSeen,
   markSeen,
 } from "@/lib/ratelimit";
+import { escapeHtml } from "@/lib/escape-html";
 
 // Resend is instantiated lazily so the route module doesn't crash on
 // load when RESEND_API_KEY is missing (e.g. local dev without the key).
@@ -405,13 +406,4 @@ function registrantConfirmationHtml(args: {
   </table>
 </body>
 </html>`.trim();
-}
-
-function escapeHtml(str: string): string {
-  return str
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
 }

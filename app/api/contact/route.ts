@@ -8,6 +8,7 @@ import {
   wasSeen,
   markSeen,
 } from "@/lib/ratelimit";
+import { escapeHtml } from "@/lib/escape-html";
 
 // Resend is instantiated lazily so the route module doesn't crash on
 // load when RESEND_API_KEY is missing (e.g. CI builds without secrets,
@@ -143,7 +144,7 @@ export async function POST(request: Request) {
                 Subject
               </p>
               <p style="margin: 0; font-size: 18px; color: #111827; font-weight: 600;">
-                ${subject}
+                ${escapeHtml(subject)}
               </p>
             </td>
           </tr>
@@ -158,13 +159,13 @@ export async function POST(request: Request) {
                       <tr>
                         <td style="padding-bottom: 10px;">
                           <span style="font-size: 11px; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">From</span><br>
-                          <span style="font-size: 15px; color: #111827; font-weight: 600;">${from_name}</span>
+                          <span style="font-size: 15px; color: #111827; font-weight: 600;">${escapeHtml(from_name)}</span>
                         </td>
                       </tr>
                       <tr>
                         <td style="padding-bottom: ${phone ? "10px" : "0"};">
                           <span style="font-size: 11px; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Email</span><br>
-                          <a href="mailto:${from_email}" style="font-size: 14px; color: #E31837; text-decoration: none;">${from_email}</a>
+                          <a href="mailto:${escapeHtml(from_email)}" style="font-size: 14px; color: #E31837; text-decoration: none;">${escapeHtml(from_email)}</a>
                         </td>
                       </tr>
                       ${
@@ -172,7 +173,7 @@ export async function POST(request: Request) {
                           ? `<tr>
                         <td>
                           <span style="font-size: 11px; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;">Phone</span><br>
-                          <span style="font-size: 14px; color: #374151;">${phone}</span>
+                          <span style="font-size: 14px; color: #374151;">${escapeHtml(phone)}</span>
                         </td>
                       </tr>`
                           : ""
@@ -191,7 +192,7 @@ export async function POST(request: Request) {
                 Message
               </p>
               <div style="font-size: 14px; color: #374151; line-height: 1.7; white-space: pre-wrap;">
-${message}
+${escapeHtml(message)}
               </div>
             </td>
           </tr>
@@ -203,7 +204,7 @@ ${message}
                 Sent on ${new Date().toLocaleDateString("en-US", { weekday: "long", year: "numeric", month: "long", day: "numeric", hour: "2-digit", minute: "2-digit" })}
               </p>
               <p style="margin: 4px 0 0; font-size: 12px; color: #9ca3af;">
-                You can reply directly to this email to respond to ${from_name}.
+                You can reply directly to this email to respond to ${escapeHtml(from_name)}.
               </p>
             </td>
           </tr>
