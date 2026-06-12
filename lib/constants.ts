@@ -5,7 +5,7 @@ export const siteConfig = {
   tagline: "Bridging the Theory-Practice Gap in Science Education",
   description:
     "Integrated research, laboratory training, industry collaboration, and community engagement for the next generation of scientists in Bangladesh.",
-  url: "https://kekuleon.com",
+  url: "https://www.kekuleon.com",
   email: "kekuleoninfo@gmail.com",
   phone: "+880 134 568 7576",
   whatsapp: "+49 163 485 5414",

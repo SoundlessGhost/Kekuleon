@@ -7,8 +7,7 @@
 import type { MetadataRoute } from "next";
 import { seminars, hasPublishedRecap } from "@/lib/seminars-data";
 import { allTeamMembers } from "@/lib/team-data";
-
-const SITE_URL = "https://kekuleon.com";
+import { SITE_URL } from "@/lib/site";
 
 // Routes that don't depend on dynamic data. Ordered roughly by importance
 // (homepage first, marketing/conversion pages next, deeper pages last) so
