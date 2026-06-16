@@ -1961,9 +1961,9 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
       },
     ],
     registrationOpen: true,
-    // 16 June 2026, 3:00 PM BST (UTC+6) → 16 June 2026, 09:00 UTC.
-    registrationCloseAt: "2026-06-16T09:00:00.000Z",
-    registrationDeadline: "16 June 2026 (3:00 PM BST)",
+    // 17 June 2026, 2:00 PM BST (UTC+6) → 17 June 2026, 08:00 UTC.
+    registrationCloseAt: "2026-06-17T08:00:00.000Z",
+    registrationDeadline: "17 June 2026 (2:00 PM BST)",
     fee: "Free",
     certificateNote:
       "A KRTC-signed Certificate of Participation will be emailed to every attendee within 7–10 days after the event.",
