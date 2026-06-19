@@ -1968,6 +1968,165 @@ A certificate of participation, signed by KRTC leadership, will be issued to eve
     certificateNote:
       "A KRTC-signed Certificate of Participation will be emailed to every attendee within 7–10 days after the event.",
     surveyUrl: "https://forms.gle/2Kyx9JXhqrtXYYYy5",
+    recap: {
+      isPublished: true,
+      publishedDate: "17 June 2026",
+      publishedDateISO: "2026-06-17",
+      intro:
+        "KRTC's volunteer-led seminar on bridging the theory–practice gap in science education was held at the Abdul Karim Sahitya Bisharad Auditorium, Bangla Academy in Dhaka — bringing together teachers, students, distinguished academic guests, and KRTC's Central Zone team for an open conversation on practical scientific competence and applied training.",
+      heroImage: {
+        src: "https://res.cloudinary.com/dohbigfue/image/upload/dhaka-01-hero-group.jpg",
+        alt: "Group photo of guests, teachers, KRTC team, and students at the Dhaka seminar",
+        caption:
+          "KRTC's seminar at the Abdul Karim Sahitya Bisharad Auditorium, Bangla Academy — bridging theory and practice in science education",
+      },
+      sections: [
+        {
+          kind: "opening",
+          heading: "About the seminar",
+          image: {
+            src: "https://res.cloudinary.com/dohbigfue/image/upload/dhaka-02-opening.jpg",
+            alt: "Md. Zakaria Hossain presenting at the Dhaka seminar",
+            caption:
+              "Md. Zakaria Hossain presenting KRTC's integrated institutional model",
+          },
+          paragraphs: [
+            "Kekuleon Research and Training Center (KRTC) organised an academic seminar on \"Bridging the Theory and Practice Gap in Science Education in Bangladesh\" in Dhaka — held at the Abdul Karim Sahitya Bisharad Auditorium, Bangla Academy on Wednesday, 17 June 2026.",
+            "The seminar was part of KRTC's Central Zone academic outreach, designed to bring the conversation about practical, applied science education directly to students from the University of Dhaka and the surrounding Central Zone academic community.",
+            "The programme was coordinated by Md. Zakaria Hossain, Founder and Research Coordinator of KRTC and MSc Chemistry candidate at the University of Siegen, Germany.",
+          ],
+        },
+        {
+          kind: "guests",
+          heading: "Distinguished academic guests",
+          image: {
+            src: "https://res.cloudinary.com/dohbigfue/image/upload/dhaka-03-guests.jpg",
+            alt: "Distinguished academic guests at the Dhaka seminar",
+            caption:
+              "Faculty and academic guests supporting the KRTC initiative in Dhaka",
+          },
+          paragraphs: [
+            "Senior faculty members from the University of Dhaka and the surrounding Central Zone academic community joined the programme. Their presence reinforced the ongoing dialogue between students, faculty, and KRTC's Central Zone team on the practical realities of science education in Bangladesh.",
+          ],
+        },
+        {
+          kind: "activity",
+          heading: "Programme highlights",
+          image: {
+            src: "https://res.cloudinary.com/dohbigfue/image/upload/dhaka-04-activity.jpg",
+            alt: "Students and teachers during the Dhaka seminar session",
+            caption:
+              "Participants engaging with the discussion on practical scientific competence and applied STEM training",
+          },
+          paragraphs: [
+            "The seminar addressed several structural challenges in science education in Bangladesh — including limited laboratory exposure, weak connection between theoretical learning and real-life application, insufficient undergraduate research opportunities, limited scientific mentoring, and barriers to higher education and research careers.",
+            "Participants discussed how Dhaka and Central Zone students can prepare for graduate research, scholarship pathways, instrument training, and industry-ready scientific work — connecting classroom knowledge with the laboratory and industry standards expected in regulated applied science settings.",
+          ],
+        },
+        {
+          kind: "custom",
+          heading: "Key outcomes & takeaways",
+          image: {
+            src: "https://res.cloudinary.com/dohbigfue/image/upload/dhaka-05-outcomes.jpg",
+            alt: "Open Q&A and discussion at the Dhaka seminar",
+            caption:
+              "Open dialogue between students, faculty, and KRTC's leadership",
+          },
+          paragraphs: [
+            "The seminar produced several concrete outcomes that strengthen the connection between Dhaka's students and KRTC's broader academic and applied-science network:",
+            "• Established Dhaka as a key node in KRTC's Central Zone academic outreach — anchoring the initiative across the Dhaka and Mymensingh Divisions.",
+            "• Direct exposure for University of Dhaka and Central Zone undergraduate and postgraduate students to KRTC's University Coordinator network and laboratory practice methodology.",
+            "• Open dialogue between students, faculty, and KRTC's leadership on bridging classroom learning with applied scientific work — including hands-on research, instrumentation, and industry-grade quality practice.",
+            "• Concrete pathways introduced — research methodology preparation, scholarship and graduate-research opportunities, industry-ready skills development, and global academic mobility routes.",
+            "• Foundation laid for continued engagement through KRTC's training programmes, follow-up workshops, and ongoing mentoring through the regional Coordinator network.",
+            "• Strengthened the regional KRTC network connecting the University of Dhaka, Jahangirnagar University, Jagannath University, Bangladesh University of Professionals, Jatiya Kabi Kazi Nazrul Islam University, and partner institutions — reinforcing the decentralised, integrated approach to applied science education in Bangladesh.",
+          ],
+        },
+        {
+          kind: "team-project",
+          heading: "Organising & project-support team",
+          image: {
+            src: "https://res.cloudinary.com/dohbigfue/image/upload/dhaka-06-team.jpg",
+            alt: "Project and KRTC team members at the Dhaka seminar",
+            caption:
+              "Project-support team contributing to KRTC's institutional development and capacity building",
+          },
+          paragraphs: [
+            "The seminar's organising and project-support team — drawn from KRTC's volunteer-led leadership, faculty advisors, Central Zone coordinators, and department instructors — reflects the multidisciplinary collaboration behind KRTC's applied science education and institutional development work.",
+          ],
+        },
+        {
+          kind: "closing",
+          heading: "Looking ahead",
+          image: {
+            src: "https://res.cloudinary.com/dohbigfue/image/upload/dhaka-07-closing.jpg",
+            alt: "Closing moments and audience interaction at the Dhaka seminar",
+            caption:
+              "Closing remarks and continued engagement with students and faculty",
+          },
+          paragraphs: [
+            "The Dhaka seminar extended KRTC's 2026 volunteer-led outreach into the Central Zone — building on the North Zone series at Pabna, Rajshahi, and MBSTU, the Southwest Zone seminar at Jashore, and the East Zone seminar at Chattogram.",
+            "Beyond this seminar, KRTC continues to build pathways for secondary-level students, undergraduate and master's applicants, PhD candidates, recent graduates, and professionals — through merit-based scholarship opportunities, affordable training, support for disadvantaged students, laboratory skill development, environmental awareness initiatives, student volunteer programmes, and community healthcare outreach.",
+            "Through this seminar in Dhaka, KRTC reaffirmed its commitment to a decentralised and integrated model of applied STEM education in Bangladesh — and renewed its call for collaboration among universities, research institutions, industry professionals, and policy-focused bodies.",
+          ],
+        },
+      ],
+      distinguishedGuests: [],
+      organisingTeam: [
+        {
+          name: "Md. Zakaria Hossain",
+          role: "Founder & Research Coordinator, KRTC",
+          teamSlug: "zakaria-hossain",
+        },
+        {
+          name: "Md. Abdul Mojid",
+          role: "Managing Director, KRTC",
+          teamSlug: "md-abdul-mojid",
+        },
+      ],
+      gallery: [
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/dhaka-gallery-01.jpg",
+          alt: "Dhaka seminar moment — presentation",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/dhaka-gallery-02.jpg",
+          alt: "Dhaka seminar moment — discussion",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/dhaka-gallery-03.jpg",
+          alt: "Dhaka seminar moment — guests",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/dhaka-gallery-04.jpg",
+          alt: "Dhaka seminar moment — students",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/dhaka-gallery-05.jpg",
+          alt: "Dhaka seminar moment — KRTC team",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/dhaka-gallery-06.jpg",
+          alt: "Dhaka seminar moment — engagement",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/dhaka-gallery-07.jpg",
+          alt: "Dhaka seminar moment — audience",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/dhaka-gallery-08.jpg",
+          alt: "Dhaka seminar moment — Q&A",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/dhaka-gallery-09.jpg",
+          alt: "Dhaka seminar moment — closing remarks",
+        },
+        {
+          src: "https://res.cloudinary.com/dohbigfue/image/upload/dhaka-gallery-10.jpg",
+          alt: "Dhaka seminar moment — group photo",
+        },
+      ],
+    },
   },
 ];
 
